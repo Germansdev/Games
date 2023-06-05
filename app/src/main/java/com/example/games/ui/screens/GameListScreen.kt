@@ -54,7 +54,7 @@ import com.example.games.model.Game
 import com.example.games.ui.GameUiState
 import com.example.games.ui.GameViewModel
 
-private const val TAG: String = "German"
+private const val TAG: String = "Dev1"
 
 @Composable
 fun GameListScreen(
