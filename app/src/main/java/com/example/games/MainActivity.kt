@@ -21,8 +21,4 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-@Preview
-@Composable
-fun GameAppPreview(){
-   // GameApp()
-}
+//dev3 eliminate preview
