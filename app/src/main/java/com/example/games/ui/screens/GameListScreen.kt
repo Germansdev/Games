@@ -53,15 +53,12 @@ import com.example.games.R
 import com.example.games.model.Game
 import com.example.games.ui.GameViewModel
 
-private const val TAG: String = "Dev3"
+private const val TAG: String = "Dev4"
 
 @Composable
 fun GameListScreen(
     modifier: Modifier = Modifier,
-    //gameViewModel: GameViewModel,
     games: List<Game>
-
-
 
 ) {
    val gameViewModel: GameViewModel = viewModel()

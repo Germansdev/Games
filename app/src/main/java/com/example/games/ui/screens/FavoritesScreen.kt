@@ -21,27 +21,26 @@ fun FavoritesScreen(
     modifier: Modifier = Modifier
 ) {
     //favorites:
- //  val gameUiState = viewModel.gameUiState.collectAsState().value
-
+    //  val gameUiState = viewModel.gameUiState.collectAsState().value
 
 
     Column {
-          if (viewModel.favorites.value.isEmpty()) {
+        if (viewModel.favorites.value.isNotEmpty()) {
             when (gameUiState) {
                 is GameUiState.Loading -> LoadingScreen(modifier)
                 is GameUiState.Success -> GameListScreen(
                     modifier, gameUiState.games
-                    //gameViewModel = viewModel,
-
 
                 )
+
                 else -> ErrorScreen(retryAction, modifier)
             }
         } else {
-            Box(modifier = modifier.fillMaxSize(),
+            Box(
+                modifier = modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                Text(stringResource( R.string.no_favorite_games))
+                Text(stringResource(R.string.no_favorite_games))
             }
         }
     }
