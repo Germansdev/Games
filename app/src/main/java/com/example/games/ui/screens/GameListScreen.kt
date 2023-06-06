@@ -46,22 +46,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.games.R
 import com.example.games.model.Game
-import com.example.games.ui.GameUiState
 import com.example.games.ui.GameViewModel
 
 private const val TAG: String = "Dev3"
 
 @Composable
 fun GameListScreen(
+    modifier: Modifier = Modifier,
     gameViewModel: GameViewModel,
 
 
-    modifier: Modifier = Modifier
+
 ) {
     val games = gameViewModel.games.value
     val favorites = gameViewModel.favorites.value
@@ -165,25 +164,37 @@ fun GameCard(
                     FavoriteButton(
                         favorite = favorite,
                         onFavoriteClick = {
+                            gameViewModel.selectFavorite(gameId = game.id.toString())
+
+                            /**
                             if (favorite) {
                                 gameViewModel.
                             } else {
                                 gameViewModel.addFavoriteGame(game)
                             }
                             favorite = !favorite
+                            */
                         }
                     )
                     Spacer(modifier = Modifier.size(16.dp))
                     Box() {
                         PlayButton(
                             play = play,
+
                             onPlayClick = {
+                                gameViewModel.isPlay(gameId = game.id.toString())
+
+                                /**
                                 if (play) {
+
+                                }
+
                                     viewPlayModel.removePlayedGame(game)
                                 } else {
                                     viewPlayModel.addPlayedGame(game)
                                 }
                                 play = !play
+                                */
                             }
                         )
                     }
@@ -192,12 +203,16 @@ fun GameCard(
                         ShareButton(
                             share = share,
                             onShareClick = {
+                                gameViewModel.isShare(gameId = game.id.toString())
+
+                                /**
                                 if (share) {
                                     shareViewModel.removeSharedGame(game)
                                 } else {
                                     shareViewModel.addSharedGame(game)
                                 }
                                 share = !share
+                                */
                             }
                         )
                     }

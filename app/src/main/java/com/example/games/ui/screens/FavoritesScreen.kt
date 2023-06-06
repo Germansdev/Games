@@ -26,13 +26,12 @@ fun FavoritesScreen(
 
 
     Column {
-          if (!viewModel.favorites.isEmpty()) {
+          if (viewModel.favorites.value.isEmpty()) {
             when (gameUiState) {
                 is GameUiState.Loading -> LoadingScreen(modifier)
                 is GameUiState.Success -> GameListScreen(
                     gameViewModel = viewModel,
-                    gameUiState.games,
-                    gameUiState = gameUiState
+
 
                 )
                 else -> ErrorScreen(retryAction, modifier)
