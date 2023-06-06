@@ -1,5 +1,6 @@
 package com.example.games
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -18,6 +19,7 @@ import com.example.games.ui.screens.RatedScreen
 import com.example.games.ui.screens.RatedViewModel
 import com.example.games.ui.screens.ShareViewModel
 
+const val TAG: String = "Dev1"
 
 //NAVIGATE WITH COMPOSE COMPONENTS BUTON , ETC.
 
@@ -46,6 +48,7 @@ fun GameNavHost(
                 viewModels = FavoriteViewModel(),
                 gameUiState = viewModel.gameUiState,
                 retryAction = { viewModel.getGames() })
+            Log.d(com.example.games.ui.screens.TAG, viewModel.gameUiState.toString())
         }
         /**
         composable(BottomBarScreen.Pantalla3.route) {
