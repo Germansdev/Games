@@ -58,16 +58,16 @@ private const val TAG: String = "Dev3"
 
 @Composable
 fun GameListScreen(
-    viewModel: GameViewModel,
-    favoriteViewModel: FavoriteViewModel = viewModel(),
-    shareViewModel: ShareViewModel,
-    ratedViewModel: RatedViewModel,
-    playViewModel: PlayViewModel,
-    games: List<Game>,
-    gameUiState: GameUiState,
+    gameViewModel: GameViewModel,
+
 
     modifier: Modifier = Modifier
 ) {
+    val games = gameViewModel.games.value
+    val favorites = gameViewModel.favorites.value
+    val play = gameViewModel.play.value
+    val share = gameViewModel.share.value
+
     if (games.isEmpty()) {
         NothingFoundScreen()
     } else {
@@ -82,15 +82,8 @@ fun GameListScreen(
             key = { game -> game.title }
         ) { game ->
             GameCard(
-
-                viewModel = viewModel(),
-                viewModels = viewModel(),
-                viewModeled = viewModel(),
-                viewPlayModel = viewModel(),
-                shareViewModel = viewModel(),
-                game = game,
-                gameUiState = viewModel.gameUiState,
-
+               gameViewModel,
+                game,
             )
         }
     }
@@ -102,28 +95,26 @@ fun GameListScreen(
 
 @Composable
 fun GameCard(
-    //My solution previous
-    viewModel: GameViewModel,
-    viewModels: FavoriteViewModel,
-    viewModeled: RatedViewModel,
-    viewPlayModel: PlayViewModel,
-    shareViewModel: ShareViewModel,
+
+    gameViewModel: GameViewModel,
     game: Game,
-    gameUiState: GameUiState
+    //gameUiState: GameUiState
     /**modifier: Modifier = Modifier */
 ) {
+    //val games = gameViewModel.games.value
+
     // USING FavoriteViewModel:
     var favorite by remember { mutableStateOf(false) }
-    favorite = viewModels.isGameFavorite(game)
+    favorite = gameViewModel.isFavorite(gameId = game.id.toString())
 
-    var rated by remember { mutableStateOf(false) }
-    rated = viewModeled.isGameRated(game)
+    //var rating by remember { mutableStateOf(false) }
+   // rating = gameViewModel.
 
     var play by remember { mutableStateOf(false) }
-    play = viewPlayModel.isGamePlayed(game)
+    play = gameViewModel.isPlay(gameId = game.id.toString())
 
     var share by remember { mutableStateOf(false) }
-    share = shareViewModel.isGameShared(game)
+    share = gameViewModel.isShare(gameId = game.id.toString())
 
     val selectedRating = remember { mutableStateOf(game.rating) }
 
@@ -175,9 +166,9 @@ fun GameCard(
                         favorite = favorite,
                         onFavoriteClick = {
                             if (favorite) {
-                                viewModels.removeFavoriteGame(game)
+                                gameViewModel.
                             } else {
-                                viewModels.addFavoriteGame(game)
+                                gameViewModel.addFavoriteGame(game)
                             }
                             favorite = !favorite
                         }

@@ -21,6 +21,7 @@ data class Game(
     //adding properties value not fetched from api rest
 
     var rating: Float,
+
     var isFavorite: Boolean = false,
     var isPlayed: Boolean = false,
     var isShared: Boolean = false

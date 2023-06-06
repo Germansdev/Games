@@ -16,7 +16,6 @@ import com.example.games.ui.GameViewModel
 @Composable
 fun FavoritesScreen(
     viewModel: GameViewModel,
-    viewModels: FavoriteViewModel,
     gameUiState: GameUiState,
     retryAction: () -> Unit,
     modifier: Modifier = Modifier
@@ -27,16 +26,12 @@ fun FavoritesScreen(
 
 
     Column {
-          if (!viewModels.favoriteGames.isEmpty()) {
+          if (!viewModel.favorites.isEmpty()) {
             when (gameUiState) {
                 is GameUiState.Loading -> LoadingScreen(modifier)
                 is GameUiState.Success -> GameListScreen(
-                    viewModel = viewModel,
-                    //favoriteViewModel = FavoriteViewModel(),
-                    shareViewModel = ShareViewModel(),
-                    playViewModel = PlayViewModel(),
-                    ratedViewModel = RatedViewModel(),
-                    games = gameUiState.games,
+                    gameViewModel = viewModel,
+                    gameUiState.games,
                     gameUiState = gameUiState
 
                 )
