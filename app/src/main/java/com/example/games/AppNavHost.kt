@@ -48,7 +48,8 @@ fun GameNavHost(
                 viewModels = FavoriteViewModel(),
                 gameUiState = viewModel.gameUiState,
                 retryAction = { viewModel.getGames() })
-            Log.d(com.example.games.ui.screens.TAG, viewModel.gameUiState.toString())
+
+            //Log.d(com.example.games.ui.screens.TAG, .toString())
         }
         /**
         composable(BottomBarScreen.Pantalla3.route) {
