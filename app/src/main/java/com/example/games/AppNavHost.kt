@@ -1,5 +1,5 @@
 package com.example.games
-
+/**
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -7,7 +7,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.games.AppDestinations.BottomBarScreen
-import com.example.games.ui.GameUiState
 import com.example.games.ui.GameViewModel
 import com.example.games.ui.screens.FavoritesScreen
 import com.example.games.ui.screens.GameListScreen
@@ -21,12 +20,12 @@ import com.example.games.ui.screens.RatedScreen
 @Composable
 fun GameNavHost(
     navController: NavHostController,
-    gameUiState: GameUiState,
+    //gameUiState: GameUiState,
     modifier: Modifier = Modifier,
 
 ) {
     val viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)
-    val games = viewModel.games.value
+   // val games = viewModel.games.value
 
     NavHost(
         navController = navController,
@@ -88,3 +87,4 @@ fun GameNavHost(
 
     }
 }
+        */
