@@ -27,23 +27,19 @@ class FavoriteViewModel(
         private set
 
 //favorite logic:
-
     fun isGameFavorite(game: Game): Boolean {
         return !favoriteGames.filter { x -> x.id == game.id }.isEmpty()
     }
-
     fun addFavoriteGame(game: Game) {
         if (!isGameFavorite(game)) {
             favoriteGames.add(game)
             favoritesUpdated()
         }
     }
-
     fun removeFavoriteGame(game: Game) {
         favoriteGames.removeIf { it.id == game.id }
         favoritesUpdated()
     }
-
     private fun favoritesUpdated() {
         viewModelScope.launch {
             favoritesfUiState = GameUiState.Loading
