@@ -30,7 +30,8 @@ fun FavoritesScreen(
             when (gameUiState) {
                 is GameUiState.Loading -> LoadingScreen(modifier)
                 is GameUiState.Success -> GameListScreen(
-                    gameViewModel = viewModel,
+                    modifier, gameUiState.games
+                    //gameViewModel = viewModel,
 
 
                 )

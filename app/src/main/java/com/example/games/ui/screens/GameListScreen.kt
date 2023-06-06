@@ -46,6 +46,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.games.R
@@ -57,12 +58,15 @@ private const val TAG: String = "Dev3"
 @Composable
 fun GameListScreen(
     modifier: Modifier = Modifier,
-    gameViewModel: GameViewModel,
+    //gameViewModel: GameViewModel,
+    games: List<Game>
 
 
 
 ) {
-    val games = gameViewModel.games.value
+   val gameViewModel: GameViewModel = viewModel()
+
+    //val games = gameViewModel.games.value
     val favorites = gameViewModel.favorites.value
     val play = gameViewModel.play.value
     val share = gameViewModel.share.value
