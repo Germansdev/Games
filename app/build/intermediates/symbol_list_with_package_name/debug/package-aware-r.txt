@@ -975,6 +975,7 @@ string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string androidx_startup
 string app_name
+string back_button
 string bottom_sheet_collapse_description
 string bottom_sheet_dismiss_description
 string bottom_sheet_drag_handle_description
@@ -1028,6 +1029,7 @@ string dropdown_menu
 string expanded
 string favorites
 string game_title
+string homescreen
 string in_progress
 string indeterminate
 string loading

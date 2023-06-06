@@ -974,6 +974,7 @@ int string abc_shareactionprovider_share_with_application 0x7f0d0019
 int string abc_toolbar_collapse_description 0x7f0d001a
 int string androidx_startup 0x7f0d001b
 int string app_name 0x7f0d001c
+int string back_button 0x7f0d007a
 int string bottom_sheet_collapse_description 0x7f0d001d
 int string bottom_sheet_dismiss_description 0x7f0d001e
 int string bottom_sheet_drag_handle_description 0x7f0d001f
@@ -1027,6 +1028,7 @@ int string dropdown_menu 0x7f0d004e
 int string expanded 0x7f0d004f
 int string favorites 0x7f0d0050
 int string game_title 0x7f0d0051
+int string homescreen 0x7f0d007b
 int string in_progress 0x7f0d0052
 int string indeterminate 0x7f0d0053
 int string loading 0x7f0d0054
