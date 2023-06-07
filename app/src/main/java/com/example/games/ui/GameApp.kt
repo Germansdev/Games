@@ -4,9 +4,8 @@ package com.example.games.ui
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
-import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -14,18 +13,19 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.games.R
 import com.example.games.ui.screens.HomeScreen
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 //import com.example.games.GameNavHost
 
 //TOP BAR COMPOSABLE TO NAVIGATE CUSTOM:
 /**
 enum class NavigationScreens(@StringRes val tittle: Int) {
-    HomeScreen(tittle = R.string.homescreen),
-    ListScreen(tittle = R.string.app_name),
-    FavoriteScreen(tittle = R.string.favorites),
-    PlayedScreen(tittle = R.string.played),
-    SharedScreen(tittle = R.string.shared),
-    RatedScreen(tittle = R.string.rated)
+HomeScreen(tittle = R.string.homescreen),
+ListScreen(tittle = R.string.app_name),
+FavoriteScreen(tittle = R.string.favorites),
+PlayedScreen(tittle = R.string.played),
+SharedScreen(tittle = R.string.shared),
+RatedScreen(tittle = R.string.rated)
 }
 
 
@@ -33,53 +33,53 @@ enum class NavigationScreens(@StringRes val tittle: Int) {
 @Composable
 fun TopBar(
 
-    @StringRes currentScreenTitle: Int,
-    canNavigateBack: Boolean,
-    navigateUp: () -> Unit,
-    //onMenuClick: () -> Unit,
-    //onNavigateUpClicked: () -> Unit,
-    modifier: Modifier = Modifier,
+@StringRes currentScreenTitle: Int,
+canNavigateBack: Boolean,
+navigateUp: () -> Unit,
+//onMenuClick: () -> Unit,
+//onNavigateUpClicked: () -> Unit,
+modifier: Modifier = Modifier,
 
-    ) {
-    TopAppBar(
-        title = {
-            Text(
-                stringResource(id = currentScreenTitle),
-                //text = currentScreen.title,
-                // text = "Games",
-                fontWeight = FontWeight.Bold,
-                overflow = TextOverflow.Ellipsis,
-            )
-        },
-        backgroundColor = colors.background,
+) {
+TopAppBar(
+title = {
+Text(
+stringResource(id = currentScreenTitle),
+//text = currentScreen.title,
+// text = "Games",
+fontWeight = FontWeight.Bold,
+overflow = TextOverflow.Ellipsis,
+)
+},
+backgroundColor = colors.background,
 
-        navigationIcon = {
-            if (canNavigateBack) {
-                IconButton(onClick = navigateUp) {
-                    Icon(
-                        imageVector = Icons.Default.ArrowBack,
-                        contentDescription = stringResource(id = R.string.back_button)
-                    )
-                }
-            }
-            /**
-            IconButton(onClick = { onMenuClick() }) {
-                Icon(
-                    imageVector = Icons.Default.Menu,
-                    contentDescription = "Menu Icon"
-                )
-            }*/
-        },
+navigationIcon = {
+if (canNavigateBack) {
+IconButton(onClick = navigateUp) {
+Icon(
+imageVector = Icons.Default.ArrowBack,
+contentDescription = stringResource(id = R.string.back_button)
+)
+}
+}
+/**
+IconButton(onClick = { onMenuClick() }) {
+Icon(
+imageVector = Icons.Default.Menu,
+contentDescription = "Menu Icon"
+)
+}*/
+},
 
-        )
+)
 
 
-   colors = TopAppBarDefaults.topAppBarColors(
-    containerColor = MaterialTheme.colors.surfaceColorAtElevation(3.dp)
+colors = TopAppBarDefaults.topAppBarColors(
+containerColor = MaterialTheme.colors.surfaceColorAtElevation(3.dp)
 
 
 }
-*/
+ */
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
@@ -92,18 +92,16 @@ fun GameApp(
     val navController: NavHostController = rememberNavController()
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentScreen = NavigationScreens.valueOf(
-       backStackEntry?.destination?.route ?: NavigationScreens.ListScreen.name
+    backStackEntry?.destination?.route ?: NavigationScreens.ListScreen.name
     )
-*/
-
-
+     */
 
 
     //BOTTOM NAVIGATION:
     /**
 
     val scaffoldState = rememberScaffoldState()
-   // val navController = rememberNavController()
+    // val navController = rememberNavController()
     val  scope = rememberCoroutineScope()
 
 
@@ -118,30 +116,31 @@ fun GameApp(
     // Pantalla5,
     )
 
-*/
+     */
     Scaffold(
         modifier.fillMaxSize(),
+        // contentColor = Color.White,
 
-              topBar = {
+        topBar = {
+            CustomTopBar()
             //SIMPLE TOP BAR NO CUSTOMIZED:
+/**
             TopAppBar(
-                title = { Text(stringResource(R.string.app_name) ) },
-                backgroundColor = MaterialTheme.colors.background
+                title = { Text(stringResource(R.string.app_name)) },
+                //backgroundColor = Color.Black
 
 
-            )
+            )*/
 
             //TOP BAR COMPOSABLE CUSTOM TO NAVIGATE:
             /**
             TopBar(
-                canNavigateBack = navController.previousBackStackEntry != null,
-                navigateUp = { navController.navigateUp() },
-               // onMenuClick = { /**NOT IMPLEMENTED YET */ },
-                currentScreenTitle = currentScreen.tittle,
-                //onNavigateUpClicked = { navController.navigateUp() },
+            canNavigateBack = navController.previousBackStackEntry != null,
+            navigateUp = { navController.navigateUp() },
+            // onMenuClick = { /**NOT IMPLEMENTED YET */ },
+            currentScreenTitle = currentScreen.tittle,
+            //onNavigateUpClicked = { navController.navigateUp() },
             )*/
-
-
 
 
         }
@@ -152,21 +151,21 @@ fun GameApp(
         //    .fillMaxSize()
         //     .nestedScroll(scrollBehavior.nestedScrollConnection),
 
-    ){ //innerPadding ->
-        Surface(
-            modifier.fillMaxSize()
-                .padding(it),
-            color = colorScheme.background,
-        ) {
+    ) { //innerPadding ->
+        /** Surface(
+        modifier.fillMaxSize()
+        .padding(it),
+        //color = colorScheme.background,
+        ) {*/
 
-            val gameViewModel: GameViewModel =
-                viewModel(factory = GameViewModel.Factory)
-            HomeScreen(
-                gameUiState = gameViewModel.gameUiState,
-                retryAction = gameViewModel::getGames,
-                modifier = modifier,
-            )
-        }
+        val gameViewModel: GameViewModel =
+            viewModel(factory = GameViewModel.Factory)
+        HomeScreen(
+            gameUiState = gameViewModel.gameUiState,
+            retryAction = gameViewModel::getGames,
+            modifier = modifier,
+        )
+        // }
 
 
         //val games by viewModel.games
@@ -175,27 +174,28 @@ fun GameApp(
 
         // TODO: Navigation host
         NavHost(
-            navController = navController,
-            startDestination = NavigationScreens.HomeScreen.name,
-            modifier = modifier.padding(innerPadding)
+        navController = navController,
+        startDestination = NavigationScreens.HomeScreen.name,
+        modifier = modifier.padding(innerPadding)
         ) {
 
-            
-            composable( route = NavigationScreens.HomeScreen.name){
 
-                HomeScreen(
-                    gameUiState = viewModel.gameUiState,
-                    retryAction = viewModel::getGames,
-                    modifier = modifier,
-                )
+        composable( route = NavigationScreens.HomeScreen.name){
 
-                GameListScreen(games = games)
-            }
+        HomeScreen(
+        gameUiState = viewModel.gameUiState,
+        retryAction = viewModel::getGames,
+        modifier = modifier,
+        )
+
+        GameListScreen(games = games)
+        }
 
 
         }
-        */
+         */
     }
+
 
 
     //BOTTOM NAVIGATION:
@@ -205,7 +205,20 @@ fun GameApp(
     //BOTTOM NAVIGATION:
     //  GameNavHost(navController)
 }
+@Composable
+fun CustomTopBar (
+    modifier: Modifier = Modifier
 
+){
+    modifier.background(MaterialTheme.colors.primary)
+    TopAppBar(
+        title = { Text(stringResource(R.string.app_name)) },
+
+        backgroundColor = Color.Transparent
+
+
+    )
+}
 
 
 //BOTTOM NAVIGATION:

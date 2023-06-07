@@ -1335,6 +1335,7 @@ style Theme_AppCompat_Light_DialogWhenLarge
 style Theme_AppCompat_Light_NoActionBar
 style Theme_AppCompat_NoActionBar
 style Theme_Games
+style Theme_Games_status_bar
 style Theme_Games_status_bar_
 style Theme_Games_status_bar__
 style ThemeOverlay_AppCompat
