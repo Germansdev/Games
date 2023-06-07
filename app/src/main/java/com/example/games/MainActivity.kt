@@ -13,10 +13,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
+
+
             GamesTheme {
                 GameApp()
+                }
+
             }
         }
     }
-}
+
 //dev3 eliminate preview

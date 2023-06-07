@@ -50,6 +50,7 @@ string rated
 string retry
 string shared
 style Theme.Games
+style Theme.Games.status_bar
 style Theme.Games.status_bar.
 style Theme.Games.status_bar..
 xml backup_rules
