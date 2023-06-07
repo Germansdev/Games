@@ -3,9 +3,9 @@
 
     <style name="Theme.Games" parent="android:Theme.Material.Light.NoActionBar" />
 
-   <style name="Theme.Games.status_bar">
-       <item name="android:statusBarColor">@android:color/transparent</item>
-   </style>
+    <style name="Theme.Games.status_bar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
 
     <style name="Theme.Games.status_bar." parent="android:Theme.Material.NoActionBar">
         <item name="android:statusBarColor">@android:color/background_dark</item>

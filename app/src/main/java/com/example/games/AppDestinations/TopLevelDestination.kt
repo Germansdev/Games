@@ -1,6 +1,6 @@
 package com.example.games.AppDestinations
 
-/**
+
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Games
@@ -52,4 +52,4 @@ sealed class BottomBarScreen(
         icon = Icons.Filled.Home
     )
 }
-*/
+

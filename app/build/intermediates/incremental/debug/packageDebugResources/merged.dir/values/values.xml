@@ -4,14 +4,9 @@
     <color name="background_light">#FFFDFCF4</color>
     <color name="black">#FF000000</color>
     <color name="orange_star">#FFC107</color>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFFFF</color>
-    <string name="app_name">Games</string>
+    <string name="app_name">" Games"</string>
     <string name="back_button">back_button</string>
     <string name="btn_try_again">try again</string>
     <string name="favorites">favorites</string>
@@ -27,9 +22,6 @@
     <string name="retry">Retry</string>
     <string name="shared">Shared</string>
     <style name="Theme.Games" parent="android:Theme.Material.Light.NoActionBar"/>
-    <style name="Theme.Games.status_bar">
-       <item name="android:statusBarColor">@android:color/transparent</item>
-   </style>
     <style name="Theme.Games.status_bar." parent="android:Theme.Material.NoActionBar">
         <item name="android:statusBarColor">@android:color/background_dark</item>
         <item name="android:windowLightStatusBar">false</item>

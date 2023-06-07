@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
 
+
 sealed interface GameUiState {
     data class Success(val games: List<Game>) : GameUiState
     object Error : GameUiState

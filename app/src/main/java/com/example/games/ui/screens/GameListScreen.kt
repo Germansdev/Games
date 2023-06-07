@@ -183,7 +183,7 @@ fun GameCard(
                             play = play,
 
                             onPlayClick = {
-                                gameViewModel.isPlay(gameId = game.id.toString())
+                                gameViewModel.selectPlayed(gameId = game.id.toString())
 
                                 /**
                                 if (play) {
@@ -204,7 +204,7 @@ fun GameCard(
                         ShareButton(
                             share = share,
                             onShareClick = {
-                                gameViewModel.isShare(gameId = game.id.toString())
+                                gameViewModel.selectShared(gameId = game.id.toString())
 
                                 /**
                                 if (share) {

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Games</string>
+
     <string name="loading">Loading</string>
     <string name="loading_fail">Fail to load</string>
     <string name="retry">Retry</string>
@@ -14,5 +14,6 @@
     <string name="no_records_found_msg">Nothing found</string>
     <string name="back_button">back_button</string>
     <string name="homescreen">Home</string>
+    <string name="app_name">" Games"</string>
 
 </resources>

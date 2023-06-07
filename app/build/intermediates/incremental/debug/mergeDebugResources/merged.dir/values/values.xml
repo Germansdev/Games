@@ -66,9 +66,6 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
     <color name="ripple_material_dark">#33ffffff</color>
     <color name="ripple_material_light">#1f000000</color>
     <color name="secondary_text_default_material_dark">#b3ffffff</color>
@@ -79,8 +76,6 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
     <color name="tooltip_background_dark">#e6616161</color>
     <color name="tooltip_background_light">#e6FFFFFF</color>
     <color name="transparent">#00000000</color>
@@ -318,7 +313,7 @@
     <string name="abc_shareactionprovider_share_with_application">Share with <ns1:g example="Mail" id="application_name">%s</ns1:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="androidx_startup" translatable="false">androidx.startup</string>
-    <string name="app_name">Games</string>
+    <string name="app_name">" Games"</string>
     <string name="back_button">back_button</string>
     <string name="bottom_sheet_collapse_description">Collapse bottom sheet</string>
     <string name="bottom_sheet_dismiss_description">Dismiss bottom sheet</string>
@@ -1835,9 +1830,6 @@
         <item name="windowNoTitle">true</item>
     </style>
     <style name="Theme.Games" parent="android:Theme.Material.Light.NoActionBar"/>
-    <style name="Theme.Games.status_bar">
-       <item name="android:statusBarColor">@android:color/transparent</item>
-   </style>
     <style name="Theme.Games.status_bar." parent="android:Theme.Material.NoActionBar">
         <item name="android:statusBarColor">@android:color/background_dark</item>
         <item name="android:windowLightStatusBar">false</item>
