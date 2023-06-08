@@ -1,5 +1,8 @@
 package com.example.games.ui.screens
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -61,7 +64,7 @@ fun GameListScreen(
     games: List<Game>
 
 ) {
-   val gameViewModel: GameViewModel = viewModel()
+    val gameViewModel: GameViewModel = viewModel()
 
     //val games = gameViewModel.games.value
     val favorites = gameViewModel.favorites.value
@@ -72,25 +75,26 @@ fun GameListScreen(
         NothingFoundScreen()
     } else {
 
-    LazyColumn(
-        modifier = modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-        contentPadding = PaddingValues(8.dp)
-    ) {
-        items(
-            items = games,
-            key = { game -> game.title }
-        ) { game ->
-            GameCard(
-               gameViewModel,
-                game,
-            )
+        LazyColumn(
+            modifier = modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            contentPadding = PaddingValues(8.dp)
+        ) {
+            items(
+                items = games,
+                key = { game -> game.title }
+            ) { game ->
+                GameCard(
+                    gameViewModel,
+                    game,
+                )
+            }
         }
-    }
-       // Log.d(TAG, listOf(game.title).size.toString())
+        // Log.d(TAG, listOf(game.title).size.toString())
         Log.d(TAG, games.size.toString())
 //val navController = rememberNavController()
-}}
+    }
+}
 
 
 @Composable
@@ -108,7 +112,7 @@ fun GameCard(
     favorite = gameViewModel.isFavorite(gameId = game.id.toString())
 
     //var rating by remember { mutableStateOf(false) }
-   // rating = gameViewModel.
+    // rating = gameViewModel.
 
     var play by remember { mutableStateOf(false) }
     play = gameViewModel.isPlay(gameId = game.id.toString())
@@ -142,10 +146,7 @@ fun GameCard(
             Column(modifier = Modifier.padding(8.dp)) {
 
                 Text(
-                    text = stringResource(
-                        id = R.string.game_title,
-                        game.title
-                    ),
+                    text = game.title,
                     style = MaterialTheme.typography.bodyLarge,
                     fontWeight = FontWeight.Bold,
                     overflow = TextOverflow.Ellipsis,
@@ -169,97 +170,141 @@ fun GameCard(
 
                             /**
                             if (favorite) {
-                                gameViewModel.
+                            gameViewModel.
                             } else {
-                                gameViewModel.addFavoriteGame(game)
+                            gameViewModel.addFavoriteGame(game)
                             }
                             favorite = !favorite
-                            */
+                             */
                         }
                     )
                     Spacer(modifier = Modifier.size(16.dp))
                     Box() {
+                        val context = LocalContext.current
                         PlayButton(
                             play = play,
 
                             onPlayClick = {
                                 gameViewModel.selectPlayed(gameId = game.id.toString())
 
+                                playGame(context, game = game)
+
                                 /**
                                 if (play) {
 
                                 }
 
-                                    viewPlayModel.removePlayedGame(game)
+                                viewPlayModel.removePlayedGame(game)
                                 } else {
-                                    viewPlayModel.addPlayedGame(game)
+                                viewPlayModel.addPlayedGame(game)
                                 }
                                 play = !play
-                                */
+                                 */
                             }
                         )
                     }
                     Spacer(modifier = Modifier.size(16.dp))
                     Box() {
+                        val context = LocalContext.current
+                        val subject = R.string.subject
+                        val summary: String ="Play this game, is incredible"
+                        val link: String = game.game_url
                         ShareButton(
                             share = share,
                             onShareClick = {
                                 gameViewModel.selectShared(gameId = game.id.toString())
-
+                                shareGame(context, subject = subject.toString(), summary, link ,game = game)
                                 /**
                                 if (share) {
-                                    shareViewModel.removeSharedGame(game)
+                                shareViewModel.removeSharedGame(game)
                                 } else {
-                                    shareViewModel.addSharedGame(game)
+                                shareViewModel.addSharedGame(game)
                                 }
                                 share = !share
-                                */
+                                 */
+
                             }
                         )
                     }
                 }
             }
 
-                Row(
-                    modifier = Modifier
-                        .align(alignment = Alignment.Start)
-                        .padding(bottom = 8.dp)
-                        .fillMaxSize()
+            Row(
+                modifier = Modifier
+                    .align(alignment = Alignment.Start)
+                    .padding(bottom = 8.dp)
+                    .fillMaxSize()
 
-                ) {
-                    val selectedRating = remember { mutableStateOf(game.rating) }
-                    for (i in 0 until 5) {
-                        val icon = if (i < selectedRating.value.toInt()) {
-                            Icons.Filled.StarRate
+            ) {
+                val selectedRating = remember { mutableStateOf(game.rating) }
+                for (i in 0 until 5) {
+                    val icon = if (i < selectedRating.value.toInt()) {
+                        Icons.Filled.StarRate
 
-                        } else {
-                            Icons.Outlined.StarBorder
-                        }
-
-                        IconButton(
-
-                            onClick = {
-                                selectedRating.value = (i + 1).toFloat()
-                                game.rating = selectedRating.value
-                            }
-                        ) {
-                            Icon(
-                                icon,
-                                tint = if (i < selectedRating.value.toInt()) {
-                                    colorResource(id = R.color.orange_star)
-                                } else {
-                                    Color.Gray
-                                },
-                                contentDescription = null
-                            )
-                        }
-
+                    } else {
+                        Icons.Outlined.StarBorder
                     }
-                }
 
+                    IconButton(
+
+                        onClick = {
+                            selectedRating.value = (i + 1).toFloat()
+                            game.rating = selectedRating.value
+                        }
+                    ) {
+                        Icon(
+                            icon,
+                            tint = if (i < selectedRating.value.toInt()) {
+                                colorResource(id = R.color.orange_star)
+                            } else {
+                                Color.Gray
+                            },
+                            contentDescription = null
+                        )
+                    }
+
+                }
             }
+
         }
     }
+}
+
+internal fun playGame(context: Context, game: Game) {
+    val myIntent = Intent(
+        Intent.ACTION_VIEW,
+        Uri.parse(game.game_url)
+    )
+    context.startActivity(
+        Intent.createChooser(
+            myIntent,
+            context.getString(R.string.game_title)
+        ),
+    )
+}
+internal fun shareGame(
+    context: Context, subject: String, summary: String, link: String, game: Game,
+){
+
+  val intent = Intent(Intent.ACTION_SEND).apply {
+     // data = Uri.parse(game.game_url)
+      type = "text/plain"
+      putExtra(Intent.EXTRA_TEXT, subject)
+      putExtra(Intent.EXTRA_TEXT, summary)
+      putExtra(Intent.EXTRA_TEXT, link)
+      //putExtra(Intent.EXTRA_ORIGINATING_URI, Uri.parse(game.game_url))
+
+
+  }
+    context.startActivity(
+        Intent.createChooser(
+            intent,
+            context.getString((R.string.link)
+
+        )
+    )
+    )
+}
 
 //composable declaration:
 

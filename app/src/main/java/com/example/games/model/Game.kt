@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Game(
-    /**
+    
     val developer: String,
     val freetogame_profile_url: String,
     val game_url: String,
@@ -12,7 +12,7 @@ data class Game(
     val platform: String,
     val publisher: String,
     val release_date: String,
-     */
+
     val id: Int,
     val title: String,
     val short_description: String,

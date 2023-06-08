@@ -40,6 +40,7 @@ string btn_try_again
 string favorites
 string game_title
 string homescreen
+string link
 string loading
 string loading_fail
 string menu
@@ -49,6 +50,7 @@ string played
 string rated
 string retry
 string shared
+string subject
 style Theme.Games
 style Theme.Games.status_bar
 style Theme.Games.status_bar.

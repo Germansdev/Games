@@ -15,5 +15,11 @@
     <string name="back_button">back_button</string>
     <string name="homescreen">Home</string>
     <string name="app_name">" Games"</string>
+    <string name="subject">"Play this game is incredible"</string>
+    <string name="link">
+
+       \n  Play in this link:
+       \n "%3$s"  </string>
+
 
 </resources>

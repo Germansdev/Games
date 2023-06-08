@@ -12,6 +12,10 @@
     <string name="favorites">favorites</string>
     <string name="game_title">Game Title</string>
     <string name="homescreen">Home</string>
+    <string name="link">
+
+       \n  Play in this link:
+       \n "%3$s"  </string>
     <string name="loading">Loading</string>
     <string name="loading_fail">Fail to load</string>
     <string name="menu">Menu</string>
@@ -21,6 +25,7 @@
     <string name="rated">Rated</string>
     <string name="retry">Retry</string>
     <string name="shared">Shared</string>
+    <string name="subject">"Play this game is incredible"</string>
     <style name="Theme.Games" parent="android:Theme.Material.Light.NoActionBar"/>
     <style name="Theme.Games.status_bar">
         <item name="android:statusBarColor">@android:color/transparent</item>

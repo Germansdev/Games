@@ -1027,6 +1027,7 @@ string game_title
 string homescreen
 string in_progress
 string indeterminate
+string link
 string loading
 string loading_fail
 string menu
@@ -1047,6 +1048,7 @@ string selected
 string shared
 string snackbar_dismiss
 string status_bar_notification_info_overflow
+string subject
 string suggestions_available
 string switch_role
 string tab
