@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -44,7 +45,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -319,11 +319,19 @@ fun ShareButton(
         Icon(
 
             imageVector = if (share) Icons.Filled.Share else Icons.Outlined.Share,
-            tint = if (share) Color.Blue else Color.LightGray,
+            tint = if (share){
+                if(isSystemInDarkTheme()
+                ){
+                    Color.Cyan
+                } else {
+                    colorResource(id = R.color.cyan_700)
+                }
+            }else{
+                Color.LightGray
+            },
             contentDescription = null
         )
-    }
-}
+}}
 
 @Composable
 fun PlayButton(
@@ -335,7 +343,16 @@ fun PlayButton(
     ) {
         Icon(
             imageVector = if (play) Icons.Filled.Games else Icons.Outlined.Games,
-            tint = if (play) Color.Green else Color.LightGray,
+            tint = if (play){
+                if(isSystemInDarkTheme()
+                ){
+                    Color.Cyan
+                } else {
+                    colorResource(id = R.color.cyan_700)
+                }
+            }else{
+                Color.LightGray
+            },
             contentDescription = null
         )
     }

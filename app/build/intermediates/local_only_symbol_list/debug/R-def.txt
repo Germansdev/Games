@@ -3,6 +3,7 @@ local
 color background_dark
 color background_light
 color black
+color cyan_700
 color orange_star
 color transparent
 color white
@@ -52,8 +53,5 @@ string retry
 string shared
 string subject
 style Theme.Games
-style Theme.Games.status_bar
-style Theme.Games.status_bar.
-style Theme.Games.status_bar..
 xml backup_rules
 xml data_extraction_rules

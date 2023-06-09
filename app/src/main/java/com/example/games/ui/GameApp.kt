@@ -4,8 +4,11 @@ package com.example.games.ui
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
-import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.ListItemDefaults.contentColor
+import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -13,7 +16,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.games.R
 import com.example.games.ui.screens.HomeScreen
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 //import com.example.games.GameNavHost
 
@@ -86,6 +88,9 @@ containerColor = MaterialTheme.colors.surfaceColorAtElevation(3.dp)
 fun GameApp(
     modifier: Modifier = Modifier
 ) {
+
+
+
     /**
     val viewModel: GameViewModel = viewModel()
 
@@ -118,11 +123,12 @@ fun GameApp(
 
      */
     Scaffold(
-        modifier.fillMaxSize(),
-        // contentColor = Color.White,
+       modifier = modifier.fillMaxSize(),
 
         topBar = {
-            CustomTopBar()
+            CustomTopBar(
+
+            )
             //SIMPLE TOP BAR NO CUSTOMIZED:
 /**
             TopAppBar(
@@ -151,49 +157,51 @@ fun GameApp(
         //    .fillMaxSize()
         //     .nestedScroll(scrollBehavior.nestedScrollConnection),
 
-    ) { //innerPadding ->
-        /** Surface(
-        modifier.fillMaxSize()
-        .padding(it),
-        //color = colorScheme.background,
-        ) {*/
-
-        val gameViewModel: GameViewModel =
-            viewModel(factory = GameViewModel.Factory)
-        HomeScreen(
-            gameUiState = gameViewModel.gameUiState,
-            retryAction = gameViewModel::getGames,
-            modifier = modifier,
-        )
-        // }
-
-
-        //val games by viewModel.games
-
-        /**
-
-        // TODO: Navigation host
-        NavHost(
-        navController = navController,
-        startDestination = NavigationScreens.HomeScreen.name,
-        modifier = modifier.padding(innerPadding)
+    ) {
+        Surface(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(it),
+            color = colorScheme.background,
         ) {
 
+            val gameViewModel: GameViewModel =
+                viewModel(factory = GameViewModel.Factory)
+            HomeScreen(
+                gameUiState = gameViewModel.gameUiState,
+                retryAction = gameViewModel::getGames,
+                modifier = modifier,
+            )
+            // }
 
-        composable( route = NavigationScreens.HomeScreen.name){
 
-        HomeScreen(
-        gameUiState = viewModel.gameUiState,
-        retryAction = viewModel::getGames,
-        modifier = modifier,
-        )
+            //val games by viewModel.games
 
-        GameListScreen(games = games)
+            /**
+
+            // TODO: Navigation host
+            NavHost(
+            navController = navController,
+            startDestination = NavigationScreens.HomeScreen.name,
+            modifier = modifier.padding(innerPadding)
+            ) {
+
+
+            composable( route = NavigationScreens.HomeScreen.name){
+
+            HomeScreen(
+            gameUiState = viewModel.gameUiState,
+            retryAction = viewModel::getGames,
+            modifier = modifier,
+            )
+
+            GameListScreen(games = games)
+            }
+
+
+            }
+             */
         }
-
-
-        }
-         */
     }
 
 
@@ -208,13 +216,16 @@ fun GameApp(
 @Composable
 fun CustomTopBar (
     modifier: Modifier = Modifier
-
 ){
-    modifier.background(MaterialTheme.colors.primary)
+    //modifier.background(MaterialTheme.colors.background)
     TopAppBar(
-        title = { Text(stringResource(R.string.app_name)) },
+        title = { Text(
+            stringResource(R.string.app_name)
+        )
+                },
 
-        backgroundColor = Color.Transparent
+        contentColor = colorScheme.inverseSurface,
+        backgroundColor = colorScheme.surface
 
 
     )

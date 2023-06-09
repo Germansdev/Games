@@ -10,7 +10,6 @@ import androidx.compose.ui.graphics.Color
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val LightColors = lightColorScheme(
-   // primary = withe,
     primary = md_theme_light_primary,
     onPrimary = md_theme_light_onPrimary,
     primaryContainer = md_theme_light_primaryContainer,
@@ -42,8 +41,7 @@ private val LightColors = lightColorScheme(
     scrim = md_theme_light_scrim,
 )
 private val DarkColors = darkColorScheme(
-   //primary = black,
-           primary = md_theme_dark_primary,
+    primary = md_theme_dark_primary,
     onPrimary = md_theme_dark_onPrimary,
     primaryContainer = md_theme_dark_primaryContainer,
     onPrimaryContainer = md_theme_dark_onPrimaryContainer,
@@ -103,6 +101,7 @@ fun GamesTheme(
 
     MaterialTheme(
         colorScheme = colors,
-        content = content
+        content = content,
+        typography = Typography
     )
 }
