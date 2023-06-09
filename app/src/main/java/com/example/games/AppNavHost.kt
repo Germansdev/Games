@@ -18,7 +18,7 @@ import com.example.games.ui.screens.RatedScreen
 import com.example.games.ui.screens.RatedViewModel
 import com.example.games.ui.screens.ShareViewModel
 
-
+/**
 //NAVIGATE WITH COMPOSE COMPONENTS BUTON , ETC.
 
 @Composable
@@ -81,4 +81,4 @@ fun GameNavHost(
         }
 
     }
-}
+}*/

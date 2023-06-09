@@ -12,4 +12,8 @@
     <string name="btn_try_again">try again</string>
     <string name="shared">Shared</string>
     <string name="no_records_found_msg">Nothing found</string>
+    <string name="app_names">Game</string>
+    <string name="apps_name">Game</string>
+    <string name="ap_name">Game</string>
+    <string name="app_namesi">Game</string>
 </resources>

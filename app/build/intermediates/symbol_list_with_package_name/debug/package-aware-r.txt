@@ -372,10 +372,8 @@ color accent_material_dark
 color accent_material_light
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
-color background_dark
 color background_floating_material_dark
 color background_floating_material_light
-color background_light
 color background_material_dark
 color background_material_light
 color black
@@ -441,7 +439,6 @@ color teal_200
 color teal_700
 color tooltip_background_dark
 color tooltip_background_light
-color transparent
 color vector_tint_color
 color vector_tint_theme_color
 color white
@@ -974,7 +971,11 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string androidx_startup
+string ap_name
 string app_name
+string app_names
+string app_namesi
+string apps_name
 string bottom_sheet_collapse_description
 string bottom_sheet_dismiss_description
 string bottom_sheet_drag_handle_description
@@ -1338,9 +1339,6 @@ style Theme_AppCompat_Light_DialogWhenLarge
 style Theme_AppCompat_Light_NoActionBar
 style Theme_AppCompat_NoActionBar
 style Theme_Games
-style Theme_Games_status_bar
-style Theme_Games_status_bar_
-style Theme_Games_status_bar__
 style ThemeOverlay_AppCompat
 style ThemeOverlay_AppCompat_ActionBar
 style ThemeOverlay_AppCompat_Dark

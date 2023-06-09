@@ -4,24 +4,7 @@
             "outputFile": "com.example.games.app-mergeDebugResources-2:/values-uk/values-uk.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\caches\\transforms-3\\cc0b7a798355f17f87c8c293636299c9\\transformed\\ui-1.5.0-alpha04\\res\\values-uk\\values-uk.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,198,282,384,485,569,651,740,828,910,980,1051,1136,1224,1296,1376,1446",
-                        "endColumns": "92,83,101,100,83,81,88,87,81,69,70,84,87,71,79,69,122",
-                        "endOffsets": "193,277,379,480,564,646,735,823,905,975,1046,1131,1219,1291,1371,1441,1564"
-                    },
-                    "to": {
-                        "startLines": "40,41,74,75,77,79,80,81,82,83,84,85,86,89,93,94,95",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "4010,4103,7836,7938,8110,8272,8354,8443,8531,8613,8683,8754,8839,9091,9442,9522,9592",
-                        "endColumns": "92,83,101,100,83,81,88,87,81,69,70,84,87,71,79,69,122",
-                        "endOffsets": "4098,4182,7933,8034,8189,8349,8438,8526,8608,8678,8749,8834,8922,9158,9517,9587,9710"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\caches\\transforms-3\\8d6a3a3e9b6e1d9b4328090e2a0c4277\\transformed\\core-1.11.0-alpha04\\res\\values-uk\\values-uk.xml",
+                    "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\caches\\transforms-3\\2ea39439d60bacf0db32bf27759ac801\\transformed\\core-1.11.0-beta01\\res\\values-uk\\values-uk.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -35,6 +18,23 @@
                         "startOffsets": "3283,3383,3485,3586,3687,3792,3897,9246",
                         "endColumns": "99,101,100,100,104,104,112,100",
                         "endOffsets": "3378,3480,3581,3682,3787,3892,4005,9342"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\caches\\transforms-3\\e9ea96308c57fb58af7ef1a848ab8a59\\transformed\\ui-release\\res\\values-uk\\values-uk.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,198,282,384,485,569,651,740,828,910,980,1051,1136,1224,1296,1376,1446",
+                        "endColumns": "92,83,101,100,83,81,88,87,81,69,70,84,87,71,79,69,122",
+                        "endOffsets": "193,277,379,480,564,646,735,823,905,975,1046,1131,1219,1291,1371,1441,1564"
+                    },
+                    "to": {
+                        "startLines": "40,41,74,75,77,79,80,81,82,83,84,85,86,89,93,94,95",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4010,4103,7836,7938,8110,8272,8354,8443,8531,8613,8683,8754,8839,9091,9442,9522,9592",
+                        "endColumns": "92,83,101,100,83,81,88,87,81,69,70,84,87,71,79,69,122",
+                        "endOffsets": "4098,4182,7933,8034,8189,8349,8438,8526,8608,8678,8749,8834,8922,9158,9517,9587,9710"
                     }
                 },
                 {

@@ -4,7 +4,7 @@
             "outputFile": "com.example.games.app-mergeDebugResources-2:/values-v21/values-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\caches\\transforms-3\\8d6a3a3e9b6e1d9b4328090e2a0c4277\\transformed\\core-1.11.0-alpha04\\res\\values-v21\\values-v21.xml",
+                    "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\caches\\transforms-3\\2ea39439d60bacf0db32bf27759ac801\\transformed\\core-1.11.0-beta01\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",

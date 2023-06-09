@@ -15,15 +15,15 @@
 11-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:4:22-64
 12
 13    <permission
-13-->[androidx.core:core:1.11.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8d6a3a3e9b6e1d9b4328090e2a0c4277\transformed\core-1.11.0-alpha04\AndroidManifest.xml:22:5-24:47
+13-->[androidx.core:core:1.11.0-beta01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2ea39439d60bacf0db32bf27759ac801\transformed\core-1.11.0-beta01\AndroidManifest.xml:22:5-24:47
 14        android:name="com.example.games.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-14-->[androidx.core:core:1.11.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8d6a3a3e9b6e1d9b4328090e2a0c4277\transformed\core-1.11.0-alpha04\AndroidManifest.xml:23:9-81
+14-->[androidx.core:core:1.11.0-beta01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2ea39439d60bacf0db32bf27759ac801\transformed\core-1.11.0-beta01\AndroidManifest.xml:23:9-81
 15        android:protectionLevel="signature" />
-15-->[androidx.core:core:1.11.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8d6a3a3e9b6e1d9b4328090e2a0c4277\transformed\core-1.11.0-alpha04\AndroidManifest.xml:24:9-44
+15-->[androidx.core:core:1.11.0-beta01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2ea39439d60bacf0db32bf27759ac801\transformed\core-1.11.0-beta01\AndroidManifest.xml:24:9-44
 16
 17    <uses-permission android:name="com.example.games.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-17-->[androidx.core:core:1.11.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8d6a3a3e9b6e1d9b4328090e2a0c4277\transformed\core-1.11.0-alpha04\AndroidManifest.xml:26:5-97
-17-->[androidx.core:core:1.11.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8d6a3a3e9b6e1d9b4328090e2a0c4277\transformed\core-1.11.0-alpha04\AndroidManifest.xml:26:22-94
+17-->[androidx.core:core:1.11.0-beta01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2ea39439d60bacf0db32bf27759ac801\transformed\core-1.11.0-beta01\AndroidManifest.xml:26:5-97
+17-->[androidx.core:core:1.11.0-beta01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2ea39439d60bacf0db32bf27759ac801\transformed\core-1.11.0-beta01\AndroidManifest.xml:26:22-94
 18
 19    <application
 19-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:6:5-29:19
@@ -32,7 +32,7 @@
 21        android:allowBackup="true"
 21-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:8:9-35
 22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-22-->[androidx.core:core:1.11.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8d6a3a3e9b6e1d9b4328090e2a0c4277\transformed\core-1.11.0-alpha04\AndroidManifest.xml:28:18-86
+22-->[androidx.core:core:1.11.0-beta01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2ea39439d60bacf0db32bf27759ac801\transformed\core-1.11.0-beta01\AndroidManifest.xml:28:18-86
 23        android:dataExtractionRules="@xml/data_extraction_rules"
 23-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:9:9-65
 24        android:debuggable="true"
@@ -72,32 +72,32 @@
 42            </intent-filter>
 43        </activity>
 44        <activity
-44-->[androidx.compose.ui:ui-tooling:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\e670831c47fa8b64d53c8c8a814ae366\transformed\ui-tooling-1.5.0-alpha04\AndroidManifest.xml:23:9-25:39
-45            android:name="androidx.compose.ui.tooling.PreviewActivity"
-45-->[androidx.compose.ui:ui-tooling:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\e670831c47fa8b64d53c8c8a814ae366\transformed\ui-tooling-1.5.0-alpha04\AndroidManifest.xml:24:13-71
+44-->[androidx.compose.ui:ui-test-manifest:1.5.0-beta01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5d2089dc1b4ecbc5a47752cf09753ba6\transformed\ui-test-manifest-1.5.0-beta01\AndroidManifest.xml:23:9-25:39
+45            android:name="androidx.activity.ComponentActivity"
+45-->[androidx.compose.ui:ui-test-manifest:1.5.0-beta01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5d2089dc1b4ecbc5a47752cf09753ba6\transformed\ui-test-manifest-1.5.0-beta01\AndroidManifest.xml:24:13-63
 46            android:exported="true" />
-46-->[androidx.compose.ui:ui-tooling:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\e670831c47fa8b64d53c8c8a814ae366\transformed\ui-tooling-1.5.0-alpha04\AndroidManifest.xml:25:13-36
+46-->[androidx.compose.ui:ui-test-manifest:1.5.0-beta01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5d2089dc1b4ecbc5a47752cf09753ba6\transformed\ui-test-manifest-1.5.0-beta01\AndroidManifest.xml:25:13-36
 47        <activity
-47-->[androidx.compose.ui:ui-test-manifest:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\c0de2955e76b90b897ebf525a3551fc6\transformed\ui-test-manifest-1.5.0-alpha04\AndroidManifest.xml:23:9-25:39
-48            android:name="androidx.activity.ComponentActivity"
-48-->[androidx.compose.ui:ui-test-manifest:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\c0de2955e76b90b897ebf525a3551fc6\transformed\ui-test-manifest-1.5.0-alpha04\AndroidManifest.xml:24:13-63
+47-->[androidx.compose.ui:ui-tooling-android:1.5.0-beta01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4b9e37c0e7f033f92ebea366c7bd4bae\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
+48            android:name="androidx.compose.ui.tooling.PreviewActivity"
+48-->[androidx.compose.ui:ui-tooling-android:1.5.0-beta01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4b9e37c0e7f033f92ebea366c7bd4bae\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
 49            android:exported="true" />
-49-->[androidx.compose.ui:ui-test-manifest:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\c0de2955e76b90b897ebf525a3551fc6\transformed\ui-test-manifest-1.5.0-alpha04\AndroidManifest.xml:25:13-36
+49-->[androidx.compose.ui:ui-tooling-android:1.5.0-beta01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4b9e37c0e7f033f92ebea366c7bd4bae\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
 50
 51        <provider
-51-->[androidx.emoji2:emoji2:1.4.0-beta03] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\3f09dac6584b7fef98d783a4e7e484a9\transformed\emoji2-1.4.0-beta03\AndroidManifest.xml:24:9-32:20
+51-->[androidx.emoji2:emoji2:1.4.0-beta04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\0d97af6ca810a72d046cd2701d807f59\transformed\emoji2-1.4.0-beta04\AndroidManifest.xml:24:9-32:20
 52            android:name="androidx.startup.InitializationProvider"
-52-->[androidx.emoji2:emoji2:1.4.0-beta03] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\3f09dac6584b7fef98d783a4e7e484a9\transformed\emoji2-1.4.0-beta03\AndroidManifest.xml:25:13-67
+52-->[androidx.emoji2:emoji2:1.4.0-beta04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\0d97af6ca810a72d046cd2701d807f59\transformed\emoji2-1.4.0-beta04\AndroidManifest.xml:25:13-67
 53            android:authorities="com.example.games.androidx-startup"
-53-->[androidx.emoji2:emoji2:1.4.0-beta03] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\3f09dac6584b7fef98d783a4e7e484a9\transformed\emoji2-1.4.0-beta03\AndroidManifest.xml:26:13-68
+53-->[androidx.emoji2:emoji2:1.4.0-beta04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\0d97af6ca810a72d046cd2701d807f59\transformed\emoji2-1.4.0-beta04\AndroidManifest.xml:26:13-68
 54            android:exported="false" >
-54-->[androidx.emoji2:emoji2:1.4.0-beta03] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\3f09dac6584b7fef98d783a4e7e484a9\transformed\emoji2-1.4.0-beta03\AndroidManifest.xml:27:13-37
+54-->[androidx.emoji2:emoji2:1.4.0-beta04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\0d97af6ca810a72d046cd2701d807f59\transformed\emoji2-1.4.0-beta04\AndroidManifest.xml:27:13-37
 55            <meta-data
-55-->[androidx.emoji2:emoji2:1.4.0-beta03] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\3f09dac6584b7fef98d783a4e7e484a9\transformed\emoji2-1.4.0-beta03\AndroidManifest.xml:29:13-31:52
+55-->[androidx.emoji2:emoji2:1.4.0-beta04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\0d97af6ca810a72d046cd2701d807f59\transformed\emoji2-1.4.0-beta04\AndroidManifest.xml:29:13-31:52
 56                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-56-->[androidx.emoji2:emoji2:1.4.0-beta03] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\3f09dac6584b7fef98d783a4e7e484a9\transformed\emoji2-1.4.0-beta03\AndroidManifest.xml:30:17-75
+56-->[androidx.emoji2:emoji2:1.4.0-beta04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\0d97af6ca810a72d046cd2701d807f59\transformed\emoji2-1.4.0-beta04\AndroidManifest.xml:30:17-75
 57                android:value="androidx.startup" />
-57-->[androidx.emoji2:emoji2:1.4.0-beta03] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\3f09dac6584b7fef98d783a4e7e484a9\transformed\emoji2-1.4.0-beta03\AndroidManifest.xml:31:17-49
+57-->[androidx.emoji2:emoji2:1.4.0-beta04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\0d97af6ca810a72d046cd2701d807f59\transformed\emoji2-1.4.0-beta04\AndroidManifest.xml:31:17-49
 58            <meta-data
 58-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\e77961f1c080e728709fac84a403c2c6\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
 59                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
