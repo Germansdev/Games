@@ -1,7 +1,5 @@
 R_DEF: Internal format may change without notice
 local
-color background_dark
-color background_light
 color black
 color orange_star
 color purple_200
@@ -9,7 +7,6 @@ color purple_500
 color purple_700
 color teal_200
 color teal_700
-color transparent
 color white
 drawable baseline_favorite_24
 drawable baseline_favorite_border_24
@@ -39,7 +36,11 @@ drawable outline_home_24
 drawable round_games_24
 mipmap ic_launcher
 mipmap ic_launcher_round
+string ap_name
 string app_name
+string app_names
+string app_namesi
+string apps_name
 string btn_try_again
 string favorites
 string game_title
@@ -53,8 +54,5 @@ string rated
 string retry
 string shared
 style Theme.Games
-style Theme.Games.status_bar
-style Theme.Games.status_bar.
-style Theme.Games.status_bar..
 xml backup_rules
 xml data_extraction_rules
