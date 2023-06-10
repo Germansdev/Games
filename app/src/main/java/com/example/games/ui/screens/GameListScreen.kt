@@ -3,9 +3,7 @@ package com.example.games.ui.screens
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.text.style.ClickableSpan
 import android.util.Log
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,13 +19,11 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Games
-import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.StarRate
 import androidx.compose.material.icons.outlined.Favorite
-import androidx.compose.material.icons.outlined.Games
-import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material.icons.outlined.StarBorder
+import androidx.compose.material.icons.rounded.Games
+import androidx.compose.material.icons.rounded.Share
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
@@ -42,6 +38,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
@@ -49,6 +46,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
@@ -56,8 +54,7 @@ import coil.request.ImageRequest
 import com.example.games.R
 import com.example.games.model.Game
 import com.example.games.ui.GameViewModel
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
+import com.example.games.ui.theme.GamesTheme
 
 private const val TAG: String = "Dev4"
 
@@ -69,19 +66,20 @@ fun GameListScreen(
 ) {
     val gameViewModel: GameViewModel = viewModel()
 
-    //val games = gameViewModel.games.value
     val favorites = gameViewModel.favorites.value
     val play = gameViewModel.play.value
     val share = gameViewModel.share.value
 
     if (games.isEmpty()) {
         NothingFoundScreen()
+
     } else {
 
         LazyColumn(
             modifier = modifier.fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(8.dp),
             contentPadding = PaddingValues(8.dp)
+
         ) {
             items(
                 items = games,
@@ -93,24 +91,17 @@ fun GameListScreen(
                 )
             }
         }
-        // Log.d(TAG, listOf(game.title).size.toString())
         Log.d(TAG, games.size.toString())
-//val navController = rememberNavController()
     }
 }
 
-
 @Composable
 fun GameCard(
-
     gameViewModel: GameViewModel,
     game: Game,
-    //gameUiState: GameUiState
-    /**modifier: Modifier = Modifier */
 ) {
     //val games = gameViewModel.games.value
 
-    // USING FavoriteViewModel:
     var favorite by remember { mutableStateOf(false) }
     favorite = gameViewModel.isFavorite(gameId = game.id.toString())
 
@@ -132,8 +123,9 @@ fun GameCard(
         elevation = CardDefaults.cardElevation(5.dp),
         shape = RoundedCornerShape(8.dp)
     ) {
-        Column(
-        ) {
+
+        Column {
+
             AsyncImage(
                 modifier = Modifier.fillMaxWidth(),
                 model = ImageRequest.Builder(context = LocalContext.current)
@@ -156,6 +148,7 @@ fun GameCard(
                     textAlign = TextAlign.Left,
                     modifier = Modifier.padding(top = 8.dp)
                 )
+
                 Text(
                     text = game.short_description,
                     style = MaterialTheme.typography.bodyLarge,
@@ -164,68 +157,48 @@ fun GameCard(
                     textAlign = TextAlign.Left,
                     modifier = Modifier.padding(end = 4.dp, top = 2.dp, bottom = 4.dp)
                 )
+
                 Row(modifier = Modifier.fillMaxWidth()) {
                     //  Box() {
                     FavoriteButton(
                         favorite = favorite,
                         onFavoriteClick = {
                             gameViewModel.selectFavorite(gameId = game.id.toString())
-
-                            /**
-                            if (favorite) {
-                            gameViewModel.
-                            } else {
-                            gameViewModel.addFavoriteGame(game)
-                            }
-                            favorite = !favorite
-                             */
                         }
                     )
+
                     Spacer(modifier = Modifier.size(16.dp))
-                    Box() {
+
+                    Box {
                         val context = LocalContext.current
                         PlayButton(
                             play = play,
 
                             onPlayClick = {
                                 gameViewModel.selectPlayed(gameId = game.id.toString())
-
                                 playGame(context, game = game)
-
-                                /**
-                                if (play) {
-
-                                }
-
-                                viewPlayModel.removePlayedGame(game)
-                                } else {
-                                viewPlayModel.addPlayedGame(game)
-                                }
-                                play = !play
-                                 */
                             }
                         )
                     }
+
                     Spacer(modifier = Modifier.size(16.dp))
-                    Box() {
+
+                    Box {
                         val context = LocalContext.current
                         val subject = R.string.subject
-                        val summary: String ="Play this game, is incredible"
+                        val summary: String = "Play this game, is incredible"
                         val link: String = game.game_url
                         ShareButton(
                             share = share,
                             onShareClick = {
                                 gameViewModel.selectShared(gameId = game.id.toString())
-                                shareGame(context, subject = subject.toString(), summary, link ,game = game)
-                                /**
-                                if (share) {
-                                shareViewModel.removeSharedGame(game)
-                                } else {
-                                shareViewModel.addSharedGame(game)
-                                }
-                                share = !share
-                                 */
-
+                                shareGame(
+                                    context,
+                                    subject = subject.toString(),
+                                    summary,
+                                    link,
+                                    game = game
+                                )
                             }
                         )
                     }
@@ -265,14 +238,13 @@ fun GameCard(
                             contentDescription = null
                         )
                     }
-
                 }
             }
-
         }
     }
 }
 
+//INTERNAL FUN TO CREATE INTENT TO PLAY:
 internal fun playGame(context: Context, game: Game) {
     val myIntent = Intent(
         Intent.ACTION_VIEW,
@@ -285,31 +257,29 @@ internal fun playGame(context: Context, game: Game) {
         ),
     )
 }
+
+//INTERNAL FUN TO CREATE INTENT TO SHARE:
 internal fun shareGame(
     context: Context, subject: String, summary: String, link: String, game: Game,
-){
+) {
 
-  val intent = Intent(Intent.ACTION_SEND).apply {
-     // data = Uri.parse(game.game_url)
-      type = "text/plain"
-      putExtra(Intent.EXTRA_TEXT, subject)
-      putExtra(Intent.EXTRA_TEXT, summary)
-      putExtra(Intent.EXTRA_TEXT, link)
-      //putExtra(Intent.EXTRA_ORIGINATING_URI, Uri.parse(game.game_url))
-
-
-  }
+    val intent = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_TEXT, subject)
+        putExtra(Intent.EXTRA_TEXT, summary)
+        putExtra(Intent.EXTRA_TEXT, link)
+    }
     context.startActivity(
         Intent.createChooser(
             intent,
-            context.getString((R.string.link)
-
+            context.getString(
+                (R.string.link)
+            )
         )
-    )
     )
 }
 
-//composable declaration:
+//composable declaration buttons:
 
 @Composable
 fun ShareButton(
@@ -321,50 +291,52 @@ fun ShareButton(
     ) {
         Icon(
 
-            imageVector = if (share) Icons.Filled.Share else Icons.Outlined.Share,
+            imageVector = if (share) Icons.Rounded.Share else Icons.Rounded.Share,
+            /**
             tint = if (share){
-                if(isSystemInDarkTheme()
-                ){
-                    Color.Cyan
-                } else {
-                    colorResource(id = R.color.cyan_700)
-                }
+            if(isSystemInDarkTheme()
+            ){
+            Color.Cyan
+            } else {
+            colorResource(id = R.color.cyan_700)
+            }
             }else{
-                Color.LightGray
-            },
+            Color.LightGray
+            },*/
             contentDescription = null
         )
-}}
+    }
+}
 
 @Composable
 fun PlayButton(
     play: Boolean,
     onPlayClick: () -> Unit,
 
-) {
+    ) {
     IconButton(
         onClick = onPlayClick
 
     ) {
         Icon(
-            imageVector = if (play) Icons.Filled.Games else Icons.Outlined.Games,
-            tint = if (play){
-                if(isSystemInDarkTheme()
-                ){
-                    Color.Cyan
+            imageVector = (if (play) painterResource(id = R.drawable.baseline_games_24) else Icons.Rounded.Games) as ImageVector,
 
-                } else {
-                    colorResource(id = R.color.cyan_700)
-                }
+            /**
+            tint = if (play){
+            if(isSystemInDarkTheme()
+            ){
+            Color.Cyan
+
+            } else {
+            colorResource(id = R.color.cyan_700)
+            }
             }else{
-                Color.LightGray
-            },
+            Color.LightGray
+            },*/
             contentDescription = null
         )
     }
 }
-
-
 
 @Composable
 fun FavoriteButton(
@@ -382,51 +354,46 @@ fun FavoriteButton(
     }
 }
 
-/**
+
 @Preview(showBackground = true)
 @Composable
 fun LoadingScreenPreview() {
-GamesTheme {
-LoadingScreen()
-}
+    GamesTheme {
+        LoadingScreen()
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun ErrorScreenPreview() {
-GamesTheme {
-ErrorScreen(modifier = Modifier, retryAction = {})
+    GamesTheme {
+        ErrorScreen(modifier = Modifier, retryAction = {})
+    }
 }
-}
-
 
 @Preview(showBackground = true)
 @Composable
 fun GameScreenPreview() {
-GamesTheme() {
-
-val mockData = List(10)
-
-{
-
-Game(
-
-id = 11,
-short_description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" +
-" eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad" +
-" minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip" +
-" ex ea commodo consequat.",
-title = "Lorem Ipsum - $it",
-thumbnail = " "
-)
-}
-//not preview exception viewModel in preview:
-GameListScreen(viewModel(), onClick = {}, games = mockData )
-
-}
+    GamesTheme() {
+        val mockData = List(10)
+        {
+            Game(
+                id = 11,
+                short_description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" +
+                        " eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad" +
+                        " minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip" +
+                        " ex ea commodo consequat.",
+                title = "Lorem Ipsum - $it",
+                thumbnail = "",
+                game_url = "game_url"
+            )
+        }
+//not preview failed with exception viewModel in preview:
+GameListScreen(viewModel(), games = mockData )
+    }
 }
 
- */
+
 
 
 

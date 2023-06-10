@@ -5,13 +5,14 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Game(
     
-    val developer: String,
-    val freetogame_profile_url: String,
+   // val developer: String,
+   //val freetogame_profile_url: String,
     val game_url: String,
-    val genre: String,
-    val platform: String,
-    val publisher: String,
-    val release_date: String,
+  //  val genre: String,
+ //   val platform: String,
+ //   val publisher: String,
+   // val release_date: String,
+
 
     val id: Int,
     val title: String,

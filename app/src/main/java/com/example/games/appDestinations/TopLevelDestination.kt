@@ -1,11 +1,10 @@
-package com.example.games.AppDestinations
+package com.example.games.appDestinations
 
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Games
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.StarRate
 import androidx.compose.ui.graphics.vector.ImageVector
 
@@ -17,7 +16,7 @@ sealed class BottomBarScreen(
     val icon: ImageVector
 ) {
 
-    object Pantalla2  : BottomBarScreen(
+    object Pantalla2 : BottomBarScreen(
         route = "FAVORITES",
         title = "Favorites",
         icon = Icons.Default.Favorite
@@ -34,18 +33,20 @@ sealed class BottomBarScreen(
         title = "Rated",
         icon = Icons.Default.StarRate
     )
+
     /**
     object Pantalla5 : BottomBarScreen(
-        route = "PRUEBA",
-        title = "Prueba",
-        icon = Icons.Default.Settings
+    route = "PRUEBA",
+    title = "Prueba",
+    icon = Icons.Default.Settings
     )
-    */
+     */
     object Pantalla6 : BottomBarScreen(
         route = "HomeScreen",
         title = "Home",
         icon = Icons.Filled.Home
     )
+
     object Pantalla7 : BottomBarScreen(
         route = "LISTSCREEN",
         title = "List",

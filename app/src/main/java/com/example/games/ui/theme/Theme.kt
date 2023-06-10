@@ -87,16 +87,19 @@ fun GamesTheme(
     val systemUiController = rememberSystemUiController()
 
     SideEffect {
-
+// with only this: both top and bottom with the same color
         systemUiController.setSystemBarsColor(
             color = if (darkTheme) Color.Black else Color.White
         )
-        systemUiController.setNavigationBarColor(
-            color = if (darkTheme) Color.Black else Color.White
-        )
-        systemUiController.setStatusBarColor(
-            color = if(darkTheme) Color.Black else Color.White
-        )
+//whith only this: bottom color:
+        /**systemUiController.setNavigationBarColor(
+            color = if (darkTheme) Color.Yellow else Color.White
+        ) */
+
+//whith only this: top color with different color:
+        /**systemUiController.setStatusBarColor(
+            color = if(darkTheme) Color.Yellow else Color.White
+        )*/
     }
 
     MaterialTheme(

@@ -204,6 +204,10 @@
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\drawable\\baseline_home_24.xml"
     },
     {
+        "merged": "com.example.games.app-merged_res-4:/drawable_baseline_games_24.xml.flat",
+        "source": "com.example.games.app-main-6:/drawable/baseline_games_24.xml"
+    },
+    {
         "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\mipmap-hdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\mipmap-hdpi\\ic_launcher.png"
     },

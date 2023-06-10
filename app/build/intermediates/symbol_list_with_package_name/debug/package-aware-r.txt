@@ -674,10 +674,6 @@ drawable compat_splash_screen
 drawable compat_splash_screen_no_icon_background
 drawable home_rounded
 drawable ic_100tb
-drawable ic_bookmark
-drawable ic_bookmark_border
-drawable ic_bookmarks
-drawable ic_bookmarks_border
 drawable ic_broken_image
 drawable ic_call_answer
 drawable ic_call_answer_low
@@ -687,12 +683,8 @@ drawable ic_call_decline
 drawable ic_call_decline_low
 drawable ic_connection_error
 drawable ic_launcher_foreground
-drawable ic_menu_book
-drawable ic_menu_book_border
 drawable ic_menu_burguer
 drawable ic_not_found
-drawable ic_upcoming
-drawable ic_upcoming_border
 drawable icon_background
 drawable loading_img
 drawable notification_action_background
