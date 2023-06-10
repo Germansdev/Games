@@ -39,7 +39,7 @@ object GamesIcons {
     val Favorites = R.drawable.baseline_favorite_border_24
     val GameRounded = Icons.Rounded.Games
     val GameBorder = Icons.Outlined.Games
-    val GameBorderDraw = R.drawable.round_games_24
+    //val GameBorderDraw = R.drawable.round_games_24
     val GameRoundedDraw = R.drawable.baseline_games_24
     val Home = R.drawable.baseline_home_24
     val HomeOutlined = R.drawable.outline_home_24

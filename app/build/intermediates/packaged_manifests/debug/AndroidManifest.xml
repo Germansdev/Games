@@ -29,12 +29,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.Games.Splash" >
+        android:theme="@style/Theme.Games" >
         <activity
             android:name="com.example.games.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Games" >
+            android:theme="@style/Theme_Games_Splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

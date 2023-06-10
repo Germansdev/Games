@@ -4,6 +4,7 @@
     <color name="background_light">#FFFDFCF4</color>
     <color name="black">#FF000000</color>
     <color name="cyan_700">#00c7ce</color>
+    <color name="ic_launcher_background">#000000</color>
     <color name="orange_star">#FFC107</color>
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFFFF</color>
@@ -28,5 +29,7 @@
     <string name="shared">Shared</string>
     <string name="subject">"Play this game is incredible"</string>
     <style name="Theme.Games" parent="android:Theme.Material.Light.NoActionBar"/>
-    <style name="Theme.Games.Splash" parent="Theme.Games"/>
+    <style name="Theme_Games_Splash" parent="Theme.Games">Splash
+        <item name="android:windowBackground">@drawable/splash_initial</item>
+    </style>
 </resources>

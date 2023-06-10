@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-31:12
+ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
 MERGED from [io.coil-kt:coil-compose:2.2.2] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\af503384a5ecc4dee82ec7920b081d96\transformed\coil-compose-2.2.2\AndroidManifest.xml:2:1-9:12
 MERGED from [io.coil-kt:coil-compose-base:2.2.2] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\3366a563fb4d1c1ffaf336e6fe0a9d40\transformed\coil-compose-base-2.2.2\AndroidManifest.xml:2:1-9:12
 MERGED from [io.coil-kt:coil:2.2.2] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\7ed8b15f801aa33fd11c12bb1f6b14ef\transformed\coil-2.2.2\AndroidManifest.xml:2:1-9:12
@@ -84,22 +84,22 @@ MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Willkommen\AndroidStudioPr
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\33adcae4ac7a50ffe4faf48e0627c996\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\097e5408134b8e8e71964c58805e9333\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\984fb6477cfb94435bd38117c8b47711\transformed\exifinterface-1.3.3\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
 	package
 		INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-31:12
+		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
 		INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-31:12
+		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
 		INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-31:12
+		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
 		INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:11-69
@@ -108,7 +108,7 @@ ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\A
 	android:name
 		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:6:5-29:19
+ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:6:5-28:19
 MERGED from [androidx.compose.ui:ui-tooling:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\e670831c47fa8b64d53c8c8a814ae366\transformed\ui-tooling-1.5.0-alpha04\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-tooling:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\e670831c47fa8b64d53c8c8a814ae366\transformed\ui-tooling-1.5.0-alpha04\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-test-manifest:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\c0de2955e76b90b897ebf525a3551fc6\transformed\ui-test-manifest-1.5.0-alpha04\AndroidManifest.xml:22:5-26:19
@@ -144,31 +144,29 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Wi
 	android:allowBackup
 		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:15:9-50
+		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:15:9-43
 	android:dataExtractionRules
 		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:9:9-65
 	android:name
 		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:7:9-40
 activity#com.example.games.MainActivity
-ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:17:9-28:20
-	android:label
-		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:20:13-45
+ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:17:9-27:20
 	android:exported
 		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:19:13-36
 	android:theme
-		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:21:13-47
+		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:20:13-54
 	android:name
 		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:18:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:22:13-26:29
+ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:21:13-25:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:23:17-69
+ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:23:25-66
+		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:25:17-77
+ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:25:27-74
+		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:24:27-74
 uses-sdk
 INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml

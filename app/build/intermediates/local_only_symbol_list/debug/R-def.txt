@@ -4,6 +4,7 @@ color background_dark
 color background_light
 color black
 color cyan_700
+color ic_launcher_background
 color orange_star
 color transparent
 color white
@@ -15,6 +16,7 @@ drawable baseline_search_24
 drawable baseline_share_24
 drawable baseline_star_24
 drawable baseline_star_outline_24
+drawable gamesicon
 drawable home_rounded
 drawable ic_bookmark
 drawable ic_bookmark_border
@@ -22,7 +24,6 @@ drawable ic_bookmarks
 drawable ic_bookmarks_border
 drawable ic_broken_image
 drawable ic_connection_error
-drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_menu_book
 drawable ic_menu_book_border
@@ -31,9 +32,9 @@ drawable ic_not_found
 drawable ic_upcoming
 drawable ic_upcoming_border
 drawable loading_img
-drawable nhzw_bp9o_211008
 drawable outline_home_24
-drawable round_games_24
+drawable splash
+drawable splash_initial
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
@@ -54,6 +55,6 @@ string retry
 string shared
 string subject
 style Theme.Games
-style Theme.Games.Splash
+style Theme_Games_Splash
 xml backup_rules
 xml data_extraction_rules

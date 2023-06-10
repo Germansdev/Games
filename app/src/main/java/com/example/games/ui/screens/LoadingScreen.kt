@@ -17,7 +17,7 @@ Box(
     contentAlignment = Alignment.Center
 ){
     Image(
-        painter = painterResource(id = (R.drawable.loading_img)),
+        painter = painterResource(id = (R.drawable.splash_initial)),
         contentDescription = stringResource(id = R.string.loading)
     )
 }
