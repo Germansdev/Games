@@ -671,7 +671,6 @@ int drawable btn_radio_on_mtrl 0x7f07005d
 int drawable btn_radio_on_to_off_mtrl_animation 0x7f07005e
 int drawable compat_splash_screen 0x7f07005f
 int drawable compat_splash_screen_no_icon_background 0x7f070060
-int drawable gamesicon 0x7f070061
 int drawable home_rounded 0x7f070062
 int drawable ic_100tb 0x7f070063
 int drawable ic_bookmark 0x7f070064

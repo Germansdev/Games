@@ -16,7 +16,6 @@ drawable baseline_search_24
 drawable baseline_share_24
 drawable baseline_star_24
 drawable baseline_star_outline_24
-drawable gamesicon
 drawable home_rounded
 drawable ic_bookmark
 drawable ic_bookmark_border

@@ -672,7 +672,6 @@ drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable compat_splash_screen
 drawable compat_splash_screen_no_icon_background
-drawable gamesicon
 drawable home_rounded
 drawable ic_100tb
 drawable ic_bookmark

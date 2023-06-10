@@ -1,9 +1,5 @@
 [
     {
-        "merged": "com.example.games.app-merged_res-4:/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "com.example.games.app-main-6:/mipmap-xxhdpi/ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\drawable\\ic_launcher_background.xml"
     },
@@ -28,44 +24,36 @@
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "com.example.games.app-merged_res-4:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.games.app-main-6:/drawable/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\drawable_round_games_24.xml.flat",
+        "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\drawable\\round_games_24.xml"
     },
     {
         "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\drawable_ic_bookmarks_border.xml.flat",
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\drawable\\ic_bookmarks_border.xml"
     },
     {
-        "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\drawable_round_games_24.xml.flat",
-        "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\drawable\\round_games_24.xml"
-    },
-    {
-        "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\xml\\backup_rules.xml"
     },
     {
         "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\drawable_ic_upcoming_border.xml.flat",
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\drawable\\ic_upcoming_border.xml"
     },
     {
-        "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\xml\\backup_rules.xml"
-    },
-    {
-        "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\drawable_baseline_search_24.xml.flat",
-        "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\drawable\\baseline_search_24.xml"
+        "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "com.example.games.app-merged_res-4:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "com.example.games.app-main-6:/mipmap-mdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\drawable_baseline_search_24.xml.flat",
+        "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\drawable\\baseline_search_24.xml"
     },
     {
         "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\xml_data_extraction_rules.xml.flat",
@@ -140,10 +128,6 @@
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\drawable\\ic_connection_error.xml"
     },
     {
-        "merged": "com.example.games.app-merged_res-4:/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "com.example.games.app-main-6:/mipmap-mdpi/ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\drawable_ic_menu_book_border.xml.flat",
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\drawable\\ic_menu_book_border.xml"
     },
@@ -156,16 +140,8 @@
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.games.app-merged_res-4:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "com.example.games.app-main-6:/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\mipmap-xxhdpi\\ic_launcher.png"
-    },
-    {
-        "merged": "com.example.games.app-merged_res-4:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "com.example.games.app-main-6:/mipmap-xxhdpi/ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\mipmap-mdpi_ic_launcher.webp.flat",
@@ -178,10 +154,6 @@
     {
         "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\drawable_baseline_star_24.xml.flat",
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\drawable\\baseline_star_24.xml"
-    },
-    {
-        "merged": "com.example.games.app-merged_res-4:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "com.example.games.app-main-6:/mipmap-hdpi/ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\drawable_ic_bookmark_border.xml.flat",
@@ -228,10 +200,6 @@
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.example.games.app-merged_res-4:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "com.example.games.app-main-6:/mipmap-xxxhdpi/ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\drawable_baseline_home_24.xml.flat",
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\drawable\\baseline_home_24.xml"
     },
@@ -244,23 +212,11 @@
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\drawable\\baseline_star_outline_24.xml"
     },
     {
-        "merged": "com.example.games.app-merged_res-4:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "com.example.games.app-main-6:/mipmap-xxxhdpi/ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\drawable_ic_upcoming.xml.flat",
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\drawable\\ic_upcoming.xml"
     },
     {
         "merged": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-merged_res-4:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\daemon\\8.0\\com.example.games.app-main-6:\\mipmap-xxxhdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "com.example.games.app-merged_res-4:/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "com.example.games.app-main-6:/mipmap-hdpi/ic_launcher_round.png"
-    },
-    {
-        "merged": "com.example.games.app-merged_res-4:/mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "com.example.games.app-main-6:/mipmap-xhdpi/ic_launcher_round.png"
     }
 ]
