@@ -84,6 +84,10 @@
         "source": "com.example.games.app-main-6:/drawable/ic_not_found.xml"
     },
     {
+        "merged": "com.example.games.app-merged_res-4:/drawable_nhzw_bp9o_211008.jpg.flat",
+        "source": "com.example.games.app-main-6:/drawable/nhzw_bp9o_211008.jpg"
+    },
+    {
         "merged": "com.example.games.app-merged_res-4:/xml_backup_rules.xml.flat",
         "source": "com.example.games.app-main-6:/xml/backup_rules.xml"
     },

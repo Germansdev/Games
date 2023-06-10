@@ -31,6 +31,7 @@ drawable ic_not_found
 drawable ic_upcoming
 drawable ic_upcoming_border
 drawable loading_img
+drawable nhzw_bp9o_211008
 drawable outline_home_24
 drawable round_games_24
 mipmap ic_launcher
@@ -53,5 +54,6 @@ string retry
 string shared
 string subject
 style Theme.Games
+style Theme.Games.Splash
 xml backup_rules
 xml data_extraction_rules

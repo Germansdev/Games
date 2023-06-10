@@ -53,6 +53,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.window:window-core:1.1.0-rc01'
     implementation 'androidx.wear.compose:compose-material3:1.0.0-alpha04'
+    implementation 'androidx.core:core-splashscreen:1.0.1'
     annotationProcessor 'androidx.room:room-compiler:2.5.1'
     constraints {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {

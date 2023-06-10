@@ -3,6 +3,7 @@ package com.example.games.ui.screens
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.text.style.ClickableSpan
 import android.util.Log
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
@@ -55,6 +56,8 @@ import coil.request.ImageRequest
 import com.example.games.R
 import com.example.games.model.Game
 import com.example.games.ui.GameViewModel
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 
 private const val TAG: String = "Dev4"
 
@@ -336,10 +339,12 @@ fun ShareButton(
 @Composable
 fun PlayButton(
     play: Boolean,
-    onPlayClick: () -> Unit
+    onPlayClick: () -> Unit,
+
 ) {
     IconButton(
         onClick = onPlayClick
+
     ) {
         Icon(
             imageVector = if (play) Icons.Filled.Games else Icons.Outlined.Games,
@@ -347,6 +352,7 @@ fun PlayButton(
                 if(isSystemInDarkTheme()
                 ){
                     Color.Cyan
+
                 } else {
                     colorResource(id = R.color.cyan_700)
                 }
@@ -357,6 +363,8 @@ fun PlayButton(
         )
     }
 }
+
+
 
 @Composable
 fun FavoriteButton(

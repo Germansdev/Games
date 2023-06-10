@@ -62,7 +62,8 @@ com.example.games.app-lifecycle-process-2.6.1-60 C:\Users\Willkommen\AndroidStud
 com.example.games.app-ui-text-1.5.0-alpha04-61 C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f02079e7f4ffa674661979dcaf2d4232\transformed\ui-text-1.5.0-alpha04\res
 com.example.games.app-room-runtime-2.5.1-62 C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\res
 com.example.games.app-runtime-1.5.0-alpha04-63 C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f27ada64a412851e4c3ae662f361ee7f\transformed\runtime-1.5.0-alpha04\res
-com.example.games.app-animation-core-1.5.0-alpha04-64 C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f78286379cd2a3fbdf5c68a7bab5b898\transformed\animation-core-1.5.0-alpha04\res
-com.example.games.app-lifecycle-runtime-2.6.1-65 C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f79233e5e47b51fd61d8fb8827950b62\transformed\lifecycle-runtime-2.6.1\res
-com.example.games.app-compose-foundation-1.2.0-alpha10-66 C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\fdc41b85fe5cc74024327cdbe2bc1110\transformed\compose-foundation-1.2.0-alpha10\res
-com.example.games.app-sqlite-framework-2.3.1-67 C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\ff27b60443343be31b6e39d8297c4c3f\transformed\sqlite-framework-2.3.1\res
+com.example.games.app-core-splashscreen-1.0.1-64 C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f77cb43cacb39445d87a952e6a375dc3\transformed\core-splashscreen-1.0.1\res
+com.example.games.app-animation-core-1.5.0-alpha04-65 C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f78286379cd2a3fbdf5c68a7bab5b898\transformed\animation-core-1.5.0-alpha04\res
+com.example.games.app-lifecycle-runtime-2.6.1-66 C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f79233e5e47b51fd61d8fb8827950b62\transformed\lifecycle-runtime-2.6.1\res
+com.example.games.app-compose-foundation-1.2.0-alpha10-67 C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\fdc41b85fe5cc74024327cdbe2bc1110\transformed\compose-foundation-1.2.0-alpha10\res
+com.example.games.app-sqlite-framework-2.3.1-68 C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\ff27b60443343be31b6e39d8297c4c3f\transformed\sqlite-framework-2.3.1\res

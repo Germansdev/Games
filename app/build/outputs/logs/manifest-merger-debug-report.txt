@@ -72,6 +72,7 @@ MERGED from [androidx.compose.runtime:runtime-saveable:1.5.0-alpha04] C:\Users\W
 MERGED from [androidx.compose.runtime:runtime:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f27ada64a412851e4c3ae662f361ee7f\transformed\runtime-1.5.0-alpha04\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.room:room-runtime:2.5.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.window:window-core:1.1.0-rc01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a86bec033449c14ca5e5988583a32146\transformed\window-core-1.1.0-rc01\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core-splashscreen:1.0.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f77cb43cacb39445d87a952e6a375dc3\transformed\core-splashscreen-1.0.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.sqlite:sqlite-framework:2.3.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\ff27b60443343be31b6e39d8297c4c3f\transformed\sqlite-framework-2.3.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite:2.3.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5fc0d1ee687fee59159f3bc5df75de9f\transformed\sqlite-2.3.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\1102d454d52a3560109eeab18e6f9627\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
@@ -143,7 +144,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Wi
 	android:allowBackup
 		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:15:9-43
+		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:15:9-50
 	android:dataExtractionRules
 		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:9:9-65
 	android:name
@@ -308,6 +309,8 @@ MERGED from [androidx.room:room-runtime:2.5.1] C:\Users\Willkommen\AndroidStudio
 MERGED from [androidx.room:room-runtime:2.5.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\AndroidManifest.xml:21:5-44
 MERGED from [androidx.window:window-core:1.1.0-rc01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a86bec033449c14ca5e5988583a32146\transformed\window-core-1.1.0-rc01\AndroidManifest.xml:5:5-44
 MERGED from [androidx.window:window-core:1.1.0-rc01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a86bec033449c14ca5e5988583a32146\transformed\window-core-1.1.0-rc01\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-splashscreen:1.0.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f77cb43cacb39445d87a952e6a375dc3\transformed\core-splashscreen-1.0.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-splashscreen:1.0.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f77cb43cacb39445d87a952e6a375dc3\transformed\core-splashscreen-1.0.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.sqlite:sqlite-framework:2.3.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\ff27b60443343be31b6e39d8297c4c3f\transformed\sqlite-framework-2.3.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite-framework:2.3.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\ff27b60443343be31b6e39d8297c4c3f\transformed\sqlite-framework-2.3.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite:2.3.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5fc0d1ee687fee59159f3bc5df75de9f\transformed\sqlite-2.3.1\AndroidManifest.xml:20:5-44

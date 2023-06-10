@@ -48,8 +48,8 @@
 30        android:supportsRtl="true"
 30-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:14:9-35
 31        android:testOnly="true"
-32        android:theme="@style/Theme.Games" >
-32-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:15:9-43
+32        android:theme="@style/Theme.Games.Splash" >
+32-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:15:9-50
 33        <activity
 33-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:17:9-28:20
 34            android:name="com.example.games.MainActivity"
