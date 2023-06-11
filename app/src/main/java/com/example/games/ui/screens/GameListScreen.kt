@@ -38,7 +38,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
@@ -290,20 +289,7 @@ fun ShareButton(
         onClick = onShareClick
     ) {
         Icon(
-
             imageVector = if (share) Icons.Rounded.Share else Icons.Rounded.Share,
-
-            /**
-            tint = if (share){
-            if(isSystemInDarkTheme()
-            ){
-            Color.Cyan
-            } else {
-            colorResource(id = R.color.cyan_700)
-            }
-            }else{
-            Color.LightGray
-            },*/
             contentDescription = null,
             tint = Color.Gray
         )
@@ -322,20 +308,6 @@ fun PlayButton(
     ) {
         Icon(
             imageVector = if (play) Icons.Rounded.Games else Icons.Rounded.Games,
-
-
-            /**
-            tint = if (play){
-            if(isSystemInDarkTheme()
-            ){
-            Color.Cyan
-
-            } else {
-            colorResource(id = R.color.cyan_700)
-            }
-            }else{
-            Color.LightGray
-            },*/
             contentDescription = null,
             tint = Color.Gray
         )
@@ -374,7 +346,7 @@ fun ErrorScreenPreview() {
         ErrorScreen(modifier = Modifier, retryAction = {})
     }
 }
-/**
+
 @Preview(showBackground = true)
 @Composable
 fun GameScreenPreview() {
@@ -389,10 +361,16 @@ fun GameScreenPreview() {
                         " ex ea commodo consequat.",
                 title = "Lorem Ipsum - $it",
                 thumbnail = "",
-                game_url = "game_url"
+                game_url = "game_url",
+                developer = "Germansdev",
+                freetogame_profile_url = "url",
+                genre = "war",
+                publisher = "Hacker",
+                platform = "FreetoGame",
+                release_date = "1900",
             )
         }
 //not preview failed with exception viewModel in preview:
 GameListScreen(viewModel(), games = mockData )
     }
-}*/
+}
