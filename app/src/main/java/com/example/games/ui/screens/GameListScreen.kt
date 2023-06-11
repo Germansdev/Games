@@ -292,6 +292,7 @@ fun ShareButton(
         Icon(
 
             imageVector = if (share) Icons.Rounded.Share else Icons.Rounded.Share,
+
             /**
             tint = if (share){
             if(isSystemInDarkTheme()
@@ -303,7 +304,8 @@ fun ShareButton(
             }else{
             Color.LightGray
             },*/
-            contentDescription = null
+            contentDescription = null,
+            tint = Color.Gray
         )
     }
 }
@@ -319,7 +321,8 @@ fun PlayButton(
 
     ) {
         Icon(
-            imageVector = (if (play) painterResource(id = R.drawable.baseline_games_24) else Icons.Rounded.Games) as ImageVector,
+            imageVector = if (play) Icons.Rounded.Games else Icons.Rounded.Games,
+
 
             /**
             tint = if (play){
@@ -333,7 +336,8 @@ fun PlayButton(
             }else{
             Color.LightGray
             },*/
-            contentDescription = null
+            contentDescription = null,
+            tint = Color.Gray
         )
     }
 }
@@ -370,7 +374,7 @@ fun ErrorScreenPreview() {
         ErrorScreen(modifier = Modifier, retryAction = {})
     }
 }
-
+/**
 @Preview(showBackground = true)
 @Composable
 fun GameScreenPreview() {
@@ -391,10 +395,4 @@ fun GameScreenPreview() {
 //not preview failed with exception viewModel in preview:
 GameListScreen(viewModel(), games = mockData )
     }
-}
-
-
-
-
-
-
+}*/
