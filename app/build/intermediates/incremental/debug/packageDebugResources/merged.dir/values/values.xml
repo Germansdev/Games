@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_dark">#FF1B1C18</color>
+    <color name="background_light">#FFFDFCF4</color>
+    <color name="black">#FF000000</color>
+    <color name="cyan_700">#00c7ce</color>
+    <color name="ic_launcher_background">#000000</color>
+    <color name="orange_star">#FFC107</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">" Games"</string>
+    <string name="back_button">back_button</string>
+    <string name="btn_try_again">try again</string>
+    <string name="favorites">favorites</string>
+    <string name="game_title">Game Title</string>
+    <string name="homescreen">Home</string>
+    <string name="link">
+
+       \n  Play in this link:
+       \n "%3$s"  </string>
+    <string name="loading">Loading</string>
+    <string name="loading_fail">Fail to load</string>
+    <string name="menu">Menu</string>
+    <string name="no_favorite_games">No favorite games</string>
+    <string name="no_records_found_msg">Nothing found</string>
+    <string name="played">Played</string>
+    <string name="rated">Rated</string>
+    <string name="retry">Retry</string>
+    <string name="shared">Shared</string>
+    <string name="subject">"Play this game is incredible"</string>
+    <style name="Theme.Games" parent="android:Theme.Material.Light.NoActionBar"/>
+    <style name="Theme_Games_Splash" parent="Theme.Games">Splash
+        <item name="android:windowBackground">@drawable/splash_initial</item>
+    </style>
+</resources>
