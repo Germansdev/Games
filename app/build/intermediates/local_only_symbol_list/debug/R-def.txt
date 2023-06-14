@@ -33,6 +33,7 @@ string back_button
 string btn_try_again
 string favorites
 string game_title
+string games
 string homescreen
 string link
 string loading

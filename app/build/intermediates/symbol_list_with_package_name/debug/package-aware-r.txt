@@ -1037,6 +1037,7 @@ string dropdown_menu
 string expanded
 string favorites
 string game_title
+string games
 string homescreen
 string in_progress
 string indeterminate
