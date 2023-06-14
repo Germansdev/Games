@@ -70,17 +70,17 @@
 41            </intent-filter>
 42        </activity>
 43        <activity
-43-->[androidx.compose.ui:ui-tooling:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\e670831c47fa8b64d53c8c8a814ae366\transformed\ui-tooling-1.5.0-alpha04\AndroidManifest.xml:23:9-25:39
-44            android:name="androidx.compose.ui.tooling.PreviewActivity"
-44-->[androidx.compose.ui:ui-tooling:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\e670831c47fa8b64d53c8c8a814ae366\transformed\ui-tooling-1.5.0-alpha04\AndroidManifest.xml:24:13-71
+43-->[androidx.compose.ui:ui-test-manifest:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\c0de2955e76b90b897ebf525a3551fc6\transformed\ui-test-manifest-1.5.0-alpha04\AndroidManifest.xml:23:9-25:39
+44            android:name="androidx.activity.ComponentActivity"
+44-->[androidx.compose.ui:ui-test-manifest:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\c0de2955e76b90b897ebf525a3551fc6\transformed\ui-test-manifest-1.5.0-alpha04\AndroidManifest.xml:24:13-63
 45            android:exported="true" />
-45-->[androidx.compose.ui:ui-tooling:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\e670831c47fa8b64d53c8c8a814ae366\transformed\ui-tooling-1.5.0-alpha04\AndroidManifest.xml:25:13-36
+45-->[androidx.compose.ui:ui-test-manifest:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\c0de2955e76b90b897ebf525a3551fc6\transformed\ui-test-manifest-1.5.0-alpha04\AndroidManifest.xml:25:13-36
 46        <activity
-46-->[androidx.compose.ui:ui-test-manifest:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\c0de2955e76b90b897ebf525a3551fc6\transformed\ui-test-manifest-1.5.0-alpha04\AndroidManifest.xml:23:9-25:39
-47            android:name="androidx.activity.ComponentActivity"
-47-->[androidx.compose.ui:ui-test-manifest:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\c0de2955e76b90b897ebf525a3551fc6\transformed\ui-test-manifest-1.5.0-alpha04\AndroidManifest.xml:24:13-63
+46-->[androidx.compose.ui:ui-tooling:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\e670831c47fa8b64d53c8c8a814ae366\transformed\ui-tooling-1.5.0-alpha04\AndroidManifest.xml:23:9-25:39
+47            android:name="androidx.compose.ui.tooling.PreviewActivity"
+47-->[androidx.compose.ui:ui-tooling:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\e670831c47fa8b64d53c8c8a814ae366\transformed\ui-tooling-1.5.0-alpha04\AndroidManifest.xml:24:13-71
 48            android:exported="true" />
-48-->[androidx.compose.ui:ui-test-manifest:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\c0de2955e76b90b897ebf525a3551fc6\transformed\ui-test-manifest-1.5.0-alpha04\AndroidManifest.xml:25:13-36
+48-->[androidx.compose.ui:ui-tooling:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\e670831c47fa8b64d53c8c8a814ae366\transformed\ui-tooling-1.5.0-alpha04\AndroidManifest.xml:25:13-36
 49
 50        <provider
 50-->[androidx.emoji2:emoji2:1.4.0-beta03] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\3f09dac6584b7fef98d783a4e7e484a9\transformed\emoji2-1.4.0-beta03\AndroidManifest.xml:24:9-32:20

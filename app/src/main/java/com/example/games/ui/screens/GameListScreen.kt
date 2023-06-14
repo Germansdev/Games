@@ -99,7 +99,6 @@ fun GameCard(
     gameViewModel: GameViewModel,
     game: Game,
 ) {
-    //val games = gameViewModel.games.value
 
     var favorite by remember { mutableStateOf(false) }
     favorite = gameViewModel.isFavorite(gameId = game.id.toString())
@@ -162,7 +161,7 @@ fun GameCard(
                     FavoriteButton(
                         favorite = favorite,
                         onFavoriteClick = {
-                            gameViewModel.selectFavorite(gameId = game.id.toString())
+                           gameViewModel.selectFavorite(gameId = game.id.toString())
                         }
                     )
 
@@ -352,6 +351,7 @@ fun ErrorScreenPreview() {
 fun GameScreenPreview() {
     GamesTheme() {
         val mockData = List(10)
+
         {
             Game(
                 id = 11,
@@ -371,6 +371,6 @@ fun GameScreenPreview() {
             )
         }
 //not preview failed with exception viewModel in preview:
-GameListScreen(viewModel(), games = mockData )
+//GameListScreen(modifier = Modifier, games = mockData )
     }
 }

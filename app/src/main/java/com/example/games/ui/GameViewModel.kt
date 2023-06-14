@@ -4,9 +4,11 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
@@ -25,12 +27,13 @@ sealed interface GameUiState {
 }
 
 class GameViewModel(
-    private val gameRepository: GameRepository
-
+    private val gameRepository: GameRepository,
+    private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
 
-   var gameUiState: GameUiState by mutableStateOf(GameUiState.Loading)
+
+    var gameUiState: GameUiState by mutableStateOf(GameUiState.Loading)
       private set
 
     private val _games = mutableStateOf<List<Game>>(emptyList())
@@ -117,9 +120,11 @@ class GameViewModel(
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
+                val savedStateHandle = createSavedStateHandle()
                 val application = (this[APPLICATION_KEY] as GameApplication)
                 val gameRepository = application.container.gameRepository
-                GameViewModel(gameRepository = gameRepository)
+                GameViewModel(gameRepository = gameRepository,
+                savedStateHandle = savedStateHandle)
             }
         }
     }

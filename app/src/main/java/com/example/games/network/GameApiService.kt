@@ -14,7 +14,7 @@ interface GameApiService {
     }
     /**
      * Returns a [List] of [Game] and this method can be called from a Coroutine.
-     * The @GET annotation indicates that the "volumes" endpoint will be requested with the GET
+     * The @GET annotation indicates that the "games" endpoint will be requested with the GET
      * HTTP method
      */
 @GET("games")

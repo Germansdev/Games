@@ -15,9 +15,8 @@ fun HomeScreen(
         is GameUiState.Loading -> LoadingScreen (modifier)
 
         is GameUiState.Success -> GameListScreen(modifier,gameUiState.games
-           //gameViewModel = GameViewModel(gameRepository= viewModel()),
+
         )
         else -> ErrorScreen(retryAction, modifier)
     }
-
 }
