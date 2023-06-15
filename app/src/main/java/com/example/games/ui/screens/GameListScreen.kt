@@ -65,9 +65,9 @@ fun GameListScreen(
 ) {
     val gameViewModel: GameViewModel = viewModel()
 
-    val favorites = gameViewModel.favorites.value
-    val play = gameViewModel.play.value
-    val share = gameViewModel.share.value
+    //val favorites = gameViewModel.favorites.value
+    //val play = gameViewModel.play.value
+    //val share = gameViewModel.share.value
 
     if (games.isEmpty()) {
         NothingFoundScreen()
@@ -102,6 +102,8 @@ fun GameCard(
 
     var favorite by remember { mutableStateOf(false) }
     favorite = gameViewModel.isFavorite(gameId = game.id.toString())
+
+Log.d(TAG, gameViewModel.favorites.value.size.toString())
 
     //var rating by remember { mutableStateOf(false) }
     // rating = gameViewModel.

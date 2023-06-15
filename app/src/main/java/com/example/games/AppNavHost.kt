@@ -11,11 +11,9 @@ import com.example.games.appDestinations.BottomBarScreen.Pantalla2
 import com.example.games.appDestinations.BottomBarScreen.Pantalla3
 import com.example.games.appDestinations.BottomBarScreen.Pantalla4
 import com.example.games.appDestinations.BottomBarScreen.Pantalla5
-import com.example.games.ui.GameUiState
 import com.example.games.ui.GameViewModel
 import com.example.games.ui.SharedScreen
 import com.example.games.ui.screens.FavoritesScreen
-import com.example.games.ui.screens.GameListScreen
 import com.example.games.ui.screens.HomeScreen
 import com.example.games.ui.screens.Played
 import com.example.games.ui.screens.RatedScreen

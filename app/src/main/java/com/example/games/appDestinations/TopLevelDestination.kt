@@ -52,6 +52,5 @@ sealed class BottomBarScreen(
     icon = Icons.Default.Share
     )
 
-
 }
 

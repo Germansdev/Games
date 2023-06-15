@@ -16,13 +16,14 @@ import com.example.games.ui.GameViewModel
 @Composable
 fun FavoritesScreen(
     viewModel: GameViewModel,
+    //favorites : State<Set<String>>,
+
     gameUiState: GameUiState,
     retryAction: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     //favorites:
-    //  val gameUiState = viewModel.gameUiState.collectAsState().value
-
+     // val gameUiState = viewModel.gameUiState.collectAsState().value,
 
     Column {
         if (viewModel.favorites.value.isNotEmpty()) {
