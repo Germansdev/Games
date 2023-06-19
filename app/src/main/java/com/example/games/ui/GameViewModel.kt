@@ -1,5 +1,6 @@
 package com.example.games.ui
 
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -15,6 +16,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.games.GameApplication
 import com.example.games.data.GameRepository
 import com.example.games.model.Game
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
@@ -49,7 +51,6 @@ class GameViewModel(
     val share: State<Set<String>> = _share
 
 
-
     //init block:
     init {
         getGames()
@@ -70,6 +71,7 @@ class GameViewModel(
             }
         }
     }
+
 
     fun selectFavorite(gameId: String) {
         val updatedFavorites = _favorites.value.toMutableSet()

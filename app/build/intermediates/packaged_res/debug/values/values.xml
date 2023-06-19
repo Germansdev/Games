@@ -27,6 +27,7 @@
     <string name="played">Played</string>
     <string name="rated">Rated</string>
     <string name="retry">Retry</string>
+    <string name="search">search</string>
     <string name="shared">Shared</string>
     <string name="subject">"Play this game is incredible"</string>
     <style name="Theme.Games" parent="android:Theme.Material.Light.NoActionBar"/>

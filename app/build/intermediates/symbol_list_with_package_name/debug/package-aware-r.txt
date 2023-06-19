@@ -659,6 +659,7 @@ drawable baseline_favorite_border_24
 drawable baseline_games_24
 drawable baseline_home_24
 drawable baseline_search_24
+drawable baseline_settings_24
 drawable baseline_share_24
 drawable baseline_star_24
 drawable baseline_star_outline_24
@@ -1056,6 +1057,7 @@ string range_end
 string range_start
 string rated
 string retry
+string search
 string search_bar_search
 string search_menu_title
 string selected

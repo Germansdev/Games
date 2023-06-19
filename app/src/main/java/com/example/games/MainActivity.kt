@@ -5,13 +5,13 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavHostController
 import com.example.games.ui.GameApp
 import com.example.games.ui.GameViewModel
 import com.example.games.ui.theme.GamesTheme
 
 //dev1
 class MainActivity : ComponentActivity() {
+
     private val viewModel: GameViewModel by viewModels { GameViewModel.Factory }
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -22,11 +22,9 @@ class MainActivity : ComponentActivity() {
         setContent {
 
             GamesTheme {
-
                 GameApp(
                     modifier = Modifier,
                     viewModel = viewModel,
-                    //navController = NavHostController(context = this)
                 )
             }
 

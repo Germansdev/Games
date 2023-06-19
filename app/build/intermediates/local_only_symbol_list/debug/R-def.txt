@@ -13,6 +13,7 @@ drawable baseline_favorite_border_24
 drawable baseline_games_24
 drawable baseline_home_24
 drawable baseline_search_24
+drawable baseline_settings_24
 drawable baseline_share_24
 drawable baseline_star_24
 drawable baseline_star_outline_24
@@ -44,6 +45,7 @@ string no_records_found_msg
 string played
 string rated
 string retry
+string search
 string shared
 string subject
 style Theme.Games

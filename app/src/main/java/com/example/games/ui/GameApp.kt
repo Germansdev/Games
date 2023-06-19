@@ -7,14 +7,17 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.TopAppBarColors
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
@@ -26,20 +29,10 @@ import com.example.games.GameNavHost
 import com.example.games.R
 import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.*
+import com.example.games.ui.theme.GameIcons
 
-//import com.example.games.GameNavHost
 
-//TOP BAR COMPOSABLE TO NAVIGATE CUSTOM:
-/**
-enum class NavigationScreens(@StringRes val tittle: Int) {
-    HomeScreen(tittle = R.string.homescreen),
-    ListScreen(tittle = R.string.app_name),
-    FavoriteScreen(tittle = R.string.favorites),
-    PlayedScreen(tittle = R.string.played),
-    SharedScreen(tittle = R.string.shared),
-    RatedScreen(tittle = R.string.rated)
-}*/
-
+@OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun GameApp(
@@ -49,15 +42,14 @@ fun GameApp(
     ) {
 
     val navController = rememberNavController()
-    val scaffoldState = rememberScaffoldState()
-    val scope = rememberCoroutineScope()
+  //  val scaffoldState = rememberScaffoldState()
+  //  val scope = rememberCoroutineScope()
 
     // Get current back stack entry
     val backStackEntry by navController.currentBackStackEntryAsState()
     // Get the name of the current screen
 
     //THIS IS BOTTOM BAR TOP LEVEL DESTINATION:
-
     val items = listOf(
         Pantalla1,
         Pantalla2,
@@ -70,10 +62,21 @@ fun GameApp(
 
     Scaffold(
         topBar = {
-            CustomTopBar(
-               // currentScreenTitle = currentScreen.tittle,
-              //  canNavigateBack = false,
-               // navigateUp = { navController.navigateUp() })
+
+            val destination = backStackEntry
+            if (destination != null) {
+                CustomTopBar(
+                    titleRes = R.string.app_name,
+                    navigationIcon = GameIcons.Search,
+                    navigationIconContentDescription = null,
+                    actionIcon = GameIcons.Settings,
+                    actionIconContentDescription = null,
+                    colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                    containerColor = colorScheme.surface),
+                    onActionClick = { /**showSettingsDialog = true */ },
+                    onNavigationClick = { },
+                )
+            }
         },
 
         bottomBar = {
@@ -88,47 +91,83 @@ fun GameApp(
             color = colorScheme.background,
         ) {
 
-            GameNavHost(navController = navController)
+            GameNavHost( navController = navController)
         }
     }
 }
 
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomTopBar(
-//   @StringRes currentScreenTitle: Int,
- //   canNavigateBack: Boolean,
-  //  navigateUp: () -> Unit,
-    setting:()-> Unit,
-    modifier: Modifier = Modifier
+    //with CenterAlignedTopAppBar:
+    @StringRes titleRes: Int,
+    navigationIcon: ImageVector,
+    navigationIconContentDescription: String?,
+    actionIcon: ImageVector,
+    actionIconContentDescription: String?,
+    modifier: Modifier = Modifier,
+    colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(),
+    onNavigationClick: () -> Unit = {},
+    onActionClick: () -> Unit = {},
 ) {
-    TopAppBar(
-        title = {
-            Text(stringResource(R.string.games),
-            /**Text(stringResource(currentScreenTitle)*/
-            )
-        },
-        contentColor = colorScheme.inverseSurface,
-        backgroundColor = colorScheme.surface,
-       /** navigationIcon = {
-            if (canNavigateBack) {
-                IconButton(onClick = navigateUp) {
-                    Icon(
-                        imageVector = Icons.Filled.ArrowBack,
-                        contentDescription = stringResource(R.string.back_button)
 
-                    )
-                }
+    //With CenterAlignedTopAppBar:
+    CenterAlignedTopAppBar(
+        title = { androidx.compose.material3.Text(text = stringResource(id = titleRes)) },
+        navigationIcon = {
+            androidx.compose.material3.IconButton(onClick = onNavigationClick) {
+                androidx.compose.material3.Icon(
+                    imageVector = navigationIcon,
+                    contentDescription = navigationIconContentDescription,
+                    tint = colorScheme.onSurface,
+                )
             }
-        }*/
-        actions =
-        ,
+        },
+        actions = {
+            androidx.compose.material3.IconButton(onClick = onActionClick) {
+                androidx.compose.material3.Icon(
+                    imageVector = actionIcon,
+                    contentDescription = actionIconContentDescription,
+                    tint = colorScheme.onSurface,
+                )
+            }
+        },
+        colors = colors,
         modifier = modifier,
     )
 }
 
-//BOTTOM NAVIGATION:
+/**
+ * Top app bar with action, displayed on the right
+ */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun CustomTopBar(
+    @StringRes titleRes: Int,
+    actionIcon: ImageVector,
+    actionIconContentDescription: String?,
+    modifier: Modifier = Modifier,
+    colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(),
+    onActionClick: () -> Unit = {},
+) {
+    CenterAlignedTopAppBar(
+        title = { androidx.compose.material3.Text(text = stringResource(id = titleRes)) },
+        actions = {
+            androidx.compose.material3.IconButton(onClick = onActionClick) {
+                androidx.compose.material3.Icon(
+                    imageVector = actionIcon,
+                    contentDescription = actionIconContentDescription,
+                    tint = colorScheme.onSurface,
+                )
+            }
+        },
+        colors = colors,
+       modifier = modifier,
+    )
+}
+//END WITH SPECIAL TOP BAR
 
+//BOTTOM NAVIGATION:
 @Composable
 fun currentRoute(navController: NavHostController): String? {
     val entry by navController.currentBackStackEntryAsState()
@@ -187,4 +226,5 @@ fun BottomBar(
         }
     }
 }
+
 

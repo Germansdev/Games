@@ -26,6 +26,7 @@ import androidx.compose.material.icons.rounded.Games
 import androidx.compose.material.icons.rounded.Share
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -87,6 +88,7 @@ fun GameListScreen(
                 GameCard(
                     gameViewModel,
                     game,
+                    onClick = {  }
                 )
             }
         }
@@ -94,10 +96,12 @@ fun GameListScreen(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GameCard(
     gameViewModel: GameViewModel,
     game: Game,
+    onClick: () -> Unit
 ) {
 
     var favorite by remember { mutableStateOf(false) }
@@ -121,7 +125,8 @@ Log.d(TAG, gameViewModel.favorites.value.size.toString())
             .fillMaxWidth()
             .padding(top = 5.dp, bottom = 5.dp, start = 10.dp, end = 10.dp),
         elevation = CardDefaults.cardElevation(5.dp),
-        shape = RoundedCornerShape(8.dp)
+        shape = RoundedCornerShape(8.dp),
+        onClick = onClick
     ) {
 
         Column {

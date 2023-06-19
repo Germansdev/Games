@@ -15,9 +15,10 @@ sealed class BottomBarScreen(
     val route: String,
     val title: String,
     val icon: ImageVector
+
 ) {
     object Pantalla1 : BottomBarScreen(
-        route = "HOMESCREEN",
+        route = "HOME-SCREEN",
         title = "Home",
         icon = Icons.Filled.Home
     )
@@ -53,4 +54,5 @@ sealed class BottomBarScreen(
     )
 
 }
+
 
