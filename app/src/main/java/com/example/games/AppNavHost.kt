@@ -1,23 +1,19 @@
 package com.example.games
 
-import android.telecom.Call.Details
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.navigation
 import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.Pantalla1
-import com.example.games.model.Game
-import com.example.games.ui.GameUiState
+import com.example.games.appDestinations.DetailsDestination
 import com.example.games.ui.GameViewModel
 import com.example.games.ui.SharedScreen
 import com.example.games.ui.screens.DetailsScreen
 import com.example.games.ui.screens.FavoritesScreen
-import com.example.games.ui.screens.GameCard
-import com.example.games.ui.screens.GameListScreen
 import com.example.games.ui.screens.HomeScreen
 import com.example.games.ui.screens.Played
 import com.example.games.ui.screens.RatedScreen
@@ -40,8 +36,13 @@ fun GameNavHost(
     //with CenterAlignedTopAppBar:
     //val navController = gameState.navController
 
-    val viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)
-    val games = viewModel.games.value
+//XXXX this line commented, just only for database, before worked good only fetch:
+   // val viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)
+
+ //XXXX this line replaced the previous  with codelab inventory...:
+    val viewModel: GameViewModel = viewModel(factory = viewModelFactory { this })
+
+    //val games = viewModel.games.value
 
     NavHost(
         navController = navController,
@@ -60,7 +61,12 @@ fun GameNavHost(
             gameUiState = GameUiState.Loading,
             retryAction =  gameViewModel::getGames )*/
             val gameViewModel: GameViewModel =
+            //this line ok, previous change codelab:
                 viewModel(factory = GameViewModel.Factory)
+
+                //this with viewModelProvider, instead only Factory:
+            //viewModel(factory = viewModelFactory {  })
+
             HomeScreen(
                 gameUiState = gameViewModel.gameUiState,
                 retryAction = gameViewModel::getGames,
@@ -93,24 +99,20 @@ fun GameNavHost(
             SharedScreen()
         }
 
-        composable(route = detailsDestination.DetailsScreen.name){
-           // val viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)
-           // viewModel.getGames()
-            // DetailsScreen(gameViewModel = viewModel,
-              //  game = ( game) -> Unit
 
-            }
+        composable(route = DetailsDestination.DetailsScreen.name) {
+          //  val detailViewModel: DetailsViewModel = viewModel(factory = DetailsViewModel.Factory)
+          //  detailViewModel.getGame(viewModel.selectedGameId)
+
+            DetailsScreen(
+               // viewModel = detailViewModel,
+                //retryAction = { detailViewModel.getGame(detailViewModel.selectedGameId) },
+            )
         }
-
-    //END previous
-
-
     }
-
-
-enum class detailsDestination (val title: String){
- DetailsScreen(title = "Details")
 }
+
+
 
 /**
 //with CenterAlignedTopAppBar:

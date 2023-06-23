@@ -55,4 +55,8 @@ sealed class BottomBarScreen(
 
 }
 
+enum class DetailsDestination (val title: String){
+    DetailsScreen(title = "Details")
+}
+
 

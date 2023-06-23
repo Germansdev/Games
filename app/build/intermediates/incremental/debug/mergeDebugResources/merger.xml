@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3" xmlns:ns1="http://schemas.android.com/tools" xmlns:ns2="urn:oasis:names:tc:xliff:document:1.2"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.arch.core:core-runtime:2.2.0$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\aafb62b892e12c049a5c5ff6d90eb4a8\transformed\core-runtime-2.2.0\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.arch.core:core-runtime:2.2.0" from-dependency="true" generated-set="androidx.arch.core:core-runtime:2.2.0$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\aafb62b892e12c049a5c5ff6d90eb4a8\transformed\core-runtime-2.2.0\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\aafb62b892e12c049a5c5ff6d90eb4a8\transformed\core-runtime-2.2.0\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.startup:startup-runtime:1.1.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8077903a7909563f6b680cc239c1c6fc\transformed\startup-runtime-1.1.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.startup:startup-runtime:1.1.1" from-dependency="true" generated-set="androidx.startup:startup-runtime:1.1.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8077903a7909563f6b680cc239c1c6fc\transformed\startup-runtime-1.1.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8077903a7909563f6b680cc239c1c6fc\transformed\startup-runtime-1.1.1\res\values\values.xml" qualifiers=""><string name="androidx_startup" translatable="false">androidx.startup</string></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.profileinstaller:profileinstaller:1.3.0$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9c8b2ac2301f3a9f23f42edccf9ca028\transformed\profileinstaller-1.3.0\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.profileinstaller:profileinstaller:1.3.0" from-dependency="true" generated-set="androidx.profileinstaller:profileinstaller:1.3.0$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9c8b2ac2301f3a9f23f42edccf9ca028\transformed\profileinstaller-1.3.0\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9c8b2ac2301f3a9f23f42edccf9ca028\transformed\profileinstaller-1.3.0\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.annotation:annotation-experimental:1.3.0$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\1102d454d52a3560109eeab18e6f9627\transformed\annotation-experimental-1.3.0\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.annotation:annotation-experimental:1.3.0" from-dependency="true" generated-set="androidx.annotation:annotation-experimental:1.3.0$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\1102d454d52a3560109eeab18e6f9627\transformed\annotation-experimental-1.3.0\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\1102d454d52a3560109eeab18e6f9627\transformed\annotation-experimental-1.3.0\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.sqlite:sqlite:2.3.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5fc0d1ee687fee59159f3bc5df75de9f\transformed\sqlite-2.3.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.sqlite:sqlite:2.3.1" from-dependency="true" generated-set="androidx.sqlite:sqlite:2.3.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5fc0d1ee687fee59159f3bc5df75de9f\transformed\sqlite-2.3.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5fc0d1ee687fee59159f3bc5df75de9f\transformed\sqlite-2.3.1\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.sqlite:sqlite-framework:2.3.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\ff27b60443343be31b6e39d8297c4c3f\transformed\sqlite-framework-2.3.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.sqlite:sqlite-framework:2.3.1" from-dependency="true" generated-set="androidx.sqlite:sqlite-framework:2.3.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\ff27b60443343be31b6e39d8297c4c3f\transformed\sqlite-framework-2.3.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\ff27b60443343be31b6e39d8297c4c3f\transformed\sqlite-framework-2.3.1\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.core:core-splashscreen:1.0.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f77cb43cacb39445d87a952e6a375dc3\transformed\core-splashscreen-1.0.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.core:core-splashscreen:1.0.1" from-dependency="true" generated-set="androidx.core:core-splashscreen:1.0.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f77cb43cacb39445d87a952e6a375dc3\transformed\core-splashscreen-1.0.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f77cb43cacb39445d87a952e6a375dc3\transformed\core-splashscreen-1.0.1\res\values\values.xml" qualifiers=""><attr format="reference" name="postSplashScreenTheme"/><attr format="dimension" name="splashScreenIconSize"/><attr format="reference" name="windowSplashScreenAnimatedIcon"/><attr format="integer" name="windowSplashScreenAnimationDuration"/><attr format="color" name="windowSplashScreenBackground"/><attr format="color" name="windowSplashScreenIconBackgroundColor"/><dimen name="splashscreen_icon_mask_size_no_background">410dp</dimen><dimen name="splashscreen_icon_mask_size_with_background">342dp</dimen><dimen name="splashscreen_icon_mask_stroke_no_background">109dp</dimen><dimen name="splashscreen_icon_mask_stroke_with_background">92dp</dimen><dimen name="splashscreen_icon_size">?splashScreenIconSize</dimen><dimen name="splashscreen_icon_size_no_background">288dp</dimen><dimen name="splashscreen_icon_size_with_background">240dp</dimen><integer name="default_icon_animation_duration">10000</integer><style name="Base.Theme.SplashScreen" parent="Base.v21.Theme.SplashScreen"/><style name="Base.Theme.SplashScreen.DayNight" parent="Base.Theme.SplashScreen.Light"/><style name="Base.Theme.SplashScreen.Light" parent="Base.v21.Theme.SplashScreen.Light"/><style name="Base.v21.Theme.SplashScreen" parent="android:Theme.DeviceDefault.NoActionBar">
+<merger version="3" xmlns:ns1="http://schemas.android.com/tools" xmlns:ns2="urn:oasis:names:tc:xliff:document:1.2"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.arch.core:core-runtime:2.2.0$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\aafb62b892e12c049a5c5ff6d90eb4a8\transformed\core-runtime-2.2.0\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.arch.core:core-runtime:2.2.0" from-dependency="true" generated-set="androidx.arch.core:core-runtime:2.2.0$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\aafb62b892e12c049a5c5ff6d90eb4a8\transformed\core-runtime-2.2.0\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\aafb62b892e12c049a5c5ff6d90eb4a8\transformed\core-runtime-2.2.0\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.startup:startup-runtime:1.1.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8077903a7909563f6b680cc239c1c6fc\transformed\startup-runtime-1.1.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.startup:startup-runtime:1.1.1" from-dependency="true" generated-set="androidx.startup:startup-runtime:1.1.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8077903a7909563f6b680cc239c1c6fc\transformed\startup-runtime-1.1.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8077903a7909563f6b680cc239c1c6fc\transformed\startup-runtime-1.1.1\res\values\values.xml" qualifiers=""><string name="androidx_startup" translatable="false">androidx.startup</string></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.profileinstaller:profileinstaller:1.3.0$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9c8b2ac2301f3a9f23f42edccf9ca028\transformed\profileinstaller-1.3.0\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.profileinstaller:profileinstaller:1.3.0" from-dependency="true" generated-set="androidx.profileinstaller:profileinstaller:1.3.0$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9c8b2ac2301f3a9f23f42edccf9ca028\transformed\profileinstaller-1.3.0\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9c8b2ac2301f3a9f23f42edccf9ca028\transformed\profileinstaller-1.3.0\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.annotation:annotation-experimental:1.3.0$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\1102d454d52a3560109eeab18e6f9627\transformed\annotation-experimental-1.3.0\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.annotation:annotation-experimental:1.3.0" from-dependency="true" generated-set="androidx.annotation:annotation-experimental:1.3.0$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\1102d454d52a3560109eeab18e6f9627\transformed\annotation-experimental-1.3.0\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\1102d454d52a3560109eeab18e6f9627\transformed\annotation-experimental-1.3.0\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.sqlite:sqlite:2.3.0$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2959df617cb5d93a66ea171fa313b302\transformed\sqlite-2.3.0\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.sqlite:sqlite:2.3.0" from-dependency="true" generated-set="androidx.sqlite:sqlite:2.3.0$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2959df617cb5d93a66ea171fa313b302\transformed\sqlite-2.3.0\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2959df617cb5d93a66ea171fa313b302\transformed\sqlite-2.3.0\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.sqlite:sqlite-framework:2.3.0$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4ac88f09cbfef3beb4357125c7f84b03\transformed\sqlite-framework-2.3.0\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.sqlite:sqlite-framework:2.3.0" from-dependency="true" generated-set="androidx.sqlite:sqlite-framework:2.3.0$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4ac88f09cbfef3beb4357125c7f84b03\transformed\sqlite-framework-2.3.0\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4ac88f09cbfef3beb4357125c7f84b03\transformed\sqlite-framework-2.3.0\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.core:core-splashscreen:1.0.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f77cb43cacb39445d87a952e6a375dc3\transformed\core-splashscreen-1.0.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.core:core-splashscreen:1.0.1" from-dependency="true" generated-set="androidx.core:core-splashscreen:1.0.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f77cb43cacb39445d87a952e6a375dc3\transformed\core-splashscreen-1.0.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f77cb43cacb39445d87a952e6a375dc3\transformed\core-splashscreen-1.0.1\res\values\values.xml" qualifiers=""><attr format="reference" name="postSplashScreenTheme"/><attr format="dimension" name="splashScreenIconSize"/><attr format="reference" name="windowSplashScreenAnimatedIcon"/><attr format="integer" name="windowSplashScreenAnimationDuration"/><attr format="color" name="windowSplashScreenBackground"/><attr format="color" name="windowSplashScreenIconBackgroundColor"/><dimen name="splashscreen_icon_mask_size_no_background">410dp</dimen><dimen name="splashscreen_icon_mask_size_with_background">342dp</dimen><dimen name="splashscreen_icon_mask_stroke_no_background">109dp</dimen><dimen name="splashscreen_icon_mask_stroke_with_background">92dp</dimen><dimen name="splashscreen_icon_size">?splashScreenIconSize</dimen><dimen name="splashscreen_icon_size_no_background">288dp</dimen><dimen name="splashscreen_icon_size_with_background">240dp</dimen><integer name="default_icon_animation_duration">10000</integer><style name="Base.Theme.SplashScreen" parent="Base.v21.Theme.SplashScreen"/><style name="Base.Theme.SplashScreen.DayNight" parent="Base.Theme.SplashScreen.Light"/><style name="Base.Theme.SplashScreen.Light" parent="Base.v21.Theme.SplashScreen.Light"/><style name="Base.v21.Theme.SplashScreen" parent="android:Theme.DeviceDefault.NoActionBar">
     </style><style name="Base.v21.Theme.SplashScreen.Light" parent="android:Theme.DeviceDefault.Light.NoActionBar">
     </style><style name="Theme.SplashScreen" parent="Theme.SplashScreen.Common">
         <item name="postSplashScreenTheme">?android:attr/theme</item>
@@ -43,7 +43,7 @@
         <item name="android:windowSplashScreenIconBackgroundColor">
             ?windowSplashScreenIconBackgroundColor
         </item>
-    </style></file><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f77cb43cacb39445d87a952e6a375dc3\transformed\core-splashscreen-1.0.1\res\values-watch-v20\values-watch-v20.xml" qualifiers="watch-v20"><dimen name="splashscreen_icon_mask_size_no_background">128dp</dimen><dimen name="splashscreen_icon_mask_size_with_background">103dp</dimen><dimen name="splashscreen_icon_mask_stroke_no_background">34dp</dimen><dimen name="splashscreen_icon_mask_stroke_with_background">28dp</dimen><dimen name="splashscreen_icon_size">?splashScreenIconSize</dimen><dimen name="splashscreen_icon_size_no_background">90dp</dimen><dimen name="splashscreen_icon_size_with_background">72dp</dimen><integer name="default_icon_animation_duration">10000</integer></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.window:window-core:1.1.0-rc01$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a86bec033449c14ca5e5988583a32146\transformed\window-core-1.1.0-rc01\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.window:window-core:1.1.0-rc01" from-dependency="true" generated-set="androidx.window:window-core:1.1.0-rc01$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a86bec033449c14ca5e5988583a32146\transformed\window-core-1.1.0-rc01\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a86bec033449c14ca5e5988583a32146\transformed\window-core-1.1.0-rc01\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.room:room-runtime:2.5.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.room:room-runtime:2.5.1" from-dependency="true" generated-set="androidx.room:room-runtime:2.5.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.compose.runtime:runtime:1.5.0-alpha04$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f27ada64a412851e4c3ae662f361ee7f\transformed\runtime-1.5.0-alpha04\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.compose.runtime:runtime:1.5.0-alpha04" from-dependency="true" generated-set="androidx.compose.runtime:runtime:1.5.0-alpha04$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f27ada64a412851e4c3ae662f361ee7f\transformed\runtime-1.5.0-alpha04\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f27ada64a412851e4c3ae662f361ee7f\transformed\runtime-1.5.0-alpha04\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.compose.runtime:runtime-saveable:1.5.0-alpha04$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2849a8d81275b9ad49aa4825ee2648cc\transformed\runtime-saveable-1.5.0-alpha04\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.compose.runtime:runtime-saveable:1.5.0-alpha04" from-dependency="true" generated-set="androidx.compose.runtime:runtime-saveable:1.5.0-alpha04$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2849a8d81275b9ad49aa4825ee2648cc\transformed\runtime-saveable-1.5.0-alpha04\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2849a8d81275b9ad49aa4825ee2648cc\transformed\runtime-saveable-1.5.0-alpha04\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.room:room-ktx:2.5.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a9f4e4e98a4a9b00820de426cd69f424\transformed\room-ktx-2.5.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.room:room-ktx:2.5.1" from-dependency="true" generated-set="androidx.room:room-ktx:2.5.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a9f4e4e98a4a9b00820de426cd69f424\transformed\room-ktx-2.5.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a9f4e4e98a4a9b00820de426cd69f424\transformed\room-ktx-2.5.1\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-runtime-ktx:2.6.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9f34ea29f4271cf1571e093601c23a6d\transformed\lifecycle-runtime-ktx-2.6.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-runtime-ktx:2.6.1" from-dependency="true" generated-set="androidx.lifecycle:lifecycle-runtime-ktx:2.6.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9f34ea29f4271cf1571e093601c23a6d\transformed\lifecycle-runtime-ktx-2.6.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9f34ea29f4271cf1571e093601c23a6d\transformed\lifecycle-runtime-ktx-2.6.1\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5b0dd3b9999fd051da0564481bca6bb6\transformed\lifecycle-viewmodel-ktx-2.6.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1" from-dependency="true" generated-set="androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5b0dd3b9999fd051da0564481bca6bb6\transformed\lifecycle-viewmodel-ktx-2.6.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5b0dd3b9999fd051da0564481bca6bb6\transformed\lifecycle-viewmodel-ktx-2.6.1\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\7a5de02db6b73cae85aa84c2a1d3211b\transformed\lifecycle-viewmodel-compose-2.6.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1" from-dependency="true" generated-set="androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\7a5de02db6b73cae85aa84c2a1d3211b\transformed\lifecycle-viewmodel-compose-2.6.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\7a5de02db6b73cae85aa84c2a1d3211b\transformed\lifecycle-viewmodel-compose-2.6.1\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-runtime-compose:2.6.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\7b5efb3ff09736b653ba76e2862c4700\transformed\lifecycle-runtime-compose-2.6.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-runtime-compose:2.6.1" from-dependency="true" generated-set="androidx.lifecycle:lifecycle-runtime-compose:2.6.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\7b5efb3ff09736b653ba76e2862c4700\transformed\lifecycle-runtime-compose-2.6.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\7b5efb3ff09736b653ba76e2862c4700\transformed\lifecycle-runtime-compose-2.6.1\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-runtime:2.6.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f79233e5e47b51fd61d8fb8827950b62\transformed\lifecycle-runtime-2.6.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-runtime:2.6.1" from-dependency="true" generated-set="androidx.lifecycle:lifecycle-runtime:2.6.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f79233e5e47b51fd61d8fb8827950b62\transformed\lifecycle-runtime-2.6.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f79233e5e47b51fd61d8fb8827950b62\transformed\lifecycle-runtime-2.6.1\res\values\values.xml" qualifiers=""><id name="view_tree_lifecycle_owner"/></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.core:core:1.11.0-alpha04$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8d6a3a3e9b6e1d9b4328090e2a0c4277\transformed\core-1.11.0-alpha04\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.core:core:1.11.0-alpha04" from-dependency="true" generated-set="androidx.core:core:1.11.0-alpha04$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8d6a3a3e9b6e1d9b4328090e2a0c4277\transformed\core-1.11.0-alpha04\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8d6a3a3e9b6e1d9b4328090e2a0c4277\transformed\core-1.11.0-alpha04\res\values\values.xml" qualifiers=""><attr format="reference" name="nestedScrollViewStyle"/><color name="androidx_core_ripple_material_light">#1f000000</color><color name="androidx_core_secondary_text_default_material_light">#8a000000</color><color name="call_notification_answer_color">#1d873b</color><color name="call_notification_decline_color">#d93025</color><color name="notification_action_color_filter">#ffffffff</color><color name="notification_icon_bg_color">#ff9e9e9e</color><dimen name="compat_button_inset_horizontal_material">4dp</dimen><dimen name="compat_button_inset_vertical_material">6dp</dimen><dimen name="compat_button_padding_horizontal_material">8dp</dimen><dimen name="compat_button_padding_vertical_material">4dp</dimen><dimen name="compat_control_corner_material">2dp</dimen><dimen name="compat_notification_large_icon_max_height">320dp</dimen><dimen name="compat_notification_large_icon_max_width">320dp</dimen><dimen name="notification_action_icon_size">32dp</dimen><dimen name="notification_action_text_size">13sp</dimen><dimen name="notification_big_circle_margin">12dp</dimen><dimen name="notification_content_margin_start">8dp</dimen><dimen name="notification_large_icon_height">64dp</dimen><dimen name="notification_large_icon_width">64dp</dimen><dimen name="notification_main_column_padding_top">10dp</dimen><dimen name="notification_media_narrow_margin">@dimen/notification_content_margin_start</dimen><dimen name="notification_right_icon_size">16dp</dimen><dimen name="notification_right_side_padding_top">2dp</dimen><dimen name="notification_small_icon_background_padding">3dp</dimen><dimen name="notification_small_icon_size_as_large">24dp</dimen><dimen name="notification_subtext_size">13sp</dimen><dimen name="notification_top_pad">10dp</dimen><dimen name="notification_top_pad_large_text">5dp</dimen><drawable name="notification_template_icon_bg">#3333B5E5</drawable><drawable name="notification_template_icon_low_bg">#0cffffff</drawable><item name="accessibility_action_clickable_span" type="id"/><item name="accessibility_custom_action_0" type="id"/><item name="accessibility_custom_action_1" type="id"/><item name="accessibility_custom_action_10" type="id"/><item name="accessibility_custom_action_11" type="id"/><item name="accessibility_custom_action_12" type="id"/><item name="accessibility_custom_action_13" type="id"/><item name="accessibility_custom_action_14" type="id"/><item name="accessibility_custom_action_15" type="id"/><item name="accessibility_custom_action_16" type="id"/><item name="accessibility_custom_action_17" type="id"/><item name="accessibility_custom_action_18" type="id"/><item name="accessibility_custom_action_19" type="id"/><item name="accessibility_custom_action_2" type="id"/><item name="accessibility_custom_action_20" type="id"/><item name="accessibility_custom_action_21" type="id"/><item name="accessibility_custom_action_22" type="id"/><item name="accessibility_custom_action_23" type="id"/><item name="accessibility_custom_action_24" type="id"/><item name="accessibility_custom_action_25" type="id"/><item name="accessibility_custom_action_26" type="id"/><item name="accessibility_custom_action_27" type="id"/><item name="accessibility_custom_action_28" type="id"/><item name="accessibility_custom_action_29" type="id"/><item name="accessibility_custom_action_3" type="id"/><item name="accessibility_custom_action_30" type="id"/><item name="accessibility_custom_action_31" type="id"/><item name="accessibility_custom_action_4" type="id"/><item name="accessibility_custom_action_5" type="id"/><item name="accessibility_custom_action_6" type="id"/><item name="accessibility_custom_action_7" type="id"/><item name="accessibility_custom_action_8" type="id"/><item name="accessibility_custom_action_9" type="id"/><item name="line1" type="id"/><item name="line3" type="id"/><item name="tag_accessibility_actions" type="id"/><item name="tag_accessibility_clickable_spans" type="id"/><item name="tag_accessibility_heading" type="id"/><item name="tag_accessibility_pane_title" type="id"/><item name="tag_on_apply_window_listener" type="id"/><item name="tag_on_receive_content_listener" type="id"/><item name="tag_on_receive_content_mime_types" type="id"/><item name="tag_screen_reader_focusable" type="id"/><item name="tag_state_description" type="id"/><item name="tag_transition_group" type="id"/><item name="tag_unhandled_key_event_manager" type="id"/><item name="tag_unhandled_key_listeners" type="id"/><item name="tag_window_insets_animation_callback" type="id"/><item name="text" type="id"/><item name="text2" type="id"/><item name="title" type="id"/><integer name="status_bar_notification_info_maxnum">999</integer><string name="call_notification_answer_action">Answer</string><string name="call_notification_answer_video_action">Video</string><string name="call_notification_decline_action">Decline</string><string name="call_notification_hang_up_action">Hang Up</string><string name="call_notification_incoming_text">Incoming call</string><string name="call_notification_ongoing_text">Ongoing call</string><string name="call_notification_screening_text">Screening an incoming call</string><string name="status_bar_notification_info_overflow">999+</string><style name="TextAppearance.Compat.Notification" parent="@android:style/TextAppearance.StatusBar.EventContent"/><style name="TextAppearance.Compat.Notification.Info">
+    </style></file><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f77cb43cacb39445d87a952e6a375dc3\transformed\core-splashscreen-1.0.1\res\values-watch-v20\values-watch-v20.xml" qualifiers="watch-v20"><dimen name="splashscreen_icon_mask_size_no_background">128dp</dimen><dimen name="splashscreen_icon_mask_size_with_background">103dp</dimen><dimen name="splashscreen_icon_mask_stroke_no_background">34dp</dimen><dimen name="splashscreen_icon_mask_stroke_with_background">28dp</dimen><dimen name="splashscreen_icon_size">?splashScreenIconSize</dimen><dimen name="splashscreen_icon_size_no_background">90dp</dimen><dimen name="splashscreen_icon_size_with_background">72dp</dimen><integer name="default_icon_animation_duration">10000</integer></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.window:window-core:1.1.0-rc01$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a86bec033449c14ca5e5988583a32146\transformed\window-core-1.1.0-rc01\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.window:window-core:1.1.0-rc01" from-dependency="true" generated-set="androidx.window:window-core:1.1.0-rc01$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a86bec033449c14ca5e5988583a32146\transformed\window-core-1.1.0-rc01\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a86bec033449c14ca5e5988583a32146\transformed\window-core-1.1.0-rc01\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.room:room-runtime:2.5.0$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\14f2bafa638ddc514e5bb7bafbeb2602\transformed\room-runtime-2.5.0\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.room:room-runtime:2.5.0" from-dependency="true" generated-set="androidx.room:room-runtime:2.5.0$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\14f2bafa638ddc514e5bb7bafbeb2602\transformed\room-runtime-2.5.0\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\14f2bafa638ddc514e5bb7bafbeb2602\transformed\room-runtime-2.5.0\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.compose.runtime:runtime:1.5.0-alpha04$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f27ada64a412851e4c3ae662f361ee7f\transformed\runtime-1.5.0-alpha04\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.compose.runtime:runtime:1.5.0-alpha04" from-dependency="true" generated-set="androidx.compose.runtime:runtime:1.5.0-alpha04$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f27ada64a412851e4c3ae662f361ee7f\transformed\runtime-1.5.0-alpha04\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f27ada64a412851e4c3ae662f361ee7f\transformed\runtime-1.5.0-alpha04\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.compose.runtime:runtime-saveable:1.5.0-alpha04$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2849a8d81275b9ad49aa4825ee2648cc\transformed\runtime-saveable-1.5.0-alpha04\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.compose.runtime:runtime-saveable:1.5.0-alpha04" from-dependency="true" generated-set="androidx.compose.runtime:runtime-saveable:1.5.0-alpha04$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2849a8d81275b9ad49aa4825ee2648cc\transformed\runtime-saveable-1.5.0-alpha04\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2849a8d81275b9ad49aa4825ee2648cc\transformed\runtime-saveable-1.5.0-alpha04\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.room:room-ktx:2.5.0$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4b27339fa7b2d973aab3f5557017b7f8\transformed\room-ktx-2.5.0\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.room:room-ktx:2.5.0" from-dependency="true" generated-set="androidx.room:room-ktx:2.5.0$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4b27339fa7b2d973aab3f5557017b7f8\transformed\room-ktx-2.5.0\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4b27339fa7b2d973aab3f5557017b7f8\transformed\room-ktx-2.5.0\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-runtime-ktx:2.6.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9f34ea29f4271cf1571e093601c23a6d\transformed\lifecycle-runtime-ktx-2.6.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-runtime-ktx:2.6.1" from-dependency="true" generated-set="androidx.lifecycle:lifecycle-runtime-ktx:2.6.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9f34ea29f4271cf1571e093601c23a6d\transformed\lifecycle-runtime-ktx-2.6.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9f34ea29f4271cf1571e093601c23a6d\transformed\lifecycle-runtime-ktx-2.6.1\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5b0dd3b9999fd051da0564481bca6bb6\transformed\lifecycle-viewmodel-ktx-2.6.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1" from-dependency="true" generated-set="androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5b0dd3b9999fd051da0564481bca6bb6\transformed\lifecycle-viewmodel-ktx-2.6.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5b0dd3b9999fd051da0564481bca6bb6\transformed\lifecycle-viewmodel-ktx-2.6.1\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\7a5de02db6b73cae85aa84c2a1d3211b\transformed\lifecycle-viewmodel-compose-2.6.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1" from-dependency="true" generated-set="androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\7a5de02db6b73cae85aa84c2a1d3211b\transformed\lifecycle-viewmodel-compose-2.6.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\7a5de02db6b73cae85aa84c2a1d3211b\transformed\lifecycle-viewmodel-compose-2.6.1\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-runtime-compose:2.6.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\7b5efb3ff09736b653ba76e2862c4700\transformed\lifecycle-runtime-compose-2.6.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-runtime-compose:2.6.1" from-dependency="true" generated-set="androidx.lifecycle:lifecycle-runtime-compose:2.6.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\7b5efb3ff09736b653ba76e2862c4700\transformed\lifecycle-runtime-compose-2.6.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\7b5efb3ff09736b653ba76e2862c4700\transformed\lifecycle-runtime-compose-2.6.1\res\values\values.xml" qualifiers=""/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-runtime:2.6.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f79233e5e47b51fd61d8fb8827950b62\transformed\lifecycle-runtime-2.6.1\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.lifecycle:lifecycle-runtime:2.6.1" from-dependency="true" generated-set="androidx.lifecycle:lifecycle-runtime:2.6.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f79233e5e47b51fd61d8fb8827950b62\transformed\lifecycle-runtime-2.6.1\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f79233e5e47b51fd61d8fb8827950b62\transformed\lifecycle-runtime-2.6.1\res\values\values.xml" qualifiers=""><id name="view_tree_lifecycle_owner"/></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.core:core:1.11.0-alpha04$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8d6a3a3e9b6e1d9b4328090e2a0c4277\transformed\core-1.11.0-alpha04\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.core:core:1.11.0-alpha04" from-dependency="true" generated-set="androidx.core:core:1.11.0-alpha04$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8d6a3a3e9b6e1d9b4328090e2a0c4277\transformed\core-1.11.0-alpha04\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8d6a3a3e9b6e1d9b4328090e2a0c4277\transformed\core-1.11.0-alpha04\res\values\values.xml" qualifiers=""><attr format="reference" name="nestedScrollViewStyle"/><color name="androidx_core_ripple_material_light">#1f000000</color><color name="androidx_core_secondary_text_default_material_light">#8a000000</color><color name="call_notification_answer_color">#1d873b</color><color name="call_notification_decline_color">#d93025</color><color name="notification_action_color_filter">#ffffffff</color><color name="notification_icon_bg_color">#ff9e9e9e</color><dimen name="compat_button_inset_horizontal_material">4dp</dimen><dimen name="compat_button_inset_vertical_material">6dp</dimen><dimen name="compat_button_padding_horizontal_material">8dp</dimen><dimen name="compat_button_padding_vertical_material">4dp</dimen><dimen name="compat_control_corner_material">2dp</dimen><dimen name="compat_notification_large_icon_max_height">320dp</dimen><dimen name="compat_notification_large_icon_max_width">320dp</dimen><dimen name="notification_action_icon_size">32dp</dimen><dimen name="notification_action_text_size">13sp</dimen><dimen name="notification_big_circle_margin">12dp</dimen><dimen name="notification_content_margin_start">8dp</dimen><dimen name="notification_large_icon_height">64dp</dimen><dimen name="notification_large_icon_width">64dp</dimen><dimen name="notification_main_column_padding_top">10dp</dimen><dimen name="notification_media_narrow_margin">@dimen/notification_content_margin_start</dimen><dimen name="notification_right_icon_size">16dp</dimen><dimen name="notification_right_side_padding_top">2dp</dimen><dimen name="notification_small_icon_background_padding">3dp</dimen><dimen name="notification_small_icon_size_as_large">24dp</dimen><dimen name="notification_subtext_size">13sp</dimen><dimen name="notification_top_pad">10dp</dimen><dimen name="notification_top_pad_large_text">5dp</dimen><drawable name="notification_template_icon_bg">#3333B5E5</drawable><drawable name="notification_template_icon_low_bg">#0cffffff</drawable><item name="accessibility_action_clickable_span" type="id"/><item name="accessibility_custom_action_0" type="id"/><item name="accessibility_custom_action_1" type="id"/><item name="accessibility_custom_action_10" type="id"/><item name="accessibility_custom_action_11" type="id"/><item name="accessibility_custom_action_12" type="id"/><item name="accessibility_custom_action_13" type="id"/><item name="accessibility_custom_action_14" type="id"/><item name="accessibility_custom_action_15" type="id"/><item name="accessibility_custom_action_16" type="id"/><item name="accessibility_custom_action_17" type="id"/><item name="accessibility_custom_action_18" type="id"/><item name="accessibility_custom_action_19" type="id"/><item name="accessibility_custom_action_2" type="id"/><item name="accessibility_custom_action_20" type="id"/><item name="accessibility_custom_action_21" type="id"/><item name="accessibility_custom_action_22" type="id"/><item name="accessibility_custom_action_23" type="id"/><item name="accessibility_custom_action_24" type="id"/><item name="accessibility_custom_action_25" type="id"/><item name="accessibility_custom_action_26" type="id"/><item name="accessibility_custom_action_27" type="id"/><item name="accessibility_custom_action_28" type="id"/><item name="accessibility_custom_action_29" type="id"/><item name="accessibility_custom_action_3" type="id"/><item name="accessibility_custom_action_30" type="id"/><item name="accessibility_custom_action_31" type="id"/><item name="accessibility_custom_action_4" type="id"/><item name="accessibility_custom_action_5" type="id"/><item name="accessibility_custom_action_6" type="id"/><item name="accessibility_custom_action_7" type="id"/><item name="accessibility_custom_action_8" type="id"/><item name="accessibility_custom_action_9" type="id"/><item name="line1" type="id"/><item name="line3" type="id"/><item name="tag_accessibility_actions" type="id"/><item name="tag_accessibility_clickable_spans" type="id"/><item name="tag_accessibility_heading" type="id"/><item name="tag_accessibility_pane_title" type="id"/><item name="tag_on_apply_window_listener" type="id"/><item name="tag_on_receive_content_listener" type="id"/><item name="tag_on_receive_content_mime_types" type="id"/><item name="tag_screen_reader_focusable" type="id"/><item name="tag_state_description" type="id"/><item name="tag_transition_group" type="id"/><item name="tag_unhandled_key_event_manager" type="id"/><item name="tag_unhandled_key_listeners" type="id"/><item name="tag_window_insets_animation_callback" type="id"/><item name="text" type="id"/><item name="text2" type="id"/><item name="title" type="id"/><integer name="status_bar_notification_info_maxnum">999</integer><string name="call_notification_answer_action">Answer</string><string name="call_notification_answer_video_action">Video</string><string name="call_notification_decline_action">Decline</string><string name="call_notification_hang_up_action">Hang Up</string><string name="call_notification_incoming_text">Incoming call</string><string name="call_notification_ongoing_text">Ongoing call</string><string name="call_notification_screening_text">Screening an incoming call</string><string name="status_bar_notification_info_overflow">999+</string><style name="TextAppearance.Compat.Notification" parent="@android:style/TextAppearance.StatusBar.EventContent"/><style name="TextAppearance.Compat.Notification.Info">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style><style name="TextAppearance.Compat.Notification.Line2" parent="TextAppearance.Compat.Notification.Info"/><style name="TextAppearance.Compat.Notification.Time">
@@ -2770,12 +2770,1338 @@
     </declare-styleable><declare-styleable name="StateListDrawableItem">
         
         <attr name="android:drawable"/>
-    </declare-styleable></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="io.coil-kt:coil-base:2.2.2$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\019c9410794d83e2856e5bf1661c542f\transformed\coil-base-2.2.2\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="io.coil-kt:coil-base:2.2.2" from-dependency="true" generated-set="io.coil-kt:coil-base:2.2.2$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\019c9410794d83e2856e5bf1661c542f\transformed\coil-base-2.2.2\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\019c9410794d83e2856e5bf1661c542f\transformed\coil-base-2.2.2\res\values\values.xml" qualifiers=""><item name="coil_request_manager" type="id"/></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res"><file name="baseline_favorite_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_favorite_24.xml" qualifiers="" type="drawable"/><file name="baseline_favorite_border_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_favorite_border_24.xml" qualifiers="" type="drawable"/><file name="baseline_games_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_games_24.xml" qualifiers="" type="drawable"/><file name="baseline_home_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_home_24.xml" qualifiers="" type="drawable"/><file name="baseline_search_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_search_24.xml" qualifiers="" type="drawable"/><file name="baseline_share_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_share_24.xml" qualifiers="" type="drawable"/><file name="baseline_star_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_star_24.xml" qualifiers="" type="drawable"/><file name="baseline_star_outline_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_star_outline_24.xml" qualifiers="" type="drawable"/><file name="home_rounded" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\home_rounded.xml" qualifiers="" type="drawable"/><file name="ic_broken_image" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\ic_broken_image.xml" qualifiers="" type="drawable"/><file name="ic_connection_error" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\ic_connection_error.xml" qualifiers="" type="drawable"/><file name="ic_launcher_foreground" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\ic_launcher_foreground.xml" qualifiers="" type="drawable"/><file name="ic_menu_burguer" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\ic_menu_burguer.xml" qualifiers="" type="drawable"/><file name="ic_not_found" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\ic_not_found.xml" qualifiers="" type="drawable"/><file name="loading_img" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\loading_img.xml" qualifiers="" type="drawable"/><file name="outline_home_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\outline_home_24.xml" qualifiers="" type="drawable"/><file name="splash" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\splash.xml" qualifiers="" type="drawable"/><file name="splash_initial" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\splash_initial.jpg" qualifiers="" type="drawable"/><file name="ic_launcher" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-anydpi-v26\ic_launcher_round.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-hdpi\ic_launcher.png" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-hdpi\ic_launcher_round.png" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-mdpi\ic_launcher.png" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-mdpi\ic_launcher_round.png" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-xhdpi\ic_launcher.png" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-xhdpi\ic_launcher_round.png" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-xxhdpi\ic_launcher.png" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-xxhdpi\ic_launcher_round.png" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-xxxhdpi\ic_launcher.png" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-xxxhdpi\ic_launcher_round.png" qualifiers="xxxhdpi-v4" type="mipmap"/><file path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\values\colors.xml" qualifiers=""><color name="black">#FF000000</color><color name="white">#FFFFFFFF</color><color name="transparent">#00000000</color><color name="background_light">#FFFDFCF4</color><color name="background_dark">#FF1B1C18</color><color name="orange_star">#FFC107</color><color name="cyan_700">#00c7ce</color></file><file path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\values\ic_launcher_background.xml" qualifiers=""><color name="ic_launcher_background">#000000</color></file><file path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\values\strings.xml" qualifiers=""><string name="loading">Loading</string><string name="loading_fail">Fail to load</string><string name="retry">Retry</string><string name="game_title">Game Title</string><string name="no_favorite_games">No favorite games</string><string name="menu">Menu</string><string name="favorites">favorites</string><string name="rated">Rated</string><string name="played">Played</string><string name="btn_try_again">try again</string><string name="shared">Shared</string><string name="no_records_found_msg">Nothing found</string><string name="back_button">back_button</string><string name="homescreen">Home</string><string name="app_name">" Games"</string><string name="subject">"Play this game is incredible"</string><string name="link">
+    </declare-styleable></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="io.coil-kt:coil-base:2.2.2$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\019c9410794d83e2856e5bf1661c542f\transformed\coil-base-2.2.2\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="io.coil-kt:coil-base:2.2.2" from-dependency="true" generated-set="io.coil-kt:coil-base:2.2.2$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\019c9410794d83e2856e5bf1661c542f\transformed\coil-base-2.2.2\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\019c9410794d83e2856e5bf1661c542f\transformed\coil-base-2.2.2\res\values\values.xml" qualifiers=""><item name="coil_request_manager" type="id"/></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.constraintlayout:constraintlayout:2.1.4$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\b0a152a1c3d1a6d428f66f4cb589b881\transformed\constraintlayout-2.1.4\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="androidx.constraintlayout:constraintlayout:2.1.4" from-dependency="true" generated-set="androidx.constraintlayout:constraintlayout:2.1.4$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\b0a152a1c3d1a6d428f66f4cb589b881\transformed\constraintlayout-2.1.4\res"><file path="C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\b0a152a1c3d1a6d428f66f4cb589b881\transformed\constraintlayout-2.1.4\res\values\values.xml" qualifiers=""><attr format="enum" name="animateCircleAngleTo">
+        <enum name="bestChoice" value="0"/>
+        <enum name="closest" value="1"/>
+        <enum name="clockwise" value="2"/>
+        <enum name="antiClockwise" value="3"/>
+        <enum name="constraint" value="4"/>
+    </attr><attr format="reference" name="animateRelativeTo"/><attr format="enum" name="arcMode">
+        <enum name="startVertical" value="0"/>
+        <enum name="startHorizontal" value="1"/>
+        <enum name="flip" value="2"/>
+    </attr><attr format="boolean" name="barrierAllowsGoneWidgets"/><attr format="enum" name="barrierDirection">
+        <enum name="left" value="0"/>
+        <enum name="right" value="1"/>
+        <enum name="top" value="2"/>
+        <enum name="bottom" value="3"/>
+        <enum name="start" value="5"/>
+        <enum name="end" value="6"/>
+    </attr><attr format="dimension" name="barrierMargin"/><attr format="dimension" name="borderRound"/><attr format="float" name="borderRoundPercent"/><attr format="boolean" name="chainUseRtl"/><attr format="dimension" name="circleRadius"/><attr format="string" name="circularflow_angles"/><attr format="float" name="circularflow_defaultAngle"/><attr format="dimension" name="circularflow_defaultRadius"/><attr format="string" name="circularflow_radiusInDP"/><attr format="reference" name="circularflow_viewCenter"/><attr format="reference" name="constraintSet"/><attr format="string" name="constraint_referenced_ids"/><attr format="string" name="constraint_referenced_tags"/><attr format="reference" name="content"/><attr format="enum" name="curveFit">
+        <enum name="spline" value="0"/>
+        <enum name="linear" value="1"/>
+    </attr><attr format="integer" name="defaultDuration"/><attr format="float" name="deltaPolarAngle"/><attr format="float" name="deltaPolarRadius"/><attr format="enum" name="dragDirection">
+        <enum name="dragUp" value="0"/>
+        <enum name="dragDown" value="1"/>
+        <enum name="dragLeft" value="2"/>
+        <enum name="dragRight" value="3"/>
+        <enum name="dragStart" value="4"/>
+        <enum name="dragEnd" value="5"/>
+        <enum name="dragClockwise" value="6"/>
+        <enum name="dragAnticlockwise" value="7"/>
+    </attr><attr format="enum" name="drawPath">
+        <enum name="none" value="0"/>
+        <enum name="path" value="1"/>
+        <enum name="pathRelative" value="2"/>
+        <enum name="deltaRelative" value="3"/>
+        <enum name="asConfigured" value="4"/>
+        <enum name="rectangles" value="5"/>
+    </attr><attr format="integer" name="duration"/><attr format="float" name="flow_firstHorizontalBias"/><attr format="enum" name="flow_firstHorizontalStyle">
+        <enum name="spread" value="0"/>
+        <enum name="spread_inside" value="1"/>
+        <enum name="packed" value="2"/>
+    </attr><attr format="float" name="flow_firstVerticalBias"/><attr format="enum" name="flow_firstVerticalStyle">
+        <enum name="spread" value="0"/>
+        <enum name="spread_inside" value="1"/>
+        <enum name="packed" value="2"/>
+    </attr><attr format="enum" name="flow_horizontalAlign">
+        <enum name="start" value="0"/>
+        <enum name="end" value="1"/>
+        <enum name="center" value="2"/>
+    </attr><attr format="float" name="flow_horizontalBias"/><attr format="dimension" name="flow_horizontalGap"/><attr format="enum" name="flow_horizontalStyle">
+        <enum name="spread" value="0"/>
+        <enum name="spread_inside" value="1"/>
+        <enum name="packed" value="2"/>
+    </attr><attr format="float" name="flow_lastHorizontalBias"/><attr format="enum" name="flow_lastHorizontalStyle">
+        <enum name="spread" value="0"/>
+        <enum name="spread_inside" value="1"/>
+        <enum name="packed" value="2"/>
+    </attr><attr format="float" name="flow_lastVerticalBias"/><attr format="enum" name="flow_lastVerticalStyle">
+        <enum name="spread" value="0"/>
+        <enum name="spread_inside" value="1"/>
+        <enum name="packed" value="2"/>
+    </attr><attr format="integer" name="flow_maxElementsWrap"/><attr format="dimension" name="flow_padding"/><attr format="enum" name="flow_verticalAlign">
+        <enum name="top" value="0"/>
+        <enum name="bottom" value="1"/>
+        <enum name="center" value="2"/>
+        <enum name="baseline" value="3"/>
+    </attr><attr format="float" name="flow_verticalBias"/><attr format="dimension" name="flow_verticalGap"/><attr format="enum" name="flow_verticalStyle">
+        <enum name="spread" value="0"/>
+        <enum name="spread_inside" value="1"/>
+        <enum name="packed" value="2"/>
+    </attr><attr format="enum" name="flow_wrapMode">
+        <enum name="none" value="0"/>
+        <enum name="chain" value="1"/>
+        <enum name="aligned" value="2"/>
+        <enum name="chain2" value="3"/>
+    </attr><attr format="integer" name="framePosition"/><attr format="boolean" name="guidelineUseRtl"/><attr format="reference" name="layoutDescription"/><attr format="enum" name="layoutDuringTransition">
+        <enum name="ignoreRequest" value="0"/>
+        <enum name="honorRequest" value="1"/>
+        <enum name="callMeasure" value="2"/>
+
+    </attr><attr format="boolean" name="layout_constrainedHeight"/><attr format="boolean" name="layout_constrainedWidth"/><attr format="integer" name="layout_constraintBaseline_creator"/><attr format="reference|enum" name="layout_constraintBaseline_toBaselineOf">
+        <enum name="parent" value="0"/>
+    </attr><attr format="reference|enum" name="layout_constraintBaseline_toBottomOf">
+        <enum name="parent" value="0"/>
+    </attr><attr format="reference|enum" name="layout_constraintBaseline_toTopOf">
+        <enum name="parent" value="0"/>
+    </attr><attr format="integer" name="layout_constraintBottom_creator"/><attr format="reference|enum" name="layout_constraintBottom_toBottomOf">
+        <enum name="parent" value="0"/>
+    </attr><attr format="reference|enum" name="layout_constraintBottom_toTopOf">
+        <enum name="parent" value="0"/>
+    </attr><attr format="reference" name="layout_constraintCircle"/><attr format="float" name="layout_constraintCircleAngle"/><attr format="dimension" name="layout_constraintCircleRadius"/><attr format="string" name="layout_constraintDimensionRatio"/><attr format="reference|enum" name="layout_constraintEnd_toEndOf">
+        <enum name="parent" value="0"/>
+    </attr><attr format="reference|enum" name="layout_constraintEnd_toStartOf">
+        <enum name="parent" value="0"/>
+    </attr><attr format="dimension" name="layout_constraintGuide_begin"/><attr format="dimension" name="layout_constraintGuide_end"/><attr format="float" name="layout_constraintGuide_percent"/><attr format="dimension|enum|string" name="layout_constraintHeight">
+        <enum name="match_parent" value="-1"/>
+        <enum name="wrap_content" value="-2"/>
+        <enum name="match_constraint" value="-3"/>
+        <enum name="wrap_content_constrained" value="-4"/>
+    </attr><attr name="layout_constraintHeight_default">
+        <enum name="spread" value="0"/>
+        <enum name="wrap" value="1"/>
+        <enum name="percent" value="2"/>
+    </attr><attr format="dimension|enum" name="layout_constraintHeight_max">
+        <enum name="wrap" value="-2"/>
+    </attr><attr format="dimension|enum" name="layout_constraintHeight_min">
+        <enum name="wrap" value="-2"/>
+    </attr><attr format="float" name="layout_constraintHeight_percent"/><attr format="float" name="layout_constraintHorizontal_bias"/><attr format="enum" name="layout_constraintHorizontal_chainStyle">
+        <enum name="spread" value="0"/>
+        <enum name="spread_inside" value="1"/>
+        <enum name="packed" value="2"/>
+    </attr><attr format="float" name="layout_constraintHorizontal_weight"/><attr format="integer" name="layout_constraintLeft_creator"/><attr format="reference|enum" name="layout_constraintLeft_toLeftOf">
+        <enum name="parent" value="0"/>
+    </attr><attr format="reference|enum" name="layout_constraintLeft_toRightOf">
+        <enum name="parent" value="0"/>
+    </attr><attr format="integer" name="layout_constraintRight_creator"/><attr format="reference|enum" name="layout_constraintRight_toLeftOf">
+        <enum name="parent" value="0"/>
+    </attr><attr format="reference|enum" name="layout_constraintRight_toRightOf">
+        <enum name="parent" value="0"/>
+    </attr><attr format="reference|enum" name="layout_constraintStart_toEndOf">
+        <enum name="parent" value="0"/>
+    </attr><attr format="reference|enum" name="layout_constraintStart_toStartOf">
+        <enum name="parent" value="0"/>
+    </attr><attr format="string" name="layout_constraintTag"/><attr format="integer" name="layout_constraintTop_creator"/><attr format="reference|enum" name="layout_constraintTop_toBottomOf">
+        <enum name="parent" value="0"/>
+    </attr><attr format="reference|enum" name="layout_constraintTop_toTopOf">
+        <enum name="parent" value="0"/>
+    </attr><attr format="float" name="layout_constraintVertical_bias"/><attr format="enum" name="layout_constraintVertical_chainStyle">
+        <enum name="spread" value="0"/>
+        <enum name="spread_inside" value="1"/>
+        <enum name="packed" value="2"/>
+    </attr><attr format="float" name="layout_constraintVertical_weight"/><attr format="dimension|enum|string" name="layout_constraintWidth">
+        <enum name="match_parent" value="-1"/>
+        <enum name="wrap_content" value="-2"/>
+        <enum name="match_constraint" value="-3"/>
+        <enum name="wrap_content_constrained" value="-4"/>
+    </attr><attr name="layout_constraintWidth_default">
+        <enum name="spread" value="0"/>
+        <enum name="wrap" value="1"/>
+        <enum name="percent" value="2"/>
+    </attr><attr format="dimension|enum" name="layout_constraintWidth_max">
+        <enum name="wrap" value="-2"/>
+    </attr><attr format="dimension|enum" name="layout_constraintWidth_min">
+        <enum name="wrap" value="-2"/>
+    </attr><attr format="float" name="layout_constraintWidth_percent"/><attr format="dimension" name="layout_editor_absoluteX"/><attr format="dimension" name="layout_editor_absoluteY"/><attr format="dimension" name="layout_goneMarginBaseline"/><attr format="dimension" name="layout_goneMarginBottom"/><attr format="dimension" name="layout_goneMarginEnd"/><attr format="dimension" name="layout_goneMarginLeft"/><attr format="dimension" name="layout_goneMarginRight"/><attr format="dimension" name="layout_goneMarginStart"/><attr format="dimension" name="layout_goneMarginTop"/><attr format="dimension" name="layout_marginBaseline"/><attr name="layout_optimizationLevel">
+        <flag name="none" value="0"/>
+        <flag name="legacy" value="0"/>
+        <flag name="standard" value="257"/> 
+        <flag name="direct" value="1"/>
+        <flag name="barrier" value="2"/>
+        <flag name="chains" value="4"/>
+        <flag name="dimensions" value="8"/>
+        <flag name="ratio" value="16"/>
+        <flag name="groups" value="32"/>
+        <flag name="graph" value="64"/>
+        <flag name="graph_wrap" value="128"/>
+        <flag name="cache_measures" value="256"/>
+        <flag name="dependency_ordering" value="512"/>
+        <flag name="grouping" value="1024"/>
+    </attr><attr format="enum" name="layout_wrapBehaviorInParent">
+        <enum name="included" value="0"/>
+        <enum name="horizontal_only" value="1"/>
+        <enum name="vertical_only" value="2"/>
+        <enum name="skipped" value="3"/>
+    </attr><attr format="float" name="motionPathRotate"/><attr format="float" name="motionProgress"/><attr format="float" name="motionStagger"/><attr format="reference|string" name="motionTarget"/><attr format="enum" name="onStateTransition">
+        <enum name="actionDown" value="1"/>
+        <enum name="actionUp" value="2"/>
+        <enum name="actionDownUp" value="3"/>
+        <enum name="sharedValueSet" value="4"/>
+        <enum name="sharedValueUnset" value="5"/>
+    </attr><attr format="enum" name="pathMotionArc">
+        <enum name="none" value="0"/>
+        <enum name="startVertical" value="1"/>
+        <enum name="startHorizontal" value="2"/>
+        <enum name="flip" value="3"/>
+    </attr><attr format="float" name="path_percent"/><attr format="float" name="perpendicularPath_percent"/><attr format="reference|enum" name="pivotAnchor">
+        <enum name="parent" value="0"/>
+    </attr><attr name="placeholder_emptyVisibility">
+        <enum name="visible" value="0"/>
+        <enum name="invisible" value="4"/>
+        <enum name="gone" value="8"/>
+    </attr><attr format="reference" name="polarRelativeTo"/><attr format="string|reference|enum" name="quantizeMotionInterpolator">
+        <enum name="easeInOut" value="0"/>
+        <enum name="easeIn" value="1"/>
+        <enum name="easeOut" value="2"/>
+        <enum name="linear" value="3"/>
+        <enum name="bounce" value="4"/>
+        <enum name="overshoot" value="5"/>
+    </attr><attr format="float" name="quantizeMotionPhase"/><attr format="integer" name="quantizeMotionSteps"/><attr format="float" name="sizePercent"/><attr format="reference" name="targetId"/><attr format="color" name="textOutlineColor"/><attr format="dimension" name="textOutlineThickness"/><attr format="reference" name="touchAnchorId"/><attr format="enum" name="touchAnchorSide">
+        <enum name="top" value="0"/>
+        <enum name="left" value="1"/>
+        <enum name="right" value="2"/>
+        <enum name="bottom" value="3"/>
+        <enum name="middle" value="4"/>
+        <enum name="start" value="5"/>
+        <enum name="end" value="6"/>
+    </attr><attr format="reference" name="transformPivotTarget"/><attr format="boolean" name="transitionDisable"/><attr format="string|enum" name="transitionEasing">
+        <enum name="standard" value="0"/>
+        <enum name="accelerate" value="1"/>
+        <enum name="decelerate" value="2"/>
+        <enum name="linear" value="3"/>
+    </attr><attr format="float" name="transitionPathRotate"/><attr format="enum" name="viewTransitionMode">
+        <enum name="currentState" value="0"/>
+        <enum name="allStates" value="1"/>
+        
+        <enum name="noState" value="2"/>
+    </attr><attr format="enum" name="visibilityMode">
+        <enum name="normal" value="0"/>
+        <enum name="ignore" value="1"/>
+    </attr><attr format="integer" name="waveDecay"/><attr format="float|dimension" name="waveOffset"/><attr format="float" name="wavePeriod"/><attr format="float" name="wavePhase"/><attr format="enum|string" name="waveShape">
+        <enum name="sin" value="0"/>
+        <enum name="square" value="1"/>
+        <enum name="triangle" value="2"/>
+        <enum name="sawtooth" value="3"/>
+        <enum name="reverseSawtooth" value="4"/>
+        <enum name="cos" value="5"/>
+        <enum name="bounce" value="6"/>
+    </attr><attr format="enum" name="waveVariesBy">
+        <enum name="position" value="0"/>
+        <enum name="path" value="1"/>
+    </attr><item name="motion_base" type="id"/><item name="view_transition" type="id"/><declare-styleable name="Carousel">
+        <attr format="reference" name="carousel_firstView"/>
+        <attr format="reference" name="carousel_previousState"/>
+        <attr format="reference" name="carousel_nextState"/>
+        <attr format="boolean" name="carousel_infinite"/>
+        <attr format="reference" name="carousel_forwardTransition"/>
+        <attr format="reference" name="carousel_backwardTransition"/>
+        <attr format="float" name="carousel_touchUp_dampeningFactor"/>
+        <attr format="enum" name="carousel_touchUpMode">
+            <enum name="immediateStop" value="1"/>
+            <enum name="carryVelocity" value="2"/>
+        </attr>
+        <attr format="float" name="carousel_touchUp_velocityThreshold"/>
+        <attr format="enum" name="carousel_emptyViewsBehavior">
+            <enum name="invisible" value="4"/>
+            <enum name="gone" value="8"/>
+        </attr>
+    </declare-styleable><declare-styleable name="Constraint">
+        <attr name="android:orientation"/>
+        <attr name="android:id"/>
+
+        
+        <attr name="android:visibility"/>
+        <attr name="visibilityMode"/>
+
+        
+        <attr name="android:alpha"/>
+
+        
+        <attr name="android:elevation"/>
+
+        
+        <attr name="android:rotation"/>
+
+        
+        <attr name="android:rotationX"/>
+
+        
+        <attr name="android:rotationY"/>
+
+        
+        <attr name="android:scaleX"/>
+
+        
+        <attr name="android:scaleY"/>
+        <attr name="pivotAnchor"/>
+
+        <attr name="android:transformPivotX"/>
+        <attr name="android:transformPivotY"/>
+        <attr name="transformPivotTarget"/>
+
+        
+        <attr name="android:translationX"/>
+        
+        <attr name="android:translationY"/>
+        
+        <attr name="android:translationZ"/>
+        
+        <attr name="android:layout_width"/>
+        
+        <attr name="android:layout_height"/>
+        
+        <attr name="layout_constraintWidth"/>
+        <attr name="layout_constraintHeight"/>
+        <attr name="android:layout_marginStart"/>
+        
+        <attr name="android:layout_marginBottom"/>
+        
+        <attr name="android:layout_marginTop"/>
+        
+        <attr name="android:layout_marginEnd"/>
+        
+        <attr name="android:layout_marginLeft"/>
+        
+        <attr name="android:layout_marginRight"/>
+
+        <attr name="layout_constraintCircle"/>
+        <attr name="layout_constraintCircleRadius"/>
+        <attr name="layout_constraintCircleAngle"/>
+
+        <attr name="layout_constraintGuide_begin"/>
+        <attr name="layout_constraintGuide_end"/>
+        <attr name="layout_constraintGuide_percent"/>
+        <attr name="guidelineUseRtl"/>
+        <attr name="layout_constraintLeft_toLeftOf"/>
+        <attr name="layout_constraintLeft_toRightOf"/>
+        <attr name="layout_constraintRight_toLeftOf"/>
+        <attr name="layout_constraintRight_toRightOf"/>
+        <attr name="layout_constraintTop_toTopOf"/>
+        <attr name="layout_constraintTop_toBottomOf"/>
+        <attr name="layout_constraintBottom_toTopOf"/>
+        <attr name="layout_constraintBottom_toBottomOf"/>
+        <attr name="layout_constraintBaseline_toBaselineOf"/>
+        <attr name="layout_constraintBaseline_toTopOf"/>
+        <attr name="layout_constraintBaseline_toBottomOf"/>
+        <attr name="layout_constraintStart_toEndOf"/>
+        <attr name="layout_constraintStart_toStartOf"/>
+        <attr name="layout_constraintEnd_toStartOf"/>
+        <attr name="layout_constraintEnd_toEndOf"/>
+        <attr name="layout_goneMarginLeft"/>
+        <attr name="layout_goneMarginTop"/>
+        <attr name="layout_goneMarginRight"/>
+        <attr name="layout_goneMarginBottom"/>
+        <attr name="layout_goneMarginStart"/>
+        <attr name="layout_goneMarginEnd"/>
+        <attr name="layout_goneMarginBaseline"/>
+        <attr name="layout_marginBaseline"/>
+        <attr name="layout_constrainedWidth"/>
+        <attr name="layout_constrainedHeight"/>
+        <attr name="layout_constraintHorizontal_bias"/>
+        <attr name="layout_constraintVertical_bias"/>
+        <attr name="layout_constraintWidth_default"/>
+        <attr name="layout_constraintHeight_default"/>
+        <attr name="layout_constraintWidth_min"/>
+        <attr name="layout_constraintWidth_max"/>
+        <attr name="layout_constraintWidth_percent"/>
+        <attr name="layout_constraintHeight_min"/>
+        <attr name="layout_constraintHeight_max"/>
+        <attr name="layout_constraintHeight_percent"/>
+        <attr name="layout_constraintLeft_creator"/>
+        <attr name="layout_constraintTop_creator"/>
+        <attr name="layout_constraintRight_creator"/>
+        <attr name="layout_constraintBottom_creator"/>
+        <attr name="layout_constraintBaseline_creator"/>
+        <attr name="layout_constraintDimensionRatio"/>
+        <attr name="layout_constraintHorizontal_weight"/>
+        <attr name="layout_constraintVertical_weight"/>
+        <attr name="layout_constraintHorizontal_chainStyle"/>
+        <attr name="layout_constraintVertical_chainStyle"/>
+        <attr name="layout_editor_absoluteX"/>
+        <attr name="layout_editor_absoluteY"/>
+        <attr name="layout_wrapBehaviorInParent"/>
+
+        <attr name="barrierDirection"/>
+        <attr name="barrierMargin"/>
+        <attr name="constraint_referenced_ids"/>
+        <attr name="constraint_referenced_tags"/>
+
+        <attr name="android:maxHeight"/>
+        <attr name="android:maxWidth"/>
+        <attr name="android:minHeight"/>
+        <attr name="android:minWidth"/>
+        <attr name="barrierAllowsGoneWidgets"/>
+        <attr name="chainUseRtl"/>
+
+        <attr name="flow_horizontalStyle"/>
+        <attr name="flow_verticalStyle"/>
+        <attr name="flow_verticalAlign"/>
+        <attr name="flow_horizontalAlign"/>
+        <attr name="flow_verticalBias"/>
+        <attr name="flow_horizontalBias"/>
+        <attr name="flow_wrapMode"/>
+        <attr name="flow_maxElementsWrap"/>
+        <attr name="flow_horizontalGap"/>
+        <attr name="flow_verticalGap"/>
+        
+        
+
+        <attr name="flow_firstHorizontalStyle"/>
+        <attr name="flow_firstVerticalStyle"/>
+        <attr name="flow_firstHorizontalBias"/>
+        <attr name="flow_firstVerticalBias"/>
+
+        <attr name="flow_lastHorizontalStyle"/>
+        <attr name="flow_lastVerticalStyle"/>
+        <attr name="flow_lastHorizontalBias"/>
+        <attr name="flow_lastVerticalBias"/>
+
+        <attr name="animateRelativeTo"/>
+        <attr name="animateCircleAngleTo"/>
+        <attr name="transitionEasing"/>
+        <attr name="pathMotionArc"/>
+        <attr name="polarRelativeTo"/>
+        <attr name="transitionPathRotate"/>
+        <attr name="drawPath"/>
+        <attr name="motionProgress"/>
+        <attr name="layout_constraintTag"/>
+        <attr name="motionStagger"/>
+        <attr name="quantizeMotionSteps"/>
+        <attr name="quantizeMotionPhase"/>
+        <attr name="quantizeMotionInterpolator"/>
+    </declare-styleable><declare-styleable name="ConstraintLayout_Layout">
+        <attr name="android:orientation"/>
+        <attr name="android:minWidth"/>
+        <attr name="android:minHeight"/>
+        <attr name="android:maxWidth"/>
+        <attr name="android:maxHeight"/>
+        <attr name="android:visibility"/>
+        <attr name="android:elevation"/>
+
+        <attr name="layout_optimizationLevel"/>
+        <attr name="layoutDescription"/>
+
+        <attr name="constraintSet"/>
+        <attr name="barrierDirection"/>
+        <attr name="barrierAllowsGoneWidgets"/>
+        <attr name="barrierMargin"/>
+        <attr name="constraint_referenced_ids"/>
+        <attr name="constraint_referenced_tags"/>
+        <attr name="chainUseRtl"/>
+
+        <attr name="flow_horizontalStyle"/>
+        <attr name="flow_verticalStyle"/>
+        <attr name="flow_wrapMode"/>
+        <attr name="flow_maxElementsWrap"/>
+        <attr name="flow_horizontalGap"/>
+        <attr name="flow_verticalGap"/>
+        <attr name="android:padding"/>
+        <attr name="android:paddingTop"/>
+        <attr name="android:paddingBottom"/>
+        <attr name="android:paddingLeft"/>
+        <attr name="android:paddingRight"/>
+        <attr name="android:paddingStart"/>
+        <attr name="android:paddingEnd"/>
+        <attr name="flow_verticalAlign"/>
+        <attr name="flow_horizontalAlign"/>
+        <attr name="flow_verticalBias"/>
+        <attr name="flow_horizontalBias"/>
+        
+        
+
+        <attr name="flow_firstHorizontalStyle"/>
+        <attr name="flow_firstVerticalStyle"/>
+        <attr name="flow_firstHorizontalBias"/>
+        <attr name="flow_firstVerticalBias"/>
+
+        <attr name="flow_lastHorizontalStyle"/>
+        <attr name="flow_lastVerticalStyle"/>
+        <attr name="flow_lastHorizontalBias"/>
+        <attr name="flow_lastVerticalBias"/>
+
+        <attr name="circularflow_radiusInDP"/>
+        <attr name="circularflow_angles"/>
+        <attr name="circularflow_viewCenter"/>
+        <attr name="circularflow_defaultRadius"/>
+        <attr name="circularflow_defaultAngle"/>
+
+
+        <attr name="layout_constraintCircle"/>
+        <attr name="layout_constraintCircleRadius"/>
+        <attr name="layout_constraintCircleAngle"/>
+
+        <attr name="layout_constraintGuide_begin"/>
+        <attr name="layout_constraintGuide_end"/>
+        <attr name="layout_constraintGuide_percent"/>
+        <attr name="guidelineUseRtl"/>
+        <attr name="layout_constraintLeft_toLeftOf"/>
+        <attr name="layout_constraintLeft_toRightOf"/>
+        <attr name="layout_constraintRight_toLeftOf"/>
+        <attr name="layout_constraintRight_toRightOf"/>
+        <attr name="layout_constraintTop_toTopOf"/>
+        <attr name="layout_constraintTop_toBottomOf"/>
+        <attr name="layout_constraintBottom_toTopOf"/>
+        <attr name="layout_constraintBottom_toBottomOf"/>
+        <attr name="layout_constraintBaseline_toBaselineOf"/>
+        <attr name="layout_constraintBaseline_toTopOf"/>
+        <attr name="layout_constraintBaseline_toBottomOf"/>
+        <attr name="layout_constraintStart_toEndOf"/>
+        <attr name="layout_constraintStart_toStartOf"/>
+        <attr name="layout_constraintEnd_toStartOf"/>
+        <attr name="layout_constraintEnd_toEndOf"/>
+        <attr name="layout_goneMarginLeft"/>
+        <attr name="layout_goneMarginTop"/>
+        <attr name="layout_goneMarginRight"/>
+        <attr name="layout_goneMarginBottom"/>
+        <attr name="layout_goneMarginStart"/>
+        <attr name="layout_goneMarginEnd"/>
+        <attr name="layout_goneMarginBaseline"/>
+        <attr name="layout_marginBaseline"/>
+        <attr name="layout_constraintWidth"/>
+        <attr name="layout_constraintHeight"/>
+        <attr name="android:layout_width"/>
+        <attr name="android:layout_height"/>
+        <attr name="android:layout_margin"/>
+        <attr name="android:layout_marginHorizontal"/>
+        <attr name="android:layout_marginVertical"/>
+        <attr name="android:layout_marginLeft"/>
+        <attr name="android:layout_marginRight"/>
+        <attr name="android:layout_marginTop"/>
+        <attr name="android:layout_marginBottom"/>
+        <attr name="android:layout_marginStart"/>
+        <attr name="android:layout_marginEnd"/>
+        <attr name="layout_constrainedWidth"/>
+        <attr name="layout_constrainedHeight"/>
+        <attr name="layout_constraintHorizontal_bias"/>
+        <attr name="layout_constraintVertical_bias"/>
+        <attr name="layout_constraintWidth_default"/>
+        <attr name="layout_constraintHeight_default"/>
+        <attr name="layout_constraintWidth_min"/>
+        <attr name="layout_constraintWidth_max"/>
+        <attr name="layout_constraintWidth_percent"/>
+        <attr name="layout_constraintHeight_min"/>
+        <attr name="layout_constraintHeight_max"/>
+        <attr name="layout_constraintHeight_percent"/>
+        <attr name="layout_constraintLeft_creator"/>
+        <attr name="layout_constraintTop_creator"/>
+        <attr name="layout_constraintRight_creator"/>
+        <attr name="layout_constraintBottom_creator"/>
+        <attr name="layout_constraintBaseline_creator"/>
+        <attr name="layout_constraintDimensionRatio"/>
+        <attr name="layout_constraintHorizontal_weight"/>
+        <attr name="layout_constraintVertical_weight"/>
+        <attr name="layout_constraintHorizontal_chainStyle"/>
+        <attr name="layout_constraintVertical_chainStyle"/>
+        <attr name="layout_editor_absoluteX"/>
+        <attr name="layout_editor_absoluteY"/>
+        <attr name="layout_constraintTag"/>
+        <attr name="layout_wrapBehaviorInParent"/>
+    </declare-styleable><declare-styleable name="ConstraintLayout_ReactiveGuide">
+        <attr format="reference" name="reactiveGuide_valueId"/>
+        <attr format="boolean" name="reactiveGuide_animateChange"/>
+        <attr format="boolean" name="reactiveGuide_applyToAllConstraintSets"/>
+        <attr format="reference" name="reactiveGuide_applyToConstraintSet"/>
+    </declare-styleable><declare-styleable name="ConstraintLayout_placeholder">
+        <attr name="placeholder_emptyVisibility"/>
+        <attr name="content"/>
+    </declare-styleable><declare-styleable name="ConstraintOverride">
+        <attr name="android:orientation"/>
+        <attr name="android:id"/>
+        <attr name="motionTarget"/>
+
+        
+        <attr name="android:visibility"/>
+        <attr name="visibilityMode"/>
+
+        
+        <attr name="android:alpha"/>
+
+        
+        <attr name="android:elevation"/>
+
+        
+        <attr name="android:rotation"/>
+
+        
+        <attr name="android:rotationX"/>
+
+        
+        <attr name="android:rotationY"/>
+
+        
+        <attr name="android:scaleX"/>
+
+        
+        <attr name="android:scaleY"/>
+        <attr name="pivotAnchor"/>
+
+        <attr name="android:transformPivotX"/>
+        <attr name="android:transformPivotY"/>
+        <attr name="transformPivotTarget"/>
+
+        
+        <attr name="android:translationX"/>
+        
+        <attr name="android:translationY"/>
+        
+        <attr name="android:translationZ"/>
+        
+        <attr name="android:layout_width"/>
+        
+        <attr name="android:layout_height"/>
+        
+        <attr name="layout_constraintWidth"/>
+        <attr name="layout_constraintHeight"/>
+        <attr name="android:layout_marginStart"/>
+        
+        <attr name="android:layout_marginBottom"/>
+        
+        <attr name="android:layout_marginTop"/>
+        
+        <attr name="android:layout_marginEnd"/>
+        
+        <attr name="android:layout_marginLeft"/>
+        
+        <attr name="android:layout_marginRight"/>
+
+        <attr name="layout_constraintCircleRadius"/>
+        <attr name="layout_constraintCircleAngle"/>
+
+        <attr name="layout_constraintGuide_begin"/>
+        <attr name="layout_constraintGuide_end"/>
+        <attr name="layout_constraintGuide_percent"/>
+        <attr name="guidelineUseRtl"/>
+
+        <attr name="layout_goneMarginLeft"/>
+        <attr name="layout_goneMarginTop"/>
+        <attr name="layout_goneMarginRight"/>
+        <attr name="layout_goneMarginBottom"/>
+        <attr name="layout_goneMarginStart"/>
+        <attr name="layout_goneMarginEnd"/>
+        <attr name="layout_goneMarginBaseline"/>
+        <attr name="layout_marginBaseline"/>
+        <attr name="layout_constrainedWidth"/>
+        <attr name="layout_constrainedHeight"/>
+        <attr name="layout_constraintHorizontal_bias"/>
+        <attr name="layout_constraintVertical_bias"/>
+        <attr name="layout_constraintWidth_default"/>
+        <attr name="layout_constraintHeight_default"/>
+        <attr name="layout_constraintWidth_min"/>
+        <attr name="layout_constraintWidth_max"/>
+        <attr name="layout_constraintWidth_percent"/>
+        <attr name="layout_constraintHeight_min"/>
+        <attr name="layout_constraintHeight_max"/>
+        <attr name="layout_constraintHeight_percent"/>
+        <attr name="layout_constraintLeft_creator"/>
+        <attr name="layout_constraintTop_creator"/>
+        <attr name="layout_constraintRight_creator"/>
+        <attr name="layout_constraintBottom_creator"/>
+        <attr name="layout_constraintBaseline_creator"/>
+        <attr name="layout_constraintDimensionRatio"/>
+        <attr name="layout_constraintHorizontal_weight"/>
+        <attr name="layout_constraintVertical_weight"/>
+        <attr name="layout_constraintHorizontal_chainStyle"/>
+        <attr name="layout_constraintVertical_chainStyle"/>
+        <attr name="layout_editor_absoluteX"/>
+        <attr name="layout_editor_absoluteY"/>
+        <attr name="layout_wrapBehaviorInParent"/>
+
+        <attr name="barrierDirection"/>
+        <attr name="barrierMargin"/>
+        <attr name="constraint_referenced_ids"/>
+        <attr name="android:maxHeight"/>
+        <attr name="android:maxWidth"/>
+        <attr name="android:minHeight"/>
+        <attr name="android:minWidth"/>
+        <attr name="barrierAllowsGoneWidgets"/>
+        <attr name="chainUseRtl"/>
+
+        <attr name="flow_horizontalStyle"/>
+        <attr name="flow_verticalStyle"/>
+        <attr name="flow_verticalAlign"/>
+        <attr name="flow_horizontalAlign"/>
+        <attr name="flow_verticalBias"/>
+        <attr name="flow_horizontalBias"/>
+        <attr name="flow_wrapMode"/>
+        <attr name="flow_maxElementsWrap"/>
+        <attr name="flow_horizontalGap"/>
+        <attr name="flow_verticalGap"/>
+        
+        
+
+        <attr name="flow_firstHorizontalStyle"/>
+        <attr name="flow_firstVerticalStyle"/>
+        <attr name="flow_firstHorizontalBias"/>
+        <attr name="flow_firstVerticalBias"/>
+
+        <attr name="flow_lastHorizontalStyle"/>
+        <attr name="flow_lastVerticalStyle"/>
+        <attr name="flow_lastHorizontalBias"/>
+        <attr name="flow_lastVerticalBias"/>
+
+        <attr name="animateRelativeTo"/>
+        <attr name="animateCircleAngleTo"/>
+        <attr name="transitionEasing"/>
+        <attr name="pathMotionArc"/>
+        <attr name="polarRelativeTo"/>
+        <attr name="transitionPathRotate"/>
+        <attr name="drawPath"/>
+        <attr name="motionProgress"/>
+        <attr name="layout_constraintTag"/>
+        <attr name="motionStagger"/>
+        <attr name="quantizeMotionSteps"/>
+        <attr name="quantizeMotionPhase"/>
+        <attr name="quantizeMotionInterpolator"/>
+    </declare-styleable><declare-styleable name="ConstraintSet">
+        <attr format="reference" name="deriveConstraintsFrom"/>
+        <attr format="enum" name="constraintRotate">
+            <enum name="none" value="0"/>
+            <enum name="right" value="1"/>
+            <enum name="left" value="2"/>
+            <enum name="x_right" value="3"/>
+            <enum name="x_left" value="4"/>
+        </attr>
+        <attr name="android:orientation"/>
+        <attr name="android:id"/>
+        <attr name="android:visibility"/>
+        <attr name="android:alpha"/>
+        <attr name="android:elevation"/>
+        <attr name="android:rotation"/>
+        <attr name="android:rotationX"/>
+        <attr name="android:rotationY"/>
+        <attr name="android:scaleX"/>
+        <attr name="android:scaleY"/>
+        <attr name="pivotAnchor"/>
+        <attr name="android:pivotX"/>
+        <attr name="android:pivotY"/>
+        <attr name="android:transformPivotX"/>
+        <attr name="android:transformPivotY"/>
+        <attr name="android:translationX"/>
+        <attr name="android:translationY"/>
+        <attr name="android:translationZ"/>
+        <attr name="android:layout_width"/>
+        
+        <attr name="android:layout_height"/>
+        
+        <attr name="android:layout_marginStart"/>
+        
+        <attr name="android:layout_marginBottom"/>
+        <attr name="android:layout_marginTop"/>
+        <attr name="android:layout_marginEnd"/>
+        <attr name="android:layout_marginLeft"/>
+        <attr name="android:layout_marginRight"/>
+
+        <attr name="layout_constraintCircle"/>
+        <attr name="layout_constraintCircleRadius"/>
+        <attr name="layout_constraintCircleAngle"/>
+
+        <attr name="layout_constraintGuide_begin"/>
+        <attr name="layout_constraintGuide_end"/>
+        <attr name="layout_constraintGuide_percent"/>
+        <attr name="guidelineUseRtl"/>
+
+        <attr name="layout_constraintLeft_toLeftOf"/>
+        <attr name="layout_constraintLeft_toRightOf"/>
+        <attr name="layout_constraintRight_toLeftOf"/>
+        <attr name="layout_constraintRight_toRightOf"/>
+        <attr name="layout_constraintTop_toTopOf"/>
+        <attr name="layout_constraintTop_toBottomOf"/>
+        <attr name="layout_constraintBottom_toTopOf"/>
+        <attr name="layout_constraintBottom_toBottomOf"/>
+        <attr name="layout_constraintBaseline_toBaselineOf"/>
+        <attr name="layout_constraintBaseline_toTopOf"/>
+        <attr name="layout_constraintBaseline_toBottomOf"/>
+        <attr name="layout_constraintStart_toEndOf"/>
+        <attr name="layout_constraintStart_toStartOf"/>
+        <attr name="layout_constraintEnd_toStartOf"/>
+        <attr name="layout_constraintEnd_toEndOf"/>
+        <attr name="layout_goneMarginLeft"/>
+        <attr name="layout_goneMarginTop"/>
+        <attr name="layout_goneMarginRight"/>
+        <attr name="layout_goneMarginBottom"/>
+        <attr name="layout_goneMarginStart"/>
+        <attr name="layout_goneMarginEnd"/>
+        <attr name="layout_goneMarginBaseline"/>
+        <attr name="layout_marginBaseline"/>
+        <attr name="layout_constrainedWidth"/>
+        <attr name="layout_constrainedHeight"/>
+        <attr name="layout_constraintHorizontal_bias"/>
+        <attr name="layout_constraintVertical_bias"/>
+        <attr name="layout_constraintWidth_default"/>
+        <attr name="layout_constraintHeight_default"/>
+        <attr name="layout_constraintWidth_min"/>
+        <attr name="layout_constraintWidth_max"/>
+        <attr name="layout_constraintWidth_percent"/>
+        <attr name="layout_constraintHeight_min"/>
+        <attr name="layout_constraintHeight_max"/>
+        <attr name="layout_constraintHeight_percent"/>
+        <attr name="layout_constraintLeft_creator"/>
+        <attr name="layout_constraintTop_creator"/>
+        <attr name="layout_constraintRight_creator"/>
+        <attr name="layout_constraintBottom_creator"/>
+        <attr name="layout_constraintBaseline_creator"/>
+        <attr name="layout_constraintDimensionRatio"/>
+        <attr name="layout_constraintHorizontal_weight"/>
+        <attr name="layout_constraintVertical_weight"/>
+        <attr name="layout_constraintHorizontal_chainStyle"/>
+        <attr name="layout_constraintVertical_chainStyle"/>
+        <attr name="layout_editor_absoluteX"/>
+        <attr name="layout_editor_absoluteY"/>
+        <attr name="layout_wrapBehaviorInParent"/>
+
+        <attr name="barrierDirection"/>
+        <attr name="constraint_referenced_ids"/>
+        <attr name="constraint_referenced_tags"/>
+        <attr name="barrierMargin"/>
+        <attr name="android:maxHeight"/>
+        <attr name="android:maxWidth"/>
+        <attr name="android:minHeight"/>
+        <attr name="android:minWidth"/>
+        <attr name="barrierAllowsGoneWidgets"/>
+        <attr name="chainUseRtl"/>
+
+        <attr name="flow_horizontalStyle"/>
+        <attr name="flow_verticalStyle"/>
+        <attr name="flow_verticalAlign"/>
+        <attr name="flow_horizontalAlign"/>
+        <attr name="flow_verticalBias"/>
+        <attr name="flow_horizontalBias"/>
+        <attr name="flow_wrapMode"/>
+        <attr name="flow_maxElementsWrap"/>
+        <attr name="flow_horizontalGap"/>
+        <attr name="flow_verticalGap"/>
+        
+        
+
+        <attr name="flow_firstHorizontalStyle"/>
+        <attr name="flow_firstVerticalStyle"/>
+        <attr name="flow_firstHorizontalBias"/>
+        <attr name="flow_firstVerticalBias"/>
+
+        <attr name="flow_lastHorizontalStyle"/>
+        <attr name="flow_lastVerticalStyle"/>
+        <attr name="flow_lastHorizontalBias"/>
+        <attr name="flow_lastVerticalBias"/>
+
+        <attr name="animateRelativeTo"/>
+        <attr name="animateCircleAngleTo"/>
+
+        <attr name="transitionEasing"/>
+        <attr name="pathMotionArc"/>
+        <attr name="polarRelativeTo"/>
+        <attr name="transitionPathRotate"/>
+        <attr name="motionStagger"/>
+        <attr name="quantizeMotionSteps"/>
+        <attr name="drawPath"/>
+        <attr name="motionProgress"/>
+        <attr name="layout_constraintTag"/>
+
+    </declare-styleable><declare-styleable name="CustomAttribute">
+        <attr format="string" name="attributeName"/>
+        <attr format="string" name="methodName"/>
+        <attr format="color" name="customColorValue"/>
+        <attr format="color" name="customColorDrawableValue"/>
+        <attr format="integer" name="customIntegerValue"/>
+        <attr format="float" name="customFloatValue"/>
+        <attr format="string" name="customStringValue"/>
+        <attr format="dimension" name="customDimension"/>
+        <attr format="dimension" name="customPixelDimension"/>
+        <attr format="boolean" name="customBoolean"/>
+        <attr format="reference" name="customReference"/>
+    </declare-styleable><declare-styleable name="ImageFilterView">
+        <attr format="reference" name="blendSrc"/>
+        <attr format="reference" name="altSrc"/>
+        <attr format="float" name="saturation"/>
+        <attr format="float" name="brightness"/>
+        <attr format="float" name="warmth"/>
+        <attr format="float" name="contrast"/>
+        <attr format="float" name="crossfade"/>
+        <attr format="dimension" name="round"/>
+        <attr format="boolean" name="overlay"/>
+        <attr format="float" name="roundPercent"/>
+        <attr format="float" name="imagePanX"/>
+        <attr format="float" name="imagePanY"/>
+        <attr format="float" name="imageZoom"/>
+        <attr format="float" name="imageRotate"/>
+    </declare-styleable><declare-styleable name="KeyAttribute">
+        <attr name="framePosition"/>
+        <attr name="motionTarget"/>
+        <attr name="transitionEasing"/>
+        <attr name="curveFit"/>
+
+        <attr name="motionProgress"/>
+
+        
+        <attr name="android:alpha"/>
+        <attr name="android:elevation"/>
+        <attr name="android:rotation"/>
+        <attr name="android:rotationX"/>
+        <attr name="android:rotationY"/>
+        <attr name="android:transformPivotX"/>
+        <attr name="android:transformPivotY"/>
+        <attr name="transformPivotTarget"/>
+
+        <attr name="transitionPathRotate"/>
+        <attr name="android:scaleX"/>
+        <attr name="android:scaleY"/>
+        <attr name="android:translationX"/>
+        <attr name="android:translationY"/>
+        <attr name="android:translationZ"/>
+    </declare-styleable><declare-styleable name="KeyCycle">
+        <attr name="motionTarget"/>
+        <attr name="curveFit"/>
+        <attr name="framePosition"/>
+        <attr name="transitionEasing"/>
+        <attr name="motionProgress"/>
+        <attr name="waveShape"/>
+        <attr name="wavePhase"/>
+        <attr name="wavePeriod"/>
+        <attr name="waveOffset"/>
+        <attr name="waveVariesBy"/>
+        <attr name="transitionPathRotate"/>
+        <attr name="android:alpha"/>
+        <attr name="android:elevation"/>
+        <attr name="android:rotation"/>
+        <attr name="android:rotationX"/>
+        <attr name="android:rotationY"/>
+        <attr name="android:scaleX"/>
+        <attr name="android:scaleY"/>
+        <attr name="android:translationX"/>
+        <attr name="android:translationY"/>
+        <attr name="android:translationZ"/>
+    </declare-styleable><declare-styleable name="KeyFrame">
+
+    </declare-styleable><declare-styleable name="KeyFramesAcceleration">
+
+    </declare-styleable><declare-styleable name="KeyFramesVelocity">
+
+    </declare-styleable><declare-styleable name="KeyPosition">
+        
+        <attr format="enum" name="keyPositionType">
+            <enum name="deltaRelative" value="0"/>
+            <enum name="pathRelative" value="1"/>
+            <enum name="parentRelative" value="2"/>
+        </attr>
+
+        
+        <attr format="float" name="percentX"/>
+
+        
+        <attr format="float" name="percentY"/>
+
+        
+        <attr format="float" name="percentWidth"/>
+
+        
+        <attr format="float" name="percentHeight"/>
+        <attr name="framePosition"/>
+        <attr name="motionTarget"/>
+        <attr name="transitionEasing"/>
+        <attr name="pathMotionArc"/>
+        <attr name="curveFit"/>
+        <attr name="drawPath"/>
+        <attr name="sizePercent"/>
+    </declare-styleable><declare-styleable name="KeyTimeCycle">
+        <attr name="framePosition"/>
+        <attr name="motionTarget"/>
+        <attr name="transitionEasing"/>
+        <attr name="curveFit"/>
+        <attr name="waveShape"/>
+        <attr name="wavePeriod"/>
+        <attr name="motionProgress"/>
+        <attr name="waveOffset"/>
+        <attr name="wavePhase"/>
+
+        
+        <attr name="waveDecay"/>
+
+        
+        <attr name="android:alpha"/>
+        <attr name="android:elevation"/>
+        <attr name="android:rotation"/>
+        <attr name="android:rotationX"/>
+        <attr name="android:rotationY"/>
+        <attr name="transitionPathRotate"/>
+        <attr name="android:scaleX"/>
+        <attr name="android:scaleY"/>
+        <attr name="android:translationX"/>
+        <attr name="android:translationY"/>
+        <attr name="android:translationZ"/>
+    </declare-styleable><declare-styleable name="KeyTrigger">
+        <attr name="framePosition"/>
+        <attr name="motionTarget"/>
+        <attr format="reference" name="triggerReceiver"/>
+        <attr format="string" name="onNegativeCross"/>
+        <attr format="string" name="onPositiveCross"/>
+        <attr format="string" name="onCross"/>
+        <attr format="reference" name="viewTransitionOnNegativeCross"/>
+        <attr format="reference" name="viewTransitionOnPositiveCross"/>
+        <attr format="reference" name="viewTransitionOnCross"/>
+        <attr format="float" name="triggerSlack"/>
+        
+        <attr format="reference" name="triggerId"/>
+        <attr format="boolean" name="motion_postLayoutCollision"/>
+        
+        <attr format="reference" name="motion_triggerOnCollision"/>
+    </declare-styleable><declare-styleable name="Layout">
+
+        <attr name="android:layout_width"/>
+        <attr name="android:layout_height"/>
+        <attr name="layout_constraintWidth"/>
+        <attr name="layout_constraintHeight"/>
+
+        <attr name="android:layout_marginStart"/>
+
+        <attr name="android:layout_marginBottom"/>
+
+        <attr name="android:layout_marginTop"/>
+
+        <attr name="android:layout_marginEnd"/>
+
+        <attr name="android:layout_marginLeft"/>
+
+        <attr name="android:layout_marginRight"/>
+
+        <attr name="layout_constraintCircle"/>
+        <attr name="layout_constraintCircleRadius"/>
+        <attr name="layout_constraintCircleAngle"/>
+        <attr name="layout_constraintGuide_begin"/>
+        <attr name="layout_constraintGuide_end"/>
+        <attr name="layout_constraintGuide_percent"/>
+        <attr name="guidelineUseRtl"/>
+        <attr name="layout_constraintLeft_toLeftOf"/>
+        <attr name="layout_constraintLeft_toRightOf"/>
+        <attr name="layout_constraintRight_toLeftOf"/>
+        <attr name="layout_constraintRight_toRightOf"/>
+        <attr name="layout_constraintTop_toTopOf"/>
+        <attr name="layout_constraintTop_toBottomOf"/>
+        <attr name="layout_constraintBottom_toTopOf"/>
+        <attr name="layout_constraintBottom_toBottomOf"/>
+        <attr name="layout_constraintBaseline_toBaselineOf"/>
+        <attr name="layout_constraintBaseline_toTopOf"/>
+        <attr name="layout_constraintBaseline_toBottomOf"/>
+        <attr name="layout_constraintStart_toEndOf"/>
+        <attr name="layout_constraintStart_toStartOf"/>
+        <attr name="layout_constraintEnd_toStartOf"/>
+        <attr name="layout_constraintEnd_toEndOf"/>
+        <attr name="layout_goneMarginLeft"/>
+        <attr name="layout_goneMarginTop"/>
+        <attr name="layout_goneMarginRight"/>
+        <attr name="layout_goneMarginBottom"/>
+        <attr name="layout_goneMarginStart"/>
+        <attr name="layout_goneMarginEnd"/>
+        <attr name="layout_goneMarginBaseline"/>
+        <attr name="layout_marginBaseline"/>
+        <attr name="layout_constrainedWidth"/>
+        <attr name="layout_constrainedHeight"/>
+        <attr name="layout_constraintHorizontal_bias"/>
+        <attr name="layout_constraintVertical_bias"/>
+        <attr name="layout_constraintWidth_default"/>
+        <attr name="layout_constraintHeight_default"/>
+        <attr name="layout_constraintWidth_min"/>
+        <attr name="layout_constraintWidth_max"/>
+        <attr name="android:orientation"/>
+        <attr name="layout_constraintWidth_percent"/>
+        <attr name="layout_constraintHeight_min"/>
+        <attr name="layout_constraintHeight_max"/>
+        <attr name="layout_constraintHeight_percent"/>
+        <attr name="layout_constraintLeft_creator"/>
+        <attr name="layout_constraintTop_creator"/>
+        <attr name="layout_constraintRight_creator"/>
+        <attr name="layout_constraintBottom_creator"/>
+        <attr name="layout_constraintBaseline_creator"/>
+        <attr name="layout_constraintDimensionRatio"/>
+        <attr name="layout_constraintHorizontal_weight"/>
+        <attr name="layout_constraintVertical_weight"/>
+        <attr name="layout_constraintHorizontal_chainStyle"/>
+        <attr name="layout_constraintVertical_chainStyle"/>
+        <attr name="layout_editor_absoluteX"/>
+        <attr name="layout_editor_absoluteY"/>
+        <attr name="layout_wrapBehaviorInParent"/>
+        <attr name="barrierDirection"/>
+        <attr name="barrierMargin"/>
+        <attr name="constraint_referenced_ids"/>
+        <attr name="constraint_referenced_tags"/>
+        <attr format="dimension" name="maxHeight"/>
+        <attr format="dimension" name="maxWidth"/>
+        <attr format="dimension" name="minHeight"/>
+        <attr format="dimension" name="minWidth"/>
+        <attr name="barrierAllowsGoneWidgets"/>
+        <attr name="chainUseRtl"/>
+    </declare-styleable><declare-styleable name="MockView">
+        <attr format="string" name="mock_label"/>
+        <attr format="color" name="mock_labelColor"/>
+        <attr format="color" name="mock_labelBackgroundColor"/>
+        <attr format="color" name="mock_diagonalsColor"/>
+        <attr format="boolean" name="mock_showDiagonals"/>
+        <attr format="boolean" name="mock_showLabel"/>
+    </declare-styleable><declare-styleable name="Motion">
+        <attr name="animateRelativeTo"/>
+        <attr name="animateCircleAngleTo"/>
+        <attr name="transitionEasing"/>
+        <attr name="pathMotionArc"/>
+        <attr name="motionPathRotate"/>
+        <attr name="motionStagger"/>
+        <attr name="drawPath"/>
+        <attr name="quantizeMotionSteps"/>
+        <attr name="quantizeMotionPhase"/>
+        <attr name="quantizeMotionInterpolator"/>
+
+    </declare-styleable><declare-styleable name="MotionEffect">
+        <attr format="integer" name="motionEffect_start"/>
+        <attr format="integer" name="motionEffect_end"/>
+        <attr format="dimension" name="motionEffect_translationX"/>
+        <attr format="dimension" name="motionEffect_translationY"/>
+        <attr format="float" name="motionEffect_alpha"/>
+        <attr format="reference" name="motionEffect_viewTransition"/>
+        <attr format="enum" name="motionEffect_move">
+            <enum name="auto" value="-1"/>
+            <enum name="north" value="0"/>
+            <enum name="south" value="1"/>
+            <enum name="east" value="2"/>
+            <enum name="west" value="3"/>
+        </attr>
+        <attr format="boolean" name="motionEffect_strict"/>
+    </declare-styleable><declare-styleable name="MotionHelper">
+        <attr format="boolean" name="onShow"/>
+        <attr format="boolean" name="onHide"/>
+    </declare-styleable><declare-styleable name="MotionLabel">
+        <attr name="android:text"/>
+        <attr name="android:textColor"/>
+        <attr name="android:textSize"/>
+        <attr name="android:fontFamily"/>
+        <attr name="android:gravity"/>
+        <attr format="float" name="textPanX"/>
+        <attr format="float" name="textPanY"/>
+        <attr name="android:typeface"/>
+        <attr name="android:shadowRadius"/>
+        <attr name="android:textStyle"/>
+        <attr name="borderRound"/>
+        <attr format="dimension" name="scaleFromTextSize"/>
+        <attr name="borderRoundPercent"/>
+        <attr name="textOutlineThickness"/>
+        <attr name="textOutlineColor"/>
+        <attr format="reference" name="textBackground"/>
+        <attr name="android:autoSizeTextType"/>
+        <attr format="dimension" name="textureWidth"/>
+        <attr format="dimension" name="textureHeight"/>
+        <attr format="integer" name="textureBlurFactor"/>
+        <attr format="float" name="textBackgroundPanX"/>
+        <attr format="float" name="textBackgroundPanY"/>
+        <attr format="float" name="textBackgroundZoom"/>
+        <attr format="float" name="textBackgroundRotate"/>
+        <attr format="enum" name="textureEffect">
+            <enum name="none" value="0"/>
+            <enum name="frost" value="1"/>
+        </attr>
+    </declare-styleable><declare-styleable name="MotionLayout">
+        <attr name="layoutDescription"/>
+        <attr format="reference" name="currentState"/>
+        <attr name="motionProgress"/>
+        <attr format="boolean" name="applyMotionScene"/>
+        <attr format="boolean" name="showPaths"/>
+        <attr format="enum" name="motionDebug">
+            <enum name="NO_DEBUG" value="0"/>
+            <enum name="SHOW_PROGRESS" value="1"/>
+            <enum name="SHOW_PATH" value="2"/>
+            <enum name="SHOW_ALL" value="3"/>
+        </attr>
+    </declare-styleable><declare-styleable name="MotionScene">
+        <attr name="defaultDuration"/>
+        <attr name="layoutDuringTransition"/>
+    </declare-styleable><declare-styleable name="MotionTelltales">
+        <attr format="enum" name="telltales_velocityMode">
+            <enum name="layout" value="0"/>
+            <enum name="postLayout" value="1"/>
+            <enum name="staticPostLayout" value="2"/>
+            <enum name="staticLayout" value="3"/>
+        </attr>
+        <attr format="color" name="telltales_tailColor"/>
+        <attr format="float" name="telltales_tailScale"/>
+    </declare-styleable><declare-styleable name="OnClick">
+        <attr name="targetId"/>
+        <attr name="clickAction">
+            <flag name="toggle" value="0x0011"/>
+            <flag name="transitionToEnd" value="0x0001"/>
+            <flag name="transitionToStart" value="0x0010"/>
+            <flag name="jumpToEnd" value="0x100"/>
+            <flag name="jumpToStart" value="0x1000"/>
+        </attr>
+    </declare-styleable><declare-styleable name="OnSwipe">
+        <attr format="float" name="dragScale"/>
+        <attr format="float" name="dragThreshold"/>
+        <attr format="enum" name="autoCompleteMode">
+            <enum name="continuousVelocity" value="0"/>
+            <enum name="spring" value="1"/>
+        </attr>
+        <attr format="float" name="maxVelocity"/>
+        <attr format="float" name="maxAcceleration"/>
+        <attr format="float" name="springMass"/>
+        <attr format="float" name="springStiffness"/>
+        <attr format="float" name="springDamping"/>
+        <attr format="float" name="springStopThreshold"/>
+        <attr format="flags" name="springBoundary">
+            <flag name="overshoot" value="0"/>
+            <flag name="bounceStart" value="1"/>
+            <flag name="bounceEnd" value="2"/>
+            <flag name="bounceBoth" value="3"/>
+        </attr>
+        <attr name="dragDirection"/>
+        <attr name="touchAnchorId"/>
+        <attr name="touchAnchorSide"/>
+        <attr format="reference" name="rotationCenterId"/>
+        <attr format="reference" name="touchRegionId"/>
+        <attr format="reference" name="limitBoundsTo"/>
+        <attr format="flags" name="nestedScrollFlags">
+            <flag name="none" value="0"/>
+            <flag name="disablePostScroll" value="1"/>
+            <flag name="disableScroll" value="2"/>
+            <flag name="supportScrollUp" value="4"/>
+        </attr>
+        <attr format="boolean" name="moveWhenScrollAtTop"/>
+        <attr format="enum" name="onTouchUp">
+            <enum name="autoComplete" value="0"/>
+            <enum name="autoCompleteToStart" value="1"/>
+            <enum name="autoCompleteToEnd" value="2"/>
+            <enum name="stop" value="3"/>
+            <enum name="decelerate" value="4"/>
+            <enum name="decelerateAndComplete" value="5"/>
+            <enum name="neverCompleteToStart" value="6"/>
+            <enum name="neverCompleteToEnd" value="7"/>
+        </attr>
+
+    </declare-styleable><declare-styleable name="PropertySet">
+        
+        <attr name="android:visibility"/>
+        <attr name="visibilityMode"/>
+
+        
+        <attr name="android:alpha"/>
+
+        
+        <attr name="motionProgress"/>
+        <attr name="layout_constraintTag"/>
+    </declare-styleable><declare-styleable name="State">
+        <attr name="android:id"/>
+        <attr format="reference" name="constraints"/>
+    </declare-styleable><declare-styleable name="StateSet">
+        <attr format="reference" name="defaultState"/>
+    </declare-styleable><declare-styleable name="TextEffects">
+        <attr name="android:text"/>
+        <attr name="android:textSize"/>
+        <attr name="android:fontFamily"/>
+        <attr name="android:typeface"/>
+        <attr name="android:shadowColor"/>
+        <attr name="android:shadowDx"/>
+        <attr name="android:shadowDy"/>
+        <attr name="android:shadowRadius"/>
+        <attr name="android:textStyle"/>
+        <attr format="color" name="textFillColor"/>
+        <attr name="textOutlineThickness"/>
+        <attr name="textOutlineColor"/>
+        <attr name="borderRound"/>
+        <attr name="borderRoundPercent"/>
+    </declare-styleable><declare-styleable name="Transform">
+        
+        <attr name="android:elevation"/>
+
+        
+        <attr name="android:rotation"/>
+
+        
+        <attr name="android:rotationX"/>
+
+        
+        <attr name="android:rotationY"/>
+
+        
+        <attr name="android:scaleX"/>
+
+        
+        <attr name="android:scaleY"/>
+
+        
+        <attr name="android:transformPivotX"/>
+
+        
+        <attr name="android:transformPivotY"/>
+
+        <attr name="transformPivotTarget"/>
+
+        
+        <attr format="dimension" name="android:translationX"/>
+
+        
+        <attr format="dimension" name="android:translationY"/>
+
+        
+        <attr format="dimension" name="android:translationZ"/>
+
+    </declare-styleable><declare-styleable name="Transition">
+        <attr name="android:id"/>
+        <attr format="reference" name="constraintSetStart"/>
+        <attr format="reference" name="constraintSetEnd"/>
+        <attr name="transitionDisable"/>
+        <attr name="layoutDuringTransition"/>
+
+        <attr name="pathMotionArc"/>
+        <attr format="enum" name="autoTransition">
+            <enum name="none" value="0"/>
+            <enum name="jumpToStart" value="1"/>
+            <enum name="jumpToEnd" value="2"/>
+            <enum name="animateToStart" value="3"/>
+            <enum name="animateToEnd" value="4"/>
+        </attr>
+        <attr format="string|reference|enum" name="motionInterpolator">
+            <enum name="easeInOut" value="0"/>
+            <enum name="easeIn" value="1"/>
+            <enum name="easeOut" value="2"/>
+            <enum name="linear" value="3"/>
+            <enum name="bounce" value="4"/>
+            <enum name="overshoot" value="5"/>
+            <enum name="anticipate" value="6"/>
+        </attr>
+
+        <attr name="duration"/>
+        <attr format="float" name="staggered"/>
+
+        <attr name="transitionFlags">
+            <flag name="none" value="0"/>
+            <flag name="beginOnFirstDraw" value="1"/>
+            <flag name="disableIntraAutoTransition" value="2"/>
+            <flag name="onInterceptTouchReturnSwipe" value="4"/>
+        </attr>
+    </declare-styleable><declare-styleable name="Variant">
+        <attr format="dimension" name="region_widthLessThan"/>
+        <attr format="dimension" name="region_widthMoreThan"/>
+        <attr format="dimension" name="region_heightLessThan"/>
+        <attr format="dimension" name="region_heightMoreThan"/>
+        <attr name="constraints"/>
+    </declare-styleable><declare-styleable name="ViewTransition">
+        <attr name="android:id"/>
+        <attr name="motionTarget"/>
+        <attr name="viewTransitionMode"/>
+        <attr name="onStateTransition"/>
+        <attr name="duration"/>
+        <attr format="integer" name="upDuration"/>
+        <attr name="transitionDisable"/>
+        <attr name="pathMotionArc"/>
+        <attr name="motionInterpolator"/>
+        <attr format="reference" name="SharedValueId"/>
+        <attr format="integer" name="SharedValue"/>
+        <attr format="reference" name="setsTag"/>
+        <attr format="reference" name="clearsTag"/>
+        <attr format="reference" name="ifTagSet"/>
+        <attr format="reference" name="ifTagNotSet"/>
+    </declare-styleable><declare-styleable name="include">
+        <attr name="constraintSet"/>
+    </declare-styleable></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res"><file name="baseline_favorite_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_favorite_24.xml" qualifiers="" type="drawable"/><file name="baseline_favorite_border_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_favorite_border_24.xml" qualifiers="" type="drawable"/><file name="baseline_games_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_games_24.xml" qualifiers="" type="drawable"/><file name="baseline_home_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_home_24.xml" qualifiers="" type="drawable"/><file name="baseline_search_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_search_24.xml" qualifiers="" type="drawable"/><file name="baseline_settings_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_settings_24.xml" qualifiers="" type="drawable"/><file name="baseline_share_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_share_24.xml" qualifiers="" type="drawable"/><file name="baseline_star_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_star_24.xml" qualifiers="" type="drawable"/><file name="baseline_star_outline_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_star_outline_24.xml" qualifiers="" type="drawable"/><file name="home_rounded" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\home_rounded.xml" qualifiers="" type="drawable"/><file name="ic_broken_image" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\ic_broken_image.xml" qualifiers="" type="drawable"/><file name="ic_connection_error" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\ic_connection_error.xml" qualifiers="" type="drawable"/><file name="ic_launcher_foreground" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\ic_launcher_foreground.xml" qualifiers="" type="drawable"/><file name="ic_menu_burguer" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\ic_menu_burguer.xml" qualifiers="" type="drawable"/><file name="ic_not_found" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\ic_not_found.xml" qualifiers="" type="drawable"/><file name="loading_img" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\loading_img.xml" qualifiers="" type="drawable"/><file name="outline_home_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\outline_home_24.xml" qualifiers="" type="drawable"/><file name="splash" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\splash.xml" qualifiers="" type="drawable"/><file name="splash_initial" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\splash_initial.jpg" qualifiers="" type="drawable"/><file name="ic_launcher" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-anydpi-v26\ic_launcher_round.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-hdpi\ic_launcher.png" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-hdpi\ic_launcher_round.png" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-mdpi\ic_launcher.png" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-mdpi\ic_launcher_round.png" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-xhdpi\ic_launcher.png" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-xhdpi\ic_launcher_round.png" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-xxhdpi\ic_launcher.png" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-xxhdpi\ic_launcher_round.png" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-xxxhdpi\ic_launcher.png" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\mipmap-xxxhdpi\ic_launcher_round.png" qualifiers="xxxhdpi-v4" type="mipmap"/><file path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\values\colors.xml" qualifiers=""><color name="black">#FF000000</color><color name="white">#FFFFFFFF</color><color name="transparent">#00000000</color><color name="background_light">#FFFDFCF4</color><color name="background_dark">#FF1B1C18</color><color name="orange_star">#FFC107</color><color name="cyan_700">#00c7ce</color></file><file path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\values\ic_launcher_background.xml" qualifiers=""><color name="ic_launcher_background">#000000</color></file><file path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\values\strings.xml" qualifiers=""><string name="loading">Loading</string><string name="loading_fail">Fail to load</string><string name="retry">Retry</string><string name="game_title">Game Title</string><string name="no_favorite_games">No favorite games</string><string name="menu">Menu</string><string name="favorites">favorites</string><string name="rated">Rated</string><string name="played">Played</string><string name="btn_try_again">try again</string><string name="shared">Shared</string><string name="no_records_found_msg">Nothing found</string><string name="back_button">back_button</string><string name="homescreen">Home</string><string name="app_name">" Games"</string><string name="subject">"Play this game is incredible"</string><string name="link">
 
        \n  Play in this link:
        \n "%3$s"  </string><string name="games">Games</string><string name="search">search</string></file><file path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\values\themes.xml" qualifiers=""><style name="Theme.Games" parent="android:Theme.Material.Light.NoActionBar"/><style name="Theme_Games_Splash" parent="Theme.Games">Splash
         <item name="android:windowBackground">@drawable/splash_initial</item>
-    </style></file><file name="backup_rules" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\xml\backup_rules.xml" qualifiers="" type="xml"/><file name="data_extraction_rules" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\xml\data_extraction_rules.xml" qualifiers="" type="xml"/><file name="baseline_settings_24" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\drawable\baseline_settings_24.xml" qualifiers="" type="drawable"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\build\generated\res\resValues\debug"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="AlertDialog">
+    </style></file><file name="backup_rules" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\xml\backup_rules.xml" qualifiers="" type="xml"/><file name="data_extraction_rules" path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\res\xml\data_extraction_rules.xml" qualifiers="" type="xml"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\build\generated\res\resValues\debug"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="AlertDialog">
         <attr name="android:layout"/>
         <attr format="reference" name="buttonPanelSideLayout"/>
         <attr format="reference" name="listLayout"/>
@@ -2805,6 +4131,170 @@
             
             <enum name="add" value="16"/>
         </attr>
+    </declare-styleable><declare-styleable name="Constraint">
+        <attr name="android:orientation"/>
+        <attr name="android:id"/>
+
+        
+        <attr name="android:visibility"/>
+        <attr name="visibilityMode"/>
+
+        
+        <attr name="android:alpha"/>
+
+        
+        <attr name="android:elevation"/>
+
+        
+        <attr name="android:rotation"/>
+
+        
+        <attr name="android:rotationX"/>
+
+        
+        <attr name="android:rotationY"/>
+
+        
+        <attr name="android:scaleX"/>
+
+        
+        <attr name="android:scaleY"/>
+        <attr name="pivotAnchor"/>
+
+        <attr name="android:transformPivotX"/>
+        <attr name="android:transformPivotY"/>
+        <attr name="transformPivotTarget"/>
+
+        
+        <attr name="android:translationX"/>
+        
+        <attr name="android:translationY"/>
+        
+        <attr name="android:translationZ"/>
+        
+        <attr name="android:layout_width"/>
+        
+        <attr name="android:layout_height"/>
+        
+        <attr name="layout_constraintWidth"/>
+        <attr name="layout_constraintHeight"/>
+        <attr name="android:layout_marginStart"/>
+        
+        <attr name="android:layout_marginBottom"/>
+        
+        <attr name="android:layout_marginTop"/>
+        
+        <attr name="android:layout_marginEnd"/>
+        
+        <attr name="android:layout_marginLeft"/>
+        
+        <attr name="android:layout_marginRight"/>
+
+        <attr name="layout_constraintCircle"/>
+        <attr name="layout_constraintCircleRadius"/>
+        <attr name="layout_constraintCircleAngle"/>
+
+        <attr name="layout_constraintGuide_begin"/>
+        <attr name="layout_constraintGuide_end"/>
+        <attr name="layout_constraintGuide_percent"/>
+        <attr name="guidelineUseRtl"/>
+        <attr name="layout_constraintLeft_toLeftOf"/>
+        <attr name="layout_constraintLeft_toRightOf"/>
+        <attr name="layout_constraintRight_toLeftOf"/>
+        <attr name="layout_constraintRight_toRightOf"/>
+        <attr name="layout_constraintTop_toTopOf"/>
+        <attr name="layout_constraintTop_toBottomOf"/>
+        <attr name="layout_constraintBottom_toTopOf"/>
+        <attr name="layout_constraintBottom_toBottomOf"/>
+        <attr name="layout_constraintBaseline_toBaselineOf"/>
+        <attr name="layout_constraintBaseline_toTopOf"/>
+        <attr name="layout_constraintBaseline_toBottomOf"/>
+        <attr name="layout_constraintStart_toEndOf"/>
+        <attr name="layout_constraintStart_toStartOf"/>
+        <attr name="layout_constraintEnd_toStartOf"/>
+        <attr name="layout_constraintEnd_toEndOf"/>
+        <attr name="layout_goneMarginLeft"/>
+        <attr name="layout_goneMarginTop"/>
+        <attr name="layout_goneMarginRight"/>
+        <attr name="layout_goneMarginBottom"/>
+        <attr name="layout_goneMarginStart"/>
+        <attr name="layout_goneMarginEnd"/>
+        <attr name="layout_goneMarginBaseline"/>
+        <attr name="layout_marginBaseline"/>
+        <attr name="layout_constrainedWidth"/>
+        <attr name="layout_constrainedHeight"/>
+        <attr name="layout_constraintHorizontal_bias"/>
+        <attr name="layout_constraintVertical_bias"/>
+        <attr name="layout_constraintWidth_default"/>
+        <attr name="layout_constraintHeight_default"/>
+        <attr name="layout_constraintWidth_min"/>
+        <attr name="layout_constraintWidth_max"/>
+        <attr name="layout_constraintWidth_percent"/>
+        <attr name="layout_constraintHeight_min"/>
+        <attr name="layout_constraintHeight_max"/>
+        <attr name="layout_constraintHeight_percent"/>
+        <attr name="layout_constraintLeft_creator"/>
+        <attr name="layout_constraintTop_creator"/>
+        <attr name="layout_constraintRight_creator"/>
+        <attr name="layout_constraintBottom_creator"/>
+        <attr name="layout_constraintBaseline_creator"/>
+        <attr name="layout_constraintDimensionRatio"/>
+        <attr name="layout_constraintHorizontal_weight"/>
+        <attr name="layout_constraintVertical_weight"/>
+        <attr name="layout_constraintHorizontal_chainStyle"/>
+        <attr name="layout_constraintVertical_chainStyle"/>
+        <attr name="layout_editor_absoluteX"/>
+        <attr name="layout_editor_absoluteY"/>
+        <attr name="layout_wrapBehaviorInParent"/>
+
+        <attr name="barrierDirection"/>
+        <attr name="barrierMargin"/>
+        <attr name="constraint_referenced_ids"/>
+        <attr name="constraint_referenced_tags"/>
+
+        <attr name="android:maxHeight"/>
+        <attr name="android:maxWidth"/>
+        <attr name="android:minHeight"/>
+        <attr name="android:minWidth"/>
+        <attr name="barrierAllowsGoneWidgets"/>
+        <attr name="chainUseRtl"/>
+
+        <attr name="flow_horizontalStyle"/>
+        <attr name="flow_verticalStyle"/>
+        <attr name="flow_verticalAlign"/>
+        <attr name="flow_horizontalAlign"/>
+        <attr name="flow_verticalBias"/>
+        <attr name="flow_horizontalBias"/>
+        <attr name="flow_wrapMode"/>
+        <attr name="flow_maxElementsWrap"/>
+        <attr name="flow_horizontalGap"/>
+        <attr name="flow_verticalGap"/>
+        
+        
+
+        <attr name="flow_firstHorizontalStyle"/>
+        <attr name="flow_firstVerticalStyle"/>
+        <attr name="flow_firstHorizontalBias"/>
+        <attr name="flow_firstVerticalBias"/>
+
+        <attr name="flow_lastHorizontalStyle"/>
+        <attr name="flow_lastVerticalStyle"/>
+        <attr name="flow_lastHorizontalBias"/>
+        <attr name="flow_lastVerticalBias"/>
+
+        <attr name="animateRelativeTo"/>
+        <attr name="animateCircleAngleTo"/>
+        <attr name="transitionEasing"/>
+        <attr name="pathMotionArc"/>
+        <attr name="polarRelativeTo"/>
+        <attr name="transitionPathRotate"/>
+        <attr name="drawPath"/>
+        <attr name="motionProgress"/>
+        <attr name="layout_constraintTag"/>
+        <attr name="motionStagger"/>
+        <attr name="quantizeMotionSteps"/>
+        <attr name="quantizeMotionPhase"/>
+        <attr name="quantizeMotionInterpolator"/>
     </declare-styleable><declare-styleable name="GradientColor">
         
         <attr name="android:startColor"/>
@@ -2839,17 +4329,91 @@
         <attr name="android:tileMode"/>
     </declare-styleable><declare-styleable name="NavGraphNavigator">
         <attr format="reference" name="startDestination"/>
+    </declare-styleable><declare-styleable name="Carousel">
+        <attr format="reference" name="carousel_firstView"/>
+        <attr format="reference" name="carousel_previousState"/>
+        <attr format="reference" name="carousel_nextState"/>
+        <attr format="boolean" name="carousel_infinite"/>
+        <attr format="reference" name="carousel_forwardTransition"/>
+        <attr format="reference" name="carousel_backwardTransition"/>
+        <attr format="float" name="carousel_touchUp_dampeningFactor"/>
+        <attr format="enum" name="carousel_touchUpMode">
+            <enum name="immediateStop" value="1"/>
+            <enum name="carryVelocity" value="2"/>
+        </attr>
+        <attr format="float" name="carousel_touchUp_velocityThreshold"/>
+        <attr format="enum" name="carousel_emptyViewsBehavior">
+            <enum name="invisible" value="4"/>
+            <enum name="gone" value="8"/>
+        </attr>
     </declare-styleable><declare-styleable name="NavHost">
         <attr format="reference" name="navGraph"/>
+    </declare-styleable><declare-styleable name="KeyTrigger">
+        <attr name="framePosition"/>
+        <attr name="motionTarget"/>
+        <attr format="reference" name="triggerReceiver"/>
+        <attr format="string" name="onNegativeCross"/>
+        <attr format="string" name="onPositiveCross"/>
+        <attr format="string" name="onCross"/>
+        <attr format="reference" name="viewTransitionOnNegativeCross"/>
+        <attr format="reference" name="viewTransitionOnPositiveCross"/>
+        <attr format="reference" name="viewTransitionOnCross"/>
+        <attr format="float" name="triggerSlack"/>
+        
+        <attr format="reference" name="triggerId"/>
+        <attr format="boolean" name="motion_postLayoutCollision"/>
+        
+        <attr format="reference" name="motion_triggerOnCollision"/>
     </declare-styleable><declare-styleable name="AnimatedStateListDrawableItem">
         
         <attr name="android:drawable"/>
         
         <attr name="android:id"/>
+    </declare-styleable><declare-styleable name="MotionEffect">
+        <attr format="integer" name="motionEffect_start"/>
+        <attr format="integer" name="motionEffect_end"/>
+        <attr format="dimension" name="motionEffect_translationX"/>
+        <attr format="dimension" name="motionEffect_translationY"/>
+        <attr format="float" name="motionEffect_alpha"/>
+        <attr format="reference" name="motionEffect_viewTransition"/>
+        <attr format="enum" name="motionEffect_move">
+            <enum name="auto" value="-1"/>
+            <enum name="north" value="0"/>
+            <enum name="south" value="1"/>
+            <enum name="east" value="2"/>
+            <enum name="west" value="3"/>
+        </attr>
+        <attr format="boolean" name="motionEffect_strict"/>
     </declare-styleable><declare-styleable name="Fragment">
         <attr name="android:name"/>
         <attr name="android:id"/>
         <attr name="android:tag"/>
+    </declare-styleable><declare-styleable name="KeyTimeCycle">
+        <attr name="framePosition"/>
+        <attr name="motionTarget"/>
+        <attr name="transitionEasing"/>
+        <attr name="curveFit"/>
+        <attr name="waveShape"/>
+        <attr name="wavePeriod"/>
+        <attr name="motionProgress"/>
+        <attr name="waveOffset"/>
+        <attr name="wavePhase"/>
+
+        
+        <attr name="waveDecay"/>
+
+        
+        <attr name="android:alpha"/>
+        <attr name="android:elevation"/>
+        <attr name="android:rotation"/>
+        <attr name="android:rotationX"/>
+        <attr name="android:rotationY"/>
+        <attr name="transitionPathRotate"/>
+        <attr name="android:scaleX"/>
+        <attr name="android:scaleY"/>
+        <attr name="android:translationX"/>
+        <attr name="android:translationY"/>
+        <attr name="android:translationZ"/>
     </declare-styleable><declare-styleable name="AppCompatEmojiHelper">
 
     </declare-styleable><declare-styleable name="GradientColorItem">
@@ -3319,6 +4883,9 @@
         <attr format="dimension" name="paddingBottomNoButtons"/>
         
         <attr format="dimension" name="paddingTopNoTitle"/>
+    </declare-styleable><declare-styleable name="MotionScene">
+        <attr name="defaultDuration"/>
+        <attr name="layoutDuringTransition"/>
     </declare-styleable><declare-styleable name="FragmentContainerView">
         <attr name="android:name"/>
         <attr name="android:tag"/>
@@ -3381,6 +4948,15 @@
         <attr name="android:layout_height"/>
         <attr name="android:layout_weight"/>
         <attr name="android:layout_gravity"/>
+    </declare-styleable><declare-styleable name="MotionTelltales">
+        <attr format="enum" name="telltales_velocityMode">
+            <enum name="layout" value="0"/>
+            <enum name="postLayout" value="1"/>
+            <enum name="staticPostLayout" value="2"/>
+            <enum name="staticLayout" value="3"/>
+        </attr>
+        <attr format="color" name="telltales_tailColor"/>
+        <attr format="float" name="telltales_tailScale"/>
     </declare-styleable><declare-styleable name="Capability">
         
         <attr format="reference" name="queryPatterns"/>
@@ -3491,6 +5067,174 @@
             
             <enum name="add" value="16"/>
         </attr>
+    </declare-styleable><declare-styleable name="KeyAttribute">
+        <attr name="framePosition"/>
+        <attr name="motionTarget"/>
+        <attr name="transitionEasing"/>
+        <attr name="curveFit"/>
+
+        <attr name="motionProgress"/>
+
+        
+        <attr name="android:alpha"/>
+        <attr name="android:elevation"/>
+        <attr name="android:rotation"/>
+        <attr name="android:rotationX"/>
+        <attr name="android:rotationY"/>
+        <attr name="android:transformPivotX"/>
+        <attr name="android:transformPivotY"/>
+        <attr name="transformPivotTarget"/>
+
+        <attr name="transitionPathRotate"/>
+        <attr name="android:scaleX"/>
+        <attr name="android:scaleY"/>
+        <attr name="android:translationX"/>
+        <attr name="android:translationY"/>
+        <attr name="android:translationZ"/>
+    </declare-styleable><declare-styleable name="ConstraintSet">
+        <attr format="reference" name="deriveConstraintsFrom"/>
+        <attr format="enum" name="constraintRotate">
+            <enum name="none" value="0"/>
+            <enum name="right" value="1"/>
+            <enum name="left" value="2"/>
+            <enum name="x_right" value="3"/>
+            <enum name="x_left" value="4"/>
+        </attr>
+        <attr name="android:orientation"/>
+        <attr name="android:id"/>
+        <attr name="android:visibility"/>
+        <attr name="android:alpha"/>
+        <attr name="android:elevation"/>
+        <attr name="android:rotation"/>
+        <attr name="android:rotationX"/>
+        <attr name="android:rotationY"/>
+        <attr name="android:scaleX"/>
+        <attr name="android:scaleY"/>
+        <attr name="pivotAnchor"/>
+        <attr name="android:pivotX"/>
+        <attr name="android:pivotY"/>
+        <attr name="android:transformPivotX"/>
+        <attr name="android:transformPivotY"/>
+        <attr name="android:translationX"/>
+        <attr name="android:translationY"/>
+        <attr name="android:translationZ"/>
+        <attr name="android:layout_width"/>
+        
+        <attr name="android:layout_height"/>
+        
+        <attr name="android:layout_marginStart"/>
+        
+        <attr name="android:layout_marginBottom"/>
+        <attr name="android:layout_marginTop"/>
+        <attr name="android:layout_marginEnd"/>
+        <attr name="android:layout_marginLeft"/>
+        <attr name="android:layout_marginRight"/>
+
+        <attr name="layout_constraintCircle"/>
+        <attr name="layout_constraintCircleRadius"/>
+        <attr name="layout_constraintCircleAngle"/>
+
+        <attr name="layout_constraintGuide_begin"/>
+        <attr name="layout_constraintGuide_end"/>
+        <attr name="layout_constraintGuide_percent"/>
+        <attr name="guidelineUseRtl"/>
+
+        <attr name="layout_constraintLeft_toLeftOf"/>
+        <attr name="layout_constraintLeft_toRightOf"/>
+        <attr name="layout_constraintRight_toLeftOf"/>
+        <attr name="layout_constraintRight_toRightOf"/>
+        <attr name="layout_constraintTop_toTopOf"/>
+        <attr name="layout_constraintTop_toBottomOf"/>
+        <attr name="layout_constraintBottom_toTopOf"/>
+        <attr name="layout_constraintBottom_toBottomOf"/>
+        <attr name="layout_constraintBaseline_toBaselineOf"/>
+        <attr name="layout_constraintBaseline_toTopOf"/>
+        <attr name="layout_constraintBaseline_toBottomOf"/>
+        <attr name="layout_constraintStart_toEndOf"/>
+        <attr name="layout_constraintStart_toStartOf"/>
+        <attr name="layout_constraintEnd_toStartOf"/>
+        <attr name="layout_constraintEnd_toEndOf"/>
+        <attr name="layout_goneMarginLeft"/>
+        <attr name="layout_goneMarginTop"/>
+        <attr name="layout_goneMarginRight"/>
+        <attr name="layout_goneMarginBottom"/>
+        <attr name="layout_goneMarginStart"/>
+        <attr name="layout_goneMarginEnd"/>
+        <attr name="layout_goneMarginBaseline"/>
+        <attr name="layout_marginBaseline"/>
+        <attr name="layout_constrainedWidth"/>
+        <attr name="layout_constrainedHeight"/>
+        <attr name="layout_constraintHorizontal_bias"/>
+        <attr name="layout_constraintVertical_bias"/>
+        <attr name="layout_constraintWidth_default"/>
+        <attr name="layout_constraintHeight_default"/>
+        <attr name="layout_constraintWidth_min"/>
+        <attr name="layout_constraintWidth_max"/>
+        <attr name="layout_constraintWidth_percent"/>
+        <attr name="layout_constraintHeight_min"/>
+        <attr name="layout_constraintHeight_max"/>
+        <attr name="layout_constraintHeight_percent"/>
+        <attr name="layout_constraintLeft_creator"/>
+        <attr name="layout_constraintTop_creator"/>
+        <attr name="layout_constraintRight_creator"/>
+        <attr name="layout_constraintBottom_creator"/>
+        <attr name="layout_constraintBaseline_creator"/>
+        <attr name="layout_constraintDimensionRatio"/>
+        <attr name="layout_constraintHorizontal_weight"/>
+        <attr name="layout_constraintVertical_weight"/>
+        <attr name="layout_constraintHorizontal_chainStyle"/>
+        <attr name="layout_constraintVertical_chainStyle"/>
+        <attr name="layout_editor_absoluteX"/>
+        <attr name="layout_editor_absoluteY"/>
+        <attr name="layout_wrapBehaviorInParent"/>
+
+        <attr name="barrierDirection"/>
+        <attr name="constraint_referenced_ids"/>
+        <attr name="constraint_referenced_tags"/>
+        <attr name="barrierMargin"/>
+        <attr name="android:maxHeight"/>
+        <attr name="android:maxWidth"/>
+        <attr name="android:minHeight"/>
+        <attr name="android:minWidth"/>
+        <attr name="barrierAllowsGoneWidgets"/>
+        <attr name="chainUseRtl"/>
+
+        <attr name="flow_horizontalStyle"/>
+        <attr name="flow_verticalStyle"/>
+        <attr name="flow_verticalAlign"/>
+        <attr name="flow_horizontalAlign"/>
+        <attr name="flow_verticalBias"/>
+        <attr name="flow_horizontalBias"/>
+        <attr name="flow_wrapMode"/>
+        <attr name="flow_maxElementsWrap"/>
+        <attr name="flow_horizontalGap"/>
+        <attr name="flow_verticalGap"/>
+        
+        
+
+        <attr name="flow_firstHorizontalStyle"/>
+        <attr name="flow_firstVerticalStyle"/>
+        <attr name="flow_firstHorizontalBias"/>
+        <attr name="flow_firstVerticalBias"/>
+
+        <attr name="flow_lastHorizontalStyle"/>
+        <attr name="flow_lastVerticalStyle"/>
+        <attr name="flow_lastHorizontalBias"/>
+        <attr name="flow_lastVerticalBias"/>
+
+        <attr name="animateRelativeTo"/>
+        <attr name="animateCircleAngleTo"/>
+
+        <attr name="transitionEasing"/>
+        <attr name="pathMotionArc"/>
+        <attr name="polarRelativeTo"/>
+        <attr name="transitionPathRotate"/>
+        <attr name="motionStagger"/>
+        <attr name="quantizeMotionSteps"/>
+        <attr name="drawPath"/>
+        <attr name="motionProgress"/>
+        <attr name="layout_constraintTag"/>
+
     </declare-styleable><declare-styleable name="AppCompatImageView">
         <attr name="android:src"/>
         
@@ -3514,6 +5258,133 @@
             
             <enum name="add" value="16"/>
         </attr>
+    </declare-styleable><declare-styleable name="ConstraintLayout_Layout">
+        <attr name="android:orientation"/>
+        <attr name="android:minWidth"/>
+        <attr name="android:minHeight"/>
+        <attr name="android:maxWidth"/>
+        <attr name="android:maxHeight"/>
+        <attr name="android:visibility"/>
+        <attr name="android:elevation"/>
+
+        <attr name="layout_optimizationLevel"/>
+        <attr name="layoutDescription"/>
+
+        <attr name="constraintSet"/>
+        <attr name="barrierDirection"/>
+        <attr name="barrierAllowsGoneWidgets"/>
+        <attr name="barrierMargin"/>
+        <attr name="constraint_referenced_ids"/>
+        <attr name="constraint_referenced_tags"/>
+        <attr name="chainUseRtl"/>
+
+        <attr name="flow_horizontalStyle"/>
+        <attr name="flow_verticalStyle"/>
+        <attr name="flow_wrapMode"/>
+        <attr name="flow_maxElementsWrap"/>
+        <attr name="flow_horizontalGap"/>
+        <attr name="flow_verticalGap"/>
+        <attr name="android:padding"/>
+        <attr name="android:paddingTop"/>
+        <attr name="android:paddingBottom"/>
+        <attr name="android:paddingLeft"/>
+        <attr name="android:paddingRight"/>
+        <attr name="android:paddingStart"/>
+        <attr name="android:paddingEnd"/>
+        <attr name="flow_verticalAlign"/>
+        <attr name="flow_horizontalAlign"/>
+        <attr name="flow_verticalBias"/>
+        <attr name="flow_horizontalBias"/>
+        
+        
+
+        <attr name="flow_firstHorizontalStyle"/>
+        <attr name="flow_firstVerticalStyle"/>
+        <attr name="flow_firstHorizontalBias"/>
+        <attr name="flow_firstVerticalBias"/>
+
+        <attr name="flow_lastHorizontalStyle"/>
+        <attr name="flow_lastVerticalStyle"/>
+        <attr name="flow_lastHorizontalBias"/>
+        <attr name="flow_lastVerticalBias"/>
+
+        <attr name="circularflow_radiusInDP"/>
+        <attr name="circularflow_angles"/>
+        <attr name="circularflow_viewCenter"/>
+        <attr name="circularflow_defaultRadius"/>
+        <attr name="circularflow_defaultAngle"/>
+
+
+        <attr name="layout_constraintCircle"/>
+        <attr name="layout_constraintCircleRadius"/>
+        <attr name="layout_constraintCircleAngle"/>
+
+        <attr name="layout_constraintGuide_begin"/>
+        <attr name="layout_constraintGuide_end"/>
+        <attr name="layout_constraintGuide_percent"/>
+        <attr name="guidelineUseRtl"/>
+        <attr name="layout_constraintLeft_toLeftOf"/>
+        <attr name="layout_constraintLeft_toRightOf"/>
+        <attr name="layout_constraintRight_toLeftOf"/>
+        <attr name="layout_constraintRight_toRightOf"/>
+        <attr name="layout_constraintTop_toTopOf"/>
+        <attr name="layout_constraintTop_toBottomOf"/>
+        <attr name="layout_constraintBottom_toTopOf"/>
+        <attr name="layout_constraintBottom_toBottomOf"/>
+        <attr name="layout_constraintBaseline_toBaselineOf"/>
+        <attr name="layout_constraintBaseline_toTopOf"/>
+        <attr name="layout_constraintBaseline_toBottomOf"/>
+        <attr name="layout_constraintStart_toEndOf"/>
+        <attr name="layout_constraintStart_toStartOf"/>
+        <attr name="layout_constraintEnd_toStartOf"/>
+        <attr name="layout_constraintEnd_toEndOf"/>
+        <attr name="layout_goneMarginLeft"/>
+        <attr name="layout_goneMarginTop"/>
+        <attr name="layout_goneMarginRight"/>
+        <attr name="layout_goneMarginBottom"/>
+        <attr name="layout_goneMarginStart"/>
+        <attr name="layout_goneMarginEnd"/>
+        <attr name="layout_goneMarginBaseline"/>
+        <attr name="layout_marginBaseline"/>
+        <attr name="layout_constraintWidth"/>
+        <attr name="layout_constraintHeight"/>
+        <attr name="android:layout_width"/>
+        <attr name="android:layout_height"/>
+        <attr name="android:layout_margin"/>
+        <attr name="android:layout_marginHorizontal"/>
+        <attr name="android:layout_marginVertical"/>
+        <attr name="android:layout_marginLeft"/>
+        <attr name="android:layout_marginRight"/>
+        <attr name="android:layout_marginTop"/>
+        <attr name="android:layout_marginBottom"/>
+        <attr name="android:layout_marginStart"/>
+        <attr name="android:layout_marginEnd"/>
+        <attr name="layout_constrainedWidth"/>
+        <attr name="layout_constrainedHeight"/>
+        <attr name="layout_constraintHorizontal_bias"/>
+        <attr name="layout_constraintVertical_bias"/>
+        <attr name="layout_constraintWidth_default"/>
+        <attr name="layout_constraintHeight_default"/>
+        <attr name="layout_constraintWidth_min"/>
+        <attr name="layout_constraintWidth_max"/>
+        <attr name="layout_constraintWidth_percent"/>
+        <attr name="layout_constraintHeight_min"/>
+        <attr name="layout_constraintHeight_max"/>
+        <attr name="layout_constraintHeight_percent"/>
+        <attr name="layout_constraintLeft_creator"/>
+        <attr name="layout_constraintTop_creator"/>
+        <attr name="layout_constraintRight_creator"/>
+        <attr name="layout_constraintBottom_creator"/>
+        <attr name="layout_constraintBaseline_creator"/>
+        <attr name="layout_constraintDimensionRatio"/>
+        <attr name="layout_constraintHorizontal_weight"/>
+        <attr name="layout_constraintVertical_weight"/>
+        <attr name="layout_constraintHorizontal_chainStyle"/>
+        <attr name="layout_constraintVertical_chainStyle"/>
+        <attr name="layout_editor_absoluteX"/>
+        <attr name="layout_editor_absoluteY"/>
+        <attr name="layout_constraintTag"/>
+        <attr name="layout_wrapBehaviorInParent"/>
     </declare-styleable><declare-styleable name="PopupWindowBackgroundState">
         
         <attr format="boolean" name="state_above_anchor"/>
@@ -3523,6 +5394,12 @@
         <attr format="string" name="data"/>
         <attr format="string" name="dataPattern"/>
         <attr format="string" name="targetPackage"/>
+    </declare-styleable><declare-styleable name="Variant">
+        <attr format="dimension" name="region_widthLessThan"/>
+        <attr format="dimension" name="region_widthMoreThan"/>
+        <attr format="dimension" name="region_heightLessThan"/>
+        <attr format="dimension" name="region_heightMoreThan"/>
+        <attr name="constraints"/>
     </declare-styleable><declare-styleable name="ActionMode">
         
         <attr name="titleTextStyle"/>
@@ -3536,6 +5413,42 @@
         <attr name="height"/>
         
         <attr format="reference" name="closeItemLayout"/>
+    </declare-styleable><declare-styleable name="State">
+        <attr name="android:id"/>
+        <attr format="reference" name="constraints"/>
+    </declare-styleable><declare-styleable name="KeyPosition">
+        
+        <attr format="enum" name="keyPositionType">
+            <enum name="deltaRelative" value="0"/>
+            <enum name="pathRelative" value="1"/>
+            <enum name="parentRelative" value="2"/>
+        </attr>
+
+        
+        <attr format="float" name="percentX"/>
+
+        
+        <attr format="float" name="percentY"/>
+
+        
+        <attr format="float" name="percentWidth"/>
+
+        
+        <attr format="float" name="percentHeight"/>
+        <attr name="framePosition"/>
+        <attr name="motionTarget"/>
+        <attr name="transitionEasing"/>
+        <attr name="pathMotionArc"/>
+        <attr name="curveFit"/>
+        <attr name="drawPath"/>
+        <attr name="sizePercent"/>
+    </declare-styleable><declare-styleable name="KeyFramesVelocity">
+
+    </declare-styleable><declare-styleable name="KeyFrame">
+
+    </declare-styleable><declare-styleable name="MotionHelper">
+        <attr format="boolean" name="onShow"/>
+        <attr format="boolean" name="onHide"/>
     </declare-styleable><declare-styleable name="NavInclude">
         <attr format="reference" name="graph"/>
     </declare-styleable><declare-styleable name="SwitchCompat">
@@ -3593,6 +5506,23 @@
         <attr format="boolean" name="splitTrack"/>
         
         <attr format="boolean" name="showText"/>
+    </declare-styleable><declare-styleable name="KeyFramesAcceleration">
+
+    </declare-styleable><declare-styleable name="ImageFilterView">
+        <attr format="reference" name="blendSrc"/>
+        <attr format="reference" name="altSrc"/>
+        <attr format="float" name="saturation"/>
+        <attr format="float" name="brightness"/>
+        <attr format="float" name="warmth"/>
+        <attr format="float" name="contrast"/>
+        <attr format="float" name="crossfade"/>
+        <attr format="dimension" name="round"/>
+        <attr format="boolean" name="overlay"/>
+        <attr format="float" name="roundPercent"/>
+        <attr format="float" name="imagePanX"/>
+        <attr format="float" name="imagePanY"/>
+        <attr format="float" name="imageZoom"/>
+        <attr format="float" name="imageRotate"/>
     </declare-styleable><declare-styleable name="ColorStateListItem">
         
         <attr name="android:color"/>
@@ -3602,6 +5532,18 @@
         
         <attr format="float" name="lStar"/>
         <attr name="android:lStar"/>
+    </declare-styleable><declare-styleable name="CustomAttribute">
+        <attr format="string" name="attributeName"/>
+        <attr format="string" name="methodName"/>
+        <attr format="color" name="customColorValue"/>
+        <attr format="color" name="customColorDrawableValue"/>
+        <attr format="integer" name="customIntegerValue"/>
+        <attr format="float" name="customFloatValue"/>
+        <attr format="string" name="customStringValue"/>
+        <attr format="dimension" name="customDimension"/>
+        <attr format="dimension" name="customPixelDimension"/>
+        <attr format="boolean" name="customBoolean"/>
+        <attr format="reference" name="customReference"/>
     </declare-styleable><declare-styleable name="NavAction">
         <attr name="android:id"/>
         <attr format="reference" name="destination"/>
@@ -3629,6 +5571,11 @@
         <attr name="android:exitFadeDuration"/>
         
         
+    </declare-styleable><declare-styleable name="ConstraintLayout_ReactiveGuide">
+        <attr format="reference" name="reactiveGuide_valueId"/>
+        <attr format="boolean" name="reactiveGuide_animateChange"/>
+        <attr format="boolean" name="reactiveGuide_applyToAllConstraintSets"/>
+        <attr format="reference" name="reactiveGuide_applyToConstraintSet"/>
     </declare-styleable><declare-styleable name="Spinner">
         
         <attr name="android:prompt"/>
@@ -3650,6 +5597,25 @@
         <attr format="boolean" name="overlapAnchor"/>
         <attr name="android:popupBackground"/>
         <attr name="android:popupAnimationStyle"/>
+    </declare-styleable><declare-styleable name="ViewTransition">
+        <attr name="android:id"/>
+        <attr name="motionTarget"/>
+        <attr name="viewTransitionMode"/>
+        <attr name="onStateTransition"/>
+        <attr name="duration"/>
+        <attr format="integer" name="upDuration"/>
+        <attr name="transitionDisable"/>
+        <attr name="pathMotionArc"/>
+        <attr name="motionInterpolator"/>
+        <attr format="reference" name="SharedValueId"/>
+        <attr format="integer" name="SharedValue"/>
+        <attr format="reference" name="setsTag"/>
+        <attr format="reference" name="clearsTag"/>
+        <attr format="reference" name="ifTagSet"/>
+        <attr format="reference" name="ifTagNotSet"/>
+    </declare-styleable><declare-styleable name="ConstraintLayout_placeholder">
+        <attr name="placeholder_emptyVisibility"/>
+        <attr name="content"/>
     </declare-styleable><declare-styleable name="DrawerArrowToggle">
         
         <attr format="color" name="color"/>
@@ -3719,6 +5685,59 @@
         <attr name="android:shadowRadius"/>
         
         <attr name="fontVariationSettings"/>
+    </declare-styleable><declare-styleable name="KeyCycle">
+        <attr name="motionTarget"/>
+        <attr name="curveFit"/>
+        <attr name="framePosition"/>
+        <attr name="transitionEasing"/>
+        <attr name="motionProgress"/>
+        <attr name="waveShape"/>
+        <attr name="wavePhase"/>
+        <attr name="wavePeriod"/>
+        <attr name="waveOffset"/>
+        <attr name="waveVariesBy"/>
+        <attr name="transitionPathRotate"/>
+        <attr name="android:alpha"/>
+        <attr name="android:elevation"/>
+        <attr name="android:rotation"/>
+        <attr name="android:rotationX"/>
+        <attr name="android:rotationY"/>
+        <attr name="android:scaleX"/>
+        <attr name="android:scaleY"/>
+        <attr name="android:translationX"/>
+        <attr name="android:translationY"/>
+        <attr name="android:translationZ"/>
+    </declare-styleable><declare-styleable name="MotionLabel">
+        <attr name="android:text"/>
+        <attr name="android:textColor"/>
+        <attr name="android:textSize"/>
+        <attr name="android:fontFamily"/>
+        <attr name="android:gravity"/>
+        <attr format="float" name="textPanX"/>
+        <attr format="float" name="textPanY"/>
+        <attr name="android:typeface"/>
+        <attr name="android:shadowRadius"/>
+        <attr name="android:textStyle"/>
+        <attr name="borderRound"/>
+        <attr format="dimension" name="scaleFromTextSize"/>
+        <attr name="borderRoundPercent"/>
+        <attr name="textOutlineThickness"/>
+        <attr name="textOutlineColor"/>
+        <attr format="reference" name="textBackground"/>
+        <attr name="android:autoSizeTextType"/>
+        <attr format="dimension" name="textureWidth"/>
+        <attr format="dimension" name="textureHeight"/>
+        <attr format="integer" name="textureBlurFactor"/>
+        <attr format="float" name="textBackgroundPanX"/>
+        <attr format="float" name="textBackgroundPanY"/>
+        <attr format="float" name="textBackgroundZoom"/>
+        <attr format="float" name="textBackgroundRotate"/>
+        <attr format="enum" name="textureEffect">
+            <enum name="none" value="0"/>
+            <enum name="frost" value="1"/>
+        </attr>
+    </declare-styleable><declare-styleable name="StateSet">
+        <attr format="reference" name="defaultState"/>
     </declare-styleable><declare-styleable name="MenuGroup">
 
         
@@ -3738,6 +5757,32 @@
 
         
         <attr name="android:enabled"/>
+
+    </declare-styleable><declare-styleable name="MotionLayout">
+        <attr name="layoutDescription"/>
+        <attr format="reference" name="currentState"/>
+        <attr name="motionProgress"/>
+        <attr format="boolean" name="applyMotionScene"/>
+        <attr format="boolean" name="showPaths"/>
+        <attr format="enum" name="motionDebug">
+            <enum name="NO_DEBUG" value="0"/>
+            <enum name="SHOW_PROGRESS" value="1"/>
+            <enum name="SHOW_PATH" value="2"/>
+            <enum name="SHOW_ALL" value="3"/>
+        </attr>
+    </declare-styleable><declare-styleable name="include">
+        <attr name="constraintSet"/>
+    </declare-styleable><declare-styleable name="Motion">
+        <attr name="animateRelativeTo"/>
+        <attr name="animateCircleAngleTo"/>
+        <attr name="transitionEasing"/>
+        <attr name="pathMotionArc"/>
+        <attr name="motionPathRotate"/>
+        <attr name="motionStagger"/>
+        <attr name="drawPath"/>
+        <attr name="quantizeMotionSteps"/>
+        <attr name="quantizeMotionPhase"/>
+        <attr name="quantizeMotionInterpolator"/>
 
     </declare-styleable><declare-styleable name="FontFamily">
         
@@ -3762,6 +5807,161 @@
         </attr>
         
         <attr format="string" name="fontProviderSystemFontFamily"/>
+    </declare-styleable><declare-styleable name="ConstraintOverride">
+        <attr name="android:orientation"/>
+        <attr name="android:id"/>
+        <attr name="motionTarget"/>
+
+        
+        <attr name="android:visibility"/>
+        <attr name="visibilityMode"/>
+
+        
+        <attr name="android:alpha"/>
+
+        
+        <attr name="android:elevation"/>
+
+        
+        <attr name="android:rotation"/>
+
+        
+        <attr name="android:rotationX"/>
+
+        
+        <attr name="android:rotationY"/>
+
+        
+        <attr name="android:scaleX"/>
+
+        
+        <attr name="android:scaleY"/>
+        <attr name="pivotAnchor"/>
+
+        <attr name="android:transformPivotX"/>
+        <attr name="android:transformPivotY"/>
+        <attr name="transformPivotTarget"/>
+
+        
+        <attr name="android:translationX"/>
+        
+        <attr name="android:translationY"/>
+        
+        <attr name="android:translationZ"/>
+        
+        <attr name="android:layout_width"/>
+        
+        <attr name="android:layout_height"/>
+        
+        <attr name="layout_constraintWidth"/>
+        <attr name="layout_constraintHeight"/>
+        <attr name="android:layout_marginStart"/>
+        
+        <attr name="android:layout_marginBottom"/>
+        
+        <attr name="android:layout_marginTop"/>
+        
+        <attr name="android:layout_marginEnd"/>
+        
+        <attr name="android:layout_marginLeft"/>
+        
+        <attr name="android:layout_marginRight"/>
+
+        <attr name="layout_constraintCircleRadius"/>
+        <attr name="layout_constraintCircleAngle"/>
+
+        <attr name="layout_constraintGuide_begin"/>
+        <attr name="layout_constraintGuide_end"/>
+        <attr name="layout_constraintGuide_percent"/>
+        <attr name="guidelineUseRtl"/>
+
+        <attr name="layout_goneMarginLeft"/>
+        <attr name="layout_goneMarginTop"/>
+        <attr name="layout_goneMarginRight"/>
+        <attr name="layout_goneMarginBottom"/>
+        <attr name="layout_goneMarginStart"/>
+        <attr name="layout_goneMarginEnd"/>
+        <attr name="layout_goneMarginBaseline"/>
+        <attr name="layout_marginBaseline"/>
+        <attr name="layout_constrainedWidth"/>
+        <attr name="layout_constrainedHeight"/>
+        <attr name="layout_constraintHorizontal_bias"/>
+        <attr name="layout_constraintVertical_bias"/>
+        <attr name="layout_constraintWidth_default"/>
+        <attr name="layout_constraintHeight_default"/>
+        <attr name="layout_constraintWidth_min"/>
+        <attr name="layout_constraintWidth_max"/>
+        <attr name="layout_constraintWidth_percent"/>
+        <attr name="layout_constraintHeight_min"/>
+        <attr name="layout_constraintHeight_max"/>
+        <attr name="layout_constraintHeight_percent"/>
+        <attr name="layout_constraintLeft_creator"/>
+        <attr name="layout_constraintTop_creator"/>
+        <attr name="layout_constraintRight_creator"/>
+        <attr name="layout_constraintBottom_creator"/>
+        <attr name="layout_constraintBaseline_creator"/>
+        <attr name="layout_constraintDimensionRatio"/>
+        <attr name="layout_constraintHorizontal_weight"/>
+        <attr name="layout_constraintVertical_weight"/>
+        <attr name="layout_constraintHorizontal_chainStyle"/>
+        <attr name="layout_constraintVertical_chainStyle"/>
+        <attr name="layout_editor_absoluteX"/>
+        <attr name="layout_editor_absoluteY"/>
+        <attr name="layout_wrapBehaviorInParent"/>
+
+        <attr name="barrierDirection"/>
+        <attr name="barrierMargin"/>
+        <attr name="constraint_referenced_ids"/>
+        <attr name="android:maxHeight"/>
+        <attr name="android:maxWidth"/>
+        <attr name="android:minHeight"/>
+        <attr name="android:minWidth"/>
+        <attr name="barrierAllowsGoneWidgets"/>
+        <attr name="chainUseRtl"/>
+
+        <attr name="flow_horizontalStyle"/>
+        <attr name="flow_verticalStyle"/>
+        <attr name="flow_verticalAlign"/>
+        <attr name="flow_horizontalAlign"/>
+        <attr name="flow_verticalBias"/>
+        <attr name="flow_horizontalBias"/>
+        <attr name="flow_wrapMode"/>
+        <attr name="flow_maxElementsWrap"/>
+        <attr name="flow_horizontalGap"/>
+        <attr name="flow_verticalGap"/>
+        
+        
+
+        <attr name="flow_firstHorizontalStyle"/>
+        <attr name="flow_firstVerticalStyle"/>
+        <attr name="flow_firstHorizontalBias"/>
+        <attr name="flow_firstVerticalBias"/>
+
+        <attr name="flow_lastHorizontalStyle"/>
+        <attr name="flow_lastVerticalStyle"/>
+        <attr name="flow_lastHorizontalBias"/>
+        <attr name="flow_lastVerticalBias"/>
+
+        <attr name="animateRelativeTo"/>
+        <attr name="animateCircleAngleTo"/>
+        <attr name="transitionEasing"/>
+        <attr name="pathMotionArc"/>
+        <attr name="polarRelativeTo"/>
+        <attr name="transitionPathRotate"/>
+        <attr name="drawPath"/>
+        <attr name="motionProgress"/>
+        <attr name="layout_constraintTag"/>
+        <attr name="motionStagger"/>
+        <attr name="quantizeMotionSteps"/>
+        <attr name="quantizeMotionPhase"/>
+        <attr name="quantizeMotionInterpolator"/>
+    </declare-styleable><declare-styleable name="MockView">
+        <attr format="string" name="mock_label"/>
+        <attr format="color" name="mock_labelColor"/>
+        <attr format="color" name="mock_labelBackgroundColor"/>
+        <attr format="color" name="mock_diagonalsColor"/>
+        <attr format="boolean" name="mock_showDiagonals"/>
+        <attr format="boolean" name="mock_showLabel"/>
     </declare-styleable><declare-styleable name="Navigator">
         <attr name="android:id"/>
         <attr format="string" name="route"/>
@@ -3884,6 +6084,15 @@
         <attr name="android:drawable"/>
         
         <attr name="android:reversible"/>
+    </declare-styleable><declare-styleable name="OnClick">
+        <attr name="targetId"/>
+        <attr name="clickAction">
+            <flag name="toggle" value="0x0011"/>
+            <flag name="transitionToEnd" value="0x0001"/>
+            <flag name="transitionToStart" value="0x0010"/>
+            <flag name="jumpToEnd" value="0x100"/>
+            <flag name="jumpToStart" value="0x1000"/>
+        </attr>
     </declare-styleable><declare-styleable name="View">
         
         <attr format="dimension" name="paddingStart"/>
@@ -3915,6 +6124,49 @@
         <attr name="android:fontWeight"/>
         <attr name="android:fontVariationSettings"/>
         <attr name="android:ttcIndex"/>
+    </declare-styleable><declare-styleable name="OnSwipe">
+        <attr format="float" name="dragScale"/>
+        <attr format="float" name="dragThreshold"/>
+        <attr format="enum" name="autoCompleteMode">
+            <enum name="continuousVelocity" value="0"/>
+            <enum name="spring" value="1"/>
+        </attr>
+        <attr format="float" name="maxVelocity"/>
+        <attr format="float" name="maxAcceleration"/>
+        <attr format="float" name="springMass"/>
+        <attr format="float" name="springStiffness"/>
+        <attr format="float" name="springDamping"/>
+        <attr format="float" name="springStopThreshold"/>
+        <attr format="flags" name="springBoundary">
+            <flag name="overshoot" value="0"/>
+            <flag name="bounceStart" value="1"/>
+            <flag name="bounceEnd" value="2"/>
+            <flag name="bounceBoth" value="3"/>
+        </attr>
+        <attr name="dragDirection"/>
+        <attr name="touchAnchorId"/>
+        <attr name="touchAnchorSide"/>
+        <attr format="reference" name="rotationCenterId"/>
+        <attr format="reference" name="touchRegionId"/>
+        <attr format="reference" name="limitBoundsTo"/>
+        <attr format="flags" name="nestedScrollFlags">
+            <flag name="none" value="0"/>
+            <flag name="disablePostScroll" value="1"/>
+            <flag name="disableScroll" value="2"/>
+            <flag name="supportScrollUp" value="4"/>
+        </attr>
+        <attr format="boolean" name="moveWhenScrollAtTop"/>
+        <attr format="enum" name="onTouchUp">
+            <enum name="autoComplete" value="0"/>
+            <enum name="autoCompleteToStart" value="1"/>
+            <enum name="autoCompleteToEnd" value="2"/>
+            <enum name="stop" value="3"/>
+            <enum name="decelerate" value="4"/>
+            <enum name="decelerateAndComplete" value="5"/>
+            <enum name="neverCompleteToStart" value="6"/>
+            <enum name="neverCompleteToEnd" value="7"/>
+        </attr>
+
     </declare-styleable><declare-styleable name="LinearLayoutCompat">
         
         <attr name="android:orientation"/>
@@ -3977,8 +6229,189 @@
         
         <attr format="reference" name="submitBackground"/>
         <attr name="android:focusable"/>
+    </declare-styleable><declare-styleable name="Layout">
+
+        <attr name="android:layout_width"/>
+        <attr name="android:layout_height"/>
+        <attr name="layout_constraintWidth"/>
+        <attr name="layout_constraintHeight"/>
+
+        <attr name="android:layout_marginStart"/>
+
+        <attr name="android:layout_marginBottom"/>
+
+        <attr name="android:layout_marginTop"/>
+
+        <attr name="android:layout_marginEnd"/>
+
+        <attr name="android:layout_marginLeft"/>
+
+        <attr name="android:layout_marginRight"/>
+
+        <attr name="layout_constraintCircle"/>
+        <attr name="layout_constraintCircleRadius"/>
+        <attr name="layout_constraintCircleAngle"/>
+        <attr name="layout_constraintGuide_begin"/>
+        <attr name="layout_constraintGuide_end"/>
+        <attr name="layout_constraintGuide_percent"/>
+        <attr name="guidelineUseRtl"/>
+        <attr name="layout_constraintLeft_toLeftOf"/>
+        <attr name="layout_constraintLeft_toRightOf"/>
+        <attr name="layout_constraintRight_toLeftOf"/>
+        <attr name="layout_constraintRight_toRightOf"/>
+        <attr name="layout_constraintTop_toTopOf"/>
+        <attr name="layout_constraintTop_toBottomOf"/>
+        <attr name="layout_constraintBottom_toTopOf"/>
+        <attr name="layout_constraintBottom_toBottomOf"/>
+        <attr name="layout_constraintBaseline_toBaselineOf"/>
+        <attr name="layout_constraintBaseline_toTopOf"/>
+        <attr name="layout_constraintBaseline_toBottomOf"/>
+        <attr name="layout_constraintStart_toEndOf"/>
+        <attr name="layout_constraintStart_toStartOf"/>
+        <attr name="layout_constraintEnd_toStartOf"/>
+        <attr name="layout_constraintEnd_toEndOf"/>
+        <attr name="layout_goneMarginLeft"/>
+        <attr name="layout_goneMarginTop"/>
+        <attr name="layout_goneMarginRight"/>
+        <attr name="layout_goneMarginBottom"/>
+        <attr name="layout_goneMarginStart"/>
+        <attr name="layout_goneMarginEnd"/>
+        <attr name="layout_goneMarginBaseline"/>
+        <attr name="layout_marginBaseline"/>
+        <attr name="layout_constrainedWidth"/>
+        <attr name="layout_constrainedHeight"/>
+        <attr name="layout_constraintHorizontal_bias"/>
+        <attr name="layout_constraintVertical_bias"/>
+        <attr name="layout_constraintWidth_default"/>
+        <attr name="layout_constraintHeight_default"/>
+        <attr name="layout_constraintWidth_min"/>
+        <attr name="layout_constraintWidth_max"/>
+        <attr name="android:orientation"/>
+        <attr name="layout_constraintWidth_percent"/>
+        <attr name="layout_constraintHeight_min"/>
+        <attr name="layout_constraintHeight_max"/>
+        <attr name="layout_constraintHeight_percent"/>
+        <attr name="layout_constraintLeft_creator"/>
+        <attr name="layout_constraintTop_creator"/>
+        <attr name="layout_constraintRight_creator"/>
+        <attr name="layout_constraintBottom_creator"/>
+        <attr name="layout_constraintBaseline_creator"/>
+        <attr name="layout_constraintDimensionRatio"/>
+        <attr name="layout_constraintHorizontal_weight"/>
+        <attr name="layout_constraintVertical_weight"/>
+        <attr name="layout_constraintHorizontal_chainStyle"/>
+        <attr name="layout_constraintVertical_chainStyle"/>
+        <attr name="layout_editor_absoluteX"/>
+        <attr name="layout_editor_absoluteY"/>
+        <attr name="layout_wrapBehaviorInParent"/>
+        <attr name="barrierDirection"/>
+        <attr name="barrierMargin"/>
+        <attr name="constraint_referenced_ids"/>
+        <attr name="constraint_referenced_tags"/>
+        <attr format="dimension" name="maxHeight"/>
+        <attr format="dimension" name="maxWidth"/>
+        <attr format="dimension" name="minHeight"/>
+        <attr format="dimension" name="minWidth"/>
+        <attr name="barrierAllowsGoneWidgets"/>
+        <attr name="chainUseRtl"/>
+    </declare-styleable><declare-styleable name="Transition">
+        <attr name="android:id"/>
+        <attr format="reference" name="constraintSetStart"/>
+        <attr format="reference" name="constraintSetEnd"/>
+        <attr name="transitionDisable"/>
+        <attr name="layoutDuringTransition"/>
+
+        <attr name="pathMotionArc"/>
+        <attr format="enum" name="autoTransition">
+            <enum name="none" value="0"/>
+            <enum name="jumpToStart" value="1"/>
+            <enum name="jumpToEnd" value="2"/>
+            <enum name="animateToStart" value="3"/>
+            <enum name="animateToEnd" value="4"/>
+        </attr>
+        <attr format="string|reference|enum" name="motionInterpolator">
+            <enum name="easeInOut" value="0"/>
+            <enum name="easeIn" value="1"/>
+            <enum name="easeOut" value="2"/>
+            <enum name="linear" value="3"/>
+            <enum name="bounce" value="4"/>
+            <enum name="overshoot" value="5"/>
+            <enum name="anticipate" value="6"/>
+        </attr>
+
+        <attr name="duration"/>
+        <attr format="float" name="staggered"/>
+
+        <attr name="transitionFlags">
+            <flag name="none" value="0"/>
+            <flag name="beginOnFirstDraw" value="1"/>
+            <flag name="disableIntraAutoTransition" value="2"/>
+            <flag name="onInterceptTouchReturnSwipe" value="4"/>
+        </attr>
+    </declare-styleable><declare-styleable name="PropertySet">
+        
+        <attr name="android:visibility"/>
+        <attr name="visibilityMode"/>
+
+        
+        <attr name="android:alpha"/>
+
+        
+        <attr name="motionProgress"/>
+        <attr name="layout_constraintTag"/>
+    </declare-styleable><declare-styleable name="TextEffects">
+        <attr name="android:text"/>
+        <attr name="android:textSize"/>
+        <attr name="android:fontFamily"/>
+        <attr name="android:typeface"/>
+        <attr name="android:shadowColor"/>
+        <attr name="android:shadowDx"/>
+        <attr name="android:shadowDy"/>
+        <attr name="android:shadowRadius"/>
+        <attr name="android:textStyle"/>
+        <attr format="color" name="textFillColor"/>
+        <attr name="textOutlineThickness"/>
+        <attr name="textOutlineColor"/>
+        <attr name="borderRound"/>
+        <attr name="borderRoundPercent"/>
     </declare-styleable><declare-styleable name="ActionMenuView">
         
+    </declare-styleable><declare-styleable name="Transform">
+        
+        <attr name="android:elevation"/>
+
+        
+        <attr name="android:rotation"/>
+
+        
+        <attr name="android:rotationX"/>
+
+        
+        <attr name="android:rotationY"/>
+
+        
+        <attr name="android:scaleX"/>
+
+        
+        <attr name="android:scaleY"/>
+
+        
+        <attr name="android:transformPivotX"/>
+
+        
+        <attr name="android:transformPivotY"/>
+
+        <attr name="transformPivotTarget"/>
+
+        
+        <attr format="dimension" name="android:translationX"/>
+
+        
+        <attr format="dimension" name="android:translationY"/>
+
+        
+        <attr format="dimension" name="android:translationZ"/>
+
     </declare-styleable><declare-styleable name="CompoundButton">
         <attr name="android:button"/>
         

@@ -1,5 +1,8 @@
 package com.example.games.network
 
+import android.content.ContentValues
+import android.util.Log
+import com.example.games.data.GameDao
 import com.example.games.model.Game
 import retrofit2.http.GET
 
@@ -18,7 +21,29 @@ interface GameApiService {
      * HTTP method
      */
 @GET("games")
-suspend fun getGames (): List<Game>
+//only fetch:
+//suspend fun getGames (): List<Game>
+
+//change to ArrayList to database:
+    suspend fun getGames (): ArrayList<Game>
+
+//Yo added these 2 fun: Plants example:
+    fun getLocalGames(): GameDao
+suspend fun updateLocalGames ( games: ArrayList<Game>?){
+    try {
+        games?.let {
+            val gameDao = getLocalGames()
+            gameDao.insertAll(games)
+        }
+    }catch (e:Exception){
+        Log.e(ContentValues.TAG, "error saving games fetched ${e.message}")
+    }
+}
 
 
+/**
+//to get details of one Book:
+@GET ("games/{id}")
+suspend fun getGame(@Path("id")id:Int): Game?
+*/
 }

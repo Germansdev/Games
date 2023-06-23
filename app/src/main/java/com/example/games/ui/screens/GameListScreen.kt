@@ -32,6 +32,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -53,6 +54,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.games.R
 import com.example.games.model.Game
+import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.GameViewModel
 import com.example.games.ui.theme.GamesTheme
 
@@ -61,10 +63,18 @@ private const val TAG: String = "Dev4"
 @Composable
 fun GameListScreen(
     modifier: Modifier = Modifier,
-    games: List<Game>
+    games: List<Game>,
+//XXXX
+    viewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory)
+//XXXX
 
 ) {
     val gameViewModel: GameViewModel = viewModel()
+
+//XXXX
+    val homeUiState by viewModel.homeUiState.collectAsState()
+
+//XXXX
 
     //val favorites = gameViewModel.favorites.value
     //val play = gameViewModel.play.value
@@ -88,7 +98,7 @@ fun GameListScreen(
                 GameCard(
                     gameViewModel,
                     game,
-                    onClick = {  }
+                    onClick = { game.id }
                 )
             }
         }
@@ -117,6 +127,7 @@ Log.d(TAG, gameViewModel.favorites.value.size.toString())
 
     var share by remember { mutableStateOf(false) }
     share = gameViewModel.isShare(gameId = game.id.toString())
+
 
     val selectedRating = remember { mutableStateOf(game.rating) }
 

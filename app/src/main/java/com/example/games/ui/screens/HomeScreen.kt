@@ -14,7 +14,9 @@ fun HomeScreen(
     when (gameUiState){
         is GameUiState.Loading -> LoadingScreen (modifier)
 
-        is GameUiState.Success -> GameListScreen(modifier,gameUiState.games
+        is GameUiState.Success -> GameListScreen(
+            modifier,
+            games = gameUiState.games//Flow<games> //gameUiState.games
 
         )
         else -> ErrorScreen(retryAction, modifier)

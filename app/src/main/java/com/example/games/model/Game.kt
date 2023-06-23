@@ -1,7 +1,9 @@
 package com.example.games.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.serialization.Serializable
-
+@Entity(tableName = "Items")
 @Serializable
 data class Game(
  //  NOT USED YET:
@@ -13,7 +15,7 @@ data class Game(
     val publisher: String,
     val release_date: String,
 
-    val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int,
     val title: String,
     val short_description: String,
     val thumbnail: String,

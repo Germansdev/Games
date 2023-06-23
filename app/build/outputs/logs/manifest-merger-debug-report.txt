@@ -4,6 +4,7 @@ ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\A
 INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
 INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
 INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\b0a152a1c3d1a6d428f66f4cb589b881\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [io.coil-kt:coil-compose:2.2.2] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\af503384a5ecc4dee82ec7920b081d96\transformed\coil-compose-2.2.2\AndroidManifest.xml:2:1-9:12
 MERGED from [io.coil-kt:coil-compose-base:2.2.2] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\3366a563fb4d1c1ffaf336e6fe0a9d40\transformed\coil-compose-base-2.2.2\AndroidManifest.xml:2:1-9:12
 MERGED from [io.coil-kt:coil:2.2.2] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\7ed8b15f801aa33fd11c12bb1f6b14ef\transformed\coil-2.2.2\AndroidManifest.xml:2:1-9:12
@@ -67,14 +68,14 @@ MERGED from [androidx.lifecycle:lifecycle-runtime-compose:2.6.1] C:\Users\Willko
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\7a5de02db6b73cae85aa84c2a1d3211b\transformed\lifecycle-viewmodel-compose-2.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5b0dd3b9999fd051da0564481bca6bb6\transformed\lifecycle-viewmodel-ktx-2.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9f34ea29f4271cf1571e093601c23a6d\transformed\lifecycle-runtime-ktx-2.6.1\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.room:room-ktx:2.5.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a9f4e4e98a4a9b00820de426cd69f424\transformed\room-ktx-2.5.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.room:room-ktx:2.5.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4b27339fa7b2d973aab3f5557017b7f8\transformed\room-ktx-2.5.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.runtime:runtime-saveable:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2849a8d81275b9ad49aa4825ee2648cc\transformed\runtime-saveable-1.5.0-alpha04\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.runtime:runtime:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f27ada64a412851e4c3ae662f361ee7f\transformed\runtime-1.5.0-alpha04\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.room:room-runtime:2.5.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.room:room-runtime:2.5.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\14f2bafa638ddc514e5bb7bafbeb2602\transformed\room-runtime-2.5.0\AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.window:window-core:1.1.0-rc01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a86bec033449c14ca5e5988583a32146\transformed\window-core-1.1.0-rc01\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.core:core-splashscreen:1.0.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f77cb43cacb39445d87a952e6a375dc3\transformed\core-splashscreen-1.0.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.sqlite:sqlite-framework:2.3.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\ff27b60443343be31b6e39d8297c4c3f\transformed\sqlite-framework-2.3.1\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.sqlite:sqlite:2.3.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5fc0d1ee687fee59159f3bc5df75de9f\transformed\sqlite-2.3.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite-framework:2.3.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4ac88f09cbfef3beb4357125c7f84b03\transformed\sqlite-framework-2.3.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite:2.3.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2959df617cb5d93a66ea171fa313b302\transformed\sqlite-2.3.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\1102d454d52a3560109eeab18e6f9627\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4d51dfbf1afebc7e4a42d27f4bf26dc3\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9c8b2ac2301f3a9f23f42edccf9ca028\transformed\profileinstaller-1.3.0\AndroidManifest.xml:17:1-55:12
@@ -109,6 +110,8 @@ ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\A
 		ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:4:22-64
 application
 ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:6:5-28:19
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\b0a152a1c3d1a6d428f66f4cb589b881\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\b0a152a1c3d1a6d428f66f4cb589b881\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
 MERGED from [androidx.compose.ui:ui-test-manifest:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\c0de2955e76b90b897ebf525a3551fc6\transformed\ui-test-manifest-1.5.0-alpha04\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-test-manifest:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\c0de2955e76b90b897ebf525a3551fc6\transformed\ui-test-manifest-1.5.0-alpha04\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-tooling:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\e670831c47fa8b64d53c8c8a814ae366\transformed\ui-tooling-1.5.0-alpha04\AndroidManifest.xml:22:5-26:19
@@ -119,8 +122,8 @@ MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Willkommen\And
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\e77961f1c080e728709fac84a403c2c6\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.core:core:1.11.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8d6a3a3e9b6e1d9b4328090e2a0c4277\transformed\core-1.11.0-alpha04\AndroidManifest.xml:28:5-89
 MERGED from [androidx.core:core:1.11.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8d6a3a3e9b6e1d9b4328090e2a0c4277\transformed\core-1.11.0-alpha04\AndroidManifest.xml:28:5-89
-MERGED from [androidx.room:room-runtime:2.5.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\AndroidManifest.xml:23:5-29:19
-MERGED from [androidx.room:room-runtime:2.5.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.room:room-runtime:2.5.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\14f2bafa638ddc514e5bb7bafbeb2602\transformed\room-runtime-2.5.0\AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.room:room-runtime:2.5.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\14f2bafa638ddc514e5bb7bafbeb2602\transformed\room-runtime-2.5.0\AndroidManifest.xml:23:5-29:19
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9c8b2ac2301f3a9f23f42edccf9ca028\transformed\profileinstaller-1.3.0\AndroidManifest.xml:23:5-53:19
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9c8b2ac2301f3a9f23f42edccf9ca028\transformed\profileinstaller-1.3.0\AndroidManifest.xml:23:5-53:19
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8077903a7909563f6b680cc239c1c6fc\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
@@ -171,6 +174,8 @@ uses-sdk
 INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\b0a152a1c3d1a6d428f66f4cb589b881\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\b0a152a1c3d1a6d428f66f4cb589b881\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
 MERGED from [io.coil-kt:coil-compose:2.2.2] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\af503384a5ecc4dee82ec7920b081d96\transformed\coil-compose-2.2.2\AndroidManifest.xml:5:5-7:41
 MERGED from [io.coil-kt:coil-compose:2.2.2] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\af503384a5ecc4dee82ec7920b081d96\transformed\coil-compose-2.2.2\AndroidManifest.xml:5:5-7:41
 MERGED from [io.coil-kt:coil-compose-base:2.2.2] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\3366a563fb4d1c1ffaf336e6fe0a9d40\transformed\coil-compose-base-2.2.2\AndroidManifest.xml:5:5-7:41
@@ -297,22 +302,22 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1] C:\Users\Willkomm
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5b0dd3b9999fd051da0564481bca6bb6\transformed\lifecycle-viewmodel-ktx-2.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9f34ea29f4271cf1571e093601c23a6d\transformed\lifecycle-runtime-ktx-2.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9f34ea29f4271cf1571e093601c23a6d\transformed\lifecycle-runtime-ktx-2.6.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.room:room-ktx:2.5.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a9f4e4e98a4a9b00820de426cd69f424\transformed\room-ktx-2.5.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.room:room-ktx:2.5.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a9f4e4e98a4a9b00820de426cd69f424\transformed\room-ktx-2.5.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.room:room-ktx:2.5.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4b27339fa7b2d973aab3f5557017b7f8\transformed\room-ktx-2.5.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.room:room-ktx:2.5.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4b27339fa7b2d973aab3f5557017b7f8\transformed\room-ktx-2.5.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.runtime:runtime-saveable:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2849a8d81275b9ad49aa4825ee2648cc\transformed\runtime-saveable-1.5.0-alpha04\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.runtime:runtime-saveable:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2849a8d81275b9ad49aa4825ee2648cc\transformed\runtime-saveable-1.5.0-alpha04\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.runtime:runtime:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f27ada64a412851e4c3ae662f361ee7f\transformed\runtime-1.5.0-alpha04\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.runtime:runtime:1.5.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f27ada64a412851e4c3ae662f361ee7f\transformed\runtime-1.5.0-alpha04\AndroidManifest.xml:20:5-44
-MERGED from [androidx.room:room-runtime:2.5.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\AndroidManifest.xml:21:5-44
-MERGED from [androidx.room:room-runtime:2.5.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-runtime:2.5.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\14f2bafa638ddc514e5bb7bafbeb2602\transformed\room-runtime-2.5.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-runtime:2.5.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\14f2bafa638ddc514e5bb7bafbeb2602\transformed\room-runtime-2.5.0\AndroidManifest.xml:21:5-44
 MERGED from [androidx.window:window-core:1.1.0-rc01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a86bec033449c14ca5e5988583a32146\transformed\window-core-1.1.0-rc01\AndroidManifest.xml:5:5-44
 MERGED from [androidx.window:window-core:1.1.0-rc01] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\a86bec033449c14ca5e5988583a32146\transformed\window-core-1.1.0-rc01\AndroidManifest.xml:5:5-44
 MERGED from [androidx.core:core-splashscreen:1.0.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f77cb43cacb39445d87a952e6a375dc3\transformed\core-splashscreen-1.0.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core-splashscreen:1.0.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f77cb43cacb39445d87a952e6a375dc3\transformed\core-splashscreen-1.0.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.sqlite:sqlite-framework:2.3.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\ff27b60443343be31b6e39d8297c4c3f\transformed\sqlite-framework-2.3.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.sqlite:sqlite-framework:2.3.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\ff27b60443343be31b6e39d8297c4c3f\transformed\sqlite-framework-2.3.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.sqlite:sqlite:2.3.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5fc0d1ee687fee59159f3bc5df75de9f\transformed\sqlite-2.3.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.sqlite:sqlite:2.3.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5fc0d1ee687fee59159f3bc5df75de9f\transformed\sqlite-2.3.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.3.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4ac88f09cbfef3beb4357125c7f84b03\transformed\sqlite-framework-2.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.3.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4ac88f09cbfef3beb4357125c7f84b03\transformed\sqlite-framework-2.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.3.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2959df617cb5d93a66ea171fa313b302\transformed\sqlite-2.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.3.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\2959df617cb5d93a66ea171fa313b302\transformed\sqlite-2.3.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\1102d454d52a3560109eeab18e6f9627\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\1102d454d52a3560109eeab18e6f9627\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\4d51dfbf1afebc7e4a42d27f4bf26dc3\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
@@ -402,15 +407,15 @@ ADDED from [androidx.core:core:1.11.0-alpha04] C:\Users\Willkommen\AndroidStudio
 	android:name
 		ADDED from [androidx.core:core:1.11.0-alpha04] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\8d6a3a3e9b6e1d9b4328090e2a0c4277\transformed\core-1.11.0-alpha04\AndroidManifest.xml:26:22-94
 service#androidx.room.MultiInstanceInvalidationService
-ADDED from [androidx.room:room-runtime:2.5.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\AndroidManifest.xml:24:9-28:63
+ADDED from [androidx.room:room-runtime:2.5.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\14f2bafa638ddc514e5bb7bafbeb2602\transformed\room-runtime-2.5.0\AndroidManifest.xml:24:9-28:63
 	android:exported
-		ADDED from [androidx.room:room-runtime:2.5.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\AndroidManifest.xml:27:13-37
+		ADDED from [androidx.room:room-runtime:2.5.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\14f2bafa638ddc514e5bb7bafbeb2602\transformed\room-runtime-2.5.0\AndroidManifest.xml:27:13-37
 	tools:ignore
-		ADDED from [androidx.room:room-runtime:2.5.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\AndroidManifest.xml:28:13-60
+		ADDED from [androidx.room:room-runtime:2.5.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\14f2bafa638ddc514e5bb7bafbeb2602\transformed\room-runtime-2.5.0\AndroidManifest.xml:28:13-60
 	android:directBootAware
-		ADDED from [androidx.room:room-runtime:2.5.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\AndroidManifest.xml:26:13-43
+		ADDED from [androidx.room:room-runtime:2.5.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\14f2bafa638ddc514e5bb7bafbeb2602\transformed\room-runtime-2.5.0\AndroidManifest.xml:26:13-43
 	android:name
-		ADDED from [androidx.room:room-runtime:2.5.1] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\f0437aa692547ba8e65bd1b4c9ef17b6\transformed\room-runtime-2.5.1\AndroidManifest.xml:25:13-74
+		ADDED from [androidx.room:room-runtime:2.5.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\14f2bafa638ddc514e5bb7bafbeb2602\transformed\room-runtime-2.5.0\AndroidManifest.xml:25:13-74
 meta-data#androidx.profileinstaller.ProfileInstallerInitializer
 ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\9c8b2ac2301f3a9f23f42edccf9ca028\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
 	android:value
