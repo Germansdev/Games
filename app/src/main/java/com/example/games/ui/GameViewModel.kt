@@ -22,6 +22,7 @@ import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
 
+
 sealed interface GameUiState {
     //this with only fetch:
     //data class Success(val games: List<Game>) : GameUiState
@@ -33,11 +34,13 @@ sealed interface GameUiState {
 }
 
 class GameViewModel(
+
    //previous only fetch:
     private val gameRepository: GameRepository,
 
     //using ItemRepository database:
     private val itemsRepository: ItemsRepository,
+    //private val patternRepository: PatternRepository
 
     //private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
@@ -50,6 +53,7 @@ class GameViewModel(
     private val _games = mutableStateOf<List<Game>>(emptyList())
     val games: State<List<Game>> = _games
 
+    //var gamesModel = itemsRepository.insertAll()
     private val _favorites = mutableStateOf<Set<String>>(setOf())
     val favorites: State<Set<String>> = _favorites
 
@@ -82,9 +86,14 @@ class GameViewModel(
     //init block:
     init {
         getGames()
+        getItems()
     }
 
-
+fun getItems(){
+    viewModelScope.launch {
+        itemsRepository.insertAll(gameRepository.getGames())
+    }
+}
 
     //GAMES FROM
     fun getGames() {
@@ -94,7 +103,7 @@ class GameViewModel(
                 //previous only fetch:
                 GameUiState.Success(gameRepository.getGames())
                 //with database:
-                //GameUiState.Success(itemsRepository.getAllItemsStream())
+               // GameUiState.Success(itemsRepository.getAllItemsStream())
             } catch (e: IOException) {
                 GameUiState.Error
             } catch (e: HttpException) {
@@ -102,6 +111,7 @@ class GameViewModel(
             }
         }
     }
+
 
 
     fun selectFavorite(gameId: String) {
@@ -164,9 +174,13 @@ class GameViewModel(
                 //savedStateHandle = savedStateHandle
                 )*/
                 //this with ItemRepository database:
+               //
+
                 val itemsRepository = application.container.itemsRepository
                 val gameRepository = application.container.gameRepository
+                //val patternRepository = application.container.patternRepository
                 GameViewModel(gameRepository = gameRepository ,itemsRepository = itemsRepository,
+                    //patternRepository = patternRepository
                     //savedStateHandle = savedStateHandle
 
                 )

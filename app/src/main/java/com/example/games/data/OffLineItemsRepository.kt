@@ -1,13 +1,21 @@
 package com.example.games.data
 
 import com.example.games.model.Game
+import com.example.games.model.asExternalModel
+import com.example.games.network.GameApiService
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 //Replace the GameRepository previous for DI fetching data:
 
-    class OfflineItemsRepository(private val itemDao: GameDao) : ItemsRepository {
+    class OfflineItemsRepository(
+        private val itemDao: GameDao,
+        private val apiService: GameApiService
+        ) : ItemsRepository {
 //with original codelab with Flow:
-        override fun getAllItemsStream(): Flow<List<Game>> = itemDao.getAllItems()
+        override fun getAllItemsStream(): Flow<List<Game>> = itemDao.getAllItems().map {
+            it.map (Game::asExternalModel) }
+
 
         //changed to Simple List:
        //override fun getAllItemsStream(): List<Game> = itemDao.getAllItems()

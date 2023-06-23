@@ -7,10 +7,14 @@ import com.example.games.network.GameApiService
 
 interface AppContainer {
     val gameApiService: GameApiService
-    //this original, change to database:
     val gameRepository: GameRepository
 
     //using ItemRepository database:
     val itemsRepository: ItemsRepository
-
+//val patternRepository: PatternRepository
 }
+/**
+class PatternRepository ( gameRepository: GameRepository,itemsRepository: ItemsRepository ): {
+
+
+}*/

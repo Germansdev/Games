@@ -11,8 +11,9 @@ class DefaultGameRepository(
 
 //this single line with database:
     //): ItemsRepository {
-    override suspend fun getGames(): List<Game> {
+    override suspend fun getGames(): ArrayList<Game> {
         return gameApiService.getGames()
+  //  return gameApiService.getLocalGames()
     }
 
 
