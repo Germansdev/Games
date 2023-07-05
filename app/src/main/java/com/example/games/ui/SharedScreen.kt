@@ -87,7 +87,6 @@ fun SharedScreenContent(
                         game = game.copy(isShared = true),
                     )
                 }
-
             }
         }
     }

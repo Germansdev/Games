@@ -169,25 +169,14 @@ fun GameCardPlayed(
                     }
                     Spacer(modifier = Modifier.size(12.dp))
                     Row(
-                        /**
-                        modifier = Modifier
-
-                            //.padding(bottom = 4.dp)
-                            .width(26.dp)
-                            .fillMaxSize()
-                            .align(Alignment.CenterHorizontally),
-                        horizontalArrangement = Arrangement.SpaceAround*/
-
-                                modifier = Modifier
+                       modifier = Modifier
                                 .fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
 
                     ) {
 
                         FavoriteButton(
-                            //favorite = favorite,
-                            //favorite = if (game.isFavorite == true) true else (false),
-                            //favorite = game.isFavorite==true,
+
                             favorite =
                             when(game.isFavorite){
                                 true -> true
@@ -206,16 +195,11 @@ fun GameCardPlayed(
 
                                                 ) else (
                                             gameViewModel.isFavoriteGame(game.copy(isFavorite = true)                                         )
-                                            //gameViewModel.isFavoriteGame(game.copy(favorited = 1))
-                                            )
-                                    //gameViewModel.isFavoriteGame(game.copy(isFavorite = true))
-                                    //gameViewModel.isFavoriteGame(game.copy(favorited = 1))
+                                        )
+
                                 }
-                                //favorite = !favorite
-
-
                             },
-                            //favorite = if (game.isFavorite == true) true else (false)
+
                         )
                         val context = LocalContext.current
                         PlayButton(
@@ -236,12 +220,11 @@ fun GameCardPlayed(
 
                                     playGame(context, game = game)
                                 }
-                               // play = !play
                             },
                         )
 
                         ShareButton(
-                            // share = share,
+
                             share = when (game.isShared) {
                                 true -> true
                                 false -> false
@@ -266,11 +249,8 @@ fun GameCardPlayed(
                                     link,
                                     game = game
                                 )
-                                //share = !share
                             }
                         )
-
-
                     }
                 }
             }

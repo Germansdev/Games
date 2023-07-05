@@ -2,7 +2,6 @@
 
 package com.example.games.ui.screens
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -26,13 +25,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.games.R
 import com.example.games.model.Game
-import com.example.games.ui.AppViewModelProvider
-import com.example.games.ui.GameViewModel
 
 
 //this is reusableCode:
@@ -50,12 +46,6 @@ fun GameCardComonContent(
         //.aspectRatio(1f),
         elevation = CardDefaults.cardElevation(5.dp),
         shape = RoundedCornerShape(8.dp),
-        /**
-        .fillMaxSize()
-        .padding(top = 5.dp, bottom = 5.dp, start = 10.dp, end = 10.dp),
-        elevation = CardDefaults.cardElevation(5.dp),
-        shape = RoundedCornerShape(8.dp),*/
-        //onClick = {onClick(game.id)},
 
     ) {
         Row(
@@ -63,7 +53,6 @@ fun GameCardComonContent(
                 .fillMaxWidth(),
 
             verticalAlignment = Alignment.CenterVertically
-
 
             ) {
             AsyncImage(

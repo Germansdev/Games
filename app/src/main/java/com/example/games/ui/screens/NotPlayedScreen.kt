@@ -1,8 +1,5 @@
 package com.example.games.ui.screens
 
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -81,7 +78,6 @@ fun NotPlayedScreenContent(
         modifier = modifier
             .fillMaxSize()
             .padding(16.dp),
-       // verticalArrangement = Arrangement.spacedBy(16.dp),
 
     ) {
         Row(modifier = Modifier.padding(8.dp)
@@ -98,7 +94,6 @@ fun NotPlayedScreenContent(
             )
         }
         Spacer(modifier = Modifier.size(16.dp))
-        //   Log.e(TAG, favoritesToShow.toString())
 
         if (notPlayedL.isEmpty()) {
             androidx.compose.material.Text(
@@ -118,9 +113,7 @@ fun NotPlayedScreenContent(
                 ) { game ->
                     GameCardNotPlayed(
                         game = game.copy(isPlayed = false),
-                        //gameViewModel = ,
                         onClick =  {game.id}
-
                     )
                 }
             }
@@ -136,31 +129,18 @@ fun GameCardNotPlayed(
     gameViewModel: GameViewModel = viewModel(factory=AppViewModelProvider.Factory),
     onClick: (Int) -> Unit
 ) {
-
-
-
-
-
     var favorite by remember { mutableStateOf(false) }
     favorite = gameViewModel.isFavorite(gameId = game.id)
-
-
-    // Log.d(TAG, gameViewModel.favorites.value.size.toString())
 
     var play by remember { mutableStateOf(false) }
     play = gameViewModel.isPlay(gameId = game.id)
 
-    //Log.d(TAG, gameViewModel.play.value.size.toString())
-
     var share by remember { mutableStateOf(false) }
     share = gameViewModel.isShare(gameId = game.id)
-
-    //Log.d(TAG, gameViewModel.share.value.size.toString())
 
     var rating by remember { mutableStateOf(false) }
     rating = gameViewModel.isRate(gameId = game.id.toString())
     var selectedRating by remember { mutableStateOf(game.rating) }
-
 
     val coroutineScope = rememberCoroutineScope()
 
@@ -214,9 +194,7 @@ fun GameCardNotPlayed(
                 ) {
                     //  Box() {
                     FavoriteButton(
-                        //favorite = favorite,
-                        //favorite = if (game.isFavorite == true) true else (false),
-                        //favorite = game.isFavorite==true,
+
                         favorite =
                         when(game.isFavorite){
                             true -> true
@@ -235,18 +213,11 @@ fun GameCardNotPlayed(
 
                                             ) else (
                                         gameViewModel.isFavoriteGame(game.copy(isFavorite = true)                                         )
-                                        //gameViewModel.isFavoriteGame(game.copy(favorited = 1))
-                                        )
-                                //gameViewModel.isFavoriteGame(game.copy(isFavorite = true))
-                                //gameViewModel.isFavoriteGame(game.copy(favorited = 1))
+                                    )
                             }
-                            //favorite = !favorite
-
-
                         },
-                        //favorite = if (game.isFavorite == true) true else (false)
-                    )
 
+                    )
 
                     Spacer(modifier = Modifier.size(16.dp))
 
@@ -268,9 +239,7 @@ fun GameCardNotPlayed(
                                     (gameViewModel.isPlayedGame(game.copy(isPlayed = true)))
 
                                     playGame(context, game = game)
-
                                 }
-                                //play = !play
                             }
                         )
                     }
@@ -304,10 +273,8 @@ fun GameCardNotPlayed(
                                     link,
                                     game = game
                                 )
-                                //share = !share
                             }
                         )
-
                     }
                 }
 
@@ -352,10 +319,7 @@ fun GameCardNotPlayed(
                         }
                     }
                 }
-
-
             }
-
         }
     }
 }

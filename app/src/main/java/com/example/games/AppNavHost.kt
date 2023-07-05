@@ -53,7 +53,6 @@ fun GameNavHost(
 
                 NotPlayedScreen()
 
-
         }
 
         composable(BottomBarScreen.Pantalla2.route) {

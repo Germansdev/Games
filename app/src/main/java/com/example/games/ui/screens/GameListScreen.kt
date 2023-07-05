@@ -113,9 +113,6 @@ fun GameListScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GameCard(
-    //04/07 previo:
-    //gameViewModel: GameViewModel,
-    //with provider:
     gameViewModel: GameViewModel = viewModel(factory=AppViewModelProvider.Factory),
     game: Game,
     onClick: (Int) -> Unit
@@ -123,7 +120,6 @@ fun GameCard(
 
     var favorite by remember { mutableStateOf(false) }
     favorite = gameViewModel.isFavorite(gameId = game.id)
-
 
     Log.d(TAG, gameViewModel.favorites.value.size.toString())
 
@@ -140,7 +136,6 @@ fun GameCard(
     var rating by remember { mutableStateOf(false) }
     rating = gameViewModel.isRate(gameId = game.id.toString())
     var selectedRating by remember { mutableStateOf(game.rating) }
-
 
     val coroutineScope = rememberCoroutineScope()
 
@@ -239,7 +234,6 @@ fun GameCard(
                                     playGame(context, game)
 
                                 }
-                                //play = !play
                             }
                         )
                     }
@@ -324,15 +318,6 @@ fun GameCard(
 }
 
 }
-/**
-@Composable
-fun FavoriteC(favorites: Boolean){
-    favorites  =
-        when(game.isFavorite){
-            true -> true
-            false -> false
-        },
-}*/
 
 //INTERNAL FUN TO CREATE INTENT TO PLAY:
 
