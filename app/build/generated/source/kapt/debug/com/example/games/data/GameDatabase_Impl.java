@@ -37,9 +37,9 @@ public final class GameDatabase_Impl extends GameDatabase {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `Items` (`developer` TEXT NOT NULL, `game_url` TEXT NOT NULL, `freetogame_profile_url` TEXT NOT NULL, `genre` TEXT NOT NULL, `platform` TEXT NOT NULL, `publisher` TEXT NOT NULL, `release_date` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `short_description` TEXT NOT NULL, `thumbnail` TEXT NOT NULL, `rating` REAL NOT NULL, `isFavorite` INTEGER NOT NULL, `isPlayed` INTEGER NOT NULL, `isShared` INTEGER NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Items` (`developer` TEXT NOT NULL, `game_url` TEXT NOT NULL, `freetogame_profile_url` TEXT NOT NULL, `genre` TEXT NOT NULL, `platform` TEXT NOT NULL, `publisher` TEXT NOT NULL, `release_date` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `short_description` TEXT NOT NULL, `thumbnail` TEXT NOT NULL, `rating` REAL NOT NULL, `isFavorite` INTEGER NOT NULL, `isPlayed` INTEGER NOT NULL, `isShared` INTEGER NOT NULL, `played` INTEGER, `favorited` INTEGER, `shared` INTEGER)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd38c04fe57eb1e896f17d5a3cb09a32b')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'dddd7c0ded0f11ecadc81fa3a5940f4f')");
       }
 
       @Override
@@ -83,7 +83,7 @@ public final class GameDatabase_Impl extends GameDatabase {
 
       @Override
       public RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsItems = new HashMap<String, TableInfo.Column>(15);
+        final HashMap<String, TableInfo.Column> _columnsItems = new HashMap<String, TableInfo.Column>(18);
         _columnsItems.put("developer", new TableInfo.Column("developer", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsItems.put("game_url", new TableInfo.Column("game_url", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsItems.put("freetogame_profile_url", new TableInfo.Column("freetogame_profile_url", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -99,6 +99,9 @@ public final class GameDatabase_Impl extends GameDatabase {
         _columnsItems.put("isFavorite", new TableInfo.Column("isFavorite", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsItems.put("isPlayed", new TableInfo.Column("isPlayed", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsItems.put("isShared", new TableInfo.Column("isShared", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsItems.put("played", new TableInfo.Column("played", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsItems.put("favorited", new TableInfo.Column("favorited", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsItems.put("shared", new TableInfo.Column("shared", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysItems = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesItems = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoItems = new TableInfo("Items", _columnsItems, _foreignKeysItems, _indicesItems);
@@ -110,7 +113,7 @@ public final class GameDatabase_Impl extends GameDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "d38c04fe57eb1e896f17d5a3cb09a32b", "5b01285d84065d8f87b9c13e18610f0f");
+    }, "dddd7c0ded0f11ecadc81fa3a5940f4f", "527558fa1670297a432ed05567c18d5b");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

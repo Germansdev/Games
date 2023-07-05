@@ -7,6 +7,7 @@ import com.example.games.ui.GameUiState
 @Composable
 fun HomeScreen(
     gameUiState: GameUiState,
+    //itemsRepository: ItemsRepository,
     retryAction: () -> Unit,
     modifier: Modifier = Modifier,
     ){
@@ -16,7 +17,11 @@ fun HomeScreen(
 
         is GameUiState.Success -> GameListScreen(
             modifier,
-            games = gameUiState.games//Flow<games> //gameUiState.games
+
+            games = gameUiState.games,
+
+            //navigateToGameDetails = {  },
+            onClick = {},
 
         )
         else -> ErrorScreen(retryAction, modifier)

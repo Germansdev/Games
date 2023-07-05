@@ -18,11 +18,12 @@
     <string name="subject">"Play this game is incredible"</string>
     <string name="link">
 
-       \n  Play in this link:
+       \n  Share in this link:
        \n "%3$s"  </string>
     <string name="games">Games</string>
     <string name="search">search</string>
-
+    <string name="no_item_description">not favorites yet</string>
+    <string name="app_nameDraft">app_namedraft</string>
 
 
 </resources>

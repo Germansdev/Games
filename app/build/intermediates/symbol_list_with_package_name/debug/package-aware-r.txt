@@ -930,6 +930,7 @@ drawable baseline_favorite_24
 drawable baseline_favorite_border_24
 drawable baseline_games_24
 drawable baseline_home_24
+drawable baseline_rocket_24
 drawable baseline_search_24
 drawable baseline_settings_24
 drawable baseline_share_24
@@ -1389,6 +1390,7 @@ string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string androidx_startup
 string app_name
+string app_nameDraft
 string back_button
 string bottom_sheet_collapse_description
 string bottom_sheet_dismiss_description
@@ -1453,6 +1455,7 @@ string loading_fail
 string menu
 string navigation_menu
 string no_favorite_games
+string no_item_description
 string no_records_found_msg
 string not_selected
 string off

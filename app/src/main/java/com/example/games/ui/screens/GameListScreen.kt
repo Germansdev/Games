@@ -19,8 +19,11 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.StarRate
+import androidx.compose.material.icons.outlined.BorderAll
 import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material.icons.rounded.Games
 import androidx.compose.material.icons.rounded.Share
@@ -36,6 +39,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -57,79 +61,89 @@ import com.example.games.model.Game
 import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.GameViewModel
 import com.example.games.ui.theme.GamesTheme
+import kotlinx.coroutines.launch
 
-private const val TAG: String = "Dev4"
+private const val TAG: String = "games loaded"
 
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GameListScreen(
     modifier: Modifier = Modifier,
     games: List<Game>,
-//XXXX
-    viewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory)
-//XXXX
+    onClick: (Int) -> Unit,
+   // navigateToGameDetails: (Int) ->Unit,
+
+   viewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory),
 
 ) {
     val gameViewModel: GameViewModel = viewModel()
-
-//XXXX
     val homeUiState by viewModel.homeUiState.collectAsState()
 
-//XXXX
 
-    //val favorites = gameViewModel.favorites.value
-    //val play = gameViewModel.play.value
-    //val share = gameViewModel.share.value
-
-    if (games.isEmpty()) {
-        NothingFoundScreen()
-
+    if (games.isEmpty() ) {
+      //NothingFoundScreen()
     } else {
-
         LazyColumn(
             modifier = modifier.fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(8.dp),
             contentPadding = PaddingValues(8.dp)
 
         ) {
+               //to get from db:
+
+            // fetching:
             items(
-                items = games,
-                key = { game -> game.title }
+                items =
+                games,
+                key = {  game -> game.id }
             ) { game ->
                 GameCard(
                     gameViewModel,
                     game,
-                    onClick = { game.id }
-                )
+                ) { onClick(game.id) }
             }
+
         }
-        Log.d(TAG, games.size.toString())
+        Log.d(TAG, games.size.toString() )
     }
 }
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GameCard(
-    gameViewModel: GameViewModel,
+    //04/07 previo:
+    //gameViewModel: GameViewModel,
+    //with provider:
+    gameViewModel: GameViewModel = viewModel(factory=AppViewModelProvider.Factory),
     game: Game,
-    onClick: () -> Unit
+    onClick: (Int) -> Unit
 ) {
 
     var favorite by remember { mutableStateOf(false) }
-    favorite = gameViewModel.isFavorite(gameId = game.id.toString())
+    favorite = gameViewModel.isFavorite(gameId = game.id)
 
-Log.d(TAG, gameViewModel.favorites.value.size.toString())
 
-    //var rating by remember { mutableStateOf(false) }
-    // rating = gameViewModel.
+    Log.d(TAG, gameViewModel.favorites.value.size.toString())
 
     var play by remember { mutableStateOf(false) }
-    play = gameViewModel.isPlay(gameId = game.id.toString())
+    play = gameViewModel.isPlay(gameId = game.id)
+
+    Log.d(TAG, gameViewModel.play.value.size.toString())
 
     var share by remember { mutableStateOf(false) }
-    share = gameViewModel.isShare(gameId = game.id.toString())
+    share = gameViewModel.isShare(gameId = game.id)
+
+    Log.d(TAG, gameViewModel.share.value.size.toString())
+
+    var rating by remember { mutableStateOf(false) }
+    rating = gameViewModel.isRate(gameId = game.id.toString())
+    var selectedRating by remember { mutableStateOf(game.rating) }
 
 
-    val selectedRating = remember { mutableStateOf(game.rating) }
+    val coroutineScope = rememberCoroutineScope()
+
 
     ElevatedCard(
         modifier = Modifier//modifier
@@ -137,7 +151,8 @@ Log.d(TAG, gameViewModel.favorites.value.size.toString())
             .padding(top = 5.dp, bottom = 5.dp, start = 10.dp, end = 10.dp),
         elevation = CardDefaults.cardElevation(5.dp),
         shape = RoundedCornerShape(8.dp),
-        onClick = onClick
+        onClick = {onClick(game.id)},
+
     ) {
 
         Column {
@@ -175,49 +190,90 @@ Log.d(TAG, gameViewModel.favorites.value.size.toString())
                 )
 
                 Row(modifier = Modifier.fillMaxWidth()) {
-                    //  Box() {
+                      Box() {val context = LocalContext.current
                     FavoriteButton(
                         favorite = favorite,
+
                         onFavoriteClick = {
-                           gameViewModel.selectFavorite(gameId = game.id.toString())
-                        }
+
+                            gameViewModel.selectFavorite(gameId = game.id)
+
+                            gameViewModel.isFavorite(gameId = game.id)
+
+                            coroutineScope.launch {
+                                 if(game.isFavorite)
+                                (
+                                        gameViewModel.isFavoriteGame(game.copy(isFavorite = false))
+                                 ) else (
+                                         gameViewModel.isFavoriteGame(game.copy(isFavorite = true))
+                                )
+                            }
+                            favorite = !favorite
+                        },
+
                     )
+                      }
 
                     Spacer(modifier = Modifier.size(16.dp))
 
                     Box {
                         val context = LocalContext.current
                         PlayButton(
-                            play = play,
+                            //play = play,
+                            play = when (game.isPlayed) {
+                                true -> true
+                                false -> false
+                            },
 
                             onPlayClick = {
-                                gameViewModel.selectPlayed(gameId = game.id.toString())
-                                playGame(context, game = game)
+
+                                gameViewModel.selectPlayed(gameId = game.id)
+
+                                gameViewModel.isPlay(gameId = game.id)
+
+
+                                coroutineScope.launch {
+
+                                    (gameViewModel.isPlayedGame(game.copy(isPlayed = true)))
+
+                                    playGame(context, game)
+
+                                }
+                                //play = !play
                             }
                         )
                     }
 
-                    Spacer(modifier = Modifier.size(16.dp))
+                Spacer(modifier = Modifier.size(16.dp))
 
-                    Box {
-                        val context = LocalContext.current
-                        val subject = R.string.subject
-                        val summary: String = "Play this game, is incredible"
-                        val link: String = game.game_url
-                        ShareButton(
-                            share = share,
-                            onShareClick = {
-                                gameViewModel.selectShared(gameId = game.id.toString())
-                                shareGame(
-                                    context,
-                                    subject = subject.toString(),
-                                    summary,
-                                    link,
-                                    game = game
-                                )
+                Box {
+                    val context = LocalContext.current
+                    val subject = R.string.subject
+                    val summary: String = "Play this game, is incredible"
+                    val link: String = game.game_url
+                    ShareButton(
+                        share = share,
+                        onShareClick = {
+                            gameViewModel.selectShared(gameId = game.id)
+
+                            gameViewModel.isShare(gameId = game.id)
+
+                            coroutineScope.launch {
+
+                                (gameViewModel.isSharedGame(game.copy(isShared = true)))
                             }
-                        )
-                    }
+
+                            shareGame(
+                                context,
+                                subject = subject.toString(),
+                                summary,
+                                link,
+                                game = game
+                            )
+                            share = !share
+                        }
+                    )
+
                 }
             }
 
@@ -242,6 +298,12 @@ Log.d(TAG, gameViewModel.favorites.value.size.toString())
                         onClick = {
                             selectedRating.value = (i + 1).toFloat()
                             game.rating = selectedRating.value
+                            //to update db:
+                            coroutineScope.launch {
+
+                                (gameViewModel.isRating(game.copy(rating = selectedRating.value)))
+
+                            }
                         }
                     ) {
                         Icon(
@@ -257,10 +319,24 @@ Log.d(TAG, gameViewModel.favorites.value.size.toString())
                 }
             }
         }
+
     }
 }
 
+}
+/**
+@Composable
+fun FavoriteC(favorites: Boolean){
+    favorites  =
+        when(game.isFavorite){
+            true -> true
+            false -> false
+        },
+}*/
+
 //INTERNAL FUN TO CREATE INTENT TO PLAY:
+
+
 internal fun playGame(context: Context, game: Game) {
     val myIntent = Intent(
         Intent.ACTION_VIEW,
@@ -276,8 +352,13 @@ internal fun playGame(context: Context, game: Game) {
 
 //INTERNAL FUN TO CREATE INTENT TO SHARE:
 internal fun shareGame(
-    context: Context, subject: String, summary: String, link: String, game: Game,
+    context: Context,
+    subject: String,
+    summary: String,
+    link: String,
+    game: Game,
 ) {
+
 
     val intent = Intent(Intent.ACTION_SEND).apply {
         type = "text/plain"
@@ -306,9 +387,11 @@ fun ShareButton(
         onClick = onShareClick
     ) {
         Icon(
-            imageVector = if (share) Icons.Rounded.Share else Icons.Rounded.Share,
+            imageVector = if (share) Icons.Rounded.Share else Icons.Outlined.Share,
             contentDescription = null,
-            tint = Color.Gray
+            //tint = if (share) Color.Red else Color.LightGray,
+            tint = Color.LightGray,
+
         )
     }
 }
@@ -325,8 +408,9 @@ fun PlayButton(
     ) {
         Icon(
             imageVector = if (play) Icons.Rounded.Games else Icons.Rounded.Games,
+            //tint = if (play) Color.Red else Color.LightGray,
             contentDescription = null,
-            tint = Color.Gray
+            tint = Color.LightGray
         )
     }
 }
@@ -335,9 +419,12 @@ fun PlayButton(
 fun FavoriteButton(
     favorite: Boolean,
     onFavoriteClick: () -> Unit,
+
+
 ) {
+
     IconButton(
-        onClick = onFavoriteClick
+        onClick =  onFavoriteClick
     ) {
         Icon(
             imageVector = if (favorite) Icons.Filled.Favorite else Icons.Outlined.Favorite,

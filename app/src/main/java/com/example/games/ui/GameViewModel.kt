@@ -24,45 +24,62 @@ import java.io.IOException
 
 
 sealed interface GameUiState {
-    //this with only fetch:
-    //data class Success(val games: List<Game>) : GameUiState
-
-    //this with database, but changed without Flow:
     data class Success(val games: List<Game>) : GameUiState
     object Error : GameUiState
     object Loading : GameUiState
+
 }
 
 class GameViewModel(
-
-   //previous only fetch:
+    private val itemsRepository: ItemsRepository,
     private val gameRepository: GameRepository,
 
-    //using ItemRepository database:
-    private val itemsRepository: ItemsRepository,
-    //private val patternRepository: PatternRepository
-
-    //private val savedStateHandle: SavedStateHandle
+   //private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
 
 
     var gameUiState: GameUiState by mutableStateOf(GameUiState.Loading)
-      private set
+        private set
 
     private val _games = mutableStateOf<List<Game>>(emptyList())
     val games: State<List<Game>> = _games
 
-    //var gamesModel = itemsRepository.insertAll()
-    private val _favorites = mutableStateOf<Set<String>>(setOf())
-    val favorites: State<Set<String>> = _favorites
+    private val _favorites = mutableStateOf<Set<Int>>(setOf())
+    val favorites: State<Set<Int>> = _favorites
 
-    private val _play = mutableStateOf<Set<String>>(setOf())
-    val play: State<Set<String>> = _play
+    private val _play = mutableStateOf<Set<Int>>(setOf())
+    val play: State<Set<Int>> = _play
 
-    private val _share = mutableStateOf<Set<String>>(setOf())
-    val share: State<Set<String>> = _share
-//XXXXX
+    private val _share = mutableStateOf<Set<Int>>(setOf())
+    val share: State<Set<Int>> = _share
+
+    private val _rate = mutableStateOf<Set<String>>(setOf())
+    var rate: State<Set<String>> = _rate
+
+    var rating = mutableStateOf(Float)
+
+    var selectedRating =  mutableStateOf(Float)
+
+    //init block:
+    init {
+        getGames()
+        getItems()
+    }
+
+    //Try to fetch games from api:
+    fun getGames() {
+        viewModelScope.launch {
+            gameUiState = GameUiState.Loading
+            gameUiState = try {
+                GameUiState.Success(gameRepository.getGames())
+            } catch (e: IOException) {
+                GameUiState.Error
+            } catch (e: HttpException) {
+                GameUiState.Error
+            }
+        }
+    }
 
     /**
      * Holds home ui state. The list of items are retrieved from [ItemsRepository] and mapped to
@@ -74,47 +91,34 @@ class GameViewModel(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
                 initialValue = HomeUiState()
-
             )
 
-   /**companion object {
-        private const val TIMEOUT_MILLIS = 5_000L
-    }*/
 
-//xxxxxx
-
-    //init block:
-    init {
-        getGames()
-        getItems()
-    }
-
-fun getItems(){
-    viewModelScope.launch {
-        itemsRepository.insertAll(gameRepository.getGames())
-    }
-}
-
-    //GAMES FROM
-    fun getGames() {
+    //to insert all items fetched from api to db:
+    fun getItems() {
         viewModelScope.launch {
-            gameUiState = GameUiState.Loading
-            gameUiState = try {
-                //previous only fetch:
-                GameUiState.Success(gameRepository.getGames())
-                //with database:
-               // GameUiState.Success(itemsRepository.getAllItemsStream())
-            } catch (e: IOException) {
-                GameUiState.Error
-            } catch (e: HttpException) {
-                GameUiState.Error
-            }
+            itemsRepository.insertAll(gameRepository.getGames())
         }
     }
 
+//logic favorite, play, share, rate:
+    suspend fun isFavoriteGame(game: Game) {
 
-
-    fun selectFavorite(gameId: String) {
+        if (isFavorite(gameId = game.id)
+        ) {
+            itemsRepository.updateItem(game.copy(isFavorite = true))
+            itemsRepository.updateItem(game.copy(favorited = 1))
+        } else {
+            itemsRepository.updateItem(game.copy(isFavorite = false))
+            itemsRepository.updateItem(game.copy(favorited = 0))
+        }
+    }
+/**
+    suspend fun getFavoritesGame(game:Game){
+        itemsRepository.getAllFavoritesStream(isFavorite = true)
+    }
+*/
+    fun selectFavorite(gameId: Int) {
         val updatedFavorites = _favorites.value.toMutableSet()
         if (updatedFavorites.contains(gameId)) {
             updatedFavorites.remove(gameId)
@@ -123,8 +127,31 @@ fun getItems(){
         }
         _favorites.value = updatedFavorites
     }
+/**
+    fun getFavorites(): Set<Int> {
+            itemsRepository.getAllItemsStream()
+        return _favorites.value
+    }
 
-    fun selectPlayed(gameId: String) {
+
+    fun getFinalFavorites(){
+        itemsRepository.getAllFavoritesStream(isFavorite = true )
+    }
+
+*/
+    suspend fun isPlayedGame(game: Game) {
+
+        if (isPlay(gameId = game.id)
+        ) {
+            itemsRepository.updateItem(game.copy(isPlayed = true))
+            itemsRepository.updateItem(game.copy(played = 1))
+        } else {
+            //itemsRepository.updateItem(game.copy(isPlayed = false))
+            //itemsRepository.updateItem(game.copy(played = 0))
+        }
+    }
+
+    fun selectPlayed(gameId: Int) {
         val updatedPlay = _play.value.toMutableSet()
         if (updatedPlay.contains(gameId)) {
             updatedPlay.remove(gameId)
@@ -134,7 +161,20 @@ fun getItems(){
         _play.value = updatedPlay
     }
 
-    fun selectShared(gameId: String) {
+    suspend fun isSharedGame(game: Game) {
+
+        if (isShare(gameId = game.id)
+        ) {
+            itemsRepository.updateItem(game.copy( isShared = true))
+            itemsRepository.updateItem(game.copy(shared = 1))
+
+        } else {
+           // itemsRepository.updateItem(game.copy(isShared = false))
+            //itemsRepository.updateItem(game.copy(shared = 0))
+        }
+    }
+
+    fun selectShared(gameId: Int) {
         val updatedShare = _share.value.toMutableSet()
         if (updatedShare.contains(gameId)) {
             updatedShare.remove(gameId)
@@ -144,17 +184,41 @@ fun getItems(){
         _share.value = updatedShare
     }
 
-    fun isFavorite(gameId: String): Boolean {
+    suspend fun isRating(game: Game) {
+
+        if (isRate(gameId = game.id.toString())
+        ) {
+            itemsRepository.updateItem(game.copy(rating = game.rating))
+        } else {
+            itemsRepository.updateItem(game.copy(rating = 0f))
+        }
+    }
+
+    fun selectRate(gameId: String) {
+        val updatedRated = _rate.value.toMutableSet()
+        if (updatedRated.contains(gameId)) {
+            updatedRated.remove(gameId)
+        } else {
+            updatedRated.add(gameId)
+        }
+        _rate.value = updatedRated
+    }
+    fun isFavorite(gameId: Int): Boolean {
         return _favorites.value.contains(gameId)
     }
 
-    fun isPlay(gameId: String): Boolean {
+    fun isPlay(gameId: Int): Boolean {
         return _play.value.contains(gameId)
     }
 
-    fun isShare(gameId: String): Boolean {
+    fun isShare(gameId: Int): Boolean {
         return _share.value.contains(gameId)
     }
+
+    fun isRate(gameId: String): Boolean {
+        return _rate.value.contains(gameId)
+    }
+
 
 
 
@@ -163,39 +227,31 @@ fun getItems(){
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
-               //val savedStateHandle = createSavedStateHandle()
+                //val savedStateHandle = createSavedStateHandle()
                 val application = (this[APPLICATION_KEY] as GameApplication)
 
-                //this only with fetch data:
-               /** val gameRepository = application.container.gameRepository
-                GameViewModel(gameRepository = gameRepository,
-
-                  //  itemsRepository = itemsRepository
-                //savedStateHandle = savedStateHandle
-                )*/
-                //this with ItemRepository database:
-               //
 
                 val itemsRepository = application.container.itemsRepository
                 val gameRepository = application.container.gameRepository
-                //val patternRepository = application.container.patternRepository
-                GameViewModel(gameRepository = gameRepository ,itemsRepository = itemsRepository,
-                    //patternRepository = patternRepository
-                    //savedStateHandle = savedStateHandle
+
+
+                GameViewModel(
+                    itemsRepository = itemsRepository,
+                    gameRepository = gameRepository,
+
+                   // savedStateHandle = savedStateHandle
 
                 )
 
             }
         }
-    private const val TIMEOUT_MILLIS = 5_000L
+        private const val TIMEOUT_MILLIS = 5_000L
     }
-
 }
 
-
-//XXXX
 /**
  * Ui State for HomeScreen
  */
-data class HomeUiState(val itemList: List<Game> = listOf())
-//XXXX
+data class HomeUiState(
+    val itemList: List<Game> = listOf()
+)

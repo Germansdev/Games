@@ -41,10 +41,10 @@ public abstract class BottomBarScreen {
     }
     
     /**
-     * object Pantalla2 : BottomBarScreen(
-     *    route = "LIST-SCREEN",
-     *    title = "List",
-     *    icon = Icons.Filled.Home
+     * object Pantalla1 : BottomBarScreen(
+     *     route = "HOME-SCREEN",
+     *     title = "Home",
+     *     icon = Icons.Filled.Home
      * )
      */
     @kotlin.Metadata(mv = {1, 7, 1}, k = 1, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u00c7\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002\u00a2\u0006\u0002\u0010\u0002\u00a8\u0006\u0003"}, d2 = {"Lcom/example/games/appDestinations/BottomBarScreen$Pantalla2;", "Lcom/example/games/appDestinations/BottomBarScreen;", "()V", "app_debug"})

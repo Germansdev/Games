@@ -15,21 +15,40 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface GameDao {
 //SQL for entity tableName "items" /data class Item:
-    @Query("SELECT * from items ORDER BY title ASC")
+@Query("SELECT * from items ORDER BY title ASC")
     //original codelab with Flow:
- fun getAllItems(): Flow<List<Game>>
+fun getAllItems(): Flow<List<Game>>
 
 //with List, instead Flow:
  //   fun getAllItems(): List<Game>
 
 
 
-    @Query("SELECT * from items WHERE id = :id")
+ @Query("SELECT * from items WHERE id = :id")
     //original codelab with Flow:
-    //fun getItem(id: Int): Flow<Game>
+ fun getItem(id: Int): Flow<Game>
 
-//with List, instead Flow:
-    fun getItem(id: Int): Game
+
+@Query("SELECT * FROM items WHERE isFavorite = 1")
+    //original codelab with Flow:
+    fun getAllFavorites(/**isFavorite: Boolean*/): Flow<List<Game>>
+
+
+    @Query("SELECT * FROM items WHERE isPlayed = 1")
+    //original codelab with Flow:
+    fun getAllPlayed(): Flow<List<Game>>
+
+    @Query("SELECT * FROM items WHERE isPlayed = 0")
+    //original codelab with Flow:
+    fun getAllNotPlayed(): Flow<List<Game>>
+
+    @Query("SELECT * FROM items WHERE isShared = 1")
+    fun getAllShared(): Flow<List<Game>>
+
+
+
+    //with List, instead Flow:
+    //fun getItem(id: Int): Game
 
     // Specify the conflict strategy as IGNORE, when the user tries to add an
     // existing Item into the database Room ignores the conflict.

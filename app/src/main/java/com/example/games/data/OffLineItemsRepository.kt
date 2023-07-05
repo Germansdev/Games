@@ -13,7 +13,8 @@ import kotlinx.coroutines.flow.map
         private val apiService: GameApiService
         ) : ItemsRepository {
 //with original codelab with Flow:
-        override fun getAllItemsStream(): Flow<List<Game>> = itemDao.getAllItems().map {
+        override fun getAllItemsStream(): Flow<List<Game>> = itemDao.getAllItems()
+    .map {
             it.map (Game::asExternalModel) }
 
 
@@ -21,10 +22,18 @@ import kotlinx.coroutines.flow.map
        //override fun getAllItemsStream(): List<Game> = itemDao.getAllItems()
 
 //with original codelab with Flow:
-        //override fun getItemStream(id: Int): Flow<Game?> = itemDao.getItem(id)
+        override fun getItemStream(id: Int): Flow<Game?> = itemDao.getItem(id)
+
+        override fun getAllFavoritesStream(isFavorite: Boolean): Flow<List<Game?>>
+        = itemDao.getAllFavorites()
+
+        override fun getAllPlayedStream(isPlayed: Boolean): Flow<List<Game?>> = itemDao.getAllPlayed()
+
+        override fun getAllNotPlayedStream(isPlayed: Boolean): Flow<List<Game?>> = itemDao.getAllNotPlayed()
+        override fun getAllSharedStream(isShared: Boolean): Flow<List<Game?>> = itemDao.getAllShared()
 
         //changed to Simple :
-        override fun getItemStream(id: Int): Game? = itemDao.getItem(id)
+       // override fun getItemStream(id: Int): Game? = itemDao.getItem(id)
 
         override suspend fun insertItem(item: Game) = itemDao. insert(item)
 //yo ad insertAll_

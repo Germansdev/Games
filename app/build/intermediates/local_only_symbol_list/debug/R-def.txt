@@ -12,6 +12,7 @@ drawable baseline_favorite_24
 drawable baseline_favorite_border_24
 drawable baseline_games_24
 drawable baseline_home_24
+drawable baseline_rocket_24
 drawable baseline_search_24
 drawable baseline_settings_24
 drawable baseline_share_24
@@ -30,6 +31,7 @@ drawable splash_initial
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
+string app_nameDraft
 string back_button
 string btn_try_again
 string favorites
@@ -41,6 +43,7 @@ string loading
 string loading_fail
 string menu
 string no_favorite_games
+string no_item_description
 string no_records_found_msg
 string played
 string rated

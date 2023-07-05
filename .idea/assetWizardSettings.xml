@@ -331,7 +331,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/settings/baseline_settings_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/rocket/baseline_rocket_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -341,7 +341,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="baseline_settings_24" />
+                            <entry key="outputName" value="baseline_rocket_24" />
                             <entry key="sourceFile" value="C:\Users\Willkommen\AndroidStudioProjects\Games-master" />
                           </map>
                         </option>

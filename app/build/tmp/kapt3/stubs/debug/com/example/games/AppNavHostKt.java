@@ -6,6 +6,7 @@ import java.lang.System;
 public final class AppNavHostKt {
     
     @androidx.compose.runtime.Composable
+    @androidx.annotation.RequiresApi(value = android.os.Build.VERSION_CODES.R)
     public static final void GameNavHost(@org.jetbrains.annotations.NotNull
     androidx.compose.ui.Modifier modifier, @org.jetbrains.annotations.NotNull
     java.lang.String startDestination, @org.jetbrains.annotations.NotNull

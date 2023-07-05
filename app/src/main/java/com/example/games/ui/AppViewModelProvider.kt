@@ -8,6 +8,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.games.GameApplication
 
 
+
 /**
  * Provides Factory to create instance of ViewModel for the entire Inventory app
  */
@@ -18,15 +19,50 @@ object AppViewModelProvider {
 
         // Initializer for HomeViewModel
         initializer {
-            GameViewModel(inventoryApplication().container.gameRepository,
-                inventoryApplication().container.itemsRepository)
+            GameViewModel(
+                inventoryApplication().container.itemsRepository,
+                inventoryApplication().container.gameRepository,
+
+                //inventoryApplication().container.database,
+
+            )
+        }
+
+        //initializer for FavoritesViewModel
+        initializer {
+            FavoritesViewModel(
+                inventoryApplication().container.itemsRepository,
+            )
+        }
+
+        initializer {
+            PlayedViewModel(
+            inventoryApplication().container.itemsRepository,
+
+        )
+        }
+        initializer {
+            SharedViewModel(
+                inventoryApplication().container.itemsRepository
+            )
+        }
+        initializer {
+            NotPlayedViewModel(
+                inventoryApplication().container.itemsRepository,
+            )
         }
     }
 }
 
-/**
- * Extension function to queries for [Application] object and returns an instance of
+
+ /**Extension function to queries for [Application] object and returns an instance of
  * [InventoryApplication].
  */
+
 fun CreationExtras.inventoryApplication(): GameApplication =
     (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as GameApplication)
+
+/**
+fun CreationExtras.inventoryApplication(): InventoryApplication =
+    (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as InventoryApplication)
+ */

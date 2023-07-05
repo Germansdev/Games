@@ -10,12 +10,13 @@ import androidx.compose.material.*
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.MaterialTheme.shapes
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
@@ -49,6 +50,7 @@ fun GameApp(
     val backStackEntry by navController.currentBackStackEntryAsState()
     // Get the name of the current screen
 
+
     //THIS IS BOTTOM BAR TOP LEVEL DESTINATION:
     val items = listOf(
         Pantalla1,
@@ -58,6 +60,10 @@ fun GameApp(
         Pantalla5,
     )
 
+
+        //val tittleLop = fun LoopTittle ()
+    //}
+
 // https://developer.android.com/jetpack/compose/navigation?hl=es-419
 
     Scaffold(
@@ -66,16 +72,17 @@ fun GameApp(
             val destination = backStackEntry
             if (destination != null) {
                 CustomTopBar(
-                    titleRes = R.string.app_name,
-                    navigationIcon = GameIcons.Search,
-                    navigationIconContentDescription = null,
-                    actionIcon = GameIcons.Settings,
-                    actionIconContentDescription = null,
-                    colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = colorScheme.surface),
-                    onActionClick = { /**showSettingsDialog = true */ },
-                    onNavigationClick = { },
-                )
+                        titleRes = R.string.app_name,
+                        navigationIcon = GameIcons.Search,
+                        navigationIconContentDescription = null,
+                        actionIcon = GameIcons.Settings,
+                        actionIconContentDescription = null,
+                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                        containerColor = colorScheme.surface
+                        ),
+                        onActionClick = { /**showSettingsDialog = true */ },
+                        onNavigationClick = { },
+                    )
             }
         },
 
@@ -95,6 +102,8 @@ fun GameApp(
         }
     }
 }
+
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -180,32 +189,44 @@ fun BottomBar(
     items: List<BottomBarScreen>,
     modifier: Modifier = Modifier,
 ) {
-    modifier.background(color = colorScheme.background)
+    modifier
+        .background(color = colorScheme.background)
 
     androidx.compose.material3.BottomAppBar() {
 
         BottomNavigation(
             backgroundColor = colorScheme.surface,
-            contentColor = colorScheme.inverseSurface,
+            contentColor = colorScheme.onSurface,
         ) {
             val navBackStackEntry by navController.currentBackStackEntryAsState()
             val currentDestination = navBackStackEntry?.destination
 
             items.forEach { screen ->
                 BottomNavigationItem(
+
                     icon = {
                         Icon(
                             imageVector = screen.icon,
                             contentDescription = screen.title,
-                            tint = Color.Gray,
+                            tint = //if (select) Color.Red else Color.LightGray,
+                            colorScheme.onSurface,
+                        modifier = Modifier.clip(shapes.medium)
+
+
                         )
                     },
                     label = {
                         Text(screen.title)
                         colorScheme.inverseSurface
+
+
                     },
-                    alwaysShowLabel = false,
+                    alwaysShowLabel = true,
+                    unselectedContentColor = Color.Gray,
+
+                    //selectedContentColor = colorScheme.primary,
                     selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
+
                     onClick = {
                         navController.navigate(screen.route) {
                             // Pop up to the start destination of the graph to

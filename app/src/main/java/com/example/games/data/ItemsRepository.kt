@@ -17,9 +17,15 @@ interface ItemsRepository {
      * Retrieve an item from the given data source that matches with the [id].
      */
     //with original from codelab with Flow:
-    //fun getItemStream(id: Int): Flow<Game?>
+    fun getItemStream(id: Int): Flow<Game?>
     //without Flow:
-    fun getItemStream(id: Int):Game?
+   // fun getItemStream(id: Int):Game?
+
+    fun getAllFavoritesStream(isFavorite: Boolean): Flow<List<Game?>>
+    fun getAllPlayedStream(isPlayed:Boolean): Flow<List<Game?>>
+    fun getAllNotPlayedStream(isPlayed: Boolean): Flow<List<Game?>>
+    fun getAllSharedStream(isShared:Boolean): Flow<List<Game?>>
+
 
     /**
      * Insert item in the data source
@@ -38,4 +44,6 @@ interface ItemsRepository {
      * Update item in the data source
      */
     suspend fun updateItem(item: Game)
+
+   // suspend fun selectFavorites ()
 }
