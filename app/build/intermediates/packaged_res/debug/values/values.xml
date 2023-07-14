@@ -12,24 +12,36 @@
     <string name="app_nameDraft">app_namedraft</string>
     <string name="back_button">back_button</string>
     <string name="btn_try_again">try again</string>
+    <string name="dark_mode_config_dark">Dark</string>
+    <string name="dark_mode_config_light">Light</string>
+    <string name="dark_mode_config_system_default">default</string>
+    <string name="dark_mode_preference">Dark mode preference</string>
+    <string name="details">Details</string>
+    <string name="dismissButtonText">Ok</string>
     <string name="favorites">favorites</string>
     <string name="game_title">Game Title</string>
     <string name="games">Games</string>
     <string name="homescreen">Home</string>
+    <string name="licenses">licenses</string>
     <string name="link">
 
        \n  Share in this link:
        \n "%3$s"  </string>
     <string name="loading">Loading</string>
     <string name="loading_fail">Fail to load</string>
+    <string name="loadingd">Loading</string>
     <string name="menu">Menu</string>
     <string name="no_favorite_games">No favorite games</string>
     <string name="no_item_description">not favorites yet</string>
     <string name="no_records_found_msg">Nothing found</string>
+    <string name="no_results">No rsults found</string>
     <string name="played">Played</string>
+    <string name="privacy_policy">privacy_policy</string>
     <string name="rated">Rated</string>
     <string name="retry">Retry</string>
     <string name="search">search</string>
+    <string name="search_not_ready">search not ready</string>
+    <string name="settings">Settings</string>
     <string name="shared">Shared</string>
     <string name="subject">"Play this game is incredible"</string>
     <style name="Theme.Games" parent="android:Theme.Material.Light.NoActionBar"/>

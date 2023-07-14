@@ -4,6 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
@@ -14,6 +15,7 @@ import com.example.games.GameApplication
 import com.example.games.data.GameRepository
 import com.example.games.data.ItemsRepository
 import com.example.games.model.Game
+import com.example.games.ui.screens.ItemDetailsDestination
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
@@ -34,10 +36,7 @@ class GameViewModel(
     private val itemsRepository: ItemsRepository,
     private val gameRepository: GameRepository,
 
-   //private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-
-
 
     var gameUiState: GameUiState by mutableStateOf(GameUiState.Loading)
         private set
@@ -223,22 +222,14 @@ class GameViewModel(
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
-                //val savedStateHandle = createSavedStateHandle()
                 val application = (this[APPLICATION_KEY] as GameApplication)
-
-
                 val itemsRepository = application.container.itemsRepository
                 val gameRepository = application.container.gameRepository
-
 
                 GameViewModel(
                     itemsRepository = itemsRepository,
                     gameRepository = gameRepository,
-
-                   // savedStateHandle = savedStateHandle
-
                 )
-
             }
         }
         private const val TIMEOUT_MILLIS = 5_000L

@@ -2,10 +2,21 @@ package com.example.games.ui
 
 
 import android.annotation.SuppressLint
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.*
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -15,12 +26,14 @@ import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -30,19 +43,25 @@ import com.example.games.GameNavHost
 import com.example.games.R
 import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.*
+import com.example.games.navigateToSearch
 import com.example.games.ui.theme.GameIcons
 
 
-@OptIn(ExperimentalMaterial3Api::class)
+@RequiresApi(Build.VERSION_CODES.R)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun GameApp(
-    modifier: Modifier = Modifier,
-    viewModel: GameViewModel = viewModel(),
-
+    //modifier: Modifier = Modifier,
+    //viewModel: GameViewModel = viewModel(),
     ) {
 
     val navController = rememberNavController()
+
+    var showSettingsDialog by rememberSaveable {
+        mutableStateOf(false)
+    }
+
   //  val scaffoldState = rememberScaffoldState()
   //  val scope = rememberCoroutineScope()
 
@@ -59,14 +78,24 @@ fun GameApp(
         Pantalla4,
         Pantalla5,
     )
-
+    if (showSettingsDialog) {
+        SettingsDialog(
+            onDismiss = {showSettingsDialog = false }
+        )
+    }
 
         //val tittleLop = fun LoopTittle ()
     //}
 
 // https://developer.android.com/jetpack/compose/navigation?hl=es-419
 
+
+
     Scaffold(
+
+
+        //topBar inside receiver Scaffold:
+        /**
         topBar = {
 
             val destination = backStackEntry
@@ -80,30 +109,55 @@ fun GameApp(
                         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                         containerColor = colorScheme.surface
                         ),
-                        onActionClick = { /**showSettingsDialog = true */ },
-                        onNavigationClick = { },
+                        onActionClick = {/** showSettingsDialog = true*/ },
+                        onNavigationClick = { navController.navigateToSearch() },
                     )
             }
         },
+        */
 
         bottomBar = {
             BottomBar(navController = navController, items = items)
         }
 
-    ) {
+    ) {padding ->
+
         Surface(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(it),
+                .fillMaxSize(),
             color = colorScheme.background,
         ) {
+Row(
+    modifier = Modifier
+        .fillMaxSize()
+        .padding(padding)
+        .consumeWindowInsets(padding)
+        .windowInsetsPadding(
+            WindowInsets.safeDrawing.only(
+                WindowInsetsSides.Horizontal,
+            ),
+        ),
 
+) {
+    Column(Modifier.fillMaxSize()) {
+        CustomTopBar(
+            titleRes = R.string.app_name,
+            navigationIcon = GameIcons.Search,
+            navigationIconContentDescription = null,
+            actionIcon = GameIcons.Settings,
+            actionIconContentDescription = null,
+            colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                containerColor = colorScheme.surface
+            ),
+            onActionClick = { showSettingsDialog = true },
+            onNavigationClick = { navController.navigateToSearch() },
+        )
+    }
+}
             GameNavHost( navController = navController)
         }
     }
 }
-
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -172,6 +226,7 @@ fun CustomTopBar(
         },
         colors = colors,
        modifier = modifier,
+
     )
 }
 //END WITH SPECIAL TOP BAR
@@ -211,15 +266,11 @@ fun BottomBar(
                             tint = //if (select) Color.Red else Color.LightGray,
                             colorScheme.onSurface,
                         modifier = Modifier.clip(shapes.medium)
-
-
                         )
                     },
                     label = {
                         Text(screen.title)
                         colorScheme.inverseSurface
-
-
                     },
                     alwaysShowLabel = true,
                     unselectedContentColor = Color.Gray,

@@ -129,7 +129,7 @@ fun GameCardFavorites(
 ) {
     var play by remember { mutableStateOf(false) }
     val coroutineScope = rememberCoroutineScope()
-    val favorite by remember { mutableStateOf(false) }
+    //val favorite by remember { mutableStateOf(false) }
 
     ElevatedCard(
         modifier = modifier

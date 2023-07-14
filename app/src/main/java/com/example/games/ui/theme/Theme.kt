@@ -7,6 +7,8 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
+import com.example.games.ui.DarkThemeConfig
+
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val LightColors = lightColorScheme(
@@ -40,7 +42,7 @@ private val LightColors = lightColorScheme(
     outlineVariant = md_theme_light_outlineVariant,
     scrim = md_theme_light_scrim,
 )
-private val DarkColors = darkColorScheme(
+private var DarkColors = darkColorScheme(
     primary = md_theme_dark_primary,
     onPrimary = md_theme_dark_onPrimary,
     primaryContainer = md_theme_dark_primaryContainer,
@@ -76,13 +78,16 @@ private val DarkColors = darkColorScheme(
 @Composable
 fun GamesTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable() () -> Unit
+    content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) {
+    val colors =
+        if (darkTheme) {
         DarkColors
     } else {
         LightColors
     }
+
+
 
     val systemUiController = rememberSystemUiController()
 
@@ -91,6 +96,8 @@ fun GamesTheme(
         systemUiController.setSystemBarsColor(
             color = if (darkTheme) Color.Black else Color.White
         )
+
+
 //whith only this: bottom color:
         /**systemUiController.setNavigationBarColor(
             color = if (darkTheme) Color.Yellow else Color.White
@@ -102,9 +109,141 @@ fun GamesTheme(
         )*/
     }
 
+
+    // Background theme
+/**
+    val backgroundTheme =
+        if (darkTheme) DarkAndroidBackgroundTheme else LightAndroidBackgroundTheme
+
+*/
+
+
     MaterialTheme(
         colorScheme = colors,
         content = content,
         typography = Typography
     )
 }
+
+/**
+/**
+ * Light Android theme color scheme
+ */
+@VisibleForTesting
+val LightAndroidColorScheme = lightColorScheme(
+    primary = Green40,
+    onPrimary = Color.White,
+    primaryContainer = Green90,
+    onPrimaryContainer = Green10,
+    secondary = DarkGreen40,
+    onSecondary = Color.White,
+    secondaryContainer = DarkGreen90,
+    onSecondaryContainer = DarkGreen10,
+    tertiary = Teal40,
+    onTertiary = Color.White,
+    tertiaryContainer = Teal90,
+    onTertiaryContainer = Teal10,
+    error = Red40,
+    onError = Color.White,
+    errorContainer = Red90,
+    onErrorContainer = Red10,
+    background = DarkGreenGray99,
+    onBackground = DarkGreenGray10,
+    surface = DarkGreenGray99,
+    onSurface = DarkGreenGray10,
+    surfaceVariant = GreenGray90,
+    onSurfaceVariant = GreenGray30,
+    inverseSurface = DarkGreenGray20,
+    inverseOnSurface = DarkGreenGray95,
+    outline = GreenGray50,
+)
+
+/**
+ * Dark Android theme color scheme
+ */
+@VisibleForTesting
+val DarkAndroidColorScheme = darkColorScheme(
+    primary = Green80,
+    onPrimary = Green20,
+    primaryContainer = Green30,
+    onPrimaryContainer = Green90,
+    secondary = DarkGreen80,
+    onSecondary = DarkGreen20,
+    secondaryContainer = DarkGreen30,
+    onSecondaryContainer = DarkGreen90,
+    tertiary = Teal80,
+    onTertiary = Teal20,
+    tertiaryContainer = Teal30,
+    onTertiaryContainer = Teal90,
+    error = Red80,
+    onError = Red20,
+    errorContainer = Red30,
+    onErrorContainer = Red90,
+    background = DarkGreenGray10,
+    onBackground = DarkGreenGray90,
+    surface = DarkGreenGray10,
+    onSurface = DarkGreenGray90,
+    surfaceVariant = GreenGray30,
+    onSurfaceVariant = GreenGray80,
+    inverseSurface = DarkGreenGray90,
+    inverseOnSurface = DarkGreenGray10,
+    outline = GreenGray60,
+)
+
+
+/**
+ * Light Android gradient colors
+ */
+val LightAndroidGradientColors = GradientColors(container = DarkGreenGray95)
+
+/**
+ * Dark Android gradient colors
+ */
+val DarkAndroidGradientColors = GradientColors(container = Color.Black)
+
+/**
+ * Light Android background theme
+ */
+val LightAndroidBackgroundTheme = BackgroundTheme(color = DarkGreenGray95)
+
+/**
+ * Dark Android background theme
+ */
+val DarkAndroidBackgroundTheme = BackgroundTheme(color = Color.Black)
+
+
+/**
+ * A class to model gradient color values for Now in Android.
+ *
+ * @param top The top gradient color to be rendered.
+ * @param bottom The bottom gradient color to be rendered.
+ * @param container The container gradient color over which the gradient will be rendered.
+ */
+@Immutable
+data class GradientColors(
+    val top: Color = Color.Unspecified,
+    val bottom: Color = Color.Unspecified,
+    val container: Color = Color.Unspecified,
+)
+
+/**
+ * A composition local for [GradientColors].
+ */
+val LocalGradientColors = staticCompositionLocalOf { GradientColors() }
+
+
+/**
+ * A class to model background color and tonal elevation values for Now in Android.
+ */
+@Immutable
+data class BackgroundTheme(
+    val color: Color = Color.Unspecified,
+    val tonalElevation: Dp = Dp.Unspecified,
+)
+
+/**
+ * A composition local for [BackgroundTheme].
+ */
+val LocalBackgroundTheme = staticCompositionLocalOf { BackgroundTheme() }
+
+*/

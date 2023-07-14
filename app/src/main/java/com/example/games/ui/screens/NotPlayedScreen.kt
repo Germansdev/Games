@@ -1,7 +1,11 @@
 package com.example.games.ui.screens
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,8 +21,13 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.StarRate
+import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material.icons.outlined.StarBorder
+import androidx.compose.material.icons.rounded.Games
+import androidx.compose.material.icons.rounded.Share
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -54,17 +63,21 @@ import com.example.games.ui.GameViewModel
 import com.example.games.ui.NotPlayedViewModel
 import kotlinx.coroutines.launch
 
+private const val Tag: String = "favorite"
 private const val TAG: String = "Not Played"
+//private const val MY: String = "detailsScreenTo"
 @Composable
 fun NotPlayedScreen(
     viewModel: NotPlayedViewModel= viewModel(factory = AppViewModelProvider.Factory),
+    onClick: (Int) -> Unit,
+    modifier: Modifier,
 ){
-
     val notPlayedUiState = viewModel.notPlayedUiState.collectAsState()
 
     NotPlayedScreenContent(
         notPlayedL = notPlayedUiState.value.notPlayedL as List<Game>,
         modifier = Modifier,
+        onClick = {onClick(it.id)},//onClick///{onClick(Game().id)}//(Int) -> Unit,
     )
 }
 
@@ -72,6 +85,8 @@ fun NotPlayedScreen(
 fun NotPlayedScreenContent(
     notPlayedL: List<Game>,
     modifier: Modifier = Modifier,
+    onClick: (Game) -> Unit,
+    //onClick: (Int) -> Unit
 ) {
 
     Column(
@@ -113,8 +128,11 @@ fun NotPlayedScreenContent(
                 ) { game ->
                     GameCardNotPlayed(
                         game = game.copy(isPlayed = false),
-                        onClick =  {game.id}
+                       onClick = onClick,
+                        modifier = modifier.fillMaxSize()
+
                     )
+
                 }
             }
         }
@@ -127,7 +145,8 @@ fun NotPlayedScreenContent(
 fun GameCardNotPlayed(
     game: Game,
     gameViewModel: GameViewModel = viewModel(factory=AppViewModelProvider.Factory),
-    onClick: (Int) -> Unit
+    onClick: (Game) -> Unit,
+    modifier: Modifier
 ) {
     var favorite by remember { mutableStateOf(false) }
     favorite = gameViewModel.isFavorite(gameId = game.id)
@@ -147,14 +166,14 @@ fun GameCardNotPlayed(
 
     ElevatedCard(
         modifier = Modifier//modifier
+            .clickable { onClick(/**Game()*/game)  }
             .fillMaxWidth()
             .padding(top = 5.dp, bottom = 5.dp, start = 10.dp, end = 10.dp),
         elevation = CardDefaults.cardElevation(5.dp),
         shape = RoundedCornerShape(8.dp),
-        onClick = {onClick(game.id)},
 
         ) {
-
+       // Log.e(MY ,game.title)
         Column {
 
             AsyncImage(
@@ -192,7 +211,7 @@ fun GameCardNotPlayed(
                 Row(modifier = Modifier.fillMaxWidth()
 
                 ) {
-                    //  Box() {
+
                     FavoriteButton(
 
                         favorite =
@@ -201,7 +220,7 @@ fun GameCardNotPlayed(
                             false -> false
                         },
                         onFavoriteClick = {
-
+                            Log.e(Tag ,game.title)
                             gameViewModel.selectFavorite(gameId = game.id)
 
                             gameViewModel.isFavorite(gameId = game.id)
@@ -216,7 +235,6 @@ fun GameCardNotPlayed(
                                     )
                             }
                         },
-
                     )
 
                     Spacer(modifier = Modifier.size(16.dp))
@@ -322,9 +340,10 @@ fun GameCardNotPlayed(
             }
         }
     }
+    //Log.e(MY ,game.title)
 }
 
-/**
+
 fun playGame(context: Context, game: Game) {
     val myIntent = Intent(
         Intent.ACTION_VIEW,
@@ -358,7 +377,62 @@ fun shareGame(
     )
 }
 
-*/
+//composable declaration buttons:
+
+@Composable
+fun ShareButton(
+    share: Boolean,
+    onShareClick: () -> Unit
+) {
+    IconButton(
+        onClick = onShareClick
+    ) {
+        Icon(
+            imageVector = if (share) Icons.Rounded.Share else Icons.Outlined.Share,
+            contentDescription = null,
+            //tint = if (share) Color.Red else Color.LightGray,
+            tint = Color.LightGray,
+            )
+    }
+}
+
+@Composable
+fun PlayButton(
+    play: Boolean,
+    onPlayClick: () -> Unit,
+
+    ) {
+    IconButton(
+        onClick = onPlayClick
+
+    ) {
+        Icon(
+            imageVector = if (play) Icons.Rounded.Games else Icons.Rounded.Games,
+            //tint = if (play) Color.Red else Color.LightGray,
+            contentDescription = null,
+            tint = Color.LightGray
+        )
+    }
+}
+
+@Composable
+fun FavoriteButton(
+    favorite: Boolean,
+    onFavoriteClick: () -> Unit,
+
+
+    ) {
+
+    IconButton(
+        onClick =  onFavoriteClick
+    ) {
+        Icon(
+            imageVector = if (favorite) Icons.Filled.Favorite else Icons.Outlined.Favorite,
+            tint = if (favorite) Color.Red else Color.LightGray,
+            contentDescription = null
+        )
+    }
+}
     /**
     Column() {
 

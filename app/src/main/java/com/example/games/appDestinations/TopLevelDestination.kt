@@ -2,14 +2,12 @@ package com.example.games.appDestinations
 
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Games
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Rocket
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material.icons.filled.StarRate
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.example.games.R
 
 // NAVIGATION BAR (BOTTOM NAVIGATION)
 
@@ -26,14 +24,6 @@ sealed class BottomBarScreen(
         icon = Icons.Filled.Home
     )
 
- /**   object Pantalla1 : BottomBarScreen(
-        route = "HOME-SCREEN",
-        title = "Home",
-        icon = Icons.Filled.Home
-    )*/
-
-
-
     object Pantalla2 : BottomBarScreen(
         route = "FAVORITES",
         title = "Favorites",
@@ -47,9 +37,9 @@ sealed class BottomBarScreen(
     )
 
     object Pantalla4 : BottomBarScreen(
-        route = "NOTPLAYED",
-        title = "Explore",
-        icon = Icons.Default.Rocket
+        route = "STATISTICS",
+        title = "Statistics",
+        icon = Icons.Default.BarChart
     )
 
     object Pantalla5 : BottomBarScreen(
@@ -57,15 +47,26 @@ sealed class BottomBarScreen(
     title = "Shared",
     icon = Icons.Default.Share
     )
-
-
+}
+object Graph: NavigationDestination{
+    const val BOTTOM = "bottomBar_graph"
+    const val TOP = "topBar_graph"
+    /**private*/ const val DETAILS =  "details_graph"
+    private const val itemIdArg = "itemId"
+    private val routeWithArgs = "$DETAILS/{$itemIdArg}"
+    override val route: String
+        get() = TODO("Not yet implemented")
+    override val titleRes: Int
+        get() = TODO("Not yet implemented")
 }
 
-enum class DetailsDestination (val title: String){
-    GameListScreen(title = "GameList"),
-    DetailsScreen(title = "Details")
-}
+enum class DetailsDestination (val route: String){
 
+    DetailsScreen(route = "Details"),
+    //MoreDetailsScreen(route = "More Details"),
+   // MoreDeepScreen(route = "More Deep")
+
+}
 
 /**
  * Interface to describe the navigation destinations for the app

@@ -12,7 +12,9 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
-class NotPlayedViewModel(itemsRepository: ItemsRepository,/** gameRepository: GameRepository*/)
+class NotPlayedViewModel(
+    itemsRepository: ItemsRepository,
+   )
     : ViewModel() {
 
     val notPlayedUiState: StateFlow<NotPlayedUiState> =

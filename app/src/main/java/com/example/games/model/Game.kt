@@ -2,24 +2,24 @@ package com.example.games.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.games.network.GameApiService
 import kotlinx.serialization.Serializable
+
 @Entity(tableName = "Items")
 @Serializable
 data class Game(
- //  NOT USED YET:
-    val developer: String,
-    val game_url: String,
-    val freetogame_profile_url: String,
-    val genre: String,
-    val platform: String,
-    val publisher: String,
-    val release_date: String,
+    //  NOT USED YET:
+    val developer: String = "",
+    val game_url: String = "",
+    val freetogame_profile_url: String = "",
+    val genre: String = "",
+    val platform: String = "",
+    val publisher: String = "",
+    val release_date: String = "",
 
-    @PrimaryKey(autoGenerate = true) val id: Int =0,
-    val title: String,
-    val short_description: String,
-    val thumbnail: String,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val title: String = "",
+    val short_description: String = "",
+    val thumbnail: String = "",
 
     //adding properties value not fetched from api rest
 
@@ -29,32 +29,49 @@ data class Game(
     var isPlayed: Boolean = false,
     var isShared: Boolean = false,
 
-    var played: Int?= 0,
-    var favorited: Int? =0,
-    var shared: Int? = 0,
+//nullable properties:
 
+    var played: Int = 0,
+    var favorited: Int = 0,
+    var shared: Int = 0,
 
-)
+    ) {
 
+    fun doesMatchSearchQuery(query: String): Boolean {
 
+        val matchingCombinations = listOf(
+            "$genre$title",
+            "$genre $title",
+            "$title",
+            "$genre",
+            "$release_date $genre",
+            "$genre $release_date",
+            "${genre.first()} ${title.first()}",
+        )
+        return matchingCombinations.any {
+            it.contains(query, ignoreCase = true)
+        }
+    }
+}
+
+/**
 data class GameDetails (
-    val developer: String = "",
-    val game_url: String = "",
-    val freetogame_profile_url: String="",
-    val genre: String = "",
-    val platform: String = "",
-    val publisher: String = "",
-    val release_date: String ="",
+val developer: String = "",
+val game_url: String = "",
+val freetogame_profile_url: String="",
+val genre: String = "",
+val platform: String = "",
+val publisher: String = "",
+val release_date: String ="",
 
-    @PrimaryKey(autoGenerate = true) val id: Int =0,
-    val title: String ="",
-    val short_description: String = "",
-    val thumbnail: String = "",
+@PrimaryKey(autoGenerate = true) val id: Int =0,
+val title: String ="",
+val short_description: String = "",
+val thumbnail: String = "",
 )
-
-
-fun Game.asEntity() = Game (
-    developer= developer,
+ */
+fun Game.asEntity() = Game(
+    developer = developer,
     game_url = game_url,
     freetogame_profile_url = freetogame_profile_url,
     genre = genre,
@@ -67,8 +84,9 @@ fun Game.asEntity() = Game (
     thumbnail = thumbnail
 
 )
+
 fun Game.asExternalModel() = Game(
-    developer= developer,
+    developer = developer,
     game_url = game_url,
     freetogame_profile_url = freetogame_profile_url,
     genre = genre,

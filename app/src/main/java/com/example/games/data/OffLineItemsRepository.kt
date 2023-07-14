@@ -17,7 +17,6 @@ import kotlinx.coroutines.flow.map
     .map {
             it.map (Game::asExternalModel) }
 
-
         //changed to Simple List:
        //override fun getAllItemsStream(): List<Game> = itemDao.getAllItems()
 

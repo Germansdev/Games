@@ -1,18 +1,16 @@
 package com.example.games.di
 
-import android.content.ContentValues
 import android.content.Context
-import android.util.Log
-import androidx.lifecycle.viewModelScope
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.example.games.data.DefaultGameRepository
-import com.example.games.data.GameDao
 import com.example.games.data.GameDatabase
 import com.example.games.data.GameRepository
 import com.example.games.data.ItemsRepository
 import com.example.games.data.OfflineItemsRepository
-import com.example.games.model.Game
 import com.example.games.network.GameApiService
-import kotlinx.coroutines.launch
+
+
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
@@ -21,8 +19,15 @@ import retrofit2.create
 //class DefaultAppContainer: AppContainer {
 
 //this single line with database (include context as constructor of the class):
+/**
+@RequiresApi(Build.VERSION_CODES.R)
 class DefaultAppContainer(
     private val context: Context,
+
+    //androidStudio suggest implement as parameter (or override in )
+    override val userDataRepository: UserDataRepository,
+
+
     //override val database: GameDatabase,
 
     ) : AppContainer {
@@ -47,6 +52,7 @@ class DefaultAppContainer(
             apiService = gameApiService
         )
     }
+
 
 
 //this only fetch:
@@ -94,8 +100,14 @@ class DefaultAppContainer(
             Log.e(ContentValues.TAG, "error saving games fetched ${e.message}")
         }
     }*/
+/**
+override val userDataRepository: UserDataRepository by lazy {
 
+}*/
 
 }
 
 
+
+
+*/
