@@ -111,7 +111,7 @@ fun FavoritesScreenContent(
                    key = { game -> game.id }
                ) { game ->
                    GameCardFavorites(
-                       game = game.copy(isFavorite = true),
+                       game = game.copy(favorited = 1/**isFavorite = true*/),
                         modifier,
                    )
                }
@@ -186,7 +186,7 @@ fun GameCardFavorites(
                             favorite =
                             when (game.isFavorite) {
                                 true -> true
-                                false -> false
+                                else -> false
                             },
                             onFavoriteClick = {
                                 gameViewModel.selectFavorite(gameId = game.id)
@@ -197,10 +197,8 @@ fun GameCardFavorites(
                                     if (game.isFavorite)
                                         (
                                                 gameViewModel.isFavoriteGame(game.copy(isFavorite = false))
-
                                                 ) else (
                                             gameViewModel.isFavoriteGame(game.copy(isFavorite = true))
-
                                             )
                                 }
 

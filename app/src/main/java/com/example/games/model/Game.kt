@@ -42,8 +42,8 @@ data class Game(
         val matchingCombinations = listOf(
             "$genre$title",
             "$genre $title",
-            "$title",
-            "$genre",
+            title,
+            genre,
             "$release_date $genre",
             "$genre $release_date",
             "${genre.first()} ${title.first()}",

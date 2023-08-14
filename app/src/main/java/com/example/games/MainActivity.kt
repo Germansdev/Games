@@ -1,43 +1,52 @@
 package com.example.games
 
-import android.content.Context
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
+
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import com.example.games.ui.DarkThemeConfig
+import androidx.core.view.WindowCompat
+import com.example.games.MainActivityUiState.*
+
 import com.example.games.ui.GameApp
 import com.example.games.ui.theme.GamesTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import kotlinx.coroutines.InternalCoroutinesApi
+
 
 //dev1
+
+
 class MainActivity : ComponentActivity() {
 
-//this line is ok ok ok !! resolved navigation problem clas viewModel!!
-    // private val viewModel: GameViewModel by viewModels { GameViewModel.Factory }
+ /**   val viewModel: MainActivityViewModel by viewModels {
+        viewModelFactory { MainActivityUiState.Loading } }*/
+//
+    private val mainViewModel: MainActivityViewModel by viewModels()
 
-    //XXXXXX replace with viewModelProvider following codelab:
-    //private val viewModel: GameViewModel by viewModels { viewModelFactory {  } }
-    /**private val factory = viewModelFactory {
-    initializer { GameViewModel(this[]) }
-    }
-    val viewModel: GameViewModel = factory.create(GameViewModel::class.java)
+    /**
+     *   original :
      */
 
-    val viewModel: MainActivityViewModel by viewModels()
+ //   private lateinit var viewModel: SettingsViewModel
 
-    //val viewModel: MainActivityViewModel by viewModels{ viewModelFactory {MainActivityUiState.Loading } }
-    //private val factory = viewModelFactory { initializer { MainActivityViewModel(this[(key)!!]) } }
-    //val viewModel:MainActivityViewModel = factory.create(MainActivityViewModel::class.java)
+
+    @OptIn(InternalCoroutinesApi::class, ExperimentalLayoutApi::class,
+        ExperimentalMaterial3WindowSizeClassApi::class
+    )
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -45,42 +54,17 @@ class MainActivity : ComponentActivity() {
 
         super.onCreate(savedInstanceState)
 
-        var uiState: MainActivityUiState by mutableStateOf(MainActivityUiState.Loading)
+        var uiState: MainActivityUiState by mutableStateOf(Loading)
 
-        /** lifecycleScope.launch {
-        lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-        viewModel.uiState
-        .onEach {
-        uiState = it
-        }
-        .collect(collector = {MainActivityUiState.Loading } )
-        }
-        }*/
+        // Turn off the decor fitting system windows, which allows us to handle insets,
+        // including IME animations
+        WindowCompat.setDecorFitsSystemWindows(window, false)
 
-        /**
-        splashScreen.setKeepOnScreenCondition {
-        when (uiState) {
-        MainActivityUiState.Loading -> true
-        is MainActivityUiState.Success -> false
-        }
-        }*/
-        //with sharePreferences:
-        val sharedPreferences = getSharedPreferences("", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        val nightMode = sharedPreferences.getBoolean("night", false)
-
-        if(nightMode){
-
-        }else{
-          //  !darkTheme
-        }
 
         setContent {
             //with androidApp:
             val systemUiController = rememberSystemUiController()
-            val darkTheme = shouldUseDarkTheme(uiState)
-
-
+            val darkTheme = shouldUseDarkTheme(uiState)//com.example.games.setUIMode(uiState,true)//,shouldUseDarkTheme(uiState)//com.example.games.setUIMode(isChecked = false,uiState = uiState)
 
 
             // Update the dark content of the system bars to match the theme
@@ -88,69 +72,34 @@ class MainActivity : ComponentActivity() {
                 systemUiController.systemBarsDarkContentEnabled = !darkTheme
                 onDispose {}
             }
+
             CompositionLocalProvider() {
                 GamesTheme(
+
                     darkTheme = darkTheme,
                 ) {
-                    GameApp()
+                    val windowSize = calculateWindowSizeClass(this)
+                    GameApp(
+                        windowSizeClass = calculateWindowSizeClass(this),
+                        )
+
                 }
-
-
             }
+            Log.d("main_activity", uiState.toString() )
         }
+          }
+
     }
 
-    /**
-     * Returns `true` if dark theme should be used, as a function of the [uiState] and the
-     * current system context.
-     */
-    @Composable
-    private fun shouldUseDarkTheme(
-        uiState: MainActivityUiState,
+
+
+
+
+@Composable
+private fun shouldUseDarkTheme(
+    uiState: MainActivityUiState,
+    //viewModel: ThemeViewModel
     ): Boolean = when (uiState) {
-        MainActivityUiState.Loading -> isSystemInDarkTheme()
-        is MainActivityUiState.Success -> when (uiState.userData.darkThemeConfig) {
-            DarkThemeConfig.FOLLOW_SYSTEM -> isSystemInDarkTheme()
-            DarkThemeConfig.LIGHT -> false
-            DarkThemeConfig.DARK -> true
-        }
+    Loading -> isSystemInDarkTheme()
+    is Success -> true
     }
-}
-
-
-/**
-/**
- * Class summarizing user interest data
- */
-data class UserData(
-   // val themeBrand: ThemeBrand,
-    val darkThemeConfig: DarkThemeConfig,
-    //val useDynamicColor: Boolean,
-
-){
-    private val userData : UserData = UserData(
-        //themeBrand = ThemeBrand.ANDROID,
-        darkThemeConfig = DarkThemeConfig.DARK,
-        //useDynamicColor = false,
-    )
-
-}
-
-
-
-
-
-object ParameterData{
-    private val userData : UserData = UserData(
-       // themeBrand = ThemeBrand.ANDROID,
-        darkThemeConfig = DarkThemeConfig.DARK,
-      //  useDynamicColor = false,
-    )
-
-}
-
-
-//dev3 eliminate preview
-*/
-
-//Shared Preferences:

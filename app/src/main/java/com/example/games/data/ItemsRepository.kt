@@ -8,6 +8,11 @@ interface ItemsRepository {
      * Retrieve all the items from the the given data source.
      */
     //with original from codelab with Flow:
+
+//    fun getSearchItemsStream(searchQuery: String): Flow<List<Game>>
+
+    fun searchAllGamesStream(query: String): Flow<List<Game>>
+
     fun getAllItemsStream(): Flow<List<Game>>
 
     //without Flow:

@@ -28,6 +28,12 @@ drawable loading_img
 drawable outline_home_24
 drawable splash
 drawable splash_initial
+font dmsans_bold
+font dmsans_bold_italic
+font dmsans_italic
+font dmsans_medium
+font dmsans_medium_italic
+font dmsans_regular
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name

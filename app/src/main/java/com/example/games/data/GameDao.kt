@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.RewriteQueriesToDropUnusedColumns
 import androidx.room.Update
 import com.example.games.model.Game
 import kotlinx.coroutines.flow.Flow
@@ -15,6 +16,15 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface GameDao {
 //SQL for entity tableName "items" /data class Item:
+/**
+@Query("SELECT * from items WHERE title LIKE '%'||:searchQuery ||'%' ORDER BY title ASC")
+fun getSearch (searchQuery: String): Flow<List<Game>>
+*/
+//nia:
+@RewriteQueriesToDropUnusedColumns
+    @Query("SELECT * FROM items WHERE title MATCH :query")
+    fun searchAllGames(query: String): Flow<List<Game>>
+
 @Query("SELECT * from items ORDER BY title ASC")
     //original codelab with Flow:
 fun getAllItems(): Flow<List<Game>>

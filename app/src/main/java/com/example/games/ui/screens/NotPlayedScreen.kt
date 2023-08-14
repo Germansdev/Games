@@ -36,11 +36,9 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -57,10 +55,12 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.games.R
+
 import com.example.games.model.Game
 import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.GameViewModel
 import com.example.games.ui.NotPlayedViewModel
+
 import kotlinx.coroutines.launch
 
 private const val Tag: String = "favorite"
@@ -69,10 +69,15 @@ private const val TAG: String = "Not Played"
 @Composable
 fun NotPlayedScreen(
     viewModel: NotPlayedViewModel= viewModel(factory = AppViewModelProvider.Factory),
+    //gameUiState: GameUiState,
     onClick: (Int) -> Unit,
     modifier: Modifier,
 ){
+    //val homeUiState by viewModel.homeUiState.collectAsState()
     val notPlayedUiState = viewModel.notPlayedUiState.collectAsState()
+
+
+
 
     NotPlayedScreenContent(
         notPlayedL = notPlayedUiState.value.notPlayedL as List<Game>,
@@ -138,6 +143,7 @@ fun NotPlayedScreenContent(
         }
     }
     Log.d(TAG, notPlayedL.size.toString() )
+
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -148,6 +154,7 @@ fun GameCardNotPlayed(
     onClick: (Game) -> Unit,
     modifier: Modifier
 ) {
+    /**
     var favorite by remember { mutableStateOf(false) }
     favorite = gameViewModel.isFavorite(gameId = game.id)
 
@@ -160,13 +167,13 @@ fun GameCardNotPlayed(
     var rating by remember { mutableStateOf(false) }
     rating = gameViewModel.isRate(gameId = game.id.toString())
     var selectedRating by remember { mutableStateOf(game.rating) }
-
+*/
     val coroutineScope = rememberCoroutineScope()
 
 
     ElevatedCard(
         modifier = Modifier//modifier
-            .clickable { onClick(/**Game()*/game)  }
+            .clickable { onClick(game)  }
             .fillMaxWidth()
             .padding(top = 5.dp, bottom = 5.dp, start = 10.dp, end = 10.dp),
         elevation = CardDefaults.cardElevation(5.dp),

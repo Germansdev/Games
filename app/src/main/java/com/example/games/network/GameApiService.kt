@@ -27,9 +27,10 @@ interface GameApiService {
     suspend fun getGames(): ArrayList<Game>
     {
         val result = getGames()
-
         return result
     }
+
+
 
 }
 
