@@ -5,6 +5,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import com.example.games.di.AppContainer
 import com.example.games.di.DefaultAppContainer
+import com.example.games.search.SearchContentsRepository
 
 
 //class GameApplication: Application() {
@@ -15,6 +16,7 @@ import com.example.games.di.DefaultAppContainer
     override fun onCreate() {
         super.onCreate()
         container = DefaultAppContainer(this,
+
             //database = GameDatabase.getDatabase(applicationContext)
         )
     }

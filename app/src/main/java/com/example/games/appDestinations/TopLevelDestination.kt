@@ -8,50 +8,73 @@ import androidx.compose.material.icons.filled.Games
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.ui.graphics.vector.ImageVector
+import kotlinx.coroutines.coroutineScope
 
 // NAVIGATION BAR (BOTTOM NAVIGATION)
+
+data class BottomNavigationItem(
+    val tittle: String,
+    val selectedIcon: ImageVector,
+    val unselectedIcon: ImageVector,
+    val hasNews: Boolean,
+    val badgeCount: Int? = null,
+)
 
 sealed class BottomBarScreen(
     val route: String,
     val title: String,
-    val icon: ImageVector
+    val icon: ImageVector,
+    val hasNews: Boolean,
+    val badgeCount: Int? = null,
 
-) {
+    ) {
 
     object Pantalla1 : BottomBarScreen(
-        route = "LIST-SCREEN",
-        title = "Games",
-        icon = Icons.Filled.Home
+        route = "HOME-SCREEN",//
+        title = "Home",//
+        icon = Icons.Filled.Home,
+        hasNews = true,
+        badgeCount = 376
     )
 
     object Pantalla2 : BottomBarScreen(
         route = "FAVORITES",
         title = "Favorites",
-        icon = Icons.Default.Favorite
+        icon = Icons.Default.Favorite,
+        hasNews = false,
+        badgeCount = 0
     )
 
     object Pantalla3 : BottomBarScreen(
         route = "PLAYED",
         title = "Played",
-        icon = Icons.Default.Games
+        icon = Icons.Default.Games,
+        hasNews = false,
+        badgeCount = 0
     )
 
     object Pantalla4 : BottomBarScreen(
         route = "STATISTICS",
         title = "Statistics",
-        icon = Icons.Default.BarChart
+        icon = Icons.Default.BarChart,
+        hasNews = false,
+        badgeCount = 0
     )
 
     object Pantalla5 : BottomBarScreen(
-    route = "ShareScreen",
-    title = "Shared",
-    icon = Icons.Default.Share
+        route = "ShareScreen",
+        title = "Shared",
+        icon = Icons.Default.Share,
+        hasNews = false,
+        badgeCount = 0
     )
 }
-object Graph: NavigationDestination{
+
+object Graph : NavigationDestination {
     const val BOTTOM = "bottomBar_graph"
     const val TOP = "topBar_graph"
-    /**private*/ const val DETAILS =  "details_graph"
+    /**private*/
+    const val DETAILS = "details_graph"
     private const val itemIdArg = "itemId"
     private val routeWithArgs = "$DETAILS/{$itemIdArg}"
     override val route: String
@@ -60,11 +83,11 @@ object Graph: NavigationDestination{
         get() = TODO("Not yet implemented")
 }
 
-enum class DetailsDestination (val route: String){
+enum class DetailsDestination(val route: String) {
 
     DetailsScreen(route = "Details"),
     //MoreDetailsScreen(route = "More Details"),
-   // MoreDeepScreen(route = "More Deep")
+    // MoreDeepScreen(route = "More Deep")
 
 }
 

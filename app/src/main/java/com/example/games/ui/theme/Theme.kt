@@ -1,17 +1,17 @@
 package com.example.games.ui.theme
 
+
+import android.annotation.SuppressLint
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
-import com.example.games.ui.DarkThemeConfig
-
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
-private val LightColors = lightColorScheme(
+@SuppressLint("ConflictingOnColor")
+ val LightColors = lightColorScheme(
     primary = md_theme_light_primary,
     onPrimary = md_theme_light_onPrimary,
     primaryContainer = md_theme_light_primaryContainer,
@@ -42,7 +42,8 @@ private val LightColors = lightColorScheme(
     outlineVariant = md_theme_light_outlineVariant,
     scrim = md_theme_light_scrim,
 )
-private var DarkColors = darkColorScheme(
+@SuppressLint("ConflictingOnColor")
+ var DarkColors = darkColorScheme(
     primary = md_theme_dark_primary,
     onPrimary = md_theme_dark_onPrimary,
     primaryContainer = md_theme_dark_primaryContainer,
@@ -75,17 +76,26 @@ private var DarkColors = darkColorScheme(
 )
 
 
+
+/**
+ * original
+ * */
+
 @Composable
 fun GamesTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
     val colors =
+
         if (darkTheme) {
         DarkColors
+
     } else {
         LightColors
+
     }
+
 
 
 
@@ -118,10 +128,10 @@ fun GamesTheme(
 */
 
 
-    MaterialTheme(
+    androidx.compose.material3.MaterialTheme(
         colorScheme = colors,
         content = content,
-        typography = Typography
+        typography = androidx.compose.material3.MaterialTheme.typography
     )
 }
 

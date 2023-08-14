@@ -1,6 +1,5 @@
 package com.example.games
 
-import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -17,19 +16,20 @@ import androidx.navigation.navArgument
 import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.Pantalla1
 import com.example.games.appDestinations.Graph
-import com.example.games.appDestinations.NavigationDestination
 import com.example.games.model.Game
+import com.example.games.search.SearchScreen
+import com.example.games.search.SearchScreenDestination
+import com.example.games.search.navigateToSearch
 import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.CustomTopBar
-import com.example.games.ui.GameApp
+import com.example.games.ui.GameState
+import com.example.games.ui.GameViewModel
 import com.example.games.ui.SharedScreen
-import com.example.games.ui.currentRoute
 import com.example.games.ui.screens.DetailsScreen
 import com.example.games.ui.screens.FavoritesScreen
 import com.example.games.ui.screens.ItemDetailsDestination
 import com.example.games.ui.screens.NotPlayedScreen
 import com.example.games.ui.screens.Played
-
 import com.example.games.ui.screens.Statistics
 import com.example.games.ui.theme.GameIcons
 
@@ -38,10 +38,12 @@ import com.example.games.ui.theme.GameIcons
 @RequiresApi(Build.VERSION_CODES.R)
 @Composable
 fun GameNavHost(
+    appState: GameState,
     modifier: Modifier = Modifier,
     startDestination: String = Pantalla1.route,
-    navController: NavHostController,
+   // navController: NavHostController,
 ) {
+val navController = appState.navController
 
     NavHost(
         navController = navController,
@@ -53,9 +55,20 @@ fun GameNavHost(
             /**route = Graph.BOTTOM.*/
             route = Pantalla1.route
         ) {
+val gameViewModel: GameViewModel =
+    viewModel(factory = GameViewModel.Factory)
+            /**
+            HomeScreen(
+                gameUiState = gameViewModel.gameUiState,
+                retryAction = { })
+            */
+            /**
+            GameListScreen(games = viewModel(), onClick = { } )
+            */
 
             NotPlayedScreen(
                 //with Graph.DETAILS without Args:
+
                 modifier = Modifier,
                 onClick = {
                     navController.navigate("${ItemDetailsDestination.route}/${it}")
@@ -89,6 +102,14 @@ fun GameNavHost(
 
         composable(BottomBarScreen.Pantalla4.route) {
             Statistics()
+
+        /**    NotPlayedScreen(
+                modifier = Modifier,
+                onClick = {
+                    navController.navigate("${ItemDetailsDestination.route}/${it}")
+
+        }
+            )*/
         }
 
         composable(BottomBarScreen.Pantalla5.route) {
@@ -104,21 +125,27 @@ fun GameNavHost(
               actionIconContentDescription = null,
               onNavigationClick = {navController.navigateToSearch()/**.navigate(/**searchRoute*/)*/},
           )
-           //searchScreen (onBackClick = navController::popBackStack)
+
+       //   searchScreen (onBackClick = navController::popBackStack)
 
        }
         //searchScreen (onBackClick = navController::popBackStack)
 
 
-        composable(route= SearchScreenDestination.route){
-            SearchScreen (
+       composable(route= SearchScreenDestination.route){
+val viewModel : GameViewModel = viewModel(factory = AppViewModelProvider.Factory)
+           SearchScreen (
+                //10 08 :
+                //games = viewModel.games.value ,
+            //searchGames = ,//viewModel(),
             onBackClick = { navController.popBackStack() }
             )
-            searchScreen (
+       /**     searchScreen (
                onBackClick = navController::popBackStack
-            )
+            )*/
         }
-        /**
+
+/**
         searchScreen (
             onBackClick = navController::popBackStack
         )*/
@@ -126,7 +153,7 @@ fun GameNavHost(
     }
 }
 
-
+/**
 @RequiresApi(Build.VERSION_CODES.R)
 fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
     navigation(
@@ -149,7 +176,8 @@ fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
             )
         }
     }
-}
+}*/
+
 /**
 //@Composable
 @OptIn(ExperimentalMaterial3Api::class)

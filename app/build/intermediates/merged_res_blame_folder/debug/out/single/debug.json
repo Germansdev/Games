@@ -16,6 +16,14 @@
         "source": "com.example.games.app-main-6:/drawable/ic_connection_error.xml"
     },
     {
+        "merged": "com.example.games.app-merged_res-4:/font_dmsans_regular.ttf.flat",
+        "source": "com.example.games.app-main-6:/font/dmsans_regular.ttf"
+    },
+    {
+        "merged": "com.example.games.app-merged_res-4:/font_dmsans_medium.ttf.flat",
+        "source": "com.example.games.app-main-6:/font/dmsans_medium.ttf"
+    },
+    {
         "merged": "com.example.games.app-merged_res-4:/drawable_splash_initial.jpg.flat",
         "source": "com.example.games.app-main-6:/drawable/splash_initial.jpg"
     },
@@ -30,6 +38,10 @@
     {
         "merged": "com.example.games.app-merged_res-4:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "com.example.games.app-main-6:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.games.app-merged_res-4:/font_dmsans_italic.ttf.flat",
+        "source": "com.example.games.app-main-6:/font/dmsans_italic.ttf"
     },
     {
         "merged": "com.example.games.app-merged_res-4:/drawable_ic_launcher_foreground.xml.flat",
@@ -58,6 +70,10 @@
     {
         "merged": "com.example.games.app-merged_res-4:/drawable_ic_menu_burguer.xml.flat",
         "source": "com.example.games.app-main-6:/drawable/ic_menu_burguer.xml"
+    },
+    {
+        "merged": "com.example.games.app-merged_res-4:/font_dmsans_medium_italic.ttf.flat",
+        "source": "com.example.games.app-main-6:/font/dmsans_medium_italic.ttf"
     },
     {
         "merged": "com.example.games.app-merged_res-4:/drawable_baseline_star_24.xml.flat",
@@ -104,6 +120,10 @@
         "source": "com.example.games.app-main-6:/drawable/baseline_games_24.xml"
     },
     {
+        "merged": "com.example.games.app-merged_res-4:/font_dmsans_bold_italic.ttf.flat",
+        "source": "com.example.games.app-main-6:/font/dmsans_bold_italic.ttf"
+    },
+    {
         "merged": "com.example.games.app-merged_res-4:/mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "com.example.games.app-main-6:/mipmap-xxxhdpi/ic_launcher.png"
     },
@@ -134,5 +154,9 @@
     {
         "merged": "com.example.games.app-merged_res-4:/drawable_splash.xml.flat",
         "source": "com.example.games.app-main-6:/drawable/splash.xml"
+    },
+    {
+        "merged": "com.example.games.app-merged_res-4:/font_dmsans_bold.ttf.flat",
+        "source": "com.example.games.app-main-6:/font/dmsans_bold.ttf"
     }
 ]

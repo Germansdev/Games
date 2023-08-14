@@ -1,16 +1,17 @@
 package com.example.games.ui
 
+
 import android.app.Application
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.createSavedStateHandle
-import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.games.DetailsViewModel
 import com.example.games.GameApplication
-import com.example.games.MainActivityViewModel
-import com.example.games.SearchViewModel
+import com.example.games.search.DefaultSearchContentsRepository
+import com.example.games.search.SearchContentsRepository
+import com.example.games.search.SearchViewModel
 
 
 /**
@@ -24,6 +25,7 @@ object AppViewModelProvider {
             GameViewModel(
                 inventoryApplication().container.itemsRepository,
                 inventoryApplication().container.gameRepository,
+
             )
         }
 
@@ -59,24 +61,23 @@ object AppViewModelProvider {
             )
         }
         initializer {
-            SearchViewModel(
-                inventoryApplication().container.itemsRepository,
-                inventoryApplication().container.gameRepository,
 
+            SearchViewModel(
+                this.createSavedStateHandle(),
+              // notPlayedViewModel = NotPlayedViewModel(itemsRepository = ItemsRepository),
+                inventoryApplication().container.itemsRepository,
+          // inventoryApplication().container.searchContentsRepository
+               // inventoryApplication().container.gameRepository,
             )
         }
-        /**initializer {
-            SettingsViewModel(
-                inventoryApplication().container.userDataRepository,
-                //inventoryApplication().container
-                )
-        }*/
 
+
+/**
         initializer {
             MainActivityViewModel(
-                inventoryApplication().container.userDataRepository
+               inventoryApplication().container.userPrefsRepository
             )
-        }
+        }*/
 
     }
 }

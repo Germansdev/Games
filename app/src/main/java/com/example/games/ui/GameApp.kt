@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalLayoutApi::class)
+
 package com.example.games.ui
 
 
@@ -18,15 +20,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.*
+import androidx.compose.material.MaterialTheme.shapes
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.colorScheme
-import androidx.compose.material3.MaterialTheme.shapes
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -34,27 +39,35 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navOptions
 import com.example.games.GameNavHost
 import com.example.games.R
 import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.*
-import com.example.games.navigateToSearch
+import com.example.games.search.navigateToSearch
 import com.example.games.ui.theme.GameIcons
 
 
+@ExperimentalLayoutApi
+@OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.R)
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
+//@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun GameApp(
-    //modifier: Modifier = Modifier,
-    //viewModel: GameViewModel = viewModel(),
-    ) {
+    windowSizeClass: androidx.compose.material3.windowsizeclass.WindowSizeClass,
+    appState: GameState = rememberGameAppState(
+        windowSizeClass = windowSizeClass,
+    ),
+) {
+
 
     val navController = rememberNavController()
 
@@ -62,11 +75,15 @@ fun GameApp(
         mutableStateOf(false)
     }
 
-  //  val scaffoldState = rememberScaffoldState()
-  //  val scope = rememberCoroutineScope()
+    /**    var showSettingsScreen by rememberSaveable {
+    mutableStateOf(false)
+    }*/
+
+    //  val scaffoldState = rememberScaffoldState()
+    //  val scope = rememberCoroutineScope()
 
     // Get current back stack entry
-    val backStackEntry by navController.currentBackStackEntryAsState()
+    //val backStackEntry by navController.currentBackStackEntryAsState()
     // Get the name of the current screen
 
 
@@ -78,83 +95,108 @@ fun GameApp(
         Pantalla4,
         Pantalla5,
     )
-    if (showSettingsDialog) {
-        SettingsDialog(
-            onDismiss = {showSettingsDialog = false }
-        )
-    }
 
-        //val tittleLop = fun LoopTittle ()
+
+    /**
+    if (showSettingsDialog) {
+
+    SettingsDialog(
+    //  onClick = {},
+
+    //userUiState = UserUiState.Loading,
+    onDismiss = {showSettingsDialog = false },
+    //    viewModel = viewModel()
+    )
+    }*/
+
+
+    //val tittleLop = fun LoopTittle ()
     //}
 
 // https://developer.android.com/jetpack/compose/navigation?hl=es-419
 
 
-
     Scaffold(
-
+        backgroundColor = Color.Transparent,
+        contentColor = MaterialTheme.colorScheme.onBackground,
 
         //topBar inside receiver Scaffold:
         /**
         topBar = {
 
-            val destination = backStackEntry
-            if (destination != null) {
-                CustomTopBar(
-                        titleRes = R.string.app_name,
-                        navigationIcon = GameIcons.Search,
-                        navigationIconContentDescription = null,
-                        actionIcon = GameIcons.Settings,
-                        actionIconContentDescription = null,
-                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                        containerColor = colorScheme.surface
-                        ),
-                        onActionClick = {/** showSettingsDialog = true*/ },
-                        onNavigationClick = { navController.navigateToSearch() },
-                    )
-            }
+        val destination = backStackEntry
+        if (destination != null) {
+        CustomTopBar(
+        titleRes = R.string.app_name,
+        navigationIcon = GameIcons.Search,
+        navigationIconContentDescription = null,
+        actionIcon = GameIcons.Settings,
+        actionIconContentDescription = null,
+        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+        containerColor = colorScheme.surface
+        ),
+        onActionClick = {/** showSettingsDialog = true*/ },
+        onNavigationClick = { navController.navigateToSearch() },
+        )
+        }
         },
-        */
+         */
 
         bottomBar = {
-            BottomBar(navController = navController, items = items)
-        }
+            if (appState.shouldShowBottomBar) {
+                //BottomBar(navController = navController, currentDestination = ap,)
 
-    ) {padding ->
+                BottomBar(
+                    navController = navController,
+                    destinations = appState.bottomBarScreens,
+                    onNavigateToDestination = appState::navigateToBottomBarScreen,
+                    currentDestination = appState.currentDestination
+                )
+            }
+        },
+    ) { padding ->
 
         Surface(
             modifier = Modifier
                 .fillMaxSize(),
             color = colorScheme.background,
         ) {
-Row(
-    modifier = Modifier
-        .fillMaxSize()
-        .padding(padding)
-        .consumeWindowInsets(padding)
-        .windowInsetsPadding(
-            WindowInsets.safeDrawing.only(
-                WindowInsetsSides.Horizontal,
-            ),
-        ),
+            Row(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding)
+                    .consumeWindowInsets(padding)
+                    .windowInsetsPadding(
+                        WindowInsets.safeDrawing.only(
+                            WindowInsetsSides.Horizontal,
+                        ),
+                    ),
 
-) {
-    Column(Modifier.fillMaxSize()) {
-        CustomTopBar(
-            titleRes = R.string.app_name,
-            navigationIcon = GameIcons.Search,
-            navigationIconContentDescription = null,
-            actionIcon = GameIcons.Settings,
-            actionIconContentDescription = null,
-            colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                containerColor = colorScheme.surface
-            ),
-            onActionClick = { showSettingsDialog = true },
-            onNavigationClick = { navController.navigateToSearch() },
-        )
-    }
-}
-            GameNavHost( navController = navController)
+                ) {
+                Column(Modifier.fillMaxSize()) {
+                    val destination = appState.currentTopLevelDestination
+                    if (destination != null) {
+                        CustomTopBar(
+
+                            titleRes = R.string.app_name,
+                            navigationIcon = GameIcons.Search,
+                            navigationIconContentDescription = null,
+                            actionIcon = GameIcons.Settings,
+                            actionIconContentDescription = null,
+                            colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                                containerColor = colorScheme.surface
+                            ),
+                            onActionClick = { showSettingsDialog = true },
+                            onNavigationClick = { appState.navController.navigateToSearch() },
+                            //  onToggleTheme = application::toggleLightTheme
+                        )
+
+                    }
+
+                    GameNavHost(appState, modifier = Modifier, startDestination = Pantalla1.route)
+                }
+
+            }
         }
     }
 }
@@ -172,7 +214,9 @@ fun CustomTopBar(
     colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(),
     onNavigationClick: () -> Unit = {},
     onActionClick: () -> Unit = {},
-) {
+
+
+    ) {
 
     //With CenterAlignedTopAppBar:
     CenterAlignedTopAppBar(
@@ -225,13 +269,14 @@ fun CustomTopBar(
             }
         },
         colors = colors,
-       modifier = modifier,
+        modifier = modifier,
 
-    )
+        )
 }
 //END WITH SPECIAL TOP BAR
 
 //BOTTOM NAVIGATION:
+
 @Composable
 fun currentRoute(navController: NavHostController): String? {
     val entry by navController.currentBackStackEntryAsState()
@@ -240,8 +285,12 @@ fun currentRoute(navController: NavHostController): String? {
 
 @Composable
 fun BottomBar(
+
     navController: NavHostController,
-    items: List<BottomBarScreen>,
+    destinations: List<BottomBarScreen>,
+    onNavigateToDestination: (BottomBarScreen) -> Unit,
+    currentDestination: NavDestination?,
+
     modifier: Modifier = Modifier,
 ) {
     modifier
@@ -253,20 +302,34 @@ fun BottomBar(
             backgroundColor = colorScheme.surface,
             contentColor = colorScheme.onSurface,
         ) {
-            val navBackStackEntry by navController.currentBackStackEntryAsState()
-            val currentDestination = navBackStackEntry?.destination
 
-            items.forEach { screen ->
+
+            destinations.forEach { screen ->
+             //    val navBackStackEntry by navController.currentBackStackEntryAsState()
+            //     val currentDestination = navBackStackEntry?.destination
+
                 BottomNavigationItem(
 
                     icon = {
+                       BadgedBox(
+                           badge ={
+                               if (screen.badgeCount != null){
+                                   Badge {
+                                      Text(text = screen.badgeCount.toString())
+                                   }
+                               }else if (screen.hasNews){
+                                   Badge()
+                               }
+                           }
+                       ) {
                         Icon(
                             imageVector = screen.icon,
                             contentDescription = screen.title,
                             tint = //if (select) Color.Red else Color.LightGray,
                             colorScheme.onSurface,
-                        modifier = Modifier.clip(shapes.medium)
+                            modifier = Modifier.clip(shapes.medium)
                         )
+                       }
                     },
                     label = {
                         Text(screen.title)
@@ -275,27 +338,116 @@ fun BottomBar(
                     alwaysShowLabel = true,
                     unselectedContentColor = Color.Gray,
 
+
                     //selectedContentColor = colorScheme.primary,
-                    selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
+                    selected = currentDestination.isTopLevelDestinationInHierarchy(screen),
+                   // currentDestination?.hierarchy?.any { it.route == screen.route } == true,
 
                     onClick = {
-                        navController.navigate(screen.route) {
-                            // Pop up to the start destination of the graph to
-                            // avoid building up a large stack of destinations
-                            // on the back stack as users select items
-                            popUpTo(navController.graph.findStartDestination().id) {
-                                saveState = true
-                            }
-                            // Avoid multiple copies of the same destination when
-                            // reselecting the same item
-                            launchSingleTop = true
-                            // Restore state when reselecting a previously selected item
-                            restoreState = true
+                        onNavigateToDestination(screen) //08 08
+                /**                navController.navigate(screen.route)
+                                {
+
+
+                        // Pop up to the start destination of the graph to
+                        // avoid building up a large stack of destinations
+                        // on the back stack as users select items
+                        // 08 08
+                        setOfNotNull(
+                        Pantalla1
+                        ) //end 08 08
+
+                                   // navBackStackEntry?.destination?.route
+                        popUpTo(navController.graph.findStartDestination().id) {
+                        saveState = true
                         }
+                        // Avoid multiple copies of the same destination when
+                        // reselecting the same item
+                        launchSingleTop = true
+                        // Restore state when reselecting a previously selected item
+                        restoreState = true
+                        }*/
                     }
                 )
             }
         }
+    }
+}
+
+private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: BottomBarScreen) =
+    this?.hierarchy?.any {
+        it.route?.contains(destination.title, true) ?: false
+    } ?: false
+
+
+@Composable
+fun rememberGameAppState(
+    windowSizeClass: androidx.compose.material3.windowsizeclass.WindowSizeClass,
+    navController: NavHostController = rememberNavController(),
+): GameState {
+    return remember(
+        navController,
+        windowSizeClass
+    ) {
+        GameState(
+            navController,
+            windowSizeClass
+
+        )
+    }
+}
+
+class GameState(
+    val navController: NavHostController,
+    val windowSizeClass: androidx.compose.material3.windowsizeclass.WindowSizeClass
+) {
+
+    val currentDestination: NavDestination?
+        @Composable get() = navController
+            .currentBackStackEntryAsState().value?.destination
+
+    val bottomBarScreens: List<BottomBarScreen> = listOf(
+        Pantalla1, Pantalla2, Pantalla3, Pantalla4, Pantalla5
+    ) //ojo!!!
+    val shouldShowBottomBar: Boolean
+        get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact
+
+    val currentTopLevelDestination: BottomBarScreen?
+        @Composable get() = when (currentDestination?.route) {
+            Pantalla1.route -> BottomBarScreen.Pantalla1
+            Pantalla2.route -> Pantalla2
+            Pantalla3.route -> Pantalla3
+            Pantalla4.route -> Pantalla4
+            Pantalla5.route -> Pantalla5
+            else -> null
+        }
+
+
+    fun navigateToBottomBarScreen(bottomBarScreen: BottomBarScreen) {
+        //   trace("Navigation: ${topLevelDestination.name}") {
+        /**val bottomBarScreens/**topLevelNavOptions*/ =*/
+        navOptions {
+            // Pop up to the start destination of the graph to
+            // avoid building up a large stack of destinations
+            // on the back stack as users select items
+            popUpTo(navController.graph.findStartDestination().id) {
+                saveState = true
+            }
+            // Avoid multiple copies of the same destination when
+            // reselecting the same item
+            launchSingleTop = true
+            // Restore state when reselecting a previously selected item
+            restoreState = true
+        }
+
+        when (bottomBarScreen) {
+            Pantalla1 -> navController.navigate(bottomBarScreen.route)//navigateToBottomBarScreen(Pantalla1)
+            Pantalla2 -> navController.navigate(bottomBarScreen.route)//navigateToBottomBarScreen(Pantalla2)
+            Pantalla3 -> navController.navigate(bottomBarScreen.route)//navigateToBottomBarScreen(Pantalla3)
+            Pantalla4 -> navController.navigate(bottomBarScreen.route)//navigateToBottomBarScreen(Pantalla4)
+            Pantalla5 -> navController.navigate(bottomBarScreen.route)//navigateToBottomBarScreen(Pantalla5)
+        }
+        //   }
     }
 }
 

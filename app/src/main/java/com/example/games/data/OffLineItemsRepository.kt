@@ -12,7 +12,12 @@ import kotlinx.coroutines.flow.map
         private val itemDao: GameDao,
         private val apiService: GameApiService
         ) : ItemsRepository {
-//with original codelab with Flow:
+
+     //   override fun getSearchItemsStream(searchQuery: String): Flow<List<Game>> = itemDao.getSearch(searchQuery )
+        override fun searchAllGamesStream(query: String): Flow<List<Game>> = itemDao.searchAllGames(query)
+
+
+        //with original codelab with Flow:
         override fun getAllItemsStream(): Flow<List<Game>> = itemDao.getAllItems()
     .map {
             it.map (Game::asExternalModel) }
@@ -41,5 +46,6 @@ import kotlinx.coroutines.flow.map
         override suspend fun deleteItem(item: Game) = itemDao.delete(item)
 
         override suspend fun updateItem(item: Game) = itemDao.update(item)
+
     }
 

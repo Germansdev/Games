@@ -10,8 +10,9 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 
-class SharedViewModel(itemsRepository: ItemsRepository)
-    : ViewModel() {
+class SharedViewModel(
+    itemsRepository: ItemsRepository
+): ViewModel() {
     val sharedUiState: StateFlow<SharedUiState> =
         itemsRepository.getAllSharedStream(isShared = true)
             .filterNotNull()
