@@ -3,8 +3,10 @@ package com.example.games.data
 import com.example.games.model.Game
 import com.example.games.model.asExternalModel
 import com.example.games.network.GameApiService
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 
 //Replace the GameRepository previous for DI fetching data:
 
@@ -12,8 +14,13 @@ import kotlinx.coroutines.flow.map
         private val itemDao: GameDao,
         private val apiService: GameApiService
         ) : ItemsRepository {
+        override suspend fun searchItemsByName(searchQuery: String): List<Game> {
+            return withContext(Dispatchers.IO){
+                itemDao.searchItemsByName(searchQuery)
+            }
+        }
 
-     //   override fun getSearchItemsStream(searchQuery: String): Flow<List<Game>> = itemDao.getSearch(searchQuery )
+        override fun getSearchItemsStream(searchQuery: String): Flow<List<Game>> = itemDao.getSearch(searchQuery )
         override fun searchAllGamesStream(query: String): Flow<List<Game>> = itemDao.searchAllGames(query)
 
 

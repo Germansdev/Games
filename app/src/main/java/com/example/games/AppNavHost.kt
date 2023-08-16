@@ -133,11 +133,8 @@ val gameViewModel: GameViewModel =
 
 
        composable(route= SearchScreenDestination.route){
-val viewModel : GameViewModel = viewModel(factory = AppViewModelProvider.Factory)
+//val viewModel : GameViewModel = viewModel(factory = AppViewModelProvider.Factory)
            SearchScreen (
-                //10 08 :
-                //games = viewModel.games.value ,
-            //searchGames = ,//viewModel(),
             onBackClick = { navController.popBackStack() }
             )
        /**     searchScreen (

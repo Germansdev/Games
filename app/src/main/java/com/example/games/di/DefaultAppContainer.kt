@@ -26,8 +26,8 @@ import retrofit2.create
 
 @RequiresApi(Build.VERSION_CODES.R)
 class DefaultAppContainer(
-    private val context: Context,
 
+    private val context: Context,
 
     ) : AppContainer {
 

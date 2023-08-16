@@ -64,87 +64,20 @@ import com.example.games.ui.theme.GameIcons
 fun GameApp(
     windowSizeClass: androidx.compose.material3.windowsizeclass.WindowSizeClass,
     appState: GameState = rememberGameAppState(
-        windowSizeClass = windowSizeClass,
-    ),
+        windowSizeClass = windowSizeClass )
 ) {
-
-
     val navController = rememberNavController()
 
     var showSettingsDialog by rememberSaveable {
         mutableStateOf(false)
     }
 
-    /**    var showSettingsScreen by rememberSaveable {
-    mutableStateOf(false)
-    }*/
-
-    //  val scaffoldState = rememberScaffoldState()
-    //  val scope = rememberCoroutineScope()
-
-    // Get current back stack entry
-    //val backStackEntry by navController.currentBackStackEntryAsState()
-    // Get the name of the current screen
-
-
-    //THIS IS BOTTOM BAR TOP LEVEL DESTINATION:
-    val items = listOf(
-        Pantalla1,
-        Pantalla2,
-        Pantalla3,
-        Pantalla4,
-        Pantalla5,
-    )
-
-
-    /**
-    if (showSettingsDialog) {
-
-    SettingsDialog(
-    //  onClick = {},
-
-    //userUiState = UserUiState.Loading,
-    onDismiss = {showSettingsDialog = false },
-    //    viewModel = viewModel()
-    )
-    }*/
-
-
-    //val tittleLop = fun LoopTittle ()
-    //}
-
-// https://developer.android.com/jetpack/compose/navigation?hl=es-419
-
-
     Scaffold(
         backgroundColor = Color.Transparent,
         contentColor = MaterialTheme.colorScheme.onBackground,
 
-        //topBar inside receiver Scaffold:
-        /**
-        topBar = {
-
-        val destination = backStackEntry
-        if (destination != null) {
-        CustomTopBar(
-        titleRes = R.string.app_name,
-        navigationIcon = GameIcons.Search,
-        navigationIconContentDescription = null,
-        actionIcon = GameIcons.Settings,
-        actionIconContentDescription = null,
-        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-        containerColor = colorScheme.surface
-        ),
-        onActionClick = {/** showSettingsDialog = true*/ },
-        onNavigationClick = { navController.navigateToSearch() },
-        )
-        }
-        },
-         */
-
         bottomBar = {
             if (appState.shouldShowBottomBar) {
-                //BottomBar(navController = navController, currentDestination = ap,)
 
                 BottomBar(
                     navController = navController,
@@ -177,7 +110,6 @@ fun GameApp(
                     val destination = appState.currentTopLevelDestination
                     if (destination != null) {
                         CustomTopBar(
-
                             titleRes = R.string.app_name,
                             navigationIcon = GameIcons.Search,
                             navigationIconContentDescription = null,
@@ -188,7 +120,7 @@ fun GameApp(
                             ),
                             onActionClick = { showSettingsDialog = true },
                             onNavigationClick = { appState.navController.navigateToSearch() },
-                            //  onToggleTheme = application::toggleLightTheme
+
                         )
 
                     }
@@ -214,10 +146,7 @@ fun CustomTopBar(
     colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(),
     onNavigationClick: () -> Unit = {},
     onActionClick: () -> Unit = {},
-
-
     ) {
-
     //With CenterAlignedTopAppBar:
     CenterAlignedTopAppBar(
         title = { androidx.compose.material3.Text(text = stringResource(id = titleRes)) },
@@ -285,7 +214,6 @@ fun currentRoute(navController: NavHostController): String? {
 
 @Composable
 fun BottomBar(
-
     navController: NavHostController,
     destinations: List<BottomBarScreen>,
     onNavigateToDestination: (BottomBarScreen) -> Unit,

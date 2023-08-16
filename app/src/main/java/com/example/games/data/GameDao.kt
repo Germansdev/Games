@@ -16,10 +16,17 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface GameDao {
 //SQL for entity tableName "items" /data class Item:
-/**
+
+    //MVMMTODO:
 @Query("SELECT * from items WHERE title LIKE '%'||:searchQuery ||'%' ORDER BY title ASC")
 fun getSearch (searchQuery: String): Flow<List<Game>>
-*/
+
+//CHAT:
+    @Query("SELECT * from items WHERE title LIKE :searchQuery")
+    fun searchItemsByName(searchQuery: String): List<Game>
+
+
+
 //nia:
 @RewriteQueriesToDropUnusedColumns
     @Query("SELECT * FROM items WHERE title MATCH :query")

@@ -32,11 +32,7 @@ fun NavGraphBuilder.searchScreen(
     // TODO: Handle back stack for each top-level destination. At the moment each top-level
     // destination may have own search screen's back stack.
     composable(route = searchRoute) {
-        SearchRoute(
-            onBackClick = onBackClick,
-            searchViewModel = viewModel(),
-            notPlayedViewModel = viewModel()
-        )
+        SearchRoute( onBackClick = onBackClick )
     }
 }
 
