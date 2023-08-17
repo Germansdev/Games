@@ -41,7 +41,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
-import androidx.navigation.NavGraph
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -74,7 +73,7 @@ fun GameApp(
 
     Scaffold(
         backgroundColor = Color.Transparent,
-        contentColor = MaterialTheme.colorScheme.onBackground,
+        contentColor = colorScheme.onBackground,
 
         bottomBar = {
             if (appState.shouldShowBottomBar) {
@@ -110,7 +109,7 @@ fun GameApp(
                     val destination = appState.currentTopLevelDestination
                     if (destination != null) {
                         CustomTopBar(
-                            titleRes = R.string.app_name,
+                            titleRes = destination.titleTextId,//R.string.app_name,//destination.title.toInt(),//R.string.app_name, }
                             navigationIcon = GameIcons.Search,
                             navigationIconContentDescription = null,
                             actionIcon = GameIcons.Settings,
@@ -342,7 +341,7 @@ class GameState(
 
     val currentTopLevelDestination: BottomBarScreen?
         @Composable get() = when (currentDestination?.route) {
-            Pantalla1.route -> BottomBarScreen.Pantalla1
+            Pantalla1.route -> Pantalla1
             Pantalla2.route -> Pantalla2
             Pantalla3.route -> Pantalla3
             Pantalla4.route -> Pantalla4

@@ -8,11 +8,14 @@ import androidx.compose.material.icons.filled.Games
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.example.games.R
+import com.example.games.appDestinations.BottomBarScreen.Pantalla1.titleTextId
 import kotlinx.coroutines.coroutineScope
 
 // NAVIGATION BAR (BOTTOM NAVIGATION)
 
 data class BottomNavigationItem(
+
     val tittle: String,
     val selectedIcon: ImageVector,
     val unselectedIcon: ImageVector,
@@ -21,8 +24,9 @@ data class BottomNavigationItem(
 )
 
 sealed class BottomBarScreen(
+    val titleTextId: Int,
     val route: String,
-    val title: String,
+    var title: String,
     val icon: ImageVector,
     val hasNews: Boolean,
     val badgeCount: Int? = null,
@@ -30,6 +34,7 @@ sealed class BottomBarScreen(
     ) {
 
     object Pantalla1 : BottomBarScreen(
+        titleTextId = R.string.app_name,
         route = "HOME-SCREEN",//
         title = "Home",//
         icon = Icons.Filled.Home,
@@ -38,6 +43,7 @@ sealed class BottomBarScreen(
     )
 
     object Pantalla2 : BottomBarScreen(
+        titleTextId = R.string.favorites,
         route = "FAVORITES",
         title = "Favorites",
         icon = Icons.Default.Favorite,
@@ -46,6 +52,7 @@ sealed class BottomBarScreen(
     )
 
     object Pantalla3 : BottomBarScreen(
+        titleTextId = R.string.played,
         route = "PLAYED",
         title = "Played",
         icon = Icons.Default.Games,
@@ -54,6 +61,7 @@ sealed class BottomBarScreen(
     )
 
     object Pantalla4 : BottomBarScreen(
+        titleTextId = R.string.statistics,
         route = "STATISTICS",
         title = "Statistics",
         icon = Icons.Default.BarChart,
@@ -62,6 +70,7 @@ sealed class BottomBarScreen(
     )
 
     object Pantalla5 : BottomBarScreen(
+        titleTextId = R.string.shared,
         route = "ShareScreen",
         title = "Shared",
         icon = Icons.Default.Share,

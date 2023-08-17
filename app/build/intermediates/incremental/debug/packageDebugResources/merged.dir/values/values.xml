@@ -18,7 +18,7 @@
     <string name="dark_mode_preference">Dark mode preference</string>
     <string name="details">Details</string>
     <string name="dismissButtonText">Ok</string>
-    <string name="favorites">favorites</string>
+    <string name="favorites">Favorites Games</string>
     <string name="game_title">Game Title</string>
     <string name="games">Games</string>
     <string name="homescreen">Home</string>
@@ -35,14 +35,15 @@
     <string name="no_item_description">not favorites yet</string>
     <string name="no_records_found_msg">Nothing found</string>
     <string name="no_results">No rsults found</string>
-    <string name="played">Played</string>
+    <string name="played">Played Games</string>
     <string name="privacy_policy">privacy_policy</string>
-    <string name="rated">Rated</string>
+    <string name="rated">Rated Games</string>
     <string name="retry">Retry</string>
     <string name="search">search</string>
     <string name="search_not_ready">search not ready</string>
     <string name="settings">Settings</string>
-    <string name="shared">Shared</string>
+    <string name="shared">Shared Games</string>
+    <string name="statistics">Statistics</string>
     <string name="subject">"Play this game is incredible"</string>
     <style name="Theme.Games" parent="android:Theme.Material.Light.NoActionBar"/>
     <style name="Theme_Games_Splash" parent="Theme.Games">Splash

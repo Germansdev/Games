@@ -236,6 +236,11 @@ int attr emojiCompatEnabled 0x7f0300cb
 int attr enterAnim 0x7f0300cc
 int attr exitAnim 0x7f0300cd
 int attr expandActivityOverflowButtonDrawable 0x7f0300ce
+int attr fastScrollEnabled 0x7f030262
+int attr fastScrollHorizontalThumbDrawable 0x7f030263
+int attr fastScrollHorizontalTrackDrawable 0x7f030264
+int attr fastScrollVerticalThumbDrawable 0x7f030265
+int attr fastScrollVerticalTrackDrawable 0x7f030266
 int attr finishPrimaryWithPlaceholder 0x7f0300cf
 int attr finishPrimaryWithSecondary 0x7f0300d0
 int attr finishSecondaryWithPrimary 0x7f0300d1
@@ -302,6 +307,7 @@ int attr launchSingleTop 0x7f03010d
 int attr layout 0x7f03010e
 int attr layoutDescription 0x7f03010f
 int attr layoutDuringTransition 0x7f030110
+int attr layoutManager 0x7f030267
 int attr layout_constrainedHeight 0x7f030111
 int attr layout_constrainedWidth 0x7f030112
 int attr layout_constraintBaseline_creator 0x7f030113
@@ -476,11 +482,13 @@ int attr reactiveGuide_animateChange 0x7f0301bb
 int attr reactiveGuide_applyToAllConstraintSets 0x7f0301bc
 int attr reactiveGuide_applyToConstraintSet 0x7f0301bd
 int attr reactiveGuide_valueId 0x7f0301be
+int attr recyclerViewStyle 0x7f030268
 int attr region_heightLessThan 0x7f0301bf
 int attr region_heightMoreThan 0x7f0301c0
 int attr region_widthLessThan 0x7f0301c1
 int attr region_widthMoreThan 0x7f0301c2
 int attr restoreState 0x7f0301c3
+int attr reverseLayout 0x7f030269
 int attr rotationCenterId 0x7f0301c4
 int attr round 0x7f0301c5
 int attr roundPercent 0x7f0301c6
@@ -504,6 +512,7 @@ int attr showText 0x7f0301d7
 int attr showTitle 0x7f0301d8
 int attr singleChoiceItemLayout 0x7f0301d9
 int attr sizePercent 0x7f0301da
+int attr spanCount 0x7f03026a
 int attr spinBars 0x7f0301db
 int attr spinnerDropDownItemStyle 0x7f0301dc
 int attr spinnerStyle 0x7f0301dd
@@ -522,6 +531,7 @@ int attr springMass 0x7f0301e9
 int attr springStiffness 0x7f0301ea
 int attr springStopThreshold 0x7f0301eb
 int attr srcCompat 0x7f0301ec
+int attr stackFromEnd 0x7f03026b
 int attr staggered 0x7f0301ed
 int attr startDestination 0x7f0301ee
 int attr state_above_anchor 0x7f0301ef
@@ -830,6 +840,9 @@ int dimen compat_notification_large_icon_max_height 0x7f060056
 int dimen compat_notification_large_icon_max_width 0x7f060057
 int dimen disabled_alpha_material_dark 0x7f060058
 int dimen disabled_alpha_material_light 0x7f060059
+int dimen fastscroll_default_thickness 0x7f06007f
+int dimen fastscroll_margin 0x7f060080
+int dimen fastscroll_minimum_range 0x7f060081
 int dimen highlight_alpha_material_colored 0x7f06005a
 int dimen highlight_alpha_material_dark 0x7f06005b
 int dimen highlight_alpha_material_light 0x7f06005c
@@ -837,6 +850,9 @@ int dimen hint_alpha_material_dark 0x7f06005d
 int dimen hint_alpha_material_light 0x7f06005e
 int dimen hint_pressed_alpha_material_dark 0x7f06005f
 int dimen hint_pressed_alpha_material_light 0x7f060060
+int dimen item_touch_helper_max_drag_scroll_per_frame 0x7f060082
+int dimen item_touch_helper_swipe_escape_max_velocity 0x7f060083
+int dimen item_touch_helper_swipe_escape_velocity 0x7f060084
 int dimen notification_action_icon_size 0x7f060061
 int dimen notification_action_text_size 0x7f060062
 int dimen notification_big_circle_margin 0x7f060063
@@ -1189,6 +1205,7 @@ int id inspection_slot_table_set 0x7f0900b3
 int id invisible 0x7f0900b4
 int id is_pooling_container_tag 0x7f0900b5
 int id italic 0x7f0900b6
+int id item_touch_helper_previous_elevation 0x7f09014d
 int id jumpToEnd 0x7f0900b7
 int id jumpToStart 0x7f0900b8
 int id layout 0x7f0900b9
@@ -1518,6 +1535,7 @@ int string selected 0x7f0e0076
 int string settings 0x7f0e0077
 int string shared 0x7f0e0078
 int string snackbar_dismiss 0x7f0e0079
+int string statistics 0x7f0e008e
 int string status_bar_notification_info_overflow 0x7f0e007a
 int string subject 0x7f0e007b
 int string suggestions_available 0x7f0e007c
@@ -3115,6 +3133,19 @@ int styleable PropertySet_visibilityMode 4
 int[] styleable RecycleListView { 0x7f030192, 0x7f030195 }
 int styleable RecycleListView_paddingBottomNoButtons 0
 int styleable RecycleListView_paddingTopNoTitle 1
+int[] styleable RecyclerView { 0x010100c4, 0x010100eb, 0x010100f1, 0x7f030262, 0x7f030263, 0x7f030264, 0x7f030265, 0x7f030266, 0x7f030267, 0x7f030269, 0x7f03026a, 0x7f03026b }
+int styleable RecyclerView_android_orientation 0
+int styleable RecyclerView_android_clipToPadding 1
+int styleable RecyclerView_android_descendantFocusability 2
+int styleable RecyclerView_fastScrollEnabled 3
+int styleable RecyclerView_fastScrollHorizontalThumbDrawable 4
+int styleable RecyclerView_fastScrollHorizontalTrackDrawable 5
+int styleable RecyclerView_fastScrollVerticalThumbDrawable 6
+int styleable RecyclerView_fastScrollVerticalTrackDrawable 7
+int styleable RecyclerView_layoutManager 8
+int styleable RecyclerView_reverseLayout 9
+int styleable RecyclerView_spanCount 10
+int styleable RecyclerView_stackFromEnd 11
 int[] styleable SearchView { 0x010100da, 0x0101011f, 0x01010220, 0x01010264, 0x7f030077, 0x7f030086, 0x7f0300a8, 0x7f0300f4, 0x7f0300fe, 0x7f03010e, 0x7f0301b4, 0x7f0301b5, 0x7f0301ca, 0x7f0301cb, 0x7f0301f2, 0x7f0301f7, 0x7f03024c }
 int styleable SearchView_android_focusable 0
 int styleable SearchView_android_maxWidth 1

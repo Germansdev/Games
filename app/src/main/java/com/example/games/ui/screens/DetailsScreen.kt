@@ -1,32 +1,48 @@
 package com.example.games.ui.screens
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
@@ -48,6 +64,7 @@ object ItemDetailsDestination : NavigationDestination {
     val routeWithArgs = "$route/{$itemIdArg}"
 }
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @RequiresApi(Build.VERSION_CODES.R)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -58,6 +75,20 @@ fun DetailsScreen(
     viewModel: DetailsViewModel = viewModel(factory = AppViewModelProvider.Factory),
 
     ) {
+/**
+    Scaffold(
+        modifier = Modifier.fillMaxWidth(),
+) {
+      CustomTopBar(
+          titleRes = R.string.details,
+          navigationIcon = Icons.Default.ArrowBack,
+          navigationIconContentDescription = null,
+          actionIcon = Icons.Default.Home,
+          actionIconContentDescription = null,
+          onActionClick = {},
+          onNavigationClick = {}
+      )
+}*/
     /**VERY IMPORTANT:
      * Always recover the uiState as Cold Flow of each State of everything*/
 
@@ -68,7 +99,8 @@ fun DetailsScreen(
             CustomTopBar(
                 titleRes = R.string.details,
                 actionIcon = Icons.Default.ArrowBack,
-                actionIconContentDescription = null
+                actionIconContentDescription = null,
+                onActionClick = onClick,
             )
         }) { innerPadding ->
         ItemDetailsBody(
@@ -108,7 +140,10 @@ fun ItemDetailsBody(
         // .height(500.dp)
     ) {
         Column {
+
+
             ElevatedCard(
+
                 modifier = modifier//modifier
                     .clickable { onBack() }
                     .fillMaxWidth()
@@ -116,6 +151,7 @@ fun ItemDetailsBody(
                     .padding(top = 5.dp, bottom = 5.dp, start = 10.dp, end = 10.dp),
                 elevation = CardDefaults.cardElevation(5.dp),
                 shape = RoundedCornerShape(8.dp),
+
             ) {
                 AsyncImage(
                     modifier = Modifier.fillMaxWidth(),
@@ -225,6 +261,19 @@ fun ItemDetailsBody(
                                 textAlign = TextAlign.Left,
                                 modifier = Modifier.padding(top = 8.dp)
                             )
+                            Row(modifier = Modifier
+                                .padding(end = 16.dp)
+                                .align(Alignment.End)
+                            ) {
+                                GameOutlinedButton(
+                                    onClick = {onBack()},//{onBack},
+                                    enabled = true,
+                                    text = { Text(text = "Back")},
+                                    leadingIcon = {
+                                        Icon(imageVector = Icons.Default.ArrowBack, contentDescription = null)
+                                    }
+                                )
+                            }
                         }
                     }
                 }
@@ -232,9 +281,96 @@ fun ItemDetailsBody(
         }
     }
 }
+@Composable
+fun GameOutlinedButton(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
+    content: @Composable RowScope.() -> Unit,
+) {
+    OutlinedButton(
+        onClick = onClick,
+        modifier = modifier,
+        enabled = enabled,
+        colors = ButtonDefaults.outlinedButtonColors(
+            contentColor = MaterialTheme.colorScheme.onBackground,
+        ),
+        border = BorderStroke(
+            width = GameButtonDefaults.OutlinedButtonBorderWidth,
+            color = if (enabled) {
+                MaterialTheme.colorScheme.outline
+            } else {
+                MaterialTheme.colorScheme.onSurface.copy(
+                    alpha = GameButtonDefaults.DisabledOutlinedButtonBorderAlpha,
+                )
+            },
+        ),
+        contentPadding = contentPadding,
+        content = content,
+    )
+}
 
 
+@Composable
+fun GameOutlinedButton(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    text: @Composable () -> Unit,
+    leadingIcon: @Composable (() -> Unit)? = null,
+) {
+    GameOutlinedButton(
+        onClick = onClick,
+        modifier = modifier,
+        enabled = enabled,
+        contentPadding = if (leadingIcon != null) {
+            ButtonDefaults.ButtonWithIconContentPadding
+        } else {
+            ButtonDefaults.ContentPadding
+        },
+    ) {
+        GameButtonContent(
+            text = text,
+            leadingIcon = leadingIcon,
+        )
+    }
+}
 
+@Composable
+private fun GameButtonContent(
+    text: @Composable () -> Unit,
+    leadingIcon: @Composable (() -> Unit)? = null,
+) {
+    if (leadingIcon != null) {
+        Box(Modifier.sizeIn(maxHeight = ButtonDefaults.IconSize)) {
+            leadingIcon()
+        }
+    }
+    Box(
+        Modifier
+            .padding(
+                start = if (leadingIcon != null) {
+                    ButtonDefaults.IconSpacing
+                } else {
+                    0.dp
+                },
+            ),
+    ) {
+        text()
+    }
+}
 
+/**
+ * Now in Android button default values.
+ */
+object GameButtonDefaults {
+    // TODO: File bug
+    // OutlinedButton border color doesn't respect disabled state by default
+    const val DisabledOutlinedButtonBorderAlpha = 0.12f
 
+    // TODO: File bug
+    // OutlinedButton default border width isn't exposed via ButtonDefaults
+    val OutlinedButtonBorderWidth = 1.dp
+}
 

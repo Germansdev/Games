@@ -6,12 +6,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigation
 import androidx.navigation.navArgument
 import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.Pantalla1
@@ -23,7 +20,6 @@ import com.example.games.search.navigateToSearch
 import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.CustomTopBar
 import com.example.games.ui.GameState
-import com.example.games.ui.GameViewModel
 import com.example.games.ui.SharedScreen
 import com.example.games.ui.screens.DetailsScreen
 import com.example.games.ui.screens.FavoritesScreen
@@ -41,7 +37,6 @@ fun GameNavHost(
     appState: GameState,
     modifier: Modifier = Modifier,
     startDestination: String = Pantalla1.route,
-   // navController: NavHostController,
 ) {
 val navController = appState.navController
 
@@ -55,20 +50,9 @@ val navController = appState.navController
             /**route = Graph.BOTTOM.*/
             route = Pantalla1.route
         ) {
-val gameViewModel: GameViewModel =
-    viewModel(factory = GameViewModel.Factory)
-            /**
-            HomeScreen(
-                gameUiState = gameViewModel.gameUiState,
-                retryAction = { })
-            */
-            /**
-            GameListScreen(games = viewModel(), onClick = { } )
-            */
 
             NotPlayedScreen(
                 //with Graph.DETAILS without Args:
-
                 modifier = Modifier,
                 onClick = {
                     navController.navigate("${ItemDetailsDestination.route}/${it}")
@@ -102,14 +86,6 @@ val gameViewModel: GameViewModel =
 
         composable(BottomBarScreen.Pantalla4.route) {
             Statistics()
-
-        /**    NotPlayedScreen(
-                modifier = Modifier,
-                onClick = {
-                    navController.navigate("${ItemDetailsDestination.route}/${it}")
-
-        }
-            )*/
         }
 
         composable(BottomBarScreen.Pantalla5.route) {
@@ -125,28 +101,16 @@ val gameViewModel: GameViewModel =
               actionIconContentDescription = null,
               onNavigationClick = {navController.navigateToSearch()/**.navigate(/**searchRoute*/)*/},
           )
-
-       //   searchScreen (onBackClick = navController::popBackStack)
-
        }
-        //searchScreen (onBackClick = navController::popBackStack)
-
 
        composable(route= SearchScreenDestination.route){
-//val viewModel : GameViewModel = viewModel(factory = AppViewModelProvider.Factory)
-           SearchScreen (
-            onBackClick = { navController.popBackStack() }
-            )
-       /**     searchScreen (
-               onBackClick = navController::popBackStack
-            )*/
-        }
 
-/**
-        searchScreen (
-            onBackClick = navController::popBackStack
-        )*/
-      // searchGraph(navController)
+           SearchScreen (
+            onBackClick = { navController.popBackStack()
+
+            }
+            )
+        }
     }
 }
 

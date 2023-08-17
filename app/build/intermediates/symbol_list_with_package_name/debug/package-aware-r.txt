@@ -237,6 +237,11 @@ attr emojiCompatEnabled
 attr enterAnim
 attr exitAnim
 attr expandActivityOverflowButtonDrawable
+attr fastScrollEnabled
+attr fastScrollHorizontalThumbDrawable
+attr fastScrollHorizontalTrackDrawable
+attr fastScrollVerticalThumbDrawable
+attr fastScrollVerticalTrackDrawable
 attr finishPrimaryWithPlaceholder
 attr finishPrimaryWithSecondary
 attr finishSecondaryWithPrimary
@@ -303,6 +308,7 @@ attr launchSingleTop
 attr layout
 attr layoutDescription
 attr layoutDuringTransition
+attr layoutManager
 attr layout_constrainedHeight
 attr layout_constrainedWidth
 attr layout_constraintBaseline_creator
@@ -477,11 +483,13 @@ attr reactiveGuide_animateChange
 attr reactiveGuide_applyToAllConstraintSets
 attr reactiveGuide_applyToConstraintSet
 attr reactiveGuide_valueId
+attr recyclerViewStyle
 attr region_heightLessThan
 attr region_heightMoreThan
 attr region_widthLessThan
 attr region_widthMoreThan
 attr restoreState
+attr reverseLayout
 attr rotationCenterId
 attr round
 attr roundPercent
@@ -505,6 +513,7 @@ attr showText
 attr showTitle
 attr singleChoiceItemLayout
 attr sizePercent
+attr spanCount
 attr spinBars
 attr spinnerDropDownItemStyle
 attr spinnerStyle
@@ -523,6 +532,7 @@ attr springMass
 attr springStiffness
 attr springStopThreshold
 attr srcCompat
+attr stackFromEnd
 attr staggered
 attr startDestination
 attr state_above_anchor
@@ -831,6 +841,9 @@ dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
+dimen fastscroll_default_thickness
+dimen fastscroll_margin
+dimen fastscroll_minimum_range
 dimen highlight_alpha_material_colored
 dimen highlight_alpha_material_dark
 dimen highlight_alpha_material_light
@@ -838,6 +851,9 @@ dimen hint_alpha_material_dark
 dimen hint_alpha_material_light
 dimen hint_pressed_alpha_material_dark
 dimen hint_pressed_alpha_material_light
+dimen item_touch_helper_max_drag_scroll_per_frame
+dimen item_touch_helper_swipe_escape_max_velocity
+dimen item_touch_helper_swipe_escape_velocity
 dimen notification_action_icon_size
 dimen notification_action_text_size
 dimen notification_big_circle_margin
@@ -1190,6 +1206,7 @@ id inspection_slot_table_set
 id invisible
 id is_pooling_container_tag
 id italic
+id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
 id layout
@@ -1519,6 +1536,7 @@ string selected
 string settings
 string shared
 string snackbar_dismiss
+string statistics
 string status_bar_notification_info_overflow
 string subject
 string suggestions_available
@@ -1980,6 +1998,7 @@ styleable PopupWindow android_popupBackground android_popupAnimationStyle overla
 styleable PopupWindowBackgroundState state_above_anchor
 styleable PropertySet android_visibility android_alpha layout_constraintTag motionProgress visibilityMode
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle
+styleable RecyclerView android_orientation android_clipToPadding android_descendantFocusability fastScrollEnabled fastScrollHorizontalThumbDrawable fastScrollHorizontalTrackDrawable fastScrollVerticalThumbDrawable fastScrollVerticalTrackDrawable layoutManager reverseLayout spanCount stackFromEnd
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
 styleable Spinner android_entries android_popupBackground android_prompt android_dropDownWidth popupTheme
 styleable SplitPairFilter primaryActivityName secondaryActivityAction secondaryActivityName

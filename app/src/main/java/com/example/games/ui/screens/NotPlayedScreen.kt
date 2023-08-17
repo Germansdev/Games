@@ -21,6 +21,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.StarRate
 import androidx.compose.material.icons.outlined.Favorite
@@ -100,7 +101,8 @@ fun NotPlayedScreenContent(
             .padding(16.dp),
 
     ) {
-        Row(modifier = Modifier.padding(8.dp)
+        Row(modifier = Modifier
+            .padding(8.dp)
             .background(color = androidx.compose.material3.MaterialTheme.colorScheme.background),
         ) {
             Text(
@@ -173,7 +175,7 @@ fun GameCardNotPlayed(
 
     ElevatedCard(
         modifier = Modifier//modifier
-            .clickable { onClick(game)  }
+            .clickable { onClick(game) }
             .fillMaxWidth()
             .padding(top = 5.dp, bottom = 5.dp, start = 10.dp, end = 10.dp),
         elevation = CardDefaults.cardElevation(5.dp),
@@ -301,6 +303,16 @@ fun GameCardNotPlayed(
                             }
                         )
                     }
+                    Spacer(modifier = Modifier.size(16.dp))
+                    GameOutlinedButton(
+                        onClick = {onClick(game)},
+                        enabled = true,
+                        text = { Text(text = "Details")},
+                        leadingIcon = {
+                            Icon(imageVector = Icons.Default.Add, contentDescription = null)
+                        }
+
+                    )
                 }
 
                 Row(

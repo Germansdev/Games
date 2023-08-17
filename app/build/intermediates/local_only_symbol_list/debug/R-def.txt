@@ -68,6 +68,7 @@ string search
 string search_not_ready
 string settings
 string shared
+string statistics
 string subject
 style Theme.Games
 style Theme_Games_Splash
