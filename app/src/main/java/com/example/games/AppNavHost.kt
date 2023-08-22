@@ -20,9 +20,12 @@ import com.example.games.search.navigateToSearch
 import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.CustomTopBar
 import com.example.games.ui.GameState
+import com.example.games.ui.GameUiState
+import com.example.games.ui.GameViewModel
 import com.example.games.ui.SharedScreen
 import com.example.games.ui.screens.DetailsScreen
 import com.example.games.ui.screens.FavoritesScreen
+import com.example.games.ui.screens.HomeScreen
 import com.example.games.ui.screens.ItemDetailsDestination
 import com.example.games.ui.screens.NotPlayedScreen
 import com.example.games.ui.screens.Played
@@ -37,8 +40,10 @@ fun GameNavHost(
     appState: GameState,
     modifier: Modifier = Modifier,
     startDestination: String = Pantalla1.route,
+    viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)
 ) {
-val navController = appState.navController
+    val navController = appState.navController
+   // val viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)
 
     NavHost(
         navController = navController,
@@ -56,7 +61,7 @@ val navController = appState.navController
                 modifier = Modifier,
                 onClick = {
                     navController.navigate("${ItemDetailsDestination.route}/${it}")
-                },
+                          },
             )
         }
 
@@ -85,72 +90,41 @@ val navController = appState.navController
         }
 
         composable(BottomBarScreen.Pantalla4.route) {
-            Statistics()
+            val viewModel : StatsViewModel = viewModel(factory = AppViewModelProvider.Factory)
+
+            Statistics(
+               viewModel,
+             //  playedViewModel = viewModel(factory = AppViewModelProvider.Factory)
+            )
+
         }
 
         composable(BottomBarScreen.Pantalla5.route) {
             SharedScreen()
         }
 
-       composable(route= SearchScreenDestination.route){
-          CustomTopBar(
-              titleRes = R.string.search,
-              navigationIcon = GameIcons.Search,
-              navigationIconContentDescription = null,
-              actionIcon = GameIcons.Close,//GameIcons.Settings,
-              actionIconContentDescription = null,
-              onNavigationClick = {navController.navigateToSearch()/**.navigate(/**searchRoute*/)*/},
-          )
-       }
+        composable(route = SearchScreenDestination.route) {
+            CustomTopBar(
+                titleRes = R.string.search,
+                navigationIcon = GameIcons.Search,
+                navigationIconContentDescription = null,
+                actionIcon = GameIcons.Close,//GameIcons.Settings,
+                actionIconContentDescription = null,
+                onNavigationClick = {
+                    navController.navigateToSearch()
+                    /**.navigate(/**searchRoute*/)*/
+                },
+            )
+        }
 
-       composable(route= SearchScreenDestination.route){
+        composable(route = SearchScreenDestination.route) {
 
-           SearchScreen (
-            onBackClick = { navController.popBackStack()
-
-            }
+            SearchScreen(
+                onClick = {
+                    navController.navigate("${ItemDetailsDestination.route}/${it}")
+                },
+                onBackClick = { navController.popBackStack() }
             )
         }
     }
 }
-
-/**
-@RequiresApi(Build.VERSION_CODES.R)
-fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
-    navigation(
-        route = Graph.DETAILS,
-        startDestination = ItemDetailsDestination.routeWithArgs,
-
-        ) {
-        composable(
-            route = ItemDetailsDestination.routeWithArgs,
-            arguments = listOf(navArgument(ItemDetailsDestination.itemIdArg) {
-                NavType.IntType
-            })
-        ) {
-            val viewModel: DetailsViewModel = viewModel(factory = AppViewModelProvider.Factory)
-            DetailsScreen(
-                gameDetails = Game(),
-                onClick = { navController.popBackStack() },
-                Modifier,
-                viewModel,
-            )
-        }
-    }
-}*/
-
-/**
-//@Composable
-@OptIn(ExperimentalMaterial3Api::class)
-fun NavGraphBuilder.searchGraph(navController: NavHostController)
-{
-navigation(
-    startDestination = CustomTopBar(
-        titleRes = ,
-        navigationIcon = ,
-        navigationIconContentDescription = ,
-        actionIcon = ,
-        actionIconContentDescription =
-    )
-)
-}*/

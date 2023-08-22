@@ -3,6 +3,7 @@ package com.example.games.ui.screens
 
 import android.util.Log
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -27,6 +28,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -63,23 +65,24 @@ fun PlayedScreenContent(
 ) {
     Column(
         modifier = modifier
-            .fillMaxSize()
-            .padding(8.dp),
+            .fillMaxSize(),
+         //   .padding(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        Row(modifier = Modifier
-            .padding(8.dp)
-            .background(color = androidx.compose.material3.MaterialTheme.colorScheme.background),
-
+        Row(
+            modifier = Modifier
+            .background(color = androidx.compose.material3.MaterialTheme.colorScheme.background)
+            .align(Alignment.CenterHorizontally)
         ) {
             Text(
                 text = "YOU PLAYED THESE GAMES:",
-                color = androidx.compose.material3.MaterialTheme.colorScheme.inverseSurface,
+                color = if (isSystemInDarkTheme()) Color.White else Color.Black,
                 style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
                 fontWeight = FontWeight.Bold,
                 overflow = TextOverflow.Ellipsis,
                 textAlign = TextAlign.Left,
-                modifier = Modifier.padding(top = 8.dp)
+                modifier = Modifier
+                    .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
             )
         }
 

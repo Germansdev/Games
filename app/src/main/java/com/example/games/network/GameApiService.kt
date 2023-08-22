@@ -1,15 +1,14 @@
 package com.example.games.network
 
-import com.example.games.data.GameDao
 import com.example.games.model.Game
+
 import retrofit2.http.GET
 
 
 /**
- * A public interface that exposes the [getGames] method
+ * A public interface that exposes the [getGames] method FETCH GAMES
  */
 interface GameApiService {
-
     companion object {
         const val BASE_URL = "https://www.freetogame.com/api/"
     }
@@ -24,17 +23,24 @@ interface GameApiService {
 //suspend fun getGames (): List<Game>
 
 //change to ArrayList to database:
+    //ORIGINAL :
     suspend fun getGames(): ArrayList<Game>
-    {
-        val result = getGames()
-        return result
-    }
+    {        return getGames()    }
+
+    //with externalModel:
+  //  suspend fun getGames(ids:List<String>?): ArrayList<NetworkGame>
 
 
-
+    /**   @GET("games?category=shooter")
+    suspend fun getCategories(): List<Game>
+    */
+/**
+    @GET("games?category=shooter")
+    suspend fun getShooterGames(): GamesResponse
+*/
 }
 
-
+data class GamesResponse(val games: List<Game>)
 
 //Yo added these 2 fun: Plants example:
 

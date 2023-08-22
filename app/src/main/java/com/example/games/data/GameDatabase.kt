@@ -5,9 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.games.model.Game
+import com.example.games.model.GameEntity
 
 
-    @Database(entities = [Game::class], version = 4  , exportSchema = false)
+@Database(entities = [Game::class], version = 5  , exportSchema = false)
     abstract class GameDatabase : RoomDatabase() {
 
         abstract fun itemDao(): GameDao

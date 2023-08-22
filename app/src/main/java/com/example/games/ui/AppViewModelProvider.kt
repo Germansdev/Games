@@ -9,6 +9,8 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.games.DetailsViewModel
 import com.example.games.GameApplication
+import com.example.games.StatsViewModel
+import com.example.games.data.ItemsRepository
 import com.example.games.search.DefaultSearchContentsRepository
 import com.example.games.search.SearchContentsRepository
 import com.example.games.search.SearchViewModel
@@ -64,21 +66,15 @@ object AppViewModelProvider {
 
             SearchViewModel(
                 this.createSavedStateHandle(),
-              // notPlayedViewModel = NotPlayedViewModel(itemsRepository = ItemsRepository),
                 inventoryApplication().container.itemsRepository,
-          // inventoryApplication().container.searchContentsRepository
-               // inventoryApplication().container.gameRepository,
             )
         }
 
-
-/**
         initializer {
-            MainActivityViewModel(
-               inventoryApplication().container.userPrefsRepository
+            StatsViewModel(
+                inventoryApplication().container.itemsRepository,
             )
-        }*/
-
+        }
     }
 }
 

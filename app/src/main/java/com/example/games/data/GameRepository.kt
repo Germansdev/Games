@@ -8,4 +8,7 @@ import com.example.games.network.GameApiService
 interface GameRepository {
     suspend fun getGames(): ArrayList<Game>
 
+ //   suspend fun getCategories(): List<Game>
+
+  //  suspend fun getShooterGames(): List<Game>
 }

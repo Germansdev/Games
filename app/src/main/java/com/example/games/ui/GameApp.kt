@@ -8,6 +8,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Row
@@ -23,12 +24,12 @@ import androidx.compose.material.*
 import androidx.compose.material.MaterialTheme.shapes
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -39,6 +40,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -47,10 +49,10 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.example.games.GameNavHost
-import com.example.games.R
 import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.*
 import com.example.games.search.navigateToSearch
+import com.example.games.ui.screens.BadgeCount
 import com.example.games.ui.theme.GameIcons
 
 
@@ -63,7 +65,8 @@ import com.example.games.ui.theme.GameIcons
 fun GameApp(
     windowSizeClass: androidx.compose.material3.windowsizeclass.WindowSizeClass,
     appState: GameState = rememberGameAppState(
-        windowSizeClass = windowSizeClass )
+        windowSizeClass = windowSizeClass
+    )
 ) {
     val navController = rememberNavController()
 
@@ -72,8 +75,10 @@ fun GameApp(
     }
 
     Scaffold(
-        backgroundColor = Color.Transparent,
-        contentColor = colorScheme.onBackground,
+        backgroundColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
+       // Color.Transparent,
+        contentColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
+        //colorScheme.onBackground,
 
         bottomBar = {
             if (appState.shouldShowBottomBar) {
@@ -82,7 +87,8 @@ fun GameApp(
                     navController = navController,
                     destinations = appState.bottomBarScreens,
                     onNavigateToDestination = appState::navigateToBottomBarScreen,
-                    currentDestination = appState.currentDestination
+                    currentDestination = appState.currentDestination,
+
                 )
             }
         },
@@ -91,7 +97,8 @@ fun GameApp(
         Surface(
             modifier = Modifier
                 .fillMaxSize(),
-            color = colorScheme.background,
+            color = if (isSystemInDarkTheme()) Color.Black else Color.White,
+            //colorScheme.background,
         ) {
             Row(
                 modifier = Modifier
@@ -115,16 +122,19 @@ fun GameApp(
                             actionIcon = GameIcons.Settings,
                             actionIconContentDescription = null,
                             colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                                containerColor = colorScheme.surface
+                                containerColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
+                                //colorScheme.surface
                             ),
                             onActionClick = { showSettingsDialog = true },
                             onNavigationClick = { appState.navController.navigateToSearch() },
-
                         )
-
                     }
 
-                    GameNavHost(appState, modifier = Modifier, startDestination = Pantalla1.route)
+                    GameNavHost(
+                        appState,
+                        modifier = Modifier,
+                        startDestination = Pantalla1.route,
+                    )
                 }
 
             }
@@ -145,7 +155,7 @@ fun CustomTopBar(
     colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(),
     onNavigationClick: () -> Unit = {},
     onActionClick: () -> Unit = {},
-    ) {
+) {
     //With CenterAlignedTopAppBar:
     CenterAlignedTopAppBar(
         title = { androidx.compose.material3.Text(text = stringResource(id = titleRes)) },
@@ -211,52 +221,82 @@ fun currentRoute(navController: NavHostController): String? {
     return entry?.destination?.route
 }
 
+
+@Composable
+fun BadgeContent(count: Int) {
+    Badge(
+        content = { Text(text = count.toString()) },
+        backgroundColor = Color.Red,
+       // badgeAlignment = BadgeAlignment.CenterEnd
+    )
+}
+
+
 @Composable
 fun BottomBar(
     navController: NavHostController,
     destinations: List<BottomBarScreen>,
     onNavigateToDestination: (BottomBarScreen) -> Unit,
     currentDestination: NavDestination?,
-
     modifier: Modifier = Modifier,
 ) {
+    //19 08:
+
+  // val viewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
+
+    BadgeCount(   )
+    val notPlayedViewModel: NotPlayedViewModel =viewModel()
+
+
+    // Collect the state using collectAsState
+    val notPlayedUiState = notPlayedViewModel.notPlayedUiState.collectAsState()
+
+  //  val badgeCount = notPlayedUiState.value.notPlayedL.size
+
+  //  if (darkTheme) Color.Black else Color.White
+
+
     modifier
         .background(color = colorScheme.background)
 
-    androidx.compose.material3.BottomAppBar() {
-
+    androidx.compose.material3.BottomAppBar(
+        containerColor =  if (isSystemInDarkTheme()) Color.Black else Color.White,//colorScheme.surface,
+        contentColor = if (isSystemInDarkTheme()) Color.White else Color.Black,//colorScheme.onSurface,
+        modifier = Modifier
+       .background(colorScheme.background)
+    ) {
+/**
         BottomNavigation(
             backgroundColor = colorScheme.surface,
             contentColor = colorScheme.onSurface,
         ) {
-
-
+*/
             destinations.forEach { screen ->
-             //    val navBackStackEntry by navController.currentBackStackEntryAsState()
-            //     val currentDestination = navBackStackEntry?.destination
+                //    val navBackStackEntry by navController.currentBackStackEntryAsState()
+                //     val currentDestination = navBackStackEntry?.destination
 
                 BottomNavigationItem(
 
                     icon = {
-                       BadgedBox(
-                           badge ={
-                               if (screen.badgeCount != null){
-                                   Badge {
-                                      Text(text = screen.badgeCount.toString())
-                                   }
-                               }else if (screen.hasNews){
-                                   Badge()
-                               }
-                           }
-                       ) {
-                        Icon(
-                            imageVector = screen.icon,
-                            contentDescription = screen.title,
-                            tint = //if (select) Color.Red else Color.LightGray,
-                            colorScheme.onSurface,
-                            modifier = Modifier.clip(shapes.medium)
-                        )
-                       }
+                        BadgedBox(
+                            badge = {
+                                if (screen.badgeCount != null) {
+                                    Badge {
+                                        Text(text = screen.badgeCount.toString())
+                                    }
+                                } else if (screen.hasNews) {
+                                    Badge()
+                                }
+                            }
+                        ) {
+                            Icon(
+                                imageVector = screen.icon,
+                                contentDescription = screen.title,
+                                tint = //if (select) Color.Red else Color.LightGray,
+                                colorScheme.onSurface,
+                                modifier = Modifier.clip(shapes.medium)
+                            )
+                        }
                     },
                     label = {
                         Text(screen.title)
@@ -264,42 +304,16 @@ fun BottomBar(
                     },
                     alwaysShowLabel = true,
                     unselectedContentColor = Color.Gray,
-
-
                     //selectedContentColor = colorScheme.primary,
                     selected = currentDestination.isTopLevelDestinationInHierarchy(screen),
-                   // currentDestination?.hierarchy?.any { it.route == screen.route } == true,
+                    // currentDestination?.hierarchy?.any { it.route == screen.route } == true,
 
-                    onClick = {
-                        onNavigateToDestination(screen) //08 08
-                /**                navController.navigate(screen.route)
-                                {
-
-
-                        // Pop up to the start destination of the graph to
-                        // avoid building up a large stack of destinations
-                        // on the back stack as users select items
-                        // 08 08
-                        setOfNotNull(
-                        Pantalla1
-                        ) //end 08 08
-
-                                   // navBackStackEntry?.destination?.route
-                        popUpTo(navController.graph.findStartDestination().id) {
-                        saveState = true
-                        }
-                        // Avoid multiple copies of the same destination when
-                        // reselecting the same item
-                        launchSingleTop = true
-                        // Restore state when reselecting a previously selected item
-                        restoreState = true
-                        }*/
-                    }
+                    onClick = { onNavigateToDestination(screen) }
                 )
             }
         }
     }
-}
+//}
 
 private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: BottomBarScreen) =
     this?.hierarchy?.any {
@@ -319,7 +333,6 @@ fun rememberGameAppState(
         GameState(
             navController,
             windowSizeClass
-
         )
     }
 }
@@ -349,7 +362,6 @@ class GameState(
             else -> null
         }
 
-
     fun navigateToBottomBarScreen(bottomBarScreen: BottomBarScreen) {
         //   trace("Navigation: ${topLevelDestination.name}") {
         /**val bottomBarScreens/**topLevelNavOptions*/ =*/
@@ -368,13 +380,12 @@ class GameState(
         }
 
         when (bottomBarScreen) {
-            Pantalla1 -> navController.navigate(bottomBarScreen.route)//navigateToBottomBarScreen(Pantalla1)
-            Pantalla2 -> navController.navigate(bottomBarScreen.route)//navigateToBottomBarScreen(Pantalla2)
-            Pantalla3 -> navController.navigate(bottomBarScreen.route)//navigateToBottomBarScreen(Pantalla3)
-            Pantalla4 -> navController.navigate(bottomBarScreen.route)//navigateToBottomBarScreen(Pantalla4)
-            Pantalla5 -> navController.navigate(bottomBarScreen.route)//navigateToBottomBarScreen(Pantalla5)
+            Pantalla1 -> navController.navigate(bottomBarScreen.route)
+            Pantalla2 -> navController.navigate(bottomBarScreen.route)
+            Pantalla3 -> navController.navigate(bottomBarScreen.route)
+            Pantalla4 -> navController.navigate(bottomBarScreen.route)
+            Pantalla5 -> navController.navigate(bottomBarScreen.route)
         }
-        //   }
     }
 }
 

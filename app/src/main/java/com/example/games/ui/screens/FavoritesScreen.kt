@@ -1,10 +1,9 @@
 package com.example.games.ui.screens
 
 import android.util.Log
-import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.gestures.ScrollableState
+import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
-import androidx.compose.foundation.gestures.scrollable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -19,7 +18,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.systemGestureExclusion
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.StarRate
@@ -78,56 +76,64 @@ fun FavoritesScreenContent(
     favoritesL: List<Game>,
     modifier: Modifier = Modifier,
 ) {
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(8.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
-    ) {
+    Column(){
+
         Row(
             modifier = Modifier
-                .padding(8.dp)
-                .fillMaxWidth()
-            ) {
+                .background(color = androidx.compose.material3.MaterialTheme.colorScheme.background)
+                .align(Alignment.CenterHorizontally)
+        ) {
 
-            Text(
-                text = "YOUR FAVORITES GAMES:",
-                color = androidx.compose.material3.MaterialTheme.colorScheme.inverseSurface,//MaterialTheme.colors.onSurface,
-                style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
-                fontWeight = FontWeight.Bold,
-                overflow = TextOverflow.Ellipsis,
-                textAlign = TextAlign.Left,
-                modifier = Modifier.padding(top = 8.dp)
-            )
-        }
-           Log.e(TAG, favoritesL.size.toString())
+            //) {
 
-        if (favoritesL.isEmpty()) {
-            androidx.compose.material.Text(
-                text = stringResource(R.string.no_item_description),
-                style = MaterialTheme.typography.subtitle2
-            )
-        } else {
-           LazyVerticalGrid(
-               columns = GridCells.Adaptive(180.dp),
-               modifier = modifier.fillMaxWidth(),
-               verticalArrangement = Arrangement.spacedBy(8.dp),
-               contentPadding = PaddingValues(8.dp),
-           ){
-               items(
-                   items = favoritesL,
-                   key = { game -> game.id }
-               ) { game ->
-                   GameCardFavorites(
-                       game = game.copy(favorited = 1/**isFavorite = true*/),
-                        modifier,
-                   )
-               }
-           }
+                Text(
+                    text = "YOUR FAVORITES GAMES:",
+                    color = if (isSystemInDarkTheme()) Color.White else Color.Black,
+                    style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
+                    fontWeight = FontWeight.Bold,
+                    overflow = TextOverflow.Ellipsis,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                      //  .padding(top = 8.dp)
+                        .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
+                )
+            }
+            /**     Log(TAG, favoritesL.size.toString())*/
+
+
+            if (favoritesL.isEmpty()) {
+                androidx.compose.material.Text(
+                    text = stringResource(R.string.no_item_description),
+                    style = MaterialTheme.typography.subtitle2
+                )
+            } else {
+                LazyVerticalGrid(
+                    columns = GridCells.Adaptive(180.dp),
+                    modifier = modifier.fillMaxWidth(),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                    contentPadding = PaddingValues(8.dp),
+                ) {
+                    items(
+                        items = favoritesL,
+                        key = { game -> game.id }
+                    ) { game ->
+
+                        GameCardFavorites(
+                            game = game.copy(
+                                favorited = 1
+                                /**isFavorite = true*/
+                            ),
+                            modifier
+                        )
+                    }
+                }
+            }
         }
     }
-    Log.d(TAG, favoritesL.size.toString() )
-}
+
+//Log.d(TAG, favoritesL.size.toString()
+
+//}
 
 @Composable
 fun GameCardFavorites(

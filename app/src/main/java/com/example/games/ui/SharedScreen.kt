@@ -2,6 +2,7 @@ package com.example.games.ui
 
 import android.util.Log
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -17,6 +18,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -53,16 +56,19 @@ fun SharedScreenContent(
     ) {
         Row(modifier = Modifier
             .padding(8.dp)
-            .background(color = androidx.compose.material3.MaterialTheme.colorScheme.background),
+            .background(
+                color = androidx.compose.material3.MaterialTheme.colorScheme.background
+            ),
         ) {
             androidx.compose.material3.Text(
                 text = "YOU SHARED THESE GAMES:",
-                color = androidx.compose.material3.MaterialTheme.colorScheme.inverseSurface,
+                color = if (isSystemInDarkTheme()) Color.White else Color.Black,
                 style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
                 fontWeight = FontWeight.Bold,
                 overflow = TextOverflow.Ellipsis,
                 textAlign = TextAlign.Left,
-                modifier = Modifier.padding(top = 8.dp)
+                modifier = Modifier
+                    .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
             )
         }
         Spacer(modifier = Modifier.size(16.dp))
@@ -100,4 +106,21 @@ fun GameCardShared(
 ) {
     //comon content all options bottom bar:
     GameCardComonContent( game)
+}
+
+
+@Composable
+fun BrushRes(): Brush {
+  if(  isSystemInDarkTheme()) {
+      listOf(
+          Color.Black,
+          Color.Blue
+      )
+  }else{
+      listOf(
+          Color.Yellow,
+            Color.White
+      )
+  }
+    return BrushRes()
 }

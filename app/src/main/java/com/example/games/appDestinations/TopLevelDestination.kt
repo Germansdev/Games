@@ -9,8 +9,7 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.games.R
-import com.example.games.appDestinations.BottomBarScreen.Pantalla1.titleTextId
-import kotlinx.coroutines.coroutineScope
+import com.example.games.appDestinations.BottomBarScreen.Pantalla1.badgeCount
 
 // NAVIGATION BAR (BOTTOM NAVIGATION)
 
@@ -29,7 +28,7 @@ sealed class BottomBarScreen(
     var title: String,
     val icon: ImageVector,
     val hasNews: Boolean,
-    val badgeCount: Int? = null,
+    var badgeCount: Int? = null,
 
     ) {
 
@@ -39,8 +38,9 @@ sealed class BottomBarScreen(
         title = "Home",//
         icon = Icons.Filled.Home,
         hasNews = true,
-        badgeCount = 376
+        badgeCount = 0
     )
+
 
     object Pantalla2 : BottomBarScreen(
         titleTextId = R.string.favorites,
@@ -65,8 +65,8 @@ sealed class BottomBarScreen(
         route = "STATISTICS",
         title = "Statistics",
         icon = Icons.Default.BarChart,
-        hasNews = false,
-        badgeCount = 0
+        hasNews = true,
+        badgeCount = null,
     )
 
     object Pantalla5 : BottomBarScreen(
@@ -110,6 +110,9 @@ interface NavigationDestination {
     /** String resource id to that contains title to be displayed for the screen.
      */
     val titleRes: Int
+
+
+
 }
 
 

@@ -24,25 +24,20 @@ import java.io.IOException
 
 
 sealed interface GameUiState {
-    data class Success(val games: List<Game>) : GameUiState
+    data class Success(val games: List<Game> = listOf()) : GameUiState
     object Error : GameUiState
     object Loading : GameUiState
-
 }
 
 class GameViewModel(
+
     private val itemsRepository: ItemsRepository,
     private val gameRepository: GameRepository,
 
-
     ) : ViewModel() {
-
 
     var gameUiState: GameUiState by mutableStateOf(GameUiState.Loading)
         private set
-
-  //  private val _userPrefs = mutableStateOf<List<UserPrefs>>(emptyList()),
-  // val userPrefs: State<List<UserPrefs>> = _userPrefs
 
     private val _games = mutableStateOf<List<Game>>(emptyList())
     val games: State<List<Game>> = _games
@@ -61,19 +56,18 @@ class GameViewModel(
 
     var rating = mutableStateOf(Float)
 
-    var selectedRating =  mutableStateOf(Float)
+    var selectedRating = mutableStateOf(Float)
 
     //init block:
     init {
         getGames()
         getItems()
+      //  getShooterGames()
 
     }
 
-
-
     //Try to fetch games from api:
-    fun getGames() {
+  private fun getGames() {
         viewModelScope.launch {
             gameUiState = GameUiState.Loading
             gameUiState = try {
@@ -90,6 +84,7 @@ class GameViewModel(
      * Holds home ui state. The list of items are retrieved from [ItemsRepository] and mapped to
      * [HomeUiState]
      */
+
     val homeUiState: StateFlow<HomeUiState> =
         itemsRepository.getAllItemsStream().map { HomeUiState() }
             .stateIn(
@@ -98,17 +93,45 @@ class GameViewModel(
                 initialValue = HomeUiState()
             )
 
-
     //to insert all items fetched from api to db:
-    fun getItems() {
+    private fun getItems() {
         viewModelScope.launch {
+            gameRepository.getGames()
             itemsRepository.insertAll(gameRepository.getGames())
         }
     }
 
+/**    private fun getCategories(){
+        viewModelScope.launch {
+            val allGames = gameRepository.getGames()
+                gameRepository.getCategories()
+             val categoryR : Map<String, List<Game>> = allGames.groupBy { it.genre }
+            val categories: Set<String> = allGames.map { it.genre }.toSet()
+        }
+    }*/
+
+/**
+ fun getShooterGames():List<Game> {
+        viewModelScope.launch {
+            gameRepository.getShooterGames()
+        /**
+            gameUiState = GameUiState.Loading
+            gameUiState = try {
+                GameUiState.Success(gameRepository.getShooterGames())
+            } catch (e: IOException) {
+                GameUiState.Error
+            } catch (e: HttpException) {
+                GameUiState.Error
+            }
+            */
+
+       }
+        return getShooterGames()//listOf(Game())
+    }*/
 
 
-//logic favorite, play, share, rate:
+
+    //logic favorite, play, share, rate:
     suspend fun isFavoriteGame(game: Game) {
 
         if (isFavorite(gameId = game.id)
@@ -116,13 +139,14 @@ class GameViewModel(
             itemsRepository.updateItem(game.copy(isFavorite = true))
             itemsRepository.updateItem(game.copy(favorited = 1))
         } else {
-           itemsRepository.updateItem(game.copy(isFavorite = false))
-           itemsRepository.updateItem(game.copy(favorited = 0))
+            itemsRepository.updateItem(game.copy(isFavorite = false))
+            itemsRepository.updateItem(game.copy(favorited = 0))
         }
     }
-/**
+
+    /**
     suspend fun getFavoritesGame(game:Game){
-        itemsRepository.getAllFavoritesStream(isFavorite = true)
+    itemsRepository.getAllFavoritesStream(isFavorite = true)
     }*/
 //THIS IS NOT USED?? CHEK IT AGAIN:
     fun selectFavorite(gameId: Int) {
@@ -141,11 +165,13 @@ class GameViewModel(
         ) {
             itemsRepository.updateItem(game.copy(isPlayed = true))
             itemsRepository.updateItem(game.copy(played = 1))
+            itemsRepository.updateItem(game.copy(countPlayed = game.countPlayed+1))
         } else {
-            //itemsRepository.updateItem(game.copy(isPlayed = false))
-            //itemsRepository.updateItem(game.copy(played = 0))
+            itemsRepository.updateItem(game.copy(isPlayed = false))
+            itemsRepository.updateItem(game.copy(played = 0))
         }
     }
+
 
     fun selectPlayed(gameId: Int) {
         val updatedPlay = _play.value.toMutableSet()
@@ -161,12 +187,12 @@ class GameViewModel(
 
         if (isShare(gameId = game.id)
         ) {
-            itemsRepository.updateItem(game.copy( isShared = true))
+            itemsRepository.updateItem(game.copy(isShared = true))
             itemsRepository.updateItem(game.copy(shared = 1))
 
         } else {
-           // itemsRepository.updateItem(game.copy(isShared = false))
-            //itemsRepository.updateItem(game.copy(shared = 0))
+            itemsRepository.updateItem(game.copy(isShared = false))
+            itemsRepository.updateItem(game.copy(shared = 0))
         }
     }
 
@@ -199,6 +225,7 @@ class GameViewModel(
         }
         _rate.value = updatedRated
     }
+
     fun isFavorite(gameId: Int): Boolean {
         return _favorites.value.contains(gameId)
     }
@@ -215,15 +242,12 @@ class GameViewModel(
         return _rate.value.contains(gameId)
     }
 
-
-
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 val application = (this[APPLICATION_KEY] as GameApplication)
                 val itemsRepository = application.container.itemsRepository
                 val gameRepository = application.container.gameRepository
-
 
                 GameViewModel(
                     itemsRepository = itemsRepository,

@@ -104,7 +104,7 @@ fun GamesTheme(
     SideEffect {
 // with only this: both top and bottom with the same color
         systemUiController.setSystemBarsColor(
-            color = if (darkTheme) Color.Black else Color.White
+            if (darkTheme) Color.Black else Color.White
         )
 
 
