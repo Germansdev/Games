@@ -6,10 +6,18 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.games.model.Game
 import com.example.games.model.GameEntity
+import com.example.games.model.Genre
 
 
-@Database(entities = [Game::class], version = 5  , exportSchema = false)
-    abstract class GameDatabase : RoomDatabase() {
+@Database(
+    entities = [
+        Game::class,
+        Genre::class,
+               ],
+
+    version = 7  , exportSchema = false)
+
+abstract class GameDatabase : RoomDatabase() {
 
         abstract fun itemDao(): GameDao
 

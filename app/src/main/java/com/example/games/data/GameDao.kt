@@ -2,7 +2,6 @@ package com.example.games.data
 
 import androidx.room.Dao
 import androidx.room.Delete
-import androidx.room.Entity
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -10,6 +9,7 @@ import androidx.room.RewriteQueriesToDropUnusedColumns
 import androidx.room.Update
 import com.example.games.model.Game
 import com.example.games.model.GameEntity
+import com.example.games.model.Genre
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -38,6 +38,17 @@ interface GameDao {
     //original codelab with Flow:
     fun getItem(id: Int): Flow<Game>
 
+    /**
+     * Generate list of [genre] to show in lazzy row:
+     */
+    @Query("select distinct genre from items")
+    fun getCategories (): Flow<List<Genre>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertGenre(genre: List<Genre>)
+
+    @Query("select * from items where genre = :gameGenre")
+    fun getGamesByCategory (gameGenre: String): Flow<List<Game>>
 
     @Query("SELECT * FROM items WHERE isFavorite = 1")
     //original codelab with Flow:
@@ -68,4 +79,5 @@ interface GameDao {
 
     @Delete
     suspend fun delete(item: Game)
+
 }

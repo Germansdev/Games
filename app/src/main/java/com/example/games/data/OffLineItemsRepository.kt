@@ -2,6 +2,7 @@ package com.example.games.data
 
 import com.example.games.model.Game
 import com.example.games.model.GameEntity
+import com.example.games.model.Genre
 import com.example.games.model.asExternalModel
 import com.example.games.network.GameApiService
 import kotlinx.coroutines.Dispatchers
@@ -29,6 +30,23 @@ class OfflineItemsRepository(
 
     override fun getAllItemsStream(): Flow<List<Game>> = itemDao.getAllItems()
         .map {it.map(GameEntity::asExternalModel) }
+
+    override fun getCategories(): Flow<List<Genre>> = itemDao.getCategories()
+
+  //  override fun getCategories(): Flow<List<Genre>> = itemDao.getCategories()
+
+    override suspend fun insertGenreStream(genre: Flow<List<Genre>>) //= itemDao.insertGenre(listOf())
+    {
+        return withContext(Dispatchers.IO) {
+            val cate = itemDao.getCategories()
+                //itemDao.insertGenre(listOf())
+            cate.apply { itemDao.insertGenre(listOf()) }
+        }
+    }
+
+    override fun getGamesByCategoryStream(gameGenre: String): Flow<List<Game>> =
+        itemDao.getGamesByCategory(gameGenre)
+
     override fun getItemStream(id: Int): Flow<Game?> = itemDao.getItem(id)
 
     override fun getAllFavoritesStream(isFavorite: Boolean): Flow<List<Game?>> =

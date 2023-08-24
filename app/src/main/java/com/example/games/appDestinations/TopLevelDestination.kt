@@ -9,7 +9,6 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.games.R
-import com.example.games.appDestinations.BottomBarScreen.Pantalla1.badgeCount
 
 // NAVIGATION BAR (BOTTOM NAVIGATION)
 
@@ -81,24 +80,15 @@ sealed class BottomBarScreen(
 
 object Graph : NavigationDestination {
     const val BOTTOM = "bottomBar_graph"
-    const val TOP = "topBar_graph"
-    /**private*/
-    const val DETAILS = "details_graph"
-    private const val itemIdArg = "itemId"
-    private val routeWithArgs = "$DETAILS/{$itemIdArg}"
     override val route: String
         get() = TODO("Not yet implemented")
     override val titleRes: Int
         get() = TODO("Not yet implemented")
 }
-
+/**
 enum class DetailsDestination(val route: String) {
-
-    DetailsScreen(route = "Details"),
-    //MoreDetailsScreen(route = "More Details"),
-    // MoreDeepScreen(route = "More Deep")
-
-}
+    DetailsScreen(route = "Details")
+}*/
 
 /**
  * Interface to describe the navigation destinations for the app

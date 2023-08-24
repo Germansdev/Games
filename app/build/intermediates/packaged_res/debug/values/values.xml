@@ -21,6 +21,7 @@
     <string name="favorites">Favorites Games</string>
     <string name="game_title">Game Title</string>
     <string name="games">Games</string>
+    <string name="games_list"> </string>
     <string name="homescreen">Home</string>
     <string name="licenses">licenses</string>
     <string name="link">

@@ -1,6 +1,7 @@
 package com.example.games.data
 
 import com.example.games.model.Game
+import com.example.games.model.Genre
 import kotlinx.coroutines.flow.Flow
 
 interface ItemsRepository {
@@ -19,6 +20,10 @@ interface ItemsRepository {
 
     //without Flow:
     //fun getAllItemsStream(): List<Game>
+
+    fun getCategories():Flow<List<Genre>>
+    suspend fun insertGenreStream(genre: Flow<List<Genre>>)
+    fun getGamesByCategoryStream (gameGenre: String): Flow<List<Game>>
 
     /**
      * Retrieve an item from the given data source that matches with the [id].

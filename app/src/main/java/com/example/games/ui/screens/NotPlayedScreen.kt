@@ -3,6 +3,7 @@ package com.example.games.ui.screens
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.util.Log.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -32,7 +33,6 @@ import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -58,17 +58,17 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.games.R
 import com.example.games.model.Game
+import com.example.games.model.Genre
 import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.GameViewModel
+import com.example.games.ui.GenreUiState
 import com.example.games.ui.NotPlayedViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 private const val Tag: String = "favorite"
 private const val TAG: String = "Not Played"
 private const val Tage: String = "categories"
-
+private const val Tagis: String = " items per genre selected"
 
 @Composable
 fun BadgeCount(
@@ -91,24 +91,19 @@ fun BadgeCount(
 fun NotPlayedScreen(
     viewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
     onClick: (Int) -> Unit,
+    onGenreClick: (String) -> Unit,
     modifier: Modifier,
-    viewModels: GameViewModel = viewModel(factory = AppViewModelProvider.Factory),
-
-
     ) {
-    // val gameUiState = viewModels.gameUiState
-    // val homeUiState = viewModels.homeUiState.collectAsStateWithLifecycle()
-    //val games = viewModels.homeUiState.collectAsState() as List<Game>
 
     val notPlayedUiState = viewModel.notPlayedUiState.collectAsStateWithLifecycle()
-
-    //  val notPlayedGames by notPlayedViewModel.notPlayedUiState.collectAsState(emptyList())
+    val genreUiState = viewModel.genreUiState.collectAsStateWithLifecycle()
 
     NotPlayedScreenContent(
         notPlayedL = notPlayedUiState.value.notPlayedL as List<Game>,
         modifier = Modifier,
-        onClick = { onClick(it.id) },//onClick///{onClick(Game().id)}//(Int) -> Unit,
-        games = listOf(Game())//listOf(Game(categories.toString()))//categories.value.itemList//categories.value.itemList,
+        onClick = { onClick(it.id) },
+        onGenreClick = onGenreClick,
+        genreList = genreUiState.value.genreList
     )
 }
 
@@ -117,9 +112,10 @@ fun NotPlayedScreenContent(
     notPlayedL: List<Game>,
     modifier: Modifier = Modifier,
     onClick: (Game) -> Unit,
-    //onClick: (Int) -> Unit
-    games: List<Game>
+    onGenreClick: (String) -> Unit,// Change the parameter type here
+    genreList: List<Genre>,
 ) {
+
     Column(
         modifier = modifier
 
@@ -142,14 +138,13 @@ fun NotPlayedScreenContent(
         // .padding(8.dp),
 
     ) {
-        // Text(text = "Test Layaout")
-        Spacer(modifier = Modifier.size(16.dp))
+
+        Spacer(modifier = Modifier.size(8.dp))
         myLazzyRow(
             modifier = modifier.fillMaxHeight(),
-            notPlayedL = notPlayedL
+           onGenreClick = onGenreClick ,
+            genreUiState = GenreUiState(genreList)
         )
-//("Tage, ${games.size}")
-        d(TAG, notPlayedL.size.toString())
         d(TAG, notPlayedL.size.toString())
 
         Row(
@@ -171,26 +166,9 @@ fun NotPlayedScreenContent(
                 modifier = Modifier
 
                     .background(if (isSystemInDarkTheme()) Color.Black else Color.Yellow)
-
-                /**     .background(
-                brush = Brush.verticalGradient(
-                if(  isSystemInDarkTheme()) {
-                listOf(
-                Color.Black,
-                Color.Blue
-                )
-                }else{
-                listOf(
-                Color.Yellow,
-                Color.White
-                )
-                }
-                )
-                )*/
             )
         }
-
-        Spacer(modifier = Modifier.size(16.dp))
+      //  Spacer(modifier = Modifier.size(16.dp))
 
         if (notPlayedL.isEmpty()) {
             androidx.compose.material.Text(
@@ -218,31 +196,17 @@ fun NotPlayedScreenContent(
             }
         }
     }
-    d(TAG, notPlayedL.size.toString())
+
+    d(Tage, genreList.size.toString())
 
 }
 
 @Composable
 fun myLazzyRow(
     modifier: Modifier,
-    notPlayedL: List<Game>
+    onGenreClick: (String) -> Unit,
+    genreUiState: GenreUiState //23 08
 ) {
-   // val notPlayedViewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory)
-   // val notPlayedViewModel : NotPlayedViewModel = viewModel()
-    //val myCategory = notPlayedViewModel.myCategory.collectAsStateWithLifecycle(initialValue = notPlayedL )
-
-   // val notPlayedL = MutableStateFlow<List<Game>>(emptyList())
-   // val myCategory = notPlayedL.map{ categoryListR -> categoryListR.map { it.genre}.distinct() }
-
-
-    //original works ok, but get all genre of al games
-    val mycategory: Set<String> = setOf()
-   mycategory.map {
-        notPlayedL.groupBy { game ->
-            game.genre
-                .forEach { setOf(game.genre) }
-        }
-    }
     Row(
         modifier = Modifier
             .height(60.dp)
@@ -254,28 +218,25 @@ fun myLazzyRow(
                 .fillMaxWidth()
                 .fillMaxHeight()
                 .fillMaxSize(),
-
             // .height(100.dp),
             //.padding(8.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             //verticalAlignment = Arrangement.Center,
 
         ) {
-            items(
-                 notPlayedL,
-
-             //     (myCategory.value),
-             key = { game -> game.id }
-            //key = {game-> game}
-            ) { game ->
+            items( (genreUiState.genreList)
+            ) { //game ->
+                genre ->
                 MyCard(
-                    onClick = { game },
+                    onGenreClick = onGenreClick,
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(40.dp)
                         .clip(CircleShape),
-                    game = game.copy(isPlayed = false)
+                    genre = genre
                 )
+                d(Tage, genreUiState.genreList.size.toString())
+
             }
         }
     }
@@ -283,11 +244,9 @@ fun myLazzyRow(
 
 @Composable
 fun MyCard(
-    gameViewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory),
-    onClick: (Game) -> Unit,
     modifier: Modifier = Modifier,
-    game: Game = Game()
-
+    onGenreClick: (String) -> Unit,
+    genre:  Genre
 ) {
 
     OutlinedCard(
@@ -299,9 +258,14 @@ fun MyCard(
             //.height(40.dp)
             .padding(8.dp)
             .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
-            .clickable { onClick(game) }
+            .clickable {
+                onGenreClick(genre.genre) /**whith this solve the problem
+            and now could navigate to the other screen
+            and changing IntType to StringType Args*/
+            }
 
     ) {
+        //Log.e(TAG, onGenreClick)
         Column(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
@@ -315,7 +279,7 @@ fun MyCard(
                 Text(
                     modifier = modifier
                         .align(CenterVertically),
-                    text = game.genre
+                    text = genre.genre
                 )
             }
         }
@@ -329,7 +293,6 @@ fun GameCardNotPlayed(
     gameViewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory),
     onClick: (Game) -> Unit,
     modifier: Modifier,
-
     ) {
 
     val coroutineScope = rememberCoroutineScope()
@@ -343,7 +306,7 @@ fun GameCardNotPlayed(
         shape = RoundedCornerShape(8.dp),
 
         ) {
-        // Log.e(MY ,game.title)
+
         Column {
 
             AsyncImage(

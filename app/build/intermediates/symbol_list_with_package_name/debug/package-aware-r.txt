@@ -1505,6 +1505,7 @@ string expanded
 string favorites
 string game_title
 string games
+string games_list
 string homescreen
 string in_progress
 string indeterminate

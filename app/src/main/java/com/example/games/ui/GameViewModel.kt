@@ -14,8 +14,11 @@ import com.example.games.GameApplication
 import com.example.games.data.GameRepository
 import com.example.games.data.ItemsRepository
 import com.example.games.model.Game
+import com.example.games.model.Genre
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -63,6 +66,8 @@ class GameViewModel(
         getGames()
         getItems()
       //  getShooterGames()
+    //generateCategory()
+
 
     }
 
@@ -129,6 +134,14 @@ class GameViewModel(
         return getShooterGames()//listOf(Game())
     }*/
 
+/**
+ fun generateCategory (){
+    viewModelScope.launch {
+      // val genre : List<Genre>
+     //   itemsRepository.insertGenreStream(listOf<Genre>() as Flow<List<Genre>>);
+        itemsRepository.getCategories()
+    }
+}*/
 
 
     //logic favorite, play, share, rate:

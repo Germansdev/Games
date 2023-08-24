@@ -4,6 +4,7 @@ package com.example.games.ui
 
 
 import android.annotation.SuppressLint
+import android.content.res.Resources.Theme
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
@@ -24,6 +25,7 @@ import androidx.compose.material.*
 import androidx.compose.material.MaterialTheme.shapes
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
@@ -40,6 +42,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
@@ -53,7 +59,9 @@ import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.*
 import com.example.games.search.navigateToSearch
 import com.example.games.ui.screens.BadgeCount
+import com.example.games.ui.theme.DMSans
 import com.example.games.ui.theme.GameIcons
+import kotlin.text.Typography
 
 
 @ExperimentalLayoutApi
@@ -147,6 +155,7 @@ fun GameApp(
 fun CustomTopBar(
     //with CenterAlignedTopAppBar:
     @StringRes titleRes: Int,
+    genre: String = "",
     navigationIcon: ImageVector,
     navigationIconContentDescription: String?,
     actionIcon: ImageVector,
@@ -158,7 +167,16 @@ fun CustomTopBar(
 ) {
     //With CenterAlignedTopAppBar:
     CenterAlignedTopAppBar(
-        title = { androidx.compose.material3.Text(text = stringResource(id = titleRes)) },
+        title = { androidx.compose.material3.Text(text = stringResource(id = titleRes))
+            if (genre.isNotEmpty()) {
+                Text(
+                    text = "Genre: $genre",
+                    style = MaterialTheme.typography.titleLarge,
+                    color = if (isSystemInDarkTheme()) Color.White else Color.Black,
+                )
+
+            }
+                },
         navigationIcon = {
             androidx.compose.material3.IconButton(onClick = onNavigationClick) {
                 androidx.compose.material3.Icon(
@@ -189,6 +207,7 @@ fun CustomTopBar(
 @Composable
 fun CustomTopBar(
     @StringRes titleRes: Int,
+    genre: String = "",
     actionIcon: ImageVector,
     actionIconContentDescription: String?,
     modifier: Modifier = Modifier,
@@ -196,7 +215,15 @@ fun CustomTopBar(
     onActionClick: () -> Unit = {},
 ) {
     CenterAlignedTopAppBar(
-        title = { androidx.compose.material3.Text(text = stringResource(id = titleRes)) },
+        title = { androidx.compose.material3.Text(text = stringResource(id = titleRes))
+            if (genre.isNotEmpty()) {
+                Text(
+                    text = " Genre: $genre",
+                    style = MaterialTheme.typography.titleLarge,
+                    color = if (isSystemInDarkTheme()) Color.White else Color.Black,
+                )
+            }
+                },
         actions = {
             androidx.compose.material3.IconButton(onClick = onActionClick) {
                 androidx.compose.material3.Icon(
@@ -240,9 +267,6 @@ fun BottomBar(
     currentDestination: NavDestination?,
     modifier: Modifier = Modifier,
 ) {
-    //19 08:
-
-  // val viewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
 
     BadgeCount(   )
     val notPlayedViewModel: NotPlayedViewModel =viewModel()

@@ -49,6 +49,7 @@ string dismissButtonText
 string favorites
 string game_title
 string games
+string games_list
 string homescreen
 string licenses
 string link

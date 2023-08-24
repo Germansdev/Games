@@ -75,6 +75,14 @@ object AppViewModelProvider {
                 inventoryApplication().container.itemsRepository,
             )
         }
+
+        initializer {
+            ListedCategoryViewModel(
+                inventoryApplication().container.itemsRepository,
+                this.createSavedStateHandle()
+            )
+        }
+
     }
 }
 

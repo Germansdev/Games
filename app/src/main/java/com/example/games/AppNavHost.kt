@@ -14,18 +14,21 @@ import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.Pantalla1
 import com.example.games.appDestinations.Graph
 import com.example.games.model.Game
+import com.example.games.model.Genre
 import com.example.games.search.SearchScreen
 import com.example.games.search.SearchScreenDestination
 import com.example.games.search.navigateToSearch
 import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.CustomTopBar
 import com.example.games.ui.GameState
-import com.example.games.ui.GameUiState
 import com.example.games.ui.GameViewModel
+import com.example.games.ui.ListedCategoryViewModel
+import com.example.games.ui.NotPlayedViewModel
 import com.example.games.ui.SharedScreen
 import com.example.games.ui.screens.DetailsScreen
 import com.example.games.ui.screens.FavoritesScreen
-import com.example.games.ui.screens.HomeScreen
+import com.example.games.ui.screens.GameListCategoryScreenDestination
+import com.example.games.ui.screens.GamesListCategoryScreen
 import com.example.games.ui.screens.ItemDetailsDestination
 import com.example.games.ui.screens.NotPlayedScreen
 import com.example.games.ui.screens.Played
@@ -43,7 +46,7 @@ fun GameNavHost(
     viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)
 ) {
     val navController = appState.navController
-   // val viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)
+    // val viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)
 
     NavHost(
         navController = navController,
@@ -61,7 +64,10 @@ fun GameNavHost(
                 modifier = Modifier,
                 onClick = {
                     navController.navigate("${ItemDetailsDestination.route}/${it}")
-                          },
+                },
+                onGenreClick = {genre->
+                    navController.navigate("${GameListCategoryScreenDestination.route}/${genre}")
+                }
             )
         }
 
@@ -90,13 +96,11 @@ fun GameNavHost(
         }
 
         composable(BottomBarScreen.Pantalla4.route) {
-            val viewModel : StatsViewModel = viewModel(factory = AppViewModelProvider.Factory)
+            val viewModel: StatsViewModel = viewModel(factory = AppViewModelProvider.Factory)
 
             Statistics(
-               viewModel,
-             //  playedViewModel = viewModel(factory = AppViewModelProvider.Factory)
+                viewModel,
             )
-
         }
 
         composable(BottomBarScreen.Pantalla5.route) {
@@ -110,10 +114,7 @@ fun GameNavHost(
                 navigationIconContentDescription = null,
                 actionIcon = GameIcons.Close,//GameIcons.Settings,
                 actionIconContentDescription = null,
-                onNavigationClick = {
-                    navController.navigateToSearch()
-                    /**.navigate(/**searchRoute*/)*/
-                },
+                onNavigationClick = {  navController.navigateToSearch() },
             )
         }
 
@@ -126,5 +127,27 @@ fun GameNavHost(
                 onBackClick = { navController.popBackStack() }
             )
         }
+       composable(
+           route = GameListCategoryScreenDestination.routeWithArgs,
+           arguments = listOf(navArgument(GameListCategoryScreenDestination.itemIdArg)
+           {type = NavType.StringType }    )
+       ){
+
+           backStackEntry ->
+           val /**genre*/ gameGenre = backStackEntry.arguments?.getString(GameListCategoryScreenDestination.itemIdArg)
+           GamesListCategoryScreen(
+               gameGenre = gameGenre/**genre*/ ?: "", // Provide a default value as needed
+               modifier = Modifier,
+               onClick = {
+                   navController.navigate("${ItemDetailsDestination.route}/${it}")
+               },
+               onBack = {  navController.popBackStack() },
+               onGenreClick = {genre->
+                   navController.navigate("${GameListCategoryScreenDestination.route}/${genre}")
+               }
+           )
+       }
     }
 }
+
+
