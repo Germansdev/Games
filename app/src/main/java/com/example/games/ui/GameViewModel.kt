@@ -7,6 +7,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
+import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
@@ -254,6 +255,8 @@ class GameViewModel(
     fun isRate(gameId: String): Boolean {
         return _rate.value.contains(gameId)
     }
+
+
 
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {

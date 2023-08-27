@@ -65,6 +65,8 @@ fun FavoritesScreen(
     viewModel: FavoritesViewModel = viewModel(factory = AppViewModelProvider.Factory),
     ) {
     val favoritesUiState = viewModel.favoritesUiState.collectAsState()
+
+
     FavoritesScreenContent(
         favoritesL = favoritesUiState.value.favoritesL as List<Game>,
         modifier = Modifier,

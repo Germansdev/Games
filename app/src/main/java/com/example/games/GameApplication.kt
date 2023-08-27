@@ -17,7 +17,6 @@ import com.example.games.search.SearchContentsRepository
         super.onCreate()
         container = DefaultAppContainer(this,
 
-            //database = GameDatabase.getDatabase(applicationContext)
         )
     }
 }

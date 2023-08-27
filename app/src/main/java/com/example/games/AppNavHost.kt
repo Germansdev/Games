@@ -46,7 +46,7 @@ fun GameNavHost(
     viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)
 ) {
     val navController = appState.navController
-    // val viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)
+     val viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)
 
     NavHost(
         navController = navController,
@@ -136,7 +136,7 @@ fun GameNavHost(
            backStackEntry ->
            val /**genre*/ gameGenre = backStackEntry.arguments?.getString(GameListCategoryScreenDestination.itemIdArg)
            GamesListCategoryScreen(
-               gameGenre = gameGenre/**genre*/ ?: "", // Provide a default value as needed
+               gameGenre = gameGenre/**genre*/ ?: "",
                modifier = Modifier,
                onClick = {
                    navController.navigate("${ItemDetailsDestination.route}/${it}")

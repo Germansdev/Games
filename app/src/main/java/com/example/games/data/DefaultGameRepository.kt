@@ -15,17 +15,4 @@ class DefaultGameRepository(
         return gameApiService.getGames()
   //  return gameApiService.getLocalGames()
     }
-/**
-    override suspend fun getCategories(): List<Game> {
-     return gameApiService.getCategories()
-    }
-    */
-
-/**
-    override suspend fun getShooterGames(): List<Game> {
-      return gameApiService.getShooterGames().games
-
-    }*/
-
-
 }

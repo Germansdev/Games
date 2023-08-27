@@ -4,12 +4,12 @@ package com.example.games.ui
 
 
 import android.annotation.SuppressLint
-import android.content.res.Resources.Theme
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Row
@@ -20,7 +20,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.MaterialTheme.shapes
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -29,6 +31,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -37,15 +40,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
@@ -58,23 +61,19 @@ import com.example.games.GameNavHost
 import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.*
 import com.example.games.search.navigateToSearch
-import com.example.games.ui.screens.BadgeCount
-import com.example.games.ui.theme.DMSans
 import com.example.games.ui.theme.GameIcons
-import kotlin.text.Typography
 
 
 @ExperimentalLayoutApi
 @OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.R)
-//@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
+
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun GameApp(
-    windowSizeClass: androidx.compose.material3.windowsizeclass.WindowSizeClass,
-    appState: GameState = rememberGameAppState(
-        windowSizeClass = windowSizeClass
-    )
+    windowSizeClass: WindowSizeClass,
+  appState: GameState = rememberGameAppState(
+        windowSizeClass = windowSizeClass )
 ) {
     val navController = rememberNavController()
 
@@ -83,19 +82,36 @@ fun GameApp(
     }
 
     Scaffold(
+
         backgroundColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
        // Color.Transparent,
         contentColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
         //colorScheme.onBackground,
 
         bottomBar = {
+
             if (appState.shouldShowBottomBar) {
+
+              /**  val notPlayedBadgeViewModel = NotPlayedBadgeViewModel(itemsRepository)
+                val playedBadgeViewModel = PlayedBadgeViewModel(itemsRepository)
+                val favoritesBadgeViewModel = FavoritesBadgeViewModel(itemsRepository)
+                val statsBadgeViewModel = StatsBadgeViewModel(itemsRepository)
+                val sharedBadgeViewModel = SharedBadgeViewModel(itemsRepository)*/
+
 
                 BottomBar(
                     navController = navController,
                     destinations = appState.bottomBarScreens,
                     onNavigateToDestination = appState::navigateToBottomBarScreen,
                     currentDestination = appState.currentDestination,
+               /**     itemViewModels = listOf(
+                        notPlayedBadgeViewModel,
+                        playedBadgeViewModel,
+                        favoritesBadgeViewModel,
+                        statsBadgeViewModel,
+                        sharedBadgeViewModel
+                    ),*/
+
 
                 )
             }
@@ -149,6 +165,7 @@ fun GameApp(
         }
     }
 }
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -248,7 +265,7 @@ fun currentRoute(navController: NavHostController): String? {
     return entry?.destination?.route
 }
 
-
+//Philip Badges and notification:
 @Composable
 fun BadgeContent(count: Int) {
     Badge(
@@ -258,7 +275,26 @@ fun BadgeContent(count: Int) {
     )
 }
 
+@Composable
+fun Badge(badgeCount: Int) {
+    Box(
+        modifier = Modifier
+            .size(24.dp)
+            .background(Color.Red)
+            .clip(CircleShape)
+    ) {
+        Text(
+            text = badgeCount.toString(),
+            color = Color.White,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.align(Alignment.Center)
+        )
+    }
+}
 
+
+//adapt the Bottom bar to include the functionality of badges:
 @Composable
 fun BottomBar(
     navController: NavHostController,
@@ -266,151 +302,154 @@ fun BottomBar(
     onNavigateToDestination: (BottomBarScreen) -> Unit,
     currentDestination: NavDestination?,
     modifier: Modifier = Modifier,
+   // itemViewModels: List<ViewModelWithBadgeData>,
+
 ) {
 
-    BadgeCount(   )
-    val notPlayedViewModel: NotPlayedViewModel =viewModel()
+    // Philip:
+    //BadgeCount(   )
+    //val notPlayedViewModel: NotPlayedViewModel =viewModel()
 
 
     // Collect the state using collectAsState
-    val notPlayedUiState = notPlayedViewModel.notPlayedUiState.collectAsState()
+   //this line when run, error "cant create class NotPlayedViewModel.. val notPlayedUiState = notPlayedViewModel.notPlayedUiState.collectAsState()
 
-  //  val badgeCount = notPlayedUiState.value.notPlayedL.size
+    //  val badgeCount = notPlayedUiState.value.notPlayedL.size
 
-  //  if (darkTheme) Color.Black else Color.White
+    //  if (darkTheme) Color.Black else Color.White
 
 
     modifier
         .background(color = colorScheme.background)
 
     androidx.compose.material3.BottomAppBar(
-        containerColor =  if (isSystemInDarkTheme()) Color.Black else Color.White,//colorScheme.surface,
+        containerColor = if (isSystemInDarkTheme()) Color.Black else Color.White,//colorScheme.surface,
         contentColor = if (isSystemInDarkTheme()) Color.White else Color.Black,//colorScheme.onSurface,
         modifier = Modifier
-       .background(colorScheme.background)
+            .background(colorScheme.background)
     ) {
 /**
-        BottomNavigation(
-            backgroundColor = colorScheme.surface,
-            contentColor = colorScheme.onSurface,
+           BottomNavigation(
+        backgroundColor = colorScheme.surface,
+        contentColor = colorScheme.onSurface,
         ) {
 */
-            destinations.forEach { screen ->
-                //    val navBackStackEntry by navController.currentBackStackEntryAsState()
-                //     val currentDestination = navBackStackEntry?.destination
+        destinations.forEach { screen ->
+           // val badgeUiState by viewModel.uiState.collectAsState()
 
-                BottomNavigationItem(
+            BottomNavigationItem(
 
-                    icon = {
-                        BadgedBox(
-                            badge = {
-                                if (screen.badgeCount != null) {
-                                    Badge {
-                                        Text(text = screen.badgeCount.toString())
-                                    }
-                                } else if (screen.hasNews) {
-                                    Badge()
+                icon = {
+                    //Philip Badges badgeCount and hasNews:
+                    BadgedBox(
+                        badge = {
+                            if (screen.badgeCount != null) {
+                                Badge {
+                                    Text(text = screen.badgeCount.toString())
                                 }
+                            } else if (screen.hasNews) {
+                                Badge()
                             }
-                        ) {
-                            Icon(
-                                imageVector = screen.icon,
-                                contentDescription = screen.title,
-                                tint = //if (select) Color.Red else Color.LightGray,
-                                colorScheme.onSurface,
-                                modifier = Modifier.clip(shapes.medium)
-                            )
                         }
-                    },
-                    label = {
-                        Text(screen.title)
-                        colorScheme.inverseSurface
-                    },
-                    alwaysShowLabel = true,
-                    unselectedContentColor = Color.Gray,
-                    //selectedContentColor = colorScheme.primary,
-                    selected = currentDestination.isTopLevelDestinationInHierarchy(screen),
-                    // currentDestination?.hierarchy?.any { it.route == screen.route } == true,
+                    ) {
+                        Icon(
+                            imageVector = screen.icon,
+                            contentDescription = screen.title,
+                            tint = //if (select) Color.Red else Color.LightGray,
+                            colorScheme.onSurface,
+                            modifier = Modifier.clip(shapes.medium)
+                        )
+                    }
+                },
+                label = {
+                    Text(screen.title, fontWeight = FontWeight.Bold)
+                    colorScheme.inverseSurface
+                },
+                alwaysShowLabel = true,
+                unselectedContentColor = Color.Gray,
+                selectedContentColor = if (isSystemInDarkTheme()) Color.White else Color.Black,
+                selected = currentDestination.isTopLevelDestinationInHierarchy(screen),
+                // currentDestination?.hierarchy?.any { it.route == screen.route } == true,
 
-                    onClick = { onNavigateToDestination(screen) }
-                )
-            }
+                onClick = { onNavigateToDestination(screen) }
+            )
+            /** {
+            Badge(badgeCount = badgeUiState.badgeCount)
+            }*/
         }
     }
-//}
+}
 
-private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: BottomBarScreen) =
-    this?.hierarchy?.any {
-        it.route?.contains(destination.title, true) ?: false
-    } ?: false
+    private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: BottomBarScreen) =
+        this?.hierarchy?.any {
+            it.route?.contains(destination.title, true) ?: false
+        } ?: false
 
 
-@Composable
-fun rememberGameAppState(
-    windowSizeClass: androidx.compose.material3.windowsizeclass.WindowSizeClass,
-    navController: NavHostController = rememberNavController(),
-): GameState {
-    return remember(
-        navController,
-        windowSizeClass
-    ) {
-        GameState(
+    @Composable
+    fun rememberGameAppState(
+        windowSizeClass: androidx.compose.material3.windowsizeclass.WindowSizeClass,
+        navController: NavHostController = rememberNavController(),
+    ): GameState {
+        return remember(
             navController,
             windowSizeClass
-        )
-    }
-}
-
-class GameState(
-    val navController: NavHostController,
-    val windowSizeClass: androidx.compose.material3.windowsizeclass.WindowSizeClass
-) {
-
-    val currentDestination: NavDestination?
-        @Composable get() = navController
-            .currentBackStackEntryAsState().value?.destination
-
-    val bottomBarScreens: List<BottomBarScreen> = listOf(
-        Pantalla1, Pantalla2, Pantalla3, Pantalla4, Pantalla5
-    ) //ojo!!!
-    val shouldShowBottomBar: Boolean
-        get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact
-
-    val currentTopLevelDestination: BottomBarScreen?
-        @Composable get() = when (currentDestination?.route) {
-            Pantalla1.route -> Pantalla1
-            Pantalla2.route -> Pantalla2
-            Pantalla3.route -> Pantalla3
-            Pantalla4.route -> Pantalla4
-            Pantalla5.route -> Pantalla5
-            else -> null
+        ) {
+            GameState(
+                navController,
+                windowSizeClass
+            )
         }
+    }
 
-    fun navigateToBottomBarScreen(bottomBarScreen: BottomBarScreen) {
-        //   trace("Navigation: ${topLevelDestination.name}") {
-        /**val bottomBarScreens/**topLevelNavOptions*/ =*/
-        navOptions {
-            // Pop up to the start destination of the graph to
-            // avoid building up a large stack of destinations
-            // on the back stack as users select items
-            popUpTo(navController.graph.findStartDestination().id) {
-                saveState = true
+    class GameState(
+        val navController: NavHostController,
+        val windowSizeClass: androidx.compose.material3.windowsizeclass.WindowSizeClass
+    ) {
+
+        val currentDestination: NavDestination?
+            @Composable get() = navController
+                .currentBackStackEntryAsState().value?.destination
+
+        val bottomBarScreens: List<BottomBarScreen> = listOf(
+            Pantalla1, Pantalla2, Pantalla3, Pantalla4, Pantalla5
+        ) //ojo!!!
+        val shouldShowBottomBar: Boolean
+            get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact
+
+        val currentTopLevelDestination: BottomBarScreen?
+            @Composable get() = when (currentDestination?.route) {
+                Pantalla1.route -> Pantalla1
+                Pantalla2.route -> Pantalla2
+                Pantalla3.route -> Pantalla3
+                Pantalla4.route -> Pantalla4
+                Pantalla5.route -> Pantalla5
+                else -> null
             }
-            // Avoid multiple copies of the same destination when
-            // reselecting the same item
-            launchSingleTop = true
-            // Restore state when reselecting a previously selected item
-            restoreState = true
-        }
 
-        when (bottomBarScreen) {
-            Pantalla1 -> navController.navigate(bottomBarScreen.route)
-            Pantalla2 -> navController.navigate(bottomBarScreen.route)
-            Pantalla3 -> navController.navigate(bottomBarScreen.route)
-            Pantalla4 -> navController.navigate(bottomBarScreen.route)
-            Pantalla5 -> navController.navigate(bottomBarScreen.route)
+        fun navigateToBottomBarScreen(bottomBarScreen: BottomBarScreen) {
+            //   trace("Navigation: ${topLevelDestination.name}") {
+            /**val bottomBarScreens/**topLevelNavOptions*/ =*/
+            navOptions {
+                // Pop up to the start destination of the graph to
+                // avoid building up a large stack of destinations
+                // on the back stack as users select items
+                popUpTo(navController.graph.findStartDestination().id) {
+                    saveState = true
+                }
+                // Avoid multiple copies of the same destination when
+                // reselecting the same item
+                launchSingleTop = true
+                // Restore state when reselecting a previously selected item
+                restoreState = true
+            }
+
+            when (bottomBarScreen) {
+                Pantalla1 -> navController.navigate(bottomBarScreen.route)
+                Pantalla2 -> navController.navigate(bottomBarScreen.route)
+                Pantalla3 -> navController.navigate(bottomBarScreen.route)
+                Pantalla4 -> navController.navigate(bottomBarScreen.route)
+                Pantalla5 -> navController.navigate(bottomBarScreen.route)
+            }
         }
     }
-}
-
-

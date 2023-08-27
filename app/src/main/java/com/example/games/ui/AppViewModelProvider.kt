@@ -10,10 +10,11 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.games.DetailsViewModel
 import com.example.games.GameApplication
 import com.example.games.StatsViewModel
-import com.example.games.data.ItemsRepository
-import com.example.games.search.DefaultSearchContentsRepository
-import com.example.games.search.SearchContentsRepository
 import com.example.games.search.SearchViewModel
+import com.example.games.ui.badges.FavoritesBadgeViewModel
+import com.example.games.ui.badges.NotPlayedBadgeViewModel
+import com.example.games.ui.badges.PlayedBadgeViewModel
+import com.example.games.ui.badges.SharedBadgeViewModel
 
 
 /**
@@ -28,7 +29,7 @@ object AppViewModelProvider {
                 inventoryApplication().container.itemsRepository,
                 inventoryApplication().container.gameRepository,
 
-            )
+                )
         }
 
         //initializer for FavoritesViewModel
@@ -82,7 +83,29 @@ object AppViewModelProvider {
                 this.createSavedStateHandle()
             )
         }
+        initializer {
+            NotPlayedBadgeViewModel(
+                inventoryApplication().container.itemsRepository
+            )
+        }
 
+        initializer {
+            PlayedBadgeViewModel(
+                inventoryApplication().container.itemsRepository
+            )
+        }
+
+        initializer {
+           FavoritesBadgeViewModel(
+                inventoryApplication().container.itemsRepository
+            )
+        }
+
+        initializer {
+            SharedBadgeViewModel(
+                inventoryApplication().container.itemsRepository
+            )
+        }
     }
 }
 

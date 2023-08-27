@@ -3,7 +3,6 @@ package com.example.games.ui.screens
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
 import android.util.Log.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -32,7 +31,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -57,6 +55,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.games.R
+import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.model.Game
 import com.example.games.model.Genre
 import com.example.games.ui.AppViewModelProvider
@@ -70,22 +69,22 @@ private const val TAG: String = "Not Played"
 private const val Tage: String = "categories"
 private const val Tagis: String = " items per genre selected"
 
+/**
 @Composable
-fun BadgeCount(
-    //  viewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
+fun BadgeCount (
 
-) {
+){
     val viewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory)
-    val uiState = viewModel.notPlayedUiState.collectAsState()
-    val badgeCount = uiState.value.notPlayedL.size
+    val notPlayedUiState = viewModel.notPlayedUiState.collectAsStateWithLifecycle()
+    val badgeCount = notPlayedUiState.value.notPlayedL.size
 
     Row(
         modifier = Modifier.padding(16.dp)
     ) {
         // Replace with your own badge UI
-        Text(text = "Badge Count: $badgeCount")
+       Text(text = "Badge Count: $badgeCount")
     }
-}
+}*/
 
 @Composable
 fun NotPlayedScreen(
@@ -97,6 +96,9 @@ fun NotPlayedScreen(
 
     val notPlayedUiState = viewModel.notPlayedUiState.collectAsStateWithLifecycle()
     val genreUiState = viewModel.genreUiState.collectAsStateWithLifecycle()
+
+   // val badge = notPlayedUiState.value.notPlayedL.size
+   // BadgeCount(viewModel = viewModel)
 
     NotPlayedScreenContent(
         notPlayedL = notPlayedUiState.value.notPlayedL as List<Game>,
@@ -259,9 +261,10 @@ fun MyCard(
             .padding(8.dp)
             .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
             .clickable {
-                onGenreClick(genre.genre) /**whith this solve the problem
-            and now could navigate to the other screen
-            and changing IntType to StringType Args*/
+                onGenreClick(genre.genre)
+                /**whith this solve the problem
+                and now could navigate to the other screen
+                and changing IntType to StringType Args*/
             }
 
     ) {
