@@ -7,11 +7,16 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Games
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material.icons.outlined.BarChart
+import androidx.compose.material.icons.outlined.FavoriteBorder
+import androidx.compose.material.icons.outlined.Games
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Share
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.games.R
 
 // NAVIGATION BAR (BOTTOM NAVIGATION)
-
+/**
 data class BottomNavigationItem(
 
     val tittle: String,
@@ -19,33 +24,34 @@ data class BottomNavigationItem(
     val unselectedIcon: ImageVector,
     val hasNews: Boolean,
     val badgeCount: Int? = null,
-)
+)*/
 
 sealed class BottomBarScreen(
     val titleTextId: Int,
     val route: String,
     var title: String,
-    val icon: ImageVector,
+    val unselectedIcon: ImageVector,
+    val selectedIcon: ImageVector,
     val hasNews: Boolean,
     var badgeCount: Int? = null,
 
     ) {
-
     object Pantalla1 : BottomBarScreen(
         titleTextId = R.string.app_name,
         route = "HOME-SCREEN",//
         title = "Home",//
-        icon = Icons.Filled.Home,
+        unselectedIcon = Icons.Outlined.Home,
+        selectedIcon = Icons.Filled.Home,
         hasNews = true,
         badgeCount = 0
     )
-
 
     object Pantalla2 : BottomBarScreen(
         titleTextId = R.string.favorites,
         route = "FAVORITES",
         title = "Favorites",
-        icon = Icons.Default.Favorite,
+        unselectedIcon = Icons.Outlined.FavoriteBorder ,
+        selectedIcon= Icons.Filled.Favorite,
         hasNews = false,
         badgeCount = 0
     )
@@ -54,7 +60,8 @@ sealed class BottomBarScreen(
         titleTextId = R.string.played,
         route = "PLAYED",
         title = "Played",
-        icon = Icons.Default.Games,
+        unselectedIcon = Icons.Outlined.Games,
+        selectedIcon = Icons.Filled.Games,
         hasNews = false,
         badgeCount = 0
     )
@@ -63,7 +70,8 @@ sealed class BottomBarScreen(
         titleTextId = R.string.statistics,
         route = "STATISTICS",
         title = "Statistics",
-        icon = Icons.Default.BarChart,
+        unselectedIcon = Icons.Outlined.BarChart,
+        selectedIcon = Icons.Filled.BarChart,
         hasNews = true,
         badgeCount = null,
     )
@@ -72,7 +80,8 @@ sealed class BottomBarScreen(
         titleTextId = R.string.shared,
         route = "ShareScreen",
         title = "Shared",
-        icon = Icons.Default.Share,
+        unselectedIcon = Icons.Outlined.Share,
+        selectedIcon = Icons.Filled.Share,//Icons.Filled.Share,
         hasNews = false,
         badgeCount = 0
     )
@@ -100,8 +109,6 @@ interface NavigationDestination {
     /** String resource id to that contains title to be displayed for the screen.
      */
     val titleRes: Int
-
-
 
 }
 

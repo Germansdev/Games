@@ -17,8 +17,11 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.StarRate
 import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
+import androidx.compose.material.icons.outlined.Games
 import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material.icons.rounded.Games
@@ -62,6 +65,7 @@ import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.GameViewModel
 import com.example.games.ui.GenreUiState
 import com.example.games.ui.NotPlayedViewModel
+import com.example.games.ui.theme.DarkColors
 import kotlinx.coroutines.launch
 
 private const val Tag: String = "favorite"
@@ -539,10 +543,10 @@ fun ShareButton(
         onClick = onShareClick
     ) {
         Icon(
-            imageVector = if (share) Icons.Rounded.Share else Icons.Outlined.Share,
+            imageVector = if (share) Icons.Filled.Share else Icons.Outlined.Share,
             contentDescription = null,
             //tint = if (share) Color.Red else Color.LightGray,
-            tint = Color.LightGray,
+            tint =  if (isSystemInDarkTheme()) Color.LightGray else Color.Gray
         )
     }
 }
@@ -558,10 +562,10 @@ fun PlayButton(
 
     ) {
         Icon(
-            imageVector = if (play) Icons.Rounded.Games else Icons.Rounded.Games,
+            imageVector = if (play) Icons.Rounded.Games else Icons.Outlined.Games,
             //tint = if (play) Color.Red else Color.LightGray,
             contentDescription = null,
-            tint = Color.LightGray
+            tint =  if (isSystemInDarkTheme()) Color.LightGray else Color.Gray
         )
     }
 }
@@ -576,8 +580,8 @@ fun FavoriteButton(
         onClick = onFavoriteClick
     ) {
         Icon(
-            imageVector = if (favorite) Icons.Filled.Favorite else Icons.Outlined.Favorite,
-            tint = if (favorite) Color.Red else Color.LightGray,
+            imageVector = if (favorite) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
+            tint = if (favorite) Color.Red else Color.Gray,
             contentDescription = null
         )
     }

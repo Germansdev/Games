@@ -112,7 +112,7 @@ fun GameNavHost(
                 titleRes = R.string.search,
                 navigationIcon = GameIcons.Search,
                 navigationIconContentDescription = null,
-                actionIcon = GameIcons.Close,//GameIcons.Settings,
+                actionIcon = GameIcons.Close,
                 actionIconContentDescription = null,
                 onNavigationClick = {  navController.navigateToSearch() },
             )
@@ -134,9 +134,9 @@ fun GameNavHost(
        ){
 
            backStackEntry ->
-           val /**genre*/ gameGenre = backStackEntry.arguments?.getString(GameListCategoryScreenDestination.itemIdArg)
+           val gameGenre = backStackEntry.arguments?.getString(GameListCategoryScreenDestination.itemIdArg)
            GamesListCategoryScreen(
-               gameGenre = gameGenre/**genre*/ ?: "",
+               gameGenre = gameGenre ?: "",
                modifier = Modifier,
                onClick = {
                    navController.navigate("${ItemDetailsDestination.route}/${it}")
