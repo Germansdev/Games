@@ -32,7 +32,7 @@ sealed class BottomBarScreen(
     var title: String,
     val unselectedIcon: ImageVector,
     val selectedIcon: ImageVector,
-    val hasNews: Boolean,
+    var hasNews: Boolean,
     var badgeCount: Int? = null,
 
     ) {
@@ -42,7 +42,7 @@ sealed class BottomBarScreen(
         title = "Home",//
         unselectedIcon = Icons.Outlined.Home,
         selectedIcon = Icons.Filled.Home,
-        hasNews = true,
+        hasNews = false,
         badgeCount = 0
     )
 
@@ -51,7 +51,7 @@ sealed class BottomBarScreen(
         route = "FAVORITES",
         title = "Favorites",
         unselectedIcon = Icons.Outlined.FavoriteBorder ,
-        selectedIcon= Icons.Filled.Favorite,
+        selectedIcon = Icons.Filled.Favorite,
         hasNews = false,
         badgeCount = 0
     )
@@ -72,8 +72,8 @@ sealed class BottomBarScreen(
         title = "Statistics",
         unselectedIcon = Icons.Outlined.BarChart,
         selectedIcon = Icons.Filled.BarChart,
-        hasNews = true,
-        badgeCount = null,
+        hasNews = false,
+        badgeCount = 0,
     )
 
     object Pantalla5 : BottomBarScreen(
@@ -82,7 +82,7 @@ sealed class BottomBarScreen(
         title = "Shared",
         unselectedIcon = Icons.Outlined.Share,
         selectedIcon = Icons.Filled.Share,//Icons.Filled.Share,
-        hasNews = false,
+        hasNews = false ,
         badgeCount = 0
     )
 }

@@ -15,6 +15,7 @@ import com.example.games.ui.badges.FavoritesBadgeViewModel
 import com.example.games.ui.badges.NotPlayedBadgeViewModel
 import com.example.games.ui.badges.PlayedBadgeViewModel
 import com.example.games.ui.badges.SharedBadgeViewModel
+import com.example.games.ui.badges.StatsBadgeViewModel
 
 
 /**
@@ -97,6 +98,11 @@ object AppViewModelProvider {
 
         initializer {
            FavoritesBadgeViewModel(
+                inventoryApplication().container.itemsRepository
+            )
+        }
+        initializer {
+            StatsBadgeViewModel(
                 inventoryApplication().container.itemsRepository
             )
         }

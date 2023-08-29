@@ -481,7 +481,7 @@ fun GameCardNotPlayed(
                                 tint = if (i < selectedRating.value.toInt()) {
                                     colorResource(id = R.color.orange_star)
                                 } else {
-                                    Color.Gray
+                                    Color.LightGray
                                 },
                                 contentDescription = null
                             )
@@ -546,7 +546,7 @@ fun ShareButton(
             imageVector = if (share) Icons.Filled.Share else Icons.Outlined.Share,
             contentDescription = null,
             //tint = if (share) Color.Red else Color.LightGray,
-            tint =  if (isSystemInDarkTheme()) Color.LightGray else Color.Gray
+            tint =  if (isSystemInDarkTheme()) Color.LightGray else Color.LightGray
         )
     }
 }
@@ -565,7 +565,7 @@ fun PlayButton(
             imageVector = if (play) Icons.Rounded.Games else Icons.Outlined.Games,
             //tint = if (play) Color.Red else Color.LightGray,
             contentDescription = null,
-            tint =  if (isSystemInDarkTheme()) Color.LightGray else Color.Gray
+            tint =   if (isSystemInDarkTheme()) Color.LightGray else Color.LightGray
         )
     }
 }
@@ -581,7 +581,7 @@ fun FavoriteButton(
     ) {
         Icon(
             imageVector = if (favorite) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
-            tint = if (favorite) Color.Red else Color.Gray,
+            tint = if (favorite) Color.Red else Color.LightGray,
             contentDescription = null
         )
     }
