@@ -55,8 +55,8 @@ class GameViewModel(
     private val _share = mutableStateOf<Set<Int>>(setOf())
     val share: State<Set<Int>> = _share
 
-    private val _rate = mutableStateOf<Set<String>>(setOf())
-    var rate: State<Set<String>> = _rate
+    private val _rate = mutableStateOf<Set<Int>>(setOf())
+    var rate: State<Set<Int>> = _rate
 
     var rating = mutableStateOf(Float)
 
@@ -107,43 +107,6 @@ class GameViewModel(
         }
     }
 
-/**    private fun getCategories(){
-        viewModelScope.launch {
-            val allGames = gameRepository.getGames()
-                gameRepository.getCategories()
-             val categoryR : Map<String, List<Game>> = allGames.groupBy { it.genre }
-            val categories: Set<String> = allGames.map { it.genre }.toSet()
-        }
-    }*/
-
-/**
- fun getShooterGames():List<Game> {
-        viewModelScope.launch {
-            gameRepository.getShooterGames()
-        /**
-            gameUiState = GameUiState.Loading
-            gameUiState = try {
-                GameUiState.Success(gameRepository.getShooterGames())
-            } catch (e: IOException) {
-                GameUiState.Error
-            } catch (e: HttpException) {
-                GameUiState.Error
-            }
-            */
-
-       }
-        return getShooterGames()//listOf(Game())
-    }*/
-
-/**
- fun generateCategory (){
-    viewModelScope.launch {
-      // val genre : List<Genre>
-     //   itemsRepository.insertGenreStream(listOf<Genre>() as Flow<List<Genre>>);
-        itemsRepository.getCategories()
-    }
-}*/
-
 
     //logic favorite, play, share, rate:
     suspend fun isFavoriteGame(game: Game) {
@@ -158,11 +121,8 @@ class GameViewModel(
         }
     }
 
-    /**
-    suspend fun getFavoritesGame(game:Game){
-    itemsRepository.getAllFavoritesStream(isFavorite = true)
-    }*/
-//THIS IS NOT USED?? CHEK IT AGAIN:
+
+
     fun selectFavorite(gameId: Int) {
         val updatedFavorites = _favorites.value.toMutableSet()
         if (updatedFavorites.contains(gameId)) {
@@ -222,15 +182,18 @@ class GameViewModel(
 
     suspend fun isRating(game: Game) {
 
-        if (isRate(gameId = game.id.toString())
+        if (isRate(gameId = game.id/**.toString()*/)
         ) {
             itemsRepository.updateItem(game.copy(rating = game.rating))
-        } else {
-            itemsRepository.updateItem(game.copy(rating = 0f))
-        }
+        } /*else {
+          //  itemsRepository.updateItem(game.copy(rating = 0f))
+        }*/
+    }
+   suspend fun updateRating(game: Game){
+        itemsRepository.updateItem(game.copy(rating = game.rating))
     }
 
-    fun selectRate(gameId: String) {
+    fun selectRate(gameId: Int) {
         val updatedRated = _rate.value.toMutableSet()
         if (updatedRated.contains(gameId)) {
             updatedRated.remove(gameId)
@@ -252,7 +215,7 @@ class GameViewModel(
         return _share.value.contains(gameId)
     }
 
-    fun isRate(gameId: String): Boolean {
+    fun isRate(gameId: Int): Boolean {
         return _rate.value.contains(gameId)
     }
 

@@ -1,4 +1,4 @@
-package com.example.games.ui
+package com.example.games.ui.screens
 
 import android.util.Log
 import androidx.compose.foundation.background
@@ -28,7 +28,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.games.R
 import com.example.games.model.Game
-import com.example.games.ui.screens.GameCardComonContent
+import com.example.games.ui.AppViewModelProvider
+import com.example.games.ui.SharedViewModel
 
 private const val TAG: String = "Shared"
 @Composable
@@ -54,14 +55,14 @@ fun SharedScreenContent(
             .padding(8.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        Row(modifier = Modifier
+    /**    Row(modifier = Modifier
             .padding(8.dp)
             .background(
                 color = androidx.compose.material3.MaterialTheme.colorScheme.background
             ),
         ) {
             androidx.compose.material3.Text(
-                text = "YOU SHARED THESE GAMES:",
+                text = "SHARED GAMES:",
                 color = if (isSystemInDarkTheme()) Color.White else Color.Black,
                 style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
                 fontWeight = FontWeight.Bold,
@@ -70,7 +71,7 @@ fun SharedScreenContent(
                 modifier = Modifier
                     .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
             )
-        }
+        }*/
         Spacer(modifier = Modifier.size(16.dp))
 
         if (sharedL.isEmpty()) {

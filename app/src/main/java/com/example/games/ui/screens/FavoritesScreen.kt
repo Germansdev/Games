@@ -1,31 +1,27 @@
 package com.example.games.ui.screens
 
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.StarRate
-import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -35,9 +31,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
@@ -46,7 +43,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
@@ -56,16 +52,18 @@ import com.example.games.model.Game
 import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.FavoritesViewModel
 import com.example.games.ui.GameViewModel
+import com.gowtham.ratingbar.RatingBar
+import com.gowtham.ratingbar.RatingBarConfig
 import kotlinx.coroutines.launch
 
 private const val TAG: String = "favorites"
+private const val Rate: String = " rate"
 
 @Composable
 fun FavoritesScreen(
     viewModel: FavoritesViewModel = viewModel(factory = AppViewModelProvider.Factory),
     ) {
     val favoritesUiState = viewModel.favoritesUiState.collectAsState()
-
 
     FavoritesScreenContent(
         favoritesL = favoritesUiState.value.favoritesL as List<Game>,
@@ -78,7 +76,24 @@ fun FavoritesScreenContent(
     favoritesL: List<Game>,
     modifier: Modifier = Modifier,
 ) {
-    Column(){
+    Column( modifier = modifier
+
+        .background(
+            brush = Brush.verticalGradient(
+                if (isSystemInDarkTheme()) {
+                    listOf(
+                        Color.Black,
+                        Color.Blue
+                    )
+                } else {
+                    listOf(
+                        Color.Yellow,
+                        Color.White
+                    )
+                }
+            )
+        )
+        .fillMaxSize()){
 
         Row(
             modifier = Modifier
@@ -88,7 +103,7 @@ fun FavoritesScreenContent(
 
             //) {
 
-                Text(
+          /**      Text(
                     text = "YOUR FAVORITES GAMES:",
                     color = if (isSystemInDarkTheme()) Color.White else Color.Black,
                     style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
@@ -98,7 +113,7 @@ fun FavoritesScreenContent(
                     modifier = Modifier
                       //  .padding(top = 8.dp)
                         .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
-                )
+                )*/
             }
             /**     Log(TAG, favoritesL.size.toString())*/
 
@@ -137,6 +152,7 @@ fun FavoritesScreenContent(
 
 //}
 
+@SuppressLint("AutoboxingStateValueProperty")
 @Composable
 fun GameCardFavorites(
     game: Game,
@@ -154,7 +170,7 @@ fun GameCardFavorites(
     val offsetY = remember { mutableStateOf(0f) }
     ElevatedCard(
         modifier = modifier
-
+/**
             .offset {
                 IntOffset(
                     x = offsetX.value.toInt(),
@@ -166,7 +182,7 @@ fun GameCardFavorites(
                     offsetX.value +=dragAmount.x
                     offsetY.value +=dragAmount.y
                 }
-            }
+            }*/
 
             .padding(8.dp)
             .fillMaxSize()
@@ -199,7 +215,8 @@ fun GameCardFavorites(
             )
 
                 Column() {
-                    Row(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+                    Row(modifier = Modifier.align(Alignment.CenterHorizontally)
+                    ) {
                         Text(
                             text = game.title,
                             style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
@@ -286,13 +303,13 @@ fun GameCardFavorites(
                                     context,
                                     subject = subject,
                                     summary,
-                                    link,
-                                    game = game
+                                    link
                                 )
 
                             }
                         )
                     }
+                    Spacer(modifier = Modifier.size(8.dp))
                         Row(
                             modifier = Modifier
                                 .align(Alignment.CenterHorizontally)
@@ -306,42 +323,57 @@ fun GameCardFavorites(
                                 //.align(Alignment.Start)
 
                         ) {
+
                             val selectedRating = remember { mutableStateOf(game.rating) }
-                            for (i in 0 until 5) {
-                                val icon = if (i < selectedRating.value.toInt()) {
-                                    Icons.Filled.StarRate
+                            Log.e(Rate, game.rating.toString())
+                            // var rating: Float by rememberSaveable { mutableStateOf(0f) }
+                            RatingBar(
+                                modifier = Modifier
+                                    .padding(8.dp)
+                                    .align(CenterVertically)
+                                  //  .clickable { game.id }
+                                ,
 
-                                } else {
-                                    Icons.Outlined.StarBorder
-                                }
+                                value = selectedRating.value,//rating,
+                                config = RatingBarConfig(
+                                )
+                                    .activeColor(colorResource(id = R.color.orange_star))
+                                    .inactiveColor(Color.LightGray),
 
-                                IconButton(
 
-                                    onClick = {
-                                        selectedRating.value = (i + 1).toFloat()
-                                        game.rating = selectedRating.value
-                                        //to update db:
-                                        coroutineScope.launch {
+                                onValueChange = { selectedRating.value/**rating */= it},
+                                onRatingChanged = {
 
+
+                                    // selectedRating.value = (i + 1).toFloat()
+                                    gameViewModel.selectRate(gameId = game.id)
+
+                                    gameViewModel.isRate(gameId = game.id)
+
+
+
+
+                                    //  selectedRating.value = (i + 1).toFloat()
+                                    //  game.rating = selectedRating.value
+                                    //to update db:
+                                    coroutineScope.launch {
+                                        gameViewModel.updateRating(game.copy(rating = selectedRating.value))
+
+                                    /**    if (selectedRating.value/**rating*/ >=0){
                                             (gameViewModel.isRating(game.copy(rating = selectedRating.value)))
+                                        }else{
+                                            gameViewModel.isRating(game.copy(rating = 0f))
+                                        }*/
 
-                                        }
+
                                     }
-                                ) {
-                                    Icon(
-                                        icon,
-                                        tint = if (i < selectedRating.value.toInt()) {
-                                            colorResource(id = R.color.orange_star)
-
-                                        } else {
-                                            Color.Gray
-                                        },
-                                        contentDescription = null,
-
-                                    )
                                 }
-                            }
+
+                            )
+
                         }
+
+
                     }
                 }
             }

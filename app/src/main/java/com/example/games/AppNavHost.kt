@@ -14,17 +14,12 @@ import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.Pantalla1
 import com.example.games.appDestinations.Graph
 import com.example.games.model.Game
-import com.example.games.model.Genre
 import com.example.games.search.SearchScreen
 import com.example.games.search.SearchScreenDestination
 import com.example.games.search.navigateToSearch
-import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.CustomTopBar
 import com.example.games.ui.GameState
 import com.example.games.ui.GameViewModel
-import com.example.games.ui.ListedCategoryViewModel
-import com.example.games.ui.NotPlayedViewModel
-import com.example.games.ui.SharedScreen
 import com.example.games.ui.screens.DetailsScreen
 import com.example.games.ui.screens.FavoritesScreen
 import com.example.games.ui.screens.GameListCategoryScreenDestination
@@ -32,6 +27,7 @@ import com.example.games.ui.screens.GamesListCategoryScreen
 import com.example.games.ui.screens.ItemDetailsDestination
 import com.example.games.ui.screens.NotPlayedScreen
 import com.example.games.ui.screens.Played
+import com.example.games.ui.screens.SharedScreen
 import com.example.games.ui.screens.Statistics
 import com.example.games.ui.theme.GameIcons
 
@@ -43,10 +39,10 @@ fun GameNavHost(
     appState: GameState,
     modifier: Modifier = Modifier,
     startDestination: String = Pantalla1.route,
-    viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)
+    viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory) // check after migrate db and see if charge games!!
 ) {
     val navController = appState.navController
-     val viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)
+     val viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)  // check after migrate db and see if charge games!!
 
     NavHost(
         navController = navController,
@@ -54,6 +50,7 @@ fun GameNavHost(
         startDestination = startDestination,
         modifier = modifier
     ) {
+
         composable(
             /**route = Graph.BOTTOM.*/
             route = Pantalla1.route
@@ -61,13 +58,12 @@ fun GameNavHost(
 
             NotPlayedScreen(
                 //with Graph.DETAILS without Args:
-                modifier = Modifier,
-                onClick = {
+               onClick = {
                     navController.navigate("${ItemDetailsDestination.route}/${it}")
                 },
-                onGenreClick = {genre->
+               onGenreClick = {genre->
                     navController.navigate("${GameListCategoryScreenDestination.route}/${genre}")
-                }
+                },
             )
         }
 
@@ -77,13 +73,11 @@ fun GameNavHost(
                 type = NavType.IntType
             })
         ) {
-            val viewModel: DetailsViewModel = viewModel(factory = AppViewModelProvider.Factory)
 
             DetailsScreen(
                 gameDetails = Game(),
                 onClick = { navController.popBackStack() },
                 modifier,
-                viewModel,
             )
         }
 
@@ -96,11 +90,8 @@ fun GameNavHost(
         }
 
         composable(BottomBarScreen.Pantalla4.route) {
-            val viewModel: StatsViewModel = viewModel(factory = AppViewModelProvider.Factory)
 
-            Statistics(
-                viewModel,
-            )
+            Statistics()
         }
 
         composable(BottomBarScreen.Pantalla5.route) {
@@ -127,6 +118,7 @@ fun GameNavHost(
                 onBackClick = { navController.popBackStack() }
             )
         }
+
        composable(
            route = GameListCategoryScreenDestination.routeWithArgs,
            arguments = listOf(navArgument(GameListCategoryScreenDestination.itemIdArg)
@@ -144,7 +136,7 @@ fun GameNavHost(
                onBack = {  navController.popBackStack() },
                onGenreClick = {genre->
                    navController.navigate("${GameListCategoryScreenDestination.route}/${genre}")
-               }
+               },
            )
        }
     }

@@ -4,6 +4,7 @@ ADDED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\A
 INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
 INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
 INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:2:1-30:12
+MERGED from [io.github.a914-gowtham:compose-ratingbar:1.2.3] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5737b502a72e3261a4bb174e328d4a5e\transformed\compose-ratingbar-1.2.3\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\b0a152a1c3d1a6d428f66f4cb589b881\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [io.coil-kt:coil-compose:2.2.2] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\af503384a5ecc4dee82ec7920b081d96\transformed\coil-compose-2.2.2\AndroidManifest.xml:2:1-9:12
 MERGED from [io.coil-kt:coil-compose-base:2.2.2] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\3366a563fb4d1c1ffaf336e6fe0a9d40\transformed\coil-compose-base-2.2.2\AndroidManifest.xml:2:1-9:12
@@ -182,6 +183,8 @@ uses-sdk
 INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml
+MERGED from [io.github.a914-gowtham:compose-ratingbar:1.2.3] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5737b502a72e3261a4bb174e328d4a5e\transformed\compose-ratingbar-1.2.3\AndroidManifest.xml:5:5-7:41
+MERGED from [io.github.a914-gowtham:compose-ratingbar:1.2.3] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\5737b502a72e3261a4bb174e328d4a5e\transformed\compose-ratingbar-1.2.3\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\b0a152a1c3d1a6d428f66f4cb589b881\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\b0a152a1c3d1a6d428f66f4cb589b881\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
 MERGED from [io.coil-kt:coil-compose:2.2.2] C:\Users\Willkommen\AndroidStudioProjects\jdk-11.0.17\caches\transforms-3\af503384a5ecc4dee82ec7920b081d96\transformed\coil-compose-2.2.2\AndroidManifest.xml:5:5-7:41

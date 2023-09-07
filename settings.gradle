@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Games"
 include ':app'
+include ':ratingBar'

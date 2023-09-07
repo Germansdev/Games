@@ -10,7 +10,8 @@ import kotlinx.serialization.Serializable
 /**
  * External data layer representation of a Game
  */
-/**
+@Serializable
+@Entity(tableName = "Items")
 data class Game(
     //  NOT USED YET:
     val developer: String = "",
@@ -45,6 +46,6 @@ data class Game(
 
     )
 
-*/
+
 
 

@@ -4,6 +4,7 @@ import com.example.games.model.Game
 import com.example.games.model.GameEntity
 import com.example.games.model.Genre
 import com.example.games.model.asExternalModel
+
 import com.example.games.network.GameApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -28,7 +29,7 @@ class OfflineItemsRepository(
     override fun searchAllGamesStream(query: String): Flow<List<Game>> =
         itemDao.searchAllGames(query)
 
-    override fun getAllItemsStream(): Flow<List<Game>> = itemDao.getAllItems()
+    override fun getAllItemsStream(): Flow<List<Game>> = itemDao. getAllItems()
         .map {it.map(GameEntity::asExternalModel) }
 
     override fun getCategories(): Flow<List<Genre>> = itemDao.getCategories()

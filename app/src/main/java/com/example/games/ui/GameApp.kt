@@ -19,10 +19,18 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -46,7 +54,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
@@ -66,7 +76,7 @@ import com.example.games.ui.badges.SharedBadgeViewModel
 import com.example.games.ui.badges.StatsBadgeViewModel
 import com.example.games.ui.theme.GameIcons
 
-private const val TAg: String = "badge"
+
 
 @ExperimentalLayoutApi
 @OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
@@ -80,7 +90,6 @@ fun GameApp(
         windowSizeClass = windowSizeClass
     )
 ) {
-    val navController = rememberNavController()
 
     var showSettingsDialog by rememberSaveable {
         mutableStateOf(false)
@@ -101,7 +110,6 @@ fun GameApp(
             if (appState.shouldShowBottomBar) {
 
                 BottomBar(
-                    navController = navController,
                     destinations = appState.bottomBarScreens,
                     onNavigateToDestination = appState::navigateToBottomBarScreen,
                     currentDestination = appState.currentDestination,
@@ -143,8 +151,8 @@ fun GameApp(
                             actionIcon = GameIcons.Settings,
                             actionIconContentDescription = null,
                             colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                                containerColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
-                                //colorScheme.surface
+                            containerColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
+
                             ),
                             onActionClick = { showSettingsDialog = true },
                             onNavigationClick = { appState.navController.navigateToSearch() },
@@ -157,24 +165,25 @@ fun GameApp(
                         startDestination = Pantalla1.route,
                     )
                 }
-
             }
         }
     }
 }
 
-
+/**
+  *This used in GameApp and AppNavHost see what happend and reduce code
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomTopBar(
     //with CenterAlignedTopAppBar:
+    modifier: Modifier = Modifier,
     @StringRes titleRes: Int,
     genre: String = "",
     navigationIcon: ImageVector,
     navigationIconContentDescription: String?,
     actionIcon: ImageVector,
     actionIconContentDescription: String?,
-    modifier: Modifier = Modifier,
     colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(),
     onNavigationClick: () -> Unit = {},
     onActionClick: () -> Unit = {},
@@ -217,15 +226,16 @@ fun CustomTopBar(
 
 /**
  * Top app bar with action, displayed on the right
+ * this called in GameListCategoryScreen and DetailsScreen
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomTopBar(
+    modifier: Modifier = Modifier,
     @StringRes titleRes: Int,
     genre: String = "",
     actionIcon: ImageVector,
     actionIconContentDescription: String?,
-    modifier: Modifier = Modifier,
     colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(),
     onActionClick: () -> Unit = {},
 ) {
@@ -257,18 +267,56 @@ fun CustomTopBar(
 //END WITH SPECIAL TOP BAR
 
 //BOTTOM NAVIGATION:
-
+/**
 @Composable
 fun currentRoute(navController: NavHostController): String? {
     val entry by navController.currentBackStackEntryAsState()
     return entry?.destination?.route
-}
+}*/
+
+@Composable
+fun Badge(
+    badgeCount: Int,
+   // modifier: Modifier =Modifier,
+) {
+
+    BadgedBox(
+
+        modifier = Modifier
+            .offset(x = (12).dp, y = (-4).dp)
+            .padding(2.dp),
+
+        badge = {
+
+            if (badgeCount != 0) {
+                Text(
+                    text = badgeCount.toString(),
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 10.sp,
+                    textAlign = TextAlign.Center,
+                    softWrap = true,
+                    modifier = Modifier
+                        .wrapContentWidth()
+                        .wrapContentHeight()
+                        .wrapContentSize()
+                        .padding(12.dp)
+                        .width(17.dp)
+                        .height(16.dp)
+                        .clip(CircleShape)
+                        .background(if (badgeCount != 0) Color.Red else Color.Transparent)
+                )
+            }
+        },
+        content = {}
+    )
+    }
 
 
 //adapt the Bottom bar to include the functionality of badges:
 @Composable
 fun BottomBar(
-    navController: NavHostController,
+ //   navController: NavHostController,
     destinations: List<BottomBarScreen>,
     onNavigateToDestination: (BottomBarScreen) -> Unit,
     currentDestination: NavDestination?,
@@ -292,13 +340,18 @@ fun BottomBar(
     val badgeCountStats = statsB.value
     val badgeCountShared = sharedB.value
 
-    modifier
-        .background(color = colorScheme.background)
+
+    Divider(
+        modifier = Modifier.fillMaxWidth(),
+        color = if (isSystemInDarkTheme()) Color.White else Color.DarkGray,
+        startIndent = 4.dp
+    )
 
     androidx.compose.material3.BottomAppBar(
         containerColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
         contentColor = if (isSystemInDarkTheme()) Color.White else Color.DarkGray,
         modifier = Modifier
+
             .background(colorScheme.background)
             //.padding(10.dp)
             .clip(RoundedCornerShape(8.dp)),
@@ -306,12 +359,27 @@ fun BottomBar(
         ) {
         /**
         BottomNavigation(
-        backgroundColor = colorScheme.surface,
-        contentColor = colorScheme.onSurface,
+        backgroundColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
+        contentColor = if (isSystemInDarkTheme()) Color.White else Color.DarkGray,
+        modifier = Modifier
+        .background(colorScheme.background)
+        //.padding(10.dp)
+        .clip(RoundedCornerShape(8.dp)),
         ) {*/
         //with NavigationBar:
 
+    /**    destinations.forEachIndexed { index, bottomBarScreen ->
+           // val badgeCount = bottomBarScreen.badgeCount
+            //val isBadgeVisible = badgeCount != 0
+
+
+        }*/
+
+
         destinations.forEach { screen ->
+       /**     val badgeCount = screen.badgeCount
+            val isBadgeVisible = badgeCount != 0 */
+
             val badgeCounts = when (screen) {
 
                 Pantalla1 -> {
@@ -340,26 +408,8 @@ fun BottomBar(
 
                 icon = {
 
-                    BadgedBox(
+                    Badge(badgeCount = badgeCounts.toInt() )
 
-                        badge = {
-
-                            if (screen.badgeCount != null) {
-
-                                Badge() {
-
-                                    Text(text = badgeCounts)
-
-                                }
-
-                            } else if (screen.hasNews) {
-
-                                Badge()
-                            }
-
-                        }
-
-                    ) {
                         Icon(
                             imageVector = if (currentDestination.isTopLevelDestinationInHierarchy(
                                     screen
@@ -368,7 +418,6 @@ fun BottomBar(
                             contentDescription = screen.title,
                             modifier = Modifier
                         )
-                    }
                 },
                 label = { Text(screen.title, fontWeight = FontWeight.Bold) },
                 alwaysShowLabel = true,
