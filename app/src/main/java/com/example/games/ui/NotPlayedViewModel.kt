@@ -5,8 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.games.data.ItemsRepository
 import com.example.games.model.Game
 import com.example.games.model.Genre
-import com.example.games.ui.badges.BadgeUiState
-import com.example.games.ui.badges.ViewModelWithBadgeData
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
@@ -15,6 +13,7 @@ import kotlinx.coroutines.flow.stateIn
 
 
 class NotPlayedViewModel(itemsRepository: ItemsRepository) : ViewModel() {
+
     val notPlayedUiState: StateFlow<NotPlayedUiState> =
         itemsRepository.getAllNotPlayedStream(isPlayed = false)
             .filterNotNull()
@@ -31,6 +30,7 @@ class NotPlayedViewModel(itemsRepository: ItemsRepository) : ViewModel() {
      *  with its concern
      */
 
+
         val genreUiState: StateFlow<GenreUiState> =
             itemsRepository.getCategories()
                 .filterNotNull()
@@ -46,16 +46,20 @@ class NotPlayedViewModel(itemsRepository: ItemsRepository) : ViewModel() {
 
 
 
+
+
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L
     }
 
     }
-    data class NotPlayedUiState(val notPlayedL: List<Game?> = listOf())
-    data class GenreUiState(val genreList: List<Genre> = listOf())
 
 
-    fun upDateBadge(notPlayedL: List<Game?>): Int {
+    data class NotPlayedUiState( val notPlayedL: List<Game?> = listOf())
+//    data class GenreUiState( val genreList: List<Genre> = listOf())
+
+
+ /**   fun upDateBadge(notPlayedL: List<Game?>): Int {
         // BottomBarScreen.Pantalla1.badgeCount = notPlayedL.size
         return notPlayedL.size
-    }
+    }*/

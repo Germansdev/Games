@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
+import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -17,6 +18,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ButtonDefaults
@@ -51,6 +53,7 @@ import com.example.games.appDestinations.NavigationDestination
 import com.example.games.model.Game
 import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.CustomTopBar
+import com.example.games.ui.screens.ItemDetailsDestination.titleRes
 
 private const val TAG: String = "DetailScreen"
 
@@ -93,6 +96,10 @@ fun DetailsScreen(
 
     Scaffold(
         topBar = {
+
+            /**
+             * original, with bounce:
+              */
             CustomTopBar(
                 titleRes = R.string.details,
                 actionIcon = Icons.Default.ArrowBack,
@@ -103,6 +110,7 @@ fun DetailsScreen(
                     //colorScheme.surface
                 ),
             )
+
         }) { innerPadding ->
         ItemDetailsBody(
             gameDetailsUiState = uiState.value,

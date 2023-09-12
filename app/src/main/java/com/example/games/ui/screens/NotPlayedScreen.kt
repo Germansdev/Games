@@ -60,25 +60,26 @@ import com.example.games.R
 import com.example.games.model.Game
 import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.GameViewModel
+import com.example.games.ui.HomeUiState
 import com.example.games.ui.NotPlayedUiState
 import com.example.games.ui.NotPlayedViewModel
 import com.gowtham.ratingbar.RatingBar
 import com.gowtham.ratingbar.RatingBarConfig
 import kotlinx.coroutines.launch
 
-private const val Tag: String = "favorite"
-private const val TAG: String = "Not Played"
 
+private const val TAG: String = "Not Played"
 
 @Composable
 fun NotPlayedScreen(
     viewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
     onClick: (Int) -> Unit,
     onGenreClick: (String) -> Unit,
+ //   gameViewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory)
 
 ) {
 
-    val notPlayedUiState = viewModel.notPlayedUiState.collectAsStateWithLifecycle()
+     val notPlayedUiState = viewModel.notPlayedUiState.collectAsStateWithLifecycle()
 
     NotPlayedScreenContent(
         notPlayedL = notPlayedUiState.value.notPlayedL as List<Game>,
@@ -96,9 +97,6 @@ fun NotPlayedScreenContent(
     onGenreClick: (String) -> Unit,
 
 ) {
-
-// Filter games based on the selected genre
- //   val genreSize = gamesCat.size
 
     Column(
         modifier = modifier
@@ -122,9 +120,7 @@ fun NotPlayedScreenContent(
 
     ) {
 
-        myLazzyRow(
-            onGenreClick = onGenreClick,
-        )
+        MyLazyRow( onGenreClick = onGenreClick )
 
         d(TAG, notPlayedL.size.toString())
 
@@ -175,21 +171,26 @@ fun NotPlayedScreenContent(
 }
 
 @Composable
-fun myLazzyRow(
+fun MyLazyRow(
     onGenreClick: (String) -> Unit,
+   // gameViewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ) {
 
     val notPlayedViewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory)
-    val notPlayedUiState: State<NotPlayedUiState> =
-        notPlayedViewModel.notPlayedUiState.collectAsStateWithLifecycle()
+    val notPlayedUiState: State<NotPlayedUiState> = notPlayedViewModel.notPlayedUiState.collectAsStateWithLifecycle()
+
+    //val notPlayedL = notPlayedUiState.value.notPlayedL
+
     val listed = notPlayedUiState.value.notPlayedL
+
     val eachSizeGenre = listed.groupingBy { it!!.genre }.eachCount()
+
+    //this is only to see in log:
     for (i in eachSizeGenre) {
-        println(
-            /**"${eachsizeGenre.keys} =>"*/
-            "${eachSizeGenre.values}"
-        )
+        println("${eachSizeGenre.values}"  )
     }
+
+    //to generate list of pair:
     val listEachSizeGenre = eachSizeGenre.toList()
 
     Row(
@@ -197,48 +198,50 @@ fun myLazzyRow(
             .height(60.dp)
 
     ) {
-        LazyRow(
-            modifier = Modifier,
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
 
-            ) {
-            items(
-                items = listEachSizeGenre
-            ) { pair ->
+            LazyRow(
+                modifier = Modifier,
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
 
-                MyCard(
-                    onGenreClick = onGenreClick,
-                    pair = pair,
-                )
+                ) {
+                items(
+                    items = listEachSizeGenre
+                ) { pair ->
+
+                    MyCard(
+                        onGenreClick = onGenreClick,
+                        pair = pair,
+                    )
+                }
             }
         }
     }
-}
+
 
 @Composable
 fun MyCard(
     onGenreClick: (String) -> Unit,
     pair: Pair<String, Int>,
-    viewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
+   // viewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
+    gameViewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory),
+    modifier: Modifier = Modifier,
 ) {
 
-    val notPlayedUiState: State<NotPlayedUiState> =
-        viewModel.notPlayedUiState.collectAsStateWithLifecycle()
-    val listed = notPlayedUiState.value.notPlayedL
+    val homeUiState: State<HomeUiState> = gameViewModel.homeUiState.collectAsStateWithLifecycle()
+    val listed = homeUiState.value.itemList
+
     val eachSizeGenre = listed.groupingBy { it!!.genre }.eachCount()
     for (i in eachSizeGenre) {
-        println(
-            /**"${eachsizeGenre.keys} =>"*/
-            "${eachSizeGenre.values}"
-        )
+        println( "${eachSizeGenre.values}" )
     }
+
+    Modifier.clip(RoundedCornerShape(25.dp))
 
     OutlinedCard(
         shape = RoundedCornerShape(25.dp),
         modifier = Modifier
+            .clip(RoundedCornerShape(25.dp))
             .height(60.dp)
-            .wrapContentWidth()
-            .padding(start = 2.dp, end = 2.dp, bottom = 8.dp)
             .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
             .clickable {
                 onGenreClick(pair.first)
@@ -307,8 +310,7 @@ fun GameCardNotPlayed(
     val coroutineScope = rememberCoroutineScope()
 
     ElevatedCard(
-        modifier = Modifier//modifier
-            //  .clickable { onClick(game) }
+        modifier = Modifier
             .fillMaxWidth()
             .padding(top = 5.dp, bottom = 5.dp, start = 10.dp, end = 10.dp),
         elevation = CardDefaults.cardElevation(5.dp),
@@ -363,7 +365,7 @@ fun GameCardNotPlayed(
                             false -> false
                         },
                         onFavoriteClick = {
-                            e(Tag, game.title)
+                         //   e(Tag, game.title)
                             gameViewModel.selectFavorite(gameId = game.id)
 
                             gameViewModel.isFavorite(gameId = game.id)

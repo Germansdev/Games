@@ -23,13 +23,17 @@ import com.example.games.ui.GameViewModel
 import com.example.games.ui.screens.DetailsScreen
 import com.example.games.ui.screens.FavoritesScreen
 import com.example.games.ui.screens.GameListCategoryScreenDestination
+import com.example.games.ui.screens.GameListCategoryScreenDestinationPlayed
 import com.example.games.ui.screens.GamesListCategoryScreen
+import com.example.games.ui.screens.GamesListCategoryScreenPlayed
 import com.example.games.ui.screens.ItemDetailsDestination
 import com.example.games.ui.screens.NotPlayedScreen
 import com.example.games.ui.screens.Played
 import com.example.games.ui.screens.SharedScreen
 import com.example.games.ui.screens.Statistics
 import com.example.games.ui.theme.GameIcons
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -42,7 +46,7 @@ fun GameNavHost(
     viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory) // check after migrate db and see if charge games!!
 ) {
     val navController = appState.navController
-     val viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)  // check after migrate db and see if charge games!!
+    val viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory)  // check after migrate db and see if charge games!!
 
     NavHost(
         navController = navController,
@@ -86,7 +90,11 @@ fun GameNavHost(
         }
 
         composable(BottomBarScreen.Pantalla3.route) {
-            Played()
+            Played(
+                onGenreClick = {genre->
+                    navController.navigate("${GameListCategoryScreenDestinationPlayed.route}/${genre}")
+                },
+            )
         }
 
         composable(BottomBarScreen.Pantalla4.route) {
@@ -119,6 +127,27 @@ fun GameNavHost(
             )
         }
 
+        composable(
+            route = GameListCategoryScreenDestinationPlayed.routeWithArgs,
+            arguments = listOf(navArgument(GameListCategoryScreenDestinationPlayed.itemIdArg)
+            {type = NavType.StringType }    )
+        ){
+
+                backStackEntry ->
+            val gameGenre = backStackEntry.arguments?.getString(GameListCategoryScreenDestinationPlayed.itemIdArg)
+            GamesListCategoryScreenPlayed(
+                gameGenre = gameGenre ?: "",
+                modifier = Modifier,
+                onClick = {
+                    navController.navigate("${ItemDetailsDestination.route}/${it}")
+                },
+                onBack = {  navController.popBackStack() },
+                onGenreClick = {genre->
+                    navController.navigate("${GameListCategoryScreenDestinationPlayed.route}/${genre}")
+                },
+            )
+        }
+
        composable(
            route = GameListCategoryScreenDestination.routeWithArgs,
            arguments = listOf(navArgument(GameListCategoryScreenDestination.itemIdArg)
@@ -130,10 +159,8 @@ fun GameNavHost(
            GamesListCategoryScreen(
                gameGenre = gameGenre ?: "",
                modifier = Modifier,
-               onClick = {
-                   navController.navigate("${ItemDetailsDestination.route}/${it}")
-               },
-               onBack = {  navController.popBackStack() },
+               onClick = {navController.navigate("${ItemDetailsDestination.route}/${it}" )},
+               onBack = { navController.popBackStack() },
                onGenreClick = {genre->
                    navController.navigate("${GameListCategoryScreenDestination.route}/${genre}")
                },

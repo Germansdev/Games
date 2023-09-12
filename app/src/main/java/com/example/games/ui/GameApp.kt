@@ -87,23 +87,34 @@ import com.example.games.ui.theme.GameIcons
 fun GameApp(
     windowSizeClass: WindowSizeClass,
     appState: GameState = rememberGameAppState(
-        windowSizeClass = windowSizeClass
-    )
+        windowSizeClass = windowSizeClass,
+    ),
+    scaffoldState: ScaffoldState = rememberScaffoldState()
+
 ) {
+    //val navController = rememberNavController()
+
 
     var showSettingsDialog by rememberSaveable {
         mutableStateOf(false)
     }
 
-    //with NavigationBar:
-    /**   var bottomBarState by rememberSaveable{
+  /**  //with NavigationBar:
+       var bottomBarState by rememberSaveable{
     mutableStateOf(0)
     }*/
 
+
     Scaffold(
+        scaffoldState = scaffoldState,
 
         backgroundColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
         contentColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
+
+
+
+
+
 
         bottomBar = {
 
@@ -121,6 +132,7 @@ fun GameApp(
                 )
             }
         },
+
     ) { padding ->
 
         Surface(
@@ -142,6 +154,7 @@ fun GameApp(
 
                 ) {
                 Column(Modifier.fillMaxSize()) {
+
                     val destination = appState.currentTopLevelDestination
                     if (destination != null) {
                         CustomTopBar(
@@ -170,6 +183,7 @@ fun GameApp(
     }
 }
 
+
 /**
   *This used in GameApp and AppNavHost see what happend and reduce code
  */
@@ -179,8 +193,8 @@ fun CustomTopBar(
     //with CenterAlignedTopAppBar:
     modifier: Modifier = Modifier,
     @StringRes titleRes: Int,
-    genre: String = "",
-    navigationIcon: ImageVector,
+    genre: String? = "",
+    navigationIcon: ImageVector?,
     navigationIconContentDescription: String?,
     actionIcon: ImageVector,
     actionIconContentDescription: String?,
@@ -192,24 +206,27 @@ fun CustomTopBar(
     CenterAlignedTopAppBar(
         title = {
             androidx.compose.material3.Text(text = stringResource(id = titleRes))
-            if (genre.isNotEmpty()) {
-                Text(
-                    text = "Genre: $genre",
-                    style = MaterialTheme.typography.titleLarge,
-                    color = if (isSystemInDarkTheme()) Color.White else Color.Black,
-                )
-
+            if (genre != null) {
+                if (genre.isNotEmpty()) {
+                    Text(
+                        text = "Genre:/bar1 $genre",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = if (isSystemInDarkTheme()) Color.White else Color.Black,
+                    )
+                }
             }
         },
         navigationIcon = {
             androidx.compose.material3.IconButton(onClick = onNavigationClick) {
-                androidx.compose.material3.Icon(
-                    imageVector = navigationIcon,
-                    contentDescription = navigationIconContentDescription,
-                    tint = colorScheme.onSurface,
-                )
+                if (navigationIcon != null) {
+                    androidx.compose.material3.Icon(
+                        imageVector = navigationIcon,
+                        contentDescription = navigationIconContentDescription,
+                        tint = colorScheme.onSurface,
+                    )
+                }
             }
-        },
+        }, 
         actions = {
             androidx.compose.material3.IconButton(onClick = onActionClick) {
                 androidx.compose.material3.Icon(
@@ -244,7 +261,7 @@ fun CustomTopBar(
             androidx.compose.material3.Text(text = stringResource(id = titleRes))
             if (genre.isNotEmpty()) {
                 Text(
-                    text = " Genre: $genre",
+                    text = " Genre: /**$genre*/",
                     style = MaterialTheme.typography.titleLarge,
                     color = if (isSystemInDarkTheme()) Color.White else Color.Black,
                 )
@@ -277,8 +294,7 @@ fun currentRoute(navController: NavHostController): String? {
 @Composable
 fun Badge(
     badgeCount: Int,
-   // modifier: Modifier =Modifier,
-) {
+ ) {
 
     BadgedBox(
 
@@ -353,7 +369,6 @@ fun BottomBar(
         modifier = Modifier
 
             .background(colorScheme.background)
-            //.padding(10.dp)
             .clip(RoundedCornerShape(8.dp)),
 
         ) {
@@ -377,8 +392,6 @@ fun BottomBar(
 
 
         destinations.forEach { screen ->
-       /**     val badgeCount = screen.badgeCount
-            val isBadgeVisible = badgeCount != 0 */
 
             val badgeCounts = when (screen) {
 
@@ -479,7 +492,7 @@ class GameState(
         }
 
     fun navigateToBottomBarScreen(bottomBarScreen: BottomBarScreen) {
-        //   trace("Navigation: ${topLevelDestination.name}") {
+
         /**val bottomBarScreens/**topLevelNavOptions*/ =*/
         navOptions {
             // Pop up to the start destination of the graph to

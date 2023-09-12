@@ -14,9 +14,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material3.CardDefaults
@@ -54,25 +56,45 @@ import kotlinx.coroutines.launch
 private const val TAG: String = "Played"
 @Composable
 fun Played(
-    viewModel: PlayedViewModel = viewModel(factory = AppViewModelProvider.Factory)
+    playedViewModel: PlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
+   // gameGenre: String,
+    onGenreClick: (String) -> Unit,
 ) {
-    val playedUiState = viewModel.playedUiState.collectAsState()
+
+  //  val viewModel: ListedCategoryViewModel = viewModel(factory = AppViewModelProvider.Factory)
+   // val gameListCategoryUiState = viewModel.gamesListUiState.collectAsState()
+
+    val playedUiState = playedViewModel.playedUiState.collectAsState()
+
     PlayedScreenContent(
         playedL = playedUiState.value.playedL as List<Game>,
         modifier = Modifier,
+   //     gameListCategoryUiState = gameListCategoryUiState.value,
+        onGenreClick = onGenreClick,
     )
 }
 @Composable
 fun PlayedScreenContent(
     playedL: List<Game>,
     modifier: Modifier = Modifier,
+ //   gameListCategoryUiState: GameListCategoryUiState,
+    onGenreClick: (String) -> Unit,
 ) {
+
+//    val gamesCat = gameListCategoryUiState.gamesCat
+ //   val gamesCatNotPlayed = gamesCat.filter { gamesCat.contains(it.copy(isPlayed = true)) }
+
     Column(
         modifier = modifier
             .fillMaxSize(),
          //   .padding(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+        MyLazyRowPlayed(
+            onGenreClick = onGenreClick,
+
+            )
+
         Row(
             modifier = Modifier
             .background(color = androidx.compose.material3.MaterialTheme.colorScheme.background)
@@ -89,6 +111,7 @@ fun PlayedScreenContent(
                     .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
             )*/
         }
+
 
         if (playedL.isEmpty()) {
             androidx.compose.material.Text(
@@ -115,6 +138,53 @@ fun PlayedScreenContent(
         }
     }
     Log.d(TAG, playedL.size.toString() )
+}
+
+@Composable
+fun MyLazyRowPlayed(
+    onGenreClick: (String) -> Unit
+
+) {
+    val playedViewModel: PlayedViewModel = viewModel(factory = AppViewModelProvider.Factory)
+    val playedUiState = playedViewModel.playedUiState.collectAsState()
+    val listed = playedUiState.value.playedL
+
+    val eachSizeGenre = listed.groupingBy { it!!.genre }.eachCount()
+    for (i in eachSizeGenre) {
+        println(
+            /**"${eachsizeGenre.keys} =>"*/
+            "${eachSizeGenre.values}"
+        )
+    }
+    val listEachSizeGenre = eachSizeGenre.toList()
+
+    Row(
+        modifier = Modifier
+            .height(60.dp)
+
+    ) {
+        /**     if (itemList.isEmpty()) {
+        androidx.compose.material.Text(
+        text = stringResource(R.string.no_item_description),
+        style = MaterialTheme.typography.subtitle2
+        )
+        } else {*/
+        LazyRow(
+            modifier = Modifier,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+
+            ) {
+            items(
+                items = listEachSizeGenre
+            ) { pair ->
+
+                MyCard(
+                    onGenreClick = onGenreClick,
+                    pair = pair,
+                )
+            }
+        }
+    }
 }
 
 @Composable
