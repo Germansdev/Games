@@ -7,7 +7,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
-import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
@@ -16,10 +15,9 @@ import com.example.games.data.GameRepository
 import com.example.games.data.ItemsRepository
 import com.example.games.model.Game
 import com.example.games.model.Genre
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -28,7 +26,8 @@ import java.io.IOException
 
 
 sealed interface GameUiState {
-    data class Success(val games: List<Game> = listOf()) : GameUiState
+    data class Success(
+        val games: List<Game> = listOf()) : GameUiState
     object Error : GameUiState
     object Loading : GameUiState
 }
@@ -66,6 +65,7 @@ class GameViewModel(
     init {
         getGames()
         getItems()
+
       //  getShooterGames()
     //generateCategory()
 
@@ -92,7 +92,8 @@ class GameViewModel(
      */
 
     val homeUiState: StateFlow<HomeUiState> =
-        itemsRepository.getAllItemsStream().map { HomeUiState() }
+        itemsRepository.getAllItemsStream()
+            .map { HomeUiState() }
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
@@ -219,6 +220,30 @@ class GameViewModel(
         return _rate.value.contains(gameId)
     }
 
+    val genreUiState: StateFlow<GenreUiState> =
+        itemsRepository.getCategories()
+            .filterNotNull()
+            .map {
+                GenreUiState(it)
+            }
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
+                initialValue = GenreUiState()
+
+            )
+
+ /**   val listUiState: StateFlow<ListUiState> =
+        itemsRepository.getAllItemsStream()
+            .map {
+                ListUiState()
+            }
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
+                initialValue = ListUiState()
+            )
+*/
 
 
     companion object {
@@ -236,6 +261,8 @@ class GameViewModel(
         }
         private const val TIMEOUT_MILLIS = 5_000L
     }
+
+
 }
 
 /**
@@ -244,3 +271,8 @@ class GameViewModel(
 data class HomeUiState(
     val itemList: List<Game> = listOf()
 )
+data class GenreUiState( val genreList: List<Genre> = listOf())
+
+/**
+data class ListUiState( val itemList: List<Game> = listOf())
+        */
