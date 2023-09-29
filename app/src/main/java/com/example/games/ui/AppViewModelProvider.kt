@@ -2,6 +2,7 @@ package com.example.games.ui
 
 
 import android.app.Application
+import androidx.datastore.dataStore
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
@@ -10,12 +11,16 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.games.DetailsViewModel
 import com.example.games.GameApplication
 import com.example.games.StatsViewModel
+import com.example.games.data.OffLineUserDataRepository
+import com.example.games.model.UIModePreference
+import com.example.games.model.UserPreferences
 import com.example.games.search.SearchViewModel
 import com.example.games.ui.badges.FavoritesBadgeViewModel
 import com.example.games.ui.badges.NotPlayedBadgeViewModel
 import com.example.games.ui.badges.PlayedBadgeViewModel
 import com.example.games.ui.badges.SharedBadgeViewModel
 import com.example.games.ui.badges.StatsBadgeViewModel
+
 
 
 /**
@@ -43,6 +48,7 @@ object AppViewModelProvider {
         initializer {
             PlayedViewModel(
                 inventoryApplication().container.itemsRepository,
+              //  savedStateHandle = this.createSavedStateHandle()
             )
         }
 
@@ -55,6 +61,7 @@ object AppViewModelProvider {
         initializer {
             NotPlayedViewModel(
                 inventoryApplication().container.itemsRepository,
+             //   savedStateHandle = this.createSavedStateHandle()
             )
         }
 
@@ -84,6 +91,17 @@ object AppViewModelProvider {
                 this.createSavedStateHandle()
             )
         }
+
+        initializer {
+            ListedCategoryPlayedViewModel(
+                inventoryApplication().container.itemsRepository,
+                this.createSavedStateHandle()
+            )
+        }
+
+
+        /**INITIALIZER BADGES:*/
+
         initializer {
             NotPlayedBadgeViewModel(
                 inventoryApplication().container.itemsRepository
@@ -112,6 +130,20 @@ object AppViewModelProvider {
                 inventoryApplication().container.itemsRepository
             )
         }
+ /**       initializer {
+            ThemeViewModel()
+        }*/
+
+
+
+        //INITIALIZER SETTING VIEWMODEL:
+   /**     initializer {
+            SettingsViewModel(
+                userDataRepository =
+                //UIModePreference(preferencesDataStore())
+            )
+        }*/
+
     }
 }
 

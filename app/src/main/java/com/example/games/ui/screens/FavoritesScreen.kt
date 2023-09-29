@@ -52,6 +52,7 @@ import com.example.games.model.Game
 import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.FavoritesViewModel
 import com.example.games.ui.GameViewModel
+
 import com.gowtham.ratingbar.RatingBar
 import com.gowtham.ratingbar.RatingBarConfig
 import kotlinx.coroutines.launch
@@ -78,21 +79,24 @@ fun FavoritesScreenContent(
 ) {
     Column( modifier = modifier
 
-        .background(
+    /**    .background(
             brush = Brush.verticalGradient(
                 if (isSystemInDarkTheme()) {
                     listOf(
-                        Color.Black,
-                        Color.Blue
+                        DarkColors.scrim,
+                        DarkColors.surfaceVariant
+                        // Color.Black,
+                        //Color.Blue
                     )
                 } else {
                     listOf(
-                        Color.Yellow,
-                        Color.White
+                        LightColors.scrim,
+                        LightColors.scrim
                     )
                 }
             )
-        )
+        )*/
+
         .fillMaxSize()){
 
         Row(

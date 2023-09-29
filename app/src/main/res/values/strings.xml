@@ -39,6 +39,13 @@
     <string name="dark_mode_config_light">Light</string>
     <string name="dark_mode_config_system_default">default</string>
     <string name="games_list"> </string>
-
+    <string name="feedback">Feedback</string>
+    <string name="auto">Auto</string>
+    <string name="review_code">Review Code</string>
+    <string name="send_mail">Send me a Mail</string>
+    <string name="navigation_drawer">navigation_drawer</string>
+    <string name="favorite">Favorites</string>
+    <string name="playedIc">Played</string>
+    <string name="sharedIC">Shared</string>
 
 </resources>

@@ -220,7 +220,7 @@ class GameViewModel(
         return _rate.value.contains(gameId)
     }
 
-    val genreUiState: StateFlow<GenreUiState> =
+/**    val genreUiState: StateFlow<GenreUiState> =
         itemsRepository.getCategories()
             .filterNotNull()
             .map {
@@ -231,7 +231,7 @@ class GameViewModel(
                 started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
                 initialValue = GenreUiState()
 
-            )
+            )*/
 
  /**   val listUiState: StateFlow<ListUiState> =
         itemsRepository.getAllItemsStream()
@@ -271,7 +271,7 @@ class GameViewModel(
 data class HomeUiState(
     val itemList: List<Game> = listOf()
 )
-data class GenreUiState( val genreList: List<Genre> = listOf())
+//data class GenreUiState( val genreList: List<Genre> = listOf())
 
 /**
 data class ListUiState( val itemList: List<Game> = listOf())

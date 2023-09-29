@@ -1,71 +1,77 @@
 package com.example.games.ui.screens
 
 
-import android.annotation.SuppressLint
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.util.Log.*
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Share
-import androidx.compose.material.icons.outlined.FavoriteBorder
-import androidx.compose.material.icons.outlined.Games
-import androidx.compose.material.icons.outlined.Share
-import androidx.compose.material.icons.rounded.Games
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ElevatedCard
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedCard
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
-import androidx.compose.ui.Alignment.Companion.CenterVertically
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
-import coil.compose.AsyncImage
-import coil.request.ImageRequest
-import com.example.games.R
-import com.example.games.model.Game
-import com.example.games.ui.AppViewModelProvider
-import com.example.games.ui.GameViewModel
-import com.example.games.ui.HomeUiState
-import com.example.games.ui.NotPlayedUiState
-import com.example.games.ui.NotPlayedViewModel
-import com.gowtham.ratingbar.RatingBar
-import com.gowtham.ratingbar.RatingBarConfig
-import kotlinx.coroutines.launch
+ import android.annotation.SuppressLint
+ import android.content.Context
+ import android.content.Intent
+ import android.net.Uri
+ import android.util.Log.*
+ import androidx.compose.foundation.background
+ import androidx.compose.foundation.clickable
+ import androidx.compose.foundation.isSystemInDarkTheme
+ import androidx.compose.foundation.layout.*
+ import androidx.compose.foundation.lazy.LazyColumn
+ import androidx.compose.foundation.lazy.LazyRow
+ import androidx.compose.foundation.lazy.items
+ import androidx.compose.foundation.shape.CircleShape
+ import androidx.compose.foundation.shape.RoundedCornerShape
+ import androidx.compose.material.MaterialTheme
+ import androidx.compose.material.MaterialTheme.colors
+ import androidx.compose.material.icons.Icons
+ import androidx.compose.material.icons.filled.Add
+ import androidx.compose.material.icons.filled.Favorite
+ import androidx.compose.material.icons.filled.Share
+ import androidx.compose.material.icons.outlined.FavoriteBorder
+ import androidx.compose.material.icons.outlined.Games
+ import androidx.compose.material.icons.outlined.Share
+ import androidx.compose.material.icons.rounded.Games
+ import androidx.compose.material3.CardDefaults
+ import androidx.compose.material3.ColorScheme
+ import androidx.compose.material3.ElevatedCard
+ import androidx.compose.material3.Icon
+ import androidx.compose.material3.IconButton
+ import androidx.compose.material3.MaterialTheme.colorScheme
+ import androidx.compose.material3.OutlinedCard
+ import androidx.compose.material3.Text
+ import androidx.compose.runtime.Composable
+ import androidx.compose.runtime.State
+ import androidx.compose.runtime.mutableStateOf
+ import androidx.compose.runtime.remember
+ import androidx.compose.runtime.rememberCoroutineScope
+ import androidx.compose.ui.Alignment
+ import androidx.compose.ui.Alignment.Companion.CenterHorizontally
+ import androidx.compose.ui.Alignment.Companion.CenterVertically
+ import androidx.compose.ui.Modifier
+ import androidx.compose.ui.draw.clip
+ import androidx.compose.ui.graphics.Color
+ import androidx.compose.ui.layout.ContentScale
+ import androidx.compose.ui.platform.LocalContext
+ import androidx.compose.ui.res.colorResource
+ import androidx.compose.ui.res.painterResource
+ import androidx.compose.ui.res.stringResource
+ import androidx.compose.ui.text.font.FontWeight
+ import androidx.compose.ui.text.style.TextAlign
+
+
+ import androidx.compose.ui.text.style.TextOverflow
+ import androidx.compose.ui.unit.dp
+ import androidx.compose.ui.unit.sp
+ import androidx.lifecycle.compose.collectAsStateWithLifecycle
+ import androidx.lifecycle.viewmodel.compose.viewModel
+ import coil.compose.AsyncImage
+ import coil.request.ImageRequest
+ import com.example.games.R
+ import com.example.games.appDestinations.GamesNavigationType
+ import com.example.games.model.Game
+ import com.example.games.ui.AppViewModelProvider
+ import com.example.games.ui.GameViewModel
+ import com.example.games.ui.HomeUiState
+ import com.example.games.ui.NotPlayedUiState
+ import com.example.games.ui.NotPlayedViewModel
+
+ import com.gowtham.ratingbar.RatingBar
+ import com.gowtham.ratingbar.RatingBarConfig
+ import kotlinx.coroutines.launch
 
 
 private const val TAG: String = "Not Played"
@@ -75,17 +81,40 @@ fun NotPlayedScreen(
     viewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
     onClick: (Int) -> Unit,
     onGenreClick: (String) -> Unit,
- //   gameViewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory)
+   // navigationType: GamesNavigationType,
 
+    //15 09:
+  //  listedCategoryViewModel: ListedCategoryViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ) {
+    //15 09:
+  //  val gameListCategoryUiState = listedCategoryViewModel.gamesListUiState.collectAsState()
+    /**
+     *  adding ListedCategory inside NotPlayedViewModel and adding in this Screen
+     *  to avoid navigate to GamesListCategoryScreenNotPlayed (and eventualy delete this screen)
+     */
 
-     val notPlayedUiState = viewModel.notPlayedUiState.collectAsStateWithLifecycle()
+   // val gameListCategoryUiState = viewModel.gamesListUiState.collectAsStateWithLifecycle()
+
+    val notPlayedUiState = viewModel.notPlayedUiState.collectAsStateWithLifecycle()
+
+    /**   val state = remember {
+    MutableTransitionState(false).apply {
+    // Start the animation immediately.
+    targetState = true
+    }
+    }*/
+
+
 
     NotPlayedScreenContent(
         notPlayedL = notPlayedUiState.value.notPlayedL as List<Game>,
         modifier = Modifier,
         onClick = { onClick(it.id) },
         onGenreClick = onGenreClick,
+
+
+        //15 09:
+      // gameListCategoryUiState = gameListCategoryUiState.value,
     )
 }
 
@@ -96,31 +125,42 @@ fun NotPlayedScreenContent(
     onClick: (Game) -> Unit,
     onGenreClick: (String) -> Unit,
 
-) {
+    //15 09:
+   // gameListCategoryUiState: GameListCategoryUiState,
+
+    ) {
+    //15 09:
+   // val gamesCat = gameListCategoryUiState.gamesCat
+    //val gamesCatNotPlayed = gamesCat.filter { gamesCat.contains(it.copy(isPlayed = false)) }
 
     Column(
+
         modifier = modifier
 
-            .background(
+
+         /**   .background(
                 brush = Brush.verticalGradient(
                     if (isSystemInDarkTheme()) {
                         listOf(
-                            Color.Black,
-                            Color.Blue
+                            DarkColors.scrim,
+                            DarkColors.surfaceVariant
+                           // Color.Black,
+                            //Color.Blue
                         )
                     } else {
+                        //LightColors.scrim
                         listOf(
-                            Color(0xFF1E88E5),
-                            Color.White
+                            LightColors.scrim,
+                            LightColors.scrim
                         )
                     }
                 )
-            )
+            )*/
             .fillMaxSize()
 
     ) {
 
-        MyLazyRow( onGenreClick = onGenreClick )
+        MyLazyRow(onGenreClick = onGenreClick)
 
         d(TAG, notPlayedL.size.toString())
 
@@ -128,17 +168,19 @@ fun NotPlayedScreenContent(
             modifier = Modifier
                 .padding(top = 8.dp)
                 .align(CenterHorizontally)
+
         ) {
 
             Text(
                 text = "NOT PLAYED GAMES:",
-                color = if (isSystemInDarkTheme()) Color.White else Color.Black,
+                color = colorScheme.scrim,//if (isSystemInDarkTheme()) LightColors.scrim else DarkColors.scrim,//if (isSystemInDarkTheme()) LightColors.scrim else DarkColors.scrim,
                 style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
                 fontWeight = FontWeight.Bold,
                 overflow = TextOverflow.Ellipsis,
                 textAlign = TextAlign.Left,
-                modifier = Modifier
-                    .background(if (isSystemInDarkTheme()) Color.Black else Color.Yellow)
+
+
+                    //.background(if (isSystemInDarkTheme()) Color.Black else Color.Yellow)
             )
         }
         Spacer(modifier = Modifier.size(8.dp))
@@ -148,7 +190,14 @@ fun NotPlayedScreenContent(
                 text = stringResource(R.string.no_item_description),
                 style = MaterialTheme.typography.subtitle2
             )
-        } else {
+        } else
+        //  if (gamesCatNotPlayed.isEmpty())
+        {
+
+            /**
+             * lazyColumn notPlayedL (if select all or not select genre?):
+             */
+
             LazyColumn(
                 modifier = modifier
                     .fillMaxSize(),
@@ -157,7 +206,11 @@ fun NotPlayedScreenContent(
 
             ) {
                 items(
-                    items = notPlayedL,
+                    items =
+
+                    /**gameListCategoryUiState.gamesCat,*/
+                    notPlayedL,
+                  //  gamesCatNotPlayed,
                     key = { game -> game.id }
                 ) { game ->
                     GameCardNotPlayed(
@@ -170,34 +223,48 @@ fun NotPlayedScreenContent(
     }
 }
 
+
 @Composable
-fun MyLazyRow(
-    onGenreClick: (String) -> Unit,
-   // gameViewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory)
-) {
-
-    val notPlayedViewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory)
-    val notPlayedUiState: State<NotPlayedUiState> = notPlayedViewModel.notPlayedUiState.collectAsStateWithLifecycle()
-
-    //val notPlayedL = notPlayedUiState.value.notPlayedL
-
-    val listed = notPlayedUiState.value.notPlayedL
-
-    val eachSizeGenre = listed.groupingBy { it!!.genre }.eachCount()
-
-    //this is only to see in log:
-    for (i in eachSizeGenre) {
-        println("${eachSizeGenre.values}"  )
-    }
-
-    //to generate list of pair:
-    val listEachSizeGenre = eachSizeGenre.toList()
-
-    Row(
-        modifier = Modifier
-            .height(60.dp)
-
+    fun MyLazyRow(
+        onGenreClick: (String) -> Unit,
+        // gameViewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory)
     ) {
+
+        val notPlayedViewModel: NotPlayedViewModel =
+            viewModel(factory = AppViewModelProvider.Factory)
+        val notPlayedUiState: State<NotPlayedUiState> =
+            notPlayedViewModel.notPlayedUiState.collectAsStateWithLifecycle()
+
+        //val notPlayedL = notPlayedUiState.value.notPlayedL
+
+        val listed = notPlayedUiState.value.notPlayedL
+
+        val eachSizeGenre = listed.groupingBy { it!!.genre }.eachCount()
+
+
+        //this is only to see in log:
+        for (i in eachSizeGenre) {
+            println("${eachSizeGenre.values}")
+        }
+
+        //to generate list of pair:
+        val listEachSizeGenre = eachSizeGenre.toList()
+            .toMutableList()//toList()
+
+
+
+        listEachSizeGenre.add(
+            index = 0,
+            Pair("Todos", second = notPlayedUiState.value.notPlayedL.size)
+        )
+
+        listEachSizeGenre.sortByDescending { eachSizeGenre.size.dec() }//does not make any difference
+
+        Row(
+            modifier = Modifier
+                .height(60.dp)
+
+        ) {
 
             LazyRow(
                 modifier = Modifier,
@@ -205,7 +272,7 @@ fun MyLazyRow(
 
                 ) {
                 items(
-                    items = listEachSizeGenre
+                    items = listEachSizeGenre,
                 ) { pair ->
 
                     MyCard(
@@ -232,23 +299,29 @@ fun MyCard(
 
     val eachSizeGenre = listed.groupingBy { it!!.genre }.eachCount()
     for (i in eachSizeGenre) {
-        println( "${eachSizeGenre.values}" )
+        println("${eachSizeGenre.values}")
     }
 
     Modifier.clip(RoundedCornerShape(25.dp))
+
 
     OutlinedCard(
         shape = RoundedCornerShape(25.dp),
         modifier = Modifier
             .clip(RoundedCornerShape(25.dp))
             .height(60.dp)
-            .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
+           //28 09 .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
             .clickable {
                 onGenreClick(pair.first)
                 /**whith this solve the problem
                 and now could navigate to the other screen
                 and changing IntType to StringType Args*/
+                /**whith this solve the problem
+                and now could navigate to the other screen
+                and changing IntType to StringType Args*/
+
             }
+
 
     ) {
 
@@ -297,7 +370,10 @@ fun MyCard(
             }
         }
     }
+
 }
+
+
 
 @SuppressLint("AutoboxingStateValueProperty")
 @Composable
@@ -403,6 +479,7 @@ fun GameCardNotPlayed(
 
                                     playGame(context, game = game)
                                 }
+                               // playGame(context, game = game) check it has to be here and not inside coroutineScope??
                             }
                         )
                     }

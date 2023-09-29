@@ -4,9 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
-import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,13 +12,15 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme.colors
+import androidx.compose.material.ScaffoldState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
@@ -36,6 +36,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Transparent
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -53,7 +54,10 @@ import com.example.games.appDestinations.NavigationDestination
 import com.example.games.model.Game
 import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.CustomTopBar
-import com.example.games.ui.screens.ItemDetailsDestination.titleRes
+import com.example.games.ui.theme.GamesBackground
+import com.example.games.ui.theme.GamesGradientBackground
+import com.example.games.ui.theme.LocalGradientColors
+
 
 private const val TAG: String = "DetailScreen"
 
@@ -73,52 +77,154 @@ fun DetailsScreen(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: DetailsViewModel = viewModel(factory = AppViewModelProvider.Factory),
+    shouldShowGradientBackground: Boolean,
+    scaffoldState: ScaffoldState = rememberScaffoldState()
 
     ) {
-/**
+    /**
     Scaffold(
-        modifier = Modifier.fillMaxWidth(),
-) {
-      CustomTopBar(
-          titleRes = R.string.details,
-          navigationIcon = Icons.Default.ArrowBack,
-          navigationIconContentDescription = null,
-          actionIcon = Icons.Default.Home,
-          actionIconContentDescription = null,
-          onActionClick = {},
-          onNavigationClick = {}
-      )
-}*/
+    modifier = Modifier.fillMaxWidth(),
+    ) {
+    CustomTopBar(
+    titleRes = R.string.details,
+    navigationIcon = Icons.Default.ArrowBack,
+    navigationIconContentDescription = null,
+    actionIcon = Icons.Default.Home,
+    actionIconContentDescription = null,
+    onActionClick = {},
+    onNavigationClick = {}
+    )
+    }*/
     /**VERY IMPORTANT:
      * Always recover the uiState as Cold Flow of each State of everything*/
 
     val uiState = viewModel.uiState.collectAsState()
 
-    Scaffold(
-        topBar = {
+    GamesBackground {
+        GamesGradientBackground(
 
-            /**
-             * original, with bounce:
-              */
-            CustomTopBar(
+                gradientColors = if (shouldShowGradientBackground) {
+            LocalGradientColors.current
+
+            // GradientColors()
+            } else {
+            LocalGradientColors.current
+            //GradientColors()
+            },
+        ) {
+
+
+            Scaffold(
+                modifier = Modifier.fillMaxSize(),
+                        containerColor= Transparent,/**backgroundColor*/ //Color.Yellow,//
+                contentColor = MaterialTheme.colorScheme.onBackground,//Color.Blue,//
+
+                /**
+                 * original, with bounce:
+                 */
+
+                /**    topBar = {
+
+
+                CustomTopBar(
                 titleRes = R.string.details,
                 actionIcon = Icons.Default.ArrowBack,
                 actionIconContentDescription = null,
                 onActionClick = onClick,
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
-                    //colorScheme.surface
+                containerColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
+                //colorScheme.surface
                 ),
-            )
+                )*/
 
-        }) { innerPadding ->
-        ItemDetailsBody(
+
+            ) { innerPadding ->
+
+                CustomTopBar(
+                    titleRes = R.string.details,
+                    actionIcon = Icons.Default.ArrowBack,
+                    actionIconContentDescription = null,
+                    onActionClick = onClick,
+                    colors = TopAppBarDefaults.centerAlignedTopAppBarColors(//containerColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
+                     Color.Transparent //  colorScheme.surface
+                    ),
+                )
+                ItemDetailsBody(
+                    gameDetailsUiState = uiState.value,
+                    onBack = onClick,
+                    modifier = modifier
+                        .fillMaxSize()
+                    //.padding(innerPadding)
+                    /**    .background(
+                    brush = Brush.verticalGradient(
+                    if (isSystemInDarkTheme()) {
+                    listOf(
+                    DarkColors.scrim,
+                    DarkColors.surfaceVariant
+                    // Color.Black,
+                    //Color.Blue
+                    )
+                    } else {
+                    listOf(
+                    LightColors.scrim,
+                    LightColors.scrim
+                    //Color.White,
+                    //Color.White
+                    )
+                    }
+                    )
+
+                    )*/
+
+                )
+                Log.d(TAG, gameDetails.title)
+            }
+
+            /**    CustomTopBar(
+            titleRes = R.string.details,
+            actionIcon = Icons.Default.ArrowBack,
+            actionIconContentDescription = null,
+            onActionClick = onClick,
+            colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+            containerColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
+            //colorScheme.surface
+            ),
+            )*/
+            /**    ItemDetailsBody(
             gameDetailsUiState = uiState.value,
             onBack = onClick,
-            modifier = modifier.padding(innerPadding)
+            modifier = modifier//.padding(innerPadding)
+            .background(
+            brush = Brush.verticalGradient(
+            if (isSystemInDarkTheme()) {
+            listOf(
+            DarkColors.scrim,
+            DarkColors.surfaceVariant
+            // Color.Black,
+            //Color.Blue
+            )
+            } else {
+            listOf(
+            LightColors.scrim,
+            LightColors.scrim
+            //Color.White,
+            //Color.White
+            )
+            }
+            )
 
-        )
-        Log.d(TAG, gameDetails.title)
+            )
+
+            )*/
+// without call Scaffold and use the bar called in GameApp()
+            /**  ItemDetailsBody(
+            gameDetailsUiState = uiState.value,
+            onBack = onClick,
+            //  modifier = modifier.padding(innerPadding)
+
+            )*/
+
+        }
     }
 }
 
@@ -145,7 +251,7 @@ fun ItemDetailsBody(
         modifier = Modifier
 
             .fillMaxHeight()
-            .padding(8.dp)
+            //.padding(8.dp)
         // .height(500.dp)
     ) {
         Column {
@@ -153,7 +259,7 @@ fun ItemDetailsBody(
             ElevatedCard(
 
                 modifier = modifier//modifier
-               //     .clickable { onBack() }
+                    //     .clickable { onBack() }
                     .fillMaxWidth()
                     .fillMaxHeight()
                     .padding(top = 5.dp, bottom = 5.dp, start = 10.dp, end = 10.dp),

@@ -5,7 +5,6 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import com.example.games.di.AppContainer
 import com.example.games.di.DefaultAppContainer
-import com.example.games.search.SearchContentsRepository
 
 
 //class GameApplication: Application() {
@@ -19,4 +18,13 @@ import com.example.games.search.SearchContentsRepository
 
         )
     }
+/**
+    //MVVMRecipeApp:
+    // should be saved in data store
+    val isDark = mutableStateOf(false)
+
+    fun toggleLightTheme(){
+        isDark.value = !isDark.value
+    }*/
+
 }

@@ -1,19 +1,27 @@
 package com.example.games.appDestinations
 
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.BarChart
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Games
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Share
-import androidx.compose.material.icons.outlined.BarChart
-import androidx.compose.material.icons.outlined.FavoriteBorder
-import androidx.compose.material.icons.outlined.Games
-import androidx.compose.material.icons.outlined.Home
-import androidx.compose.material.icons.outlined.Share
-import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.games.R
+import com.example.games.ui.theme.GamesIcons
+import com.example.games.ui.theme.Icon
+import com.example.games.ui.theme.Icon.ImageVectorIcon
+
+
+/**
+ * Different type of navigation supported by app depending on size and state.
+ */
+enum class GamesNavigationType {
+    BOTTOM_NAVIGATION, NAVIGATION_RAIL, PERMANENT_NAVIGATION_DRAWER
+}
+
+/**
+ * Content shown depending on size and state of device.
+ */
+enum class GamesContentType {
+    LIST_ONLY, LIST_AND_DETAIL
+}
+
+
 
 // NAVIGATION BAR (BOTTOM NAVIGATION)
 /**
@@ -29,9 +37,9 @@ data class BottomNavigationItem(
 sealed class BottomBarScreen(
     val titleTextId: Int,
     val route: String,
-    var title: String,
-    val unselectedIcon: ImageVector,
-    val selectedIcon: ImageVector,
+    var iconTextId: Int,// String,
+    val unselectedIcon: Icon,// 29 09: ImageVector,// Icon //
+    val selectedIcon: Icon,// 29 09: ImageVector,
     var hasNews: Boolean,
     var badgeCount: Int? = null,
 
@@ -39,9 +47,9 @@ sealed class BottomBarScreen(
     object Pantalla1 : BottomBarScreen(
         titleTextId = R.string.app_name,
         route = "HOME-SCREEN",//
-        title = "Home",//
-        unselectedIcon = Icons.Outlined.Home,
-        selectedIcon = Icons.Filled.Home,
+        iconTextId = R.string.homescreen,//"Home",//
+        unselectedIcon = ImageVectorIcon(GamesIcons.HomeBorder),//Icons.Outlined.Home,
+        selectedIcon = ImageVectorIcon(GamesIcons.Home),//Icons.Filled.Home,
         hasNews = false,
         badgeCount = 0
     )
@@ -49,9 +57,9 @@ sealed class BottomBarScreen(
     object Pantalla2 : BottomBarScreen(
         titleTextId = R.string.favorites,
         route = "FAVORITES",
-        title = "Favorites",
-        unselectedIcon = Icons.Outlined.FavoriteBorder ,
-        selectedIcon = Icons.Filled.Favorite,
+        iconTextId = R.string.favorite,
+        unselectedIcon = ImageVectorIcon(GamesIcons.FavoritesBorder),//Icons.Outlined.FavoriteBorder ,
+        selectedIcon = ImageVectorIcon(GamesIcons.Favorites),//Icons.Filled.Favorite,
         hasNews = false,
         badgeCount = 0
     )
@@ -59,9 +67,9 @@ sealed class BottomBarScreen(
     object Pantalla3 : BottomBarScreen(
         titleTextId = R.string.played,
         route = "PLAYED",
-        title = "Played",
-        unselectedIcon = Icons.Outlined.Games,
-        selectedIcon = Icons.Filled.Games,
+        iconTextId =R.string.playedIc,
+        unselectedIcon = ImageVectorIcon(GamesIcons.PlayBorder),//Icons.Outlined.Games,
+        selectedIcon = ImageVectorIcon(GamesIcons.Play),//Icons.Filled.Games,
         hasNews = false,
         badgeCount = 0
     )
@@ -69,9 +77,9 @@ sealed class BottomBarScreen(
     object Pantalla4 : BottomBarScreen(
         titleTextId = R.string.statistics,
         route = "STATISTICS",
-        title = "Statistics",
-        unselectedIcon = Icons.Outlined.BarChart,
-        selectedIcon = Icons.Filled.BarChart,
+        iconTextId = R.string.statistics,//"Statistics",
+        unselectedIcon = ImageVectorIcon(GamesIcons.BarChartBorder),//Icons.Outlined.BarChart,
+        selectedIcon = ImageVectorIcon(GamesIcons.BarChart),//Icons.Filled.BarChart,
         hasNews = false,
         badgeCount = 0,
     )
@@ -79,9 +87,9 @@ sealed class BottomBarScreen(
     object Pantalla5 : BottomBarScreen(
         titleTextId = R.string.shared,
         route = "ShareScreen",
-        title = "Shared",
-        unselectedIcon = Icons.Outlined.Share,
-        selectedIcon = Icons.Filled.Share,//Icons.Filled.Share,
+        iconTextId = R.string.sharedIC,
+        unselectedIcon = ImageVectorIcon(GamesIcons.ShareBorder),//Icons.Outlined.Share,
+        selectedIcon = ImageVectorIcon(GamesIcons.Share),//Icons.Filled.Share,//Icons.Filled.Share,
         hasNews = false ,
         badgeCount = 0
     )

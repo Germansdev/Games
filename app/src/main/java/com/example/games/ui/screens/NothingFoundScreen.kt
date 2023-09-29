@@ -43,6 +43,7 @@ fun NothingFoundScreen(
 @Preview(showSystemUi = true)
 @Composable
 fun NothingFoundScreenPreview() {
+   // CustomTheme{
     GamesTheme (){
 
         NothingFoundScreen()

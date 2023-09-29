@@ -2,6 +2,7 @@ package com.example.games.ui.screens
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.example.games.appDestinations.GamesNavigationType
 import com.example.games.ui.GameUiState
 
 
@@ -10,6 +11,8 @@ fun HomeScreen(
     gameUiState: GameUiState,
     retryAction: () -> Unit,
     modifier: Modifier = Modifier,
+
+
 ) {
 
     when (gameUiState) {

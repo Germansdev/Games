@@ -51,6 +51,23 @@ fun SharedScreenContent(
 
     Column(
         modifier = modifier
+        /**    .background(
+                brush = Brush.verticalGradient(
+                    if (isSystemInDarkTheme()) {
+                        listOf(
+                            DarkColors.scrim,
+                            DarkColors.surfaceVariant
+                            // Color.Black,
+                            //Color.Blue
+                        )
+                    } else {
+                        listOf(
+                            LightColors.scrim,
+                            LightColors.scrim
+                        )
+                    }
+                )
+            )*/
             .fillMaxSize()
             .padding(8.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)

@@ -3,6 +3,7 @@ package com.example.games.ui.screens
 
 import android.util.Log
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -31,6 +32,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -47,8 +49,12 @@ import coil.request.ImageRequest
 import com.example.games.R
 import com.example.games.model.Game
 import com.example.games.ui.AppViewModelProvider
+import com.example.games.ui.GameListCategoryUiState
 import com.example.games.ui.GameViewModel
+import com.example.games.ui.ListedCategoryPlayedViewModel
+import com.example.games.ui.ListedCategoryViewModel
 import com.example.games.ui.PlayedViewModel
+
 import com.gowtham.ratingbar.RatingBar
 import com.gowtham.ratingbar.RatingBarConfig
 import kotlinx.coroutines.launch
@@ -61,15 +67,15 @@ fun Played(
     onGenreClick: (String) -> Unit,
 ) {
 
-  //  val viewModel: ListedCategoryViewModel = viewModel(factory = AppViewModelProvider.Factory)
-   // val gameListCategoryUiState = viewModel.gamesListUiState.collectAsState()
+  //  val viewModel: ListedCategoryPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory)
+  //  val gameListCategoryUiStatePlayed = viewModel.gamesListCategoryUiStatePlayed.collectAsState()
 
     val playedUiState = playedViewModel.playedUiState.collectAsState()
 
     PlayedScreenContent(
         playedL = playedUiState.value.playedL as List<Game>,
         modifier = Modifier,
-   //     gameListCategoryUiState = gameListCategoryUiState.value,
+       // gameListCategoryUiState = gameListCategoryUiState.value,
         onGenreClick = onGenreClick,
     )
 }
@@ -77,15 +83,35 @@ fun Played(
 fun PlayedScreenContent(
     playedL: List<Game>,
     modifier: Modifier = Modifier,
- //   gameListCategoryUiState: GameListCategoryUiState,
+   // gameListCategoryUiState: GameListCategoryUiState,
     onGenreClick: (String) -> Unit,
 ) {
-
-//    val gamesCat = gameListCategoryUiState.gamesCat
- //   val gamesCatNotPlayed = gamesCat.filter { gamesCat.contains(it.copy(isPlayed = true)) }
+//modifier.background(if (isSystemInDarkTheme()) Color.Blue else Color.White/** DarkColors.scrim else LightColors.scrim */)
+   // val gamesCat = gameListCategoryUiState.gamesCat
+  //  val gamesCatNotPlayed = gamesCat.filter { gamesCat.contains(it.copy(isPlayed = true)) }
 
     Column(
         modifier = modifier
+       /**     .background(
+                brush = Brush.verticalGradient(
+                    if (isSystemInDarkTheme()) {
+                        listOf(
+                            DarkColors.scrim,
+                            DarkColors.surfaceVariant
+                            // Color.Black,
+                            //Color.Blue
+                        )
+                    } else {
+                        listOf(
+                            LightColors.scrim,
+                            LightColors.scrim
+                            //Color.White,
+                            //Color.White
+                        )
+                    }
+                )
+            )*/
+             //   if (isSystemInDarkTheme()) DarkColors.surfaceVariant else Color.White/** DarkColors.scrim else LightColors.scrim */)
             .fillMaxSize(),
          //   .padding(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -97,8 +123,8 @@ fun PlayedScreenContent(
 
         Row(
             modifier = Modifier
-            .background(color = androidx.compose.material3.MaterialTheme.colorScheme.background)
-            .align(Alignment.CenterHorizontally)
+                .background(color = androidx.compose.material3.MaterialTheme.colorScheme.background)
+                .align(Alignment.CenterHorizontally)
         ) {
          /**   Text(
                 text = "YOU PLAYED THESE GAMES:",
@@ -147,6 +173,7 @@ fun MyLazyRowPlayed(
 ) {
     val playedViewModel: PlayedViewModel = viewModel(factory = AppViewModelProvider.Factory)
     val playedUiState = playedViewModel.playedUiState.collectAsState()
+
     val listed = playedUiState.value.playedL
 
     val eachSizeGenre = listed.groupingBy { it!!.genre }.eachCount()
@@ -390,4 +417,3 @@ fun GameCardPlayed(
         }
 
     }
-
