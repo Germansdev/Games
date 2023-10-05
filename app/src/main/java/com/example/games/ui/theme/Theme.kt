@@ -291,8 +291,8 @@ val DarkGamesBackgroundTheme = BackgroundTheme(color = Color.Black)
 @Composable
 fun GamesTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    myTheme: Boolean = false, //26 09
-    disableDynamicTheming: Boolean = true, //26 09
+    myTheme: Boolean = false,
+    disableDynamicTheming: Boolean = true,
     content: @Composable () -> Unit
 ) {
     //original games simple works:
@@ -314,11 +314,13 @@ val colorScheme = when {
         if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
     }
 
-    else -> if (darkTheme) DarkDefaultColorScheme else LightDefaultColorScheme
+    else -> if (darkTheme) DarkGamesColorScheme else LightGamesColorScheme
+        //DarkDefaultColorScheme else LightDefaultColorScheme
 }
 
-
-//to change theme irregular:
+/**to change theme irregular does not work properly
+ * with dataStore not recognize? implement: dagger
+ * && proto DataStore to safe types (e.j: -100?) :*/
 /**
     @Composable
     fun CustomTheme(
@@ -332,24 +334,20 @@ val colorScheme = when {
             else -> if (isSystemInDarkTheme()) DarkColors else LightColors
         }*/
 
-//26 09 : NIA nothing of systiemUiController nor SideEffect:
 
-
- //  26 09:
     val systemUiController = rememberSystemUiController()
 
         SideEffect {
 // with only this: both top and bottom with the same color
             systemUiController.setSystemBarsColor(
-      //26 09          colors.scrim
-                Color.Transparent
-                // if (colors == DarkColors/**darkTheme*/) colors.scrim else colors.scrim//Color.Black else Color.White
+                color= if ( darkTheme) Color.Transparent else Color.Transparent,
+                darkIcons = !darkTheme
             )
 
 
 //whith only this: bottom color:
-            /**   systemUiController.setNavigationBarColor(
-            color = if (colors == DarkColors/**darkTheme*/) Color.Black else Color.White
+          /**     systemUiController.setNavigationBarColor(
+            color = if ( darkTheme/**DarkColors*//**darkTheme*/) Color.Black else Color.White
             )*/
 
 //whith only this: top color with different color:
@@ -366,9 +364,9 @@ val colorScheme = when {
     // Gradient colors
      val emptyGradientColors = GradientColors(container = colorScheme.surfaceColorAtElevation(2.dp))
      val defaultGradientColors = GradientColors(
-            top = colorScheme.inverseOnSurface,//Color.Green,//
-            bottom = colorScheme.primaryContainer,//Color.Cyan,//
-            container = colorScheme.surface,//Color.Transparent//
+            top = colorScheme.inverseOnSurface,
+            bottom = colorScheme.primaryContainer,
+            container = colorScheme.surface,
         )
      val gradientColors = when {
         myTheme -> if (darkTheme) DarkGamesGradientColors else LightGamesGradientColors
@@ -382,8 +380,7 @@ val colorScheme = when {
         )
      val backgroundTheme = when {
         myTheme -> if (darkTheme) DarkGamesBackgroundTheme else LightGamesBackgroundTheme
-        else ->  defaultBackgroundTheme//if (darkTheme) DarkGamesBackgroundTheme else LightGamesBackgroundTheme
-     //28 09 defaultBackgroundTheme
+        else ->  defaultBackgroundTheme
         }
 
      val tintTheme = when {
@@ -393,7 +390,7 @@ val colorScheme = when {
     }
 
     CompositionLocalProvider(
-            LocalGradientColors provides gradientColors,
+            LocalGradientColors provides if (darkTheme)gradientColors else defaultGradientColors,//I changed to defaultGradientColors in lightTheme
             LocalBackgroundTheme provides backgroundTheme,
             LocalTintTheme provides tintTheme,
         ) {
@@ -401,7 +398,7 @@ val colorScheme = when {
             MaterialTheme(
                 colorScheme = colorScheme,
                 content = content,
-                typography = GamesTypography//MaterialTheme.typography
+                typography = GamesTypography
             )
         }
     }

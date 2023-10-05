@@ -244,7 +244,7 @@ fun ItemDetailsBody(
 
 
     Row(modifier = Modifier.fillMaxWidth()) {
-        Text(text = "this NotPlayedCard")
+      //  Text(text = "this NotPlayedCard")
     }
     Column(
 
@@ -262,7 +262,7 @@ fun ItemDetailsBody(
                     //     .clickable { onBack() }
                     .fillMaxWidth()
                     .fillMaxHeight()
-                    .padding(top = 5.dp, bottom = 5.dp, start = 10.dp, end = 10.dp),
+                    .padding(top = 35.dp, bottom = 10.dp, start = 10.dp, end = 10.dp),
                 elevation = CardDefaults.cardElevation(5.dp),
                 shape = RoundedCornerShape(8.dp),
 

@@ -140,10 +140,7 @@ fun FavoritesScreenContent(
                     ) { game ->
 
                         GameCardFavorites(
-                            game = game.copy(
-                                favorited = 1
-                                /**isFavorite = true*/
-                            ),
+                            game = game.copy(favorited = 1/**isFavorite = true*/),
                             modifier
                         )
                     }
@@ -174,20 +171,6 @@ fun GameCardFavorites(
     val offsetY = remember { mutableStateOf(0f) }
     ElevatedCard(
         modifier = modifier
-/**
-            .offset {
-                IntOffset(
-                    x = offsetX.value.toInt(),
-                    y = offsetY.value.toInt())
-            }
-            .pointerInput(Unit) {
-                detectDragGestures { change, dragAmount ->
-                    change.consume()
-                    offsetX.value +=dragAmount.x
-                    offsetY.value +=dragAmount.y
-                }
-            }*/
-
             .padding(8.dp)
             .fillMaxSize()
             .height(350.dp),

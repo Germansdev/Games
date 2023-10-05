@@ -7,6 +7,7 @@ package com.example.games.ui
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.os.Build
 import android.util.Log.e
 import androidx.annotation.RequiresApi
@@ -37,19 +38,22 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.contentColorFor
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass.Companion.Compact
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass.Companion.Expanded
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass.Companion.Medium
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -66,6 +70,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
@@ -79,13 +84,14 @@ import com.example.games.GamesNavigationBar
 import com.example.games.GamesNavigationBarItem
 import com.example.games.GamesNavigationDefaults
 import com.example.games.GamesNavigationDefaults.navigationContentColor
-import com.example.games.GamesNavigationDefaults.navigationIndicatorColor
 import com.example.games.GamesNavigationRail
 import com.example.games.GamesNavigationRailItem
+import com.example.games.R
 import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.*
 import com.example.games.appDestinations.GamesContentType
 import com.example.games.appDestinations.GamesNavigationType
+import com.example.games.data.util.NetworkMonitor
 import com.example.games.search.navigateToSearch
 import com.example.games.ui.badges.FavoritesBadgeViewModel
 import com.example.games.ui.badges.NotPlayedBadgeViewModel
@@ -98,6 +104,10 @@ import com.example.games.ui.theme.GamesIcons
 import com.example.games.ui.theme.Icon
 import com.example.games.ui.theme.Icon.*
 import com.example.games.ui.theme.LocalGradientColors
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 
 
 @ExperimentalLayoutApi
@@ -110,9 +120,11 @@ import com.example.games.ui.theme.LocalGradientColors
 @Composable
 fun GamesApp(
     windowSizeClass: WindowSizeClass,
+   // networkMonitor: NetworkMonitor, implement hilt
     //windowSize: WindowWidthSizeClass, // codelab
     appState: GamesState = rememberGamesAppState(
         windowSizeClass = windowSizeClass,
+    //    networkMonitor = networkMonitor,implement hilt
     //windowWidthSizeClass =  windowSize,// codelab
     ),
     scaffoldState: ScaffoldState = rememberScaffoldState(),
@@ -182,6 +194,21 @@ fun GamesApp(
                 )
             }
 
+       /**implement hilt:
+            val snackbarHostState = remember { SnackbarHostState() }
+
+            val isOffline by appState.isOffline.collectAsStateWithLifecycle()
+
+            // If user is not connected to the internet show a snack bar to inform them.
+            val notConnectedMessage = stringResource(id = R.string.not_connection)
+            LaunchedEffect(isOffline) {
+                if (isOffline) {
+                    snackbarHostState.showSnackbar(
+                        message = notConnectedMessage,
+                        duration = SnackbarDuration.Indefinite,
+                    )
+                }
+            }*/
 
             androidx.compose.material3.Scaffold(
                 modifier = Modifier.semantics {
@@ -191,7 +218,7 @@ fun GamesApp(
                 contentWindowInsets = WindowInsets(0, 0, 0, 0),
                 containerColor = Transparent,
                 contentColor = colorScheme.onBackground,
-
+            //    snackbarHost = { androidx.compose.material3.SnackbarHost(snackbarHostState) },
                 bottomBar = {
 
                     if (appState.shouldShowBottomBar) {
@@ -215,7 +242,6 @@ fun GamesApp(
                     }
                 },
 
-
                 ) { padding ->
 
                 /**    Surface(
@@ -236,7 +262,6 @@ fun GamesApp(
                         ),
 
                     ) {
-
 
                     if (appState.shouldShowNavRail) {
                         /**      AnimatedVisibility(visible = navigationType == GamesNavigationType.NAVIGATION_RAIL
@@ -269,6 +294,7 @@ fun GamesApp(
                                 actionIconContentDescription = null,
                                 colors = TopAppBarDefaults
                                     .centerAlignedTopAppBarColors(
+                                        titleContentColor = GamesNavigationDefaults.navigationSelectedItemColor(),
                                         containerColor = Transparent,//if (isSystemInDarkTheme()) DarkColors.scrim else LightColors.scrim,//if (isSystemInDarkTheme()) Color.Black else Color.White,
 
                                     ),
@@ -285,11 +311,10 @@ fun GamesApp(
                         )
                     }
                 }
-                //   }
             }
         }
     }
-    }
+}
 /**
      *This used in GameApp and AppNavHost see what happend and reduce code
      */
@@ -371,9 +396,10 @@ fun GamesApp(
                 androidx.compose.material3.Text(text = stringResource(id = titleRes))
                 if (genre.isNotEmpty()) {
                     Text(
-                        text = " Genre: /**$genre*/",
+                        text = "Genre: $genre",
                         style = MaterialTheme.typography.titleLarge,
-                        color = if (isSystemInDarkTheme()) Color.White else Color.Black,
+                        color = GamesNavigationDefaults.navigationSelectedItemColor(),
+                        //if (isSystemInDarkTheme()) Color.White else Color.Black,
                     )
                 }
             },
@@ -587,16 +613,9 @@ fun GamesApp(
         val badgeCountStats = statsB.value
         val badgeCountShared = sharedB.value
 
-        GamesNavigationRail(modifier = modifier
-            //.background(color = if (isSystemInDarkTheme()) Color.White else Color.Black,)
-           // . width(0.dp)
-           // .fillMaxHeight()
-
-
+        GamesNavigationRail(
+            modifier = modifier
         ) {
-
-
-            //{
 
             destinations.forEach { screen ->
 
@@ -621,10 +640,8 @@ fun GamesApp(
                     else -> {
                         badgeCountShared.badgeCount.toString()
                     }
-
                 }
 
-                /**  NavigationRailItem*/
                 GamesNavigationRailItem(
 
                     icon = {
@@ -664,40 +681,41 @@ fun GamesApp(
                 e(TAG, notPlayedB.toString())
             }
             e(TAG, favoriteB.value.toString())
-
         }
-
     }
 
 
     @Composable
     fun rememberGamesAppState(
         windowSizeClass: WindowSizeClass, //nia App
-        //  windowWidthSizeClass: WindowWidthSizeClass, //codelab
+       // networkMonitor: NetworkMonitor, implement hilt
+        coroutineScope: CoroutineScope = rememberCoroutineScope(),
         navController: NavHostController = rememberNavController(),
-    ): GamesState {
+
+
+        ): GamesState {
         return remember(
             navController,
+            coroutineScope,
             windowSizeClass, //nia App
-            //   windowWidthSizeClass
+         //   networkMonitor, implement hilt
+
         ) {
             GamesState(
                 navController,
+                coroutineScope,
                 windowSizeClass,//nia App
+             //   networkMonitor, implement hilt
                 //     windowWidthSizeClass
-               // navigationType = navigationType,
-                //contentType = contentType,
-
             )
         }
     }
 
     class GamesState(
         val navController: NavHostController,
+        val coroutineScope: CoroutineScope,
         val windowSizeClass: WindowSizeClass,
-        //navigationType: GamesNavigationType,
-        //contentType: GamesContentType,
-
+      //  networkMonitor: NetworkMonitor,implement hilt
     ) {
         val currentDestination: NavDestination?
             @Composable get() = navController
@@ -715,6 +733,16 @@ fun GamesApp(
             get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact
         val shouldShowNavRail: Boolean
             get() = !shouldShowBottomBar//windowSizeClass.widthSizeClass == WindowWidthSizeClass.Medium
+
+    /**implement hilt:
+     *  val isOffline = networkMonitor.isOnline
+            .map(Boolean::not)
+            .stateIn(
+                scope = coroutineScope,
+                started = SharingStarted.WhileSubscribed(5_000),
+                initialValue = false,
+            )*/
+
 
 /**
         val navigationType: GamesNavigationType
@@ -772,8 +800,5 @@ fun GamesApp(
                 Pantalla4 -> navController.navigate(bottomBarScreen.route)
                 Pantalla5 -> navController.navigate(bottomBarScreen.route)
             }
-
         }
-
-
     }

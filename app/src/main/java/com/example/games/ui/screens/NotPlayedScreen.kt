@@ -6,6 +6,7 @@ package com.example.games.ui.screens
  import android.content.Intent
  import android.net.Uri
  import android.util.Log.*
+ import androidx.compose.foundation.BorderStroke
  import androidx.compose.foundation.background
  import androidx.compose.foundation.clickable
  import androidx.compose.foundation.isSystemInDarkTheme
@@ -16,7 +17,6 @@ package com.example.games.ui.screens
  import androidx.compose.foundation.shape.CircleShape
  import androidx.compose.foundation.shape.RoundedCornerShape
  import androidx.compose.material.MaterialTheme
- import androidx.compose.material.MaterialTheme.colors
  import androidx.compose.material.icons.Icons
  import androidx.compose.material.icons.filled.Add
  import androidx.compose.material.icons.filled.Favorite
@@ -26,7 +26,6 @@ package com.example.games.ui.screens
  import androidx.compose.material.icons.outlined.Share
  import androidx.compose.material.icons.rounded.Games
  import androidx.compose.material3.CardDefaults
- import androidx.compose.material3.ColorScheme
  import androidx.compose.material3.ElevatedCard
  import androidx.compose.material3.Icon
  import androidx.compose.material3.IconButton
@@ -35,14 +34,18 @@ package com.example.games.ui.screens
  import androidx.compose.material3.Text
  import androidx.compose.runtime.Composable
  import androidx.compose.runtime.State
+ import androidx.compose.runtime.getValue
  import androidx.compose.runtime.mutableStateOf
  import androidx.compose.runtime.remember
  import androidx.compose.runtime.rememberCoroutineScope
+ import androidx.compose.runtime.saveable.rememberSaveable
+ import androidx.compose.runtime.setValue
  import androidx.compose.ui.Alignment
  import androidx.compose.ui.Alignment.Companion.CenterHorizontally
  import androidx.compose.ui.Alignment.Companion.CenterVertically
  import androidx.compose.ui.Modifier
  import androidx.compose.ui.draw.clip
+ import androidx.compose.ui.geometry.CornerRadius
  import androidx.compose.ui.graphics.Color
  import androidx.compose.ui.layout.ContentScale
  import androidx.compose.ui.platform.LocalContext
@@ -51,8 +54,6 @@ package com.example.games.ui.screens
  import androidx.compose.ui.res.stringResource
  import androidx.compose.ui.text.font.FontWeight
  import androidx.compose.ui.text.style.TextAlign
-
-
  import androidx.compose.ui.text.style.TextOverflow
  import androidx.compose.ui.unit.dp
  import androidx.compose.ui.unit.sp
@@ -60,15 +61,14 @@ package com.example.games.ui.screens
  import androidx.lifecycle.viewmodel.compose.viewModel
  import coil.compose.AsyncImage
  import coil.request.ImageRequest
+ import com.example.games.GamesNavigationDefaults
  import com.example.games.R
- import com.example.games.appDestinations.GamesNavigationType
  import com.example.games.model.Game
  import com.example.games.ui.AppViewModelProvider
  import com.example.games.ui.GameViewModel
  import com.example.games.ui.HomeUiState
  import com.example.games.ui.NotPlayedUiState
  import com.example.games.ui.NotPlayedViewModel
-
  import com.gowtham.ratingbar.RatingBar
  import com.gowtham.ratingbar.RatingBarConfig
  import kotlinx.coroutines.launch
@@ -76,45 +76,22 @@ package com.example.games.ui.screens
 
 private const val TAG: String = "Not Played"
 
+
+
 @Composable
 fun NotPlayedScreen(
     viewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
     onClick: (Int) -> Unit,
     onGenreClick: (String) -> Unit,
-   // navigationType: GamesNavigationType,
-
-    //15 09:
-  //  listedCategoryViewModel: ListedCategoryViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ) {
-    //15 09:
-  //  val gameListCategoryUiState = listedCategoryViewModel.gamesListUiState.collectAsState()
-    /**
-     *  adding ListedCategory inside NotPlayedViewModel and adding in this Screen
-     *  to avoid navigate to GamesListCategoryScreenNotPlayed (and eventualy delete this screen)
-     */
-
-   // val gameListCategoryUiState = viewModel.gamesListUiState.collectAsStateWithLifecycle()
 
     val notPlayedUiState = viewModel.notPlayedUiState.collectAsStateWithLifecycle()
-
-    /**   val state = remember {
-    MutableTransitionState(false).apply {
-    // Start the animation immediately.
-    targetState = true
-    }
-    }*/
-
-
 
     NotPlayedScreenContent(
         notPlayedL = notPlayedUiState.value.notPlayedL as List<Game>,
         modifier = Modifier,
         onClick = { onClick(it.id) },
         onGenreClick = onGenreClick,
-
-
-        //15 09:
-      // gameListCategoryUiState = gameListCategoryUiState.value,
     )
 }
 
@@ -124,43 +101,22 @@ fun NotPlayedScreenContent(
     modifier: Modifier = Modifier,
     onClick: (Game) -> Unit,
     onGenreClick: (String) -> Unit,
-
-    //15 09:
-   // gameListCategoryUiState: GameListCategoryUiState,
-
     ) {
-    //15 09:
-   // val gamesCat = gameListCategoryUiState.gamesCat
-    //val gamesCatNotPlayed = gamesCat.filter { gamesCat.contains(it.copy(isPlayed = false)) }
 
     Column(
 
         modifier = modifier
-
-
-         /**   .background(
-                brush = Brush.verticalGradient(
-                    if (isSystemInDarkTheme()) {
-                        listOf(
-                            DarkColors.scrim,
-                            DarkColors.surfaceVariant
-                           // Color.Black,
-                            //Color.Blue
-                        )
-                    } else {
-                        //LightColors.scrim
-                        listOf(
-                            LightColors.scrim,
-                            LightColors.scrim
-                        )
-                    }
-                )
-            )*/
             .fillMaxSize()
 
     ) {
 
-        MyLazyRow(onGenreClick = onGenreClick)
+    Row() {
+
+    MyCardStaticRowNotPlayed()
+
+    MyLazyRowNotPlayed( onGenreClick = onGenreClick)
+
+}
 
         d(TAG, notPlayedL.size.toString())
 
@@ -178,9 +134,6 @@ fun NotPlayedScreenContent(
                 fontWeight = FontWeight.Bold,
                 overflow = TextOverflow.Ellipsis,
                 textAlign = TextAlign.Left,
-
-
-                    //.background(if (isSystemInDarkTheme()) Color.Black else Color.Yellow)
             )
         }
         Spacer(modifier = Modifier.size(8.dp))
@@ -191,12 +144,8 @@ fun NotPlayedScreenContent(
                 style = MaterialTheme.typography.subtitle2
             )
         } else
-        //  if (gamesCatNotPlayed.isEmpty())
-        {
 
-            /**
-             * lazyColumn notPlayedL (if select all or not select genre?):
-             */
+        {
 
             LazyColumn(
                 modifier = modifier
@@ -213,7 +162,7 @@ fun NotPlayedScreenContent(
                   //  gamesCatNotPlayed,
                     key = { game -> game.id }
                 ) { game ->
-                    GameCardNotPlayed(
+                    GameCardColumnNotPlayed(
                         game = game.copy(isPlayed = false),
                         onClick = onClick,
                     )
@@ -225,45 +174,29 @@ fun NotPlayedScreenContent(
 
 
 @Composable
-    fun MyLazyRow(
-        onGenreClick: (String) -> Unit,
-        // gameViewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory)
+    fun MyLazyRowNotPlayed(
+    onGenreClick: (String) -> Unit,
     ) {
 
         val notPlayedViewModel: NotPlayedViewModel =
             viewModel(factory = AppViewModelProvider.Factory)
+
         val notPlayedUiState: State<NotPlayedUiState> =
             notPlayedViewModel.notPlayedUiState.collectAsStateWithLifecycle()
-
-        //val notPlayedL = notPlayedUiState.value.notPlayedL
 
         val listed = notPlayedUiState.value.notPlayedL
 
         val eachSizeGenre = listed.groupingBy { it!!.genre }.eachCount()
 
-
-        //this is only to see in log:
-        for (i in eachSizeGenre) {
-            println("${eachSizeGenre.values}")
-        }
-
         //to generate list of pair:
         val listEachSizeGenre = eachSizeGenre.toList()
-            .toMutableList()//toList()
-
-
-
-        listEachSizeGenre.add(
-            index = 0,
-            Pair("Todos", second = notPlayedUiState.value.notPlayedL.size)
-        )
+            .toMutableList()
 
         listEachSizeGenre.sortByDescending { eachSizeGenre.size.dec() }//does not make any difference
 
         Row(
             modifier = Modifier
                 .height(60.dp)
-
         ) {
 
             LazyRow(
@@ -275,7 +208,7 @@ fun NotPlayedScreenContent(
                     items = listEachSizeGenre,
                 ) { pair ->
 
-                    MyCard(
+                    MyCardRowNotPlayed(
                         onGenreClick = onGenreClick,
                         pair = pair,
                     )
@@ -284,35 +217,30 @@ fun NotPlayedScreenContent(
         }
     }
 
-
 @Composable
-fun MyCard(
-    onGenreClick: (String) -> Unit,
-    pair: Pair<String, Int>,
-   // viewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
-    gameViewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory),
-    modifier: Modifier = Modifier,
+fun MyCardStaticRowNotPlayed(
 ) {
+    val notPlayedViewModel: NotPlayedViewModel =
+        viewModel(factory = AppViewModelProvider.Factory)
 
-    val homeUiState: State<HomeUiState> = gameViewModel.homeUiState.collectAsStateWithLifecycle()
-    val listed = homeUiState.value.itemList
+    val notPlayedUiState: State<NotPlayedUiState> =
+        notPlayedViewModel.notPlayedUiState.collectAsStateWithLifecycle()
 
-    val eachSizeGenre = listed.groupingBy { it!!.genre }.eachCount()
-    for (i in eachSizeGenre) {
-        println("${eachSizeGenre.values}")
-    }
-
-    Modifier.clip(RoundedCornerShape(25.dp))
-
+    val notPlayedL= notPlayedUiState.value.notPlayedL
 
     OutlinedCard(
+        border= BorderStroke(1.dp, color= GamesNavigationDefaults.navigationSelectedItemColor()),
         shape = RoundedCornerShape(25.dp),
+        colors= CardDefaults.cardColors(
+            containerColor = if (isSystemInDarkTheme()) Color.Transparent else GamesNavigationDefaults.navigationIndicatorColor(),
+            contentColor = GamesNavigationDefaults.navigationSelectedItemColor()
+
+        ),
         modifier = Modifier
-            .clip(RoundedCornerShape(25.dp))
+            .padding(end = 8.dp)
             .height(60.dp)
-           //28 09 .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
+            .width(80.dp)
             .clickable {
-                onGenreClick(pair.first)
                 /**whith this solve the problem
                 and now could navigate to the other screen
                 and changing IntType to StringType Args*/
@@ -321,7 +249,80 @@ fun MyCard(
                 and changing IntType to StringType Args*/
 
             }
+    ){
+        Row(
+            Modifier
+                .padding(top = 4.dp, bottom = 2.dp, start = 4.dp, end = 4.dp)
+                .align(CenterHorizontally)
+        ) {
+            Text(
+                modifier = Modifier
+                    .padding(start = 8.dp, end = 8.dp)
+                    .align(CenterVertically),
+                text = "All",
+                color = GamesNavigationDefaults.navigationSelectedItemColor(),
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center
+            )
+        }
+        Row(
+            modifier = Modifier
+                .padding(top = 2.dp, bottom = 4.dp)
+                .align(CenterHorizontally)
+                .wrapContentHeight()
+        ) {
+            Text(
+                modifier = Modifier
+                    .clip(CircleShape)
+                    .width(30.dp)
+                    .background(
+                        GamesNavigationDefaults.navigationSelectedItemColor()
+                    )
+                    .align(CenterVertically),
+                text = notPlayedL.size.toString(),
+                color =if (isSystemInDarkTheme()) {Color.Black} else { Color.White },
+                fontWeight = FontWeight.Bold,
+                fontSize = 12.sp,
+                textAlign = TextAlign.Center,
+            )
+        }
+    }
+}
 
+@Composable
+fun MyCardRowNotPlayed(
+    onGenreClick: (String) -> Unit,
+    pair: Pair<String, Int>,
+    modifier: Modifier = Modifier,
+) {
+
+    Modifier.clip(RoundedCornerShape(25.dp))
+
+    var selected by rememberSaveable {
+    mutableStateOf(false)}
+        selected = selected
+
+    OutlinedCard(
+        border= if (selected ) {
+            BorderStroke(1.dp, color= GamesNavigationDefaults.navigationSelectedItemColor())
+        } else {
+            BorderStroke(1.dp, color= if (isSystemInDarkTheme()) Color.White else Color.Black)
+        },
+        shape = RoundedCornerShape(25.dp),
+        modifier = Modifier
+            .clip(RoundedCornerShape(25.dp))
+            .height(60.dp)
+            .clickable {
+                onGenreClick(pair.first)
+                selected = !selected
+
+                /**whith this solve the problem
+                and now could navigate to the other screen
+                and changing IntType to StringType Args*/
+                /**whith this solve the problem
+                and now could navigate to the other screen
+                and changing IntType to StringType Args*/
+            }
 
     ) {
 
@@ -370,14 +371,11 @@ fun MyCard(
             }
         }
     }
-
 }
-
-
 
 @SuppressLint("AutoboxingStateValueProperty")
 @Composable
-fun GameCardNotPlayed(
+fun GameCardColumnNotPlayed(
     game: Game,
     gameViewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory),
     onClick: (Game) -> Unit,
@@ -479,7 +477,6 @@ fun GameCardNotPlayed(
 
                                     playGame(context, game = game)
                                 }
-                               // playGame(context, game = game) check it has to be here and not inside coroutineScope??
                             }
                         )
                     }

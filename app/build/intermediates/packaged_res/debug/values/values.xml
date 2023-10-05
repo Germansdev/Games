@@ -19,6 +19,9 @@
     <string name="dark_mode_preference">Dark mode preference</string>
     <string name="details">Details</string>
     <string name="dismissButtonText">Ok</string>
+    <string name="dynamic_color_no">No</string>
+    <string name="dynamic_color_prefs">Use dynamic colors</string>
+    <string name="dynamic_color_yes">Yes</string>
     <string name="favorite">Favorites</string>
     <string name="favorites">Favorites Games</string>
     <string name="feedback">Feedback</string>
@@ -26,6 +29,7 @@
     <string name="games">Games</string>
     <string name="games_list"> </string>
     <string name="homescreen">Home</string>
+    <string name="is_night_mode">Is Night Mode ?</string>
     <string name="licenses">licenses</string>
     <string name="link">
 
@@ -34,12 +38,12 @@
     <string name="loading">Loading</string>
     <string name="loading_fail">Fail to load</string>
     <string name="loadingd">Loading</string>
-    <string name="menu">Menu</string>
     <string name="navigation_drawer">navigation_drawer</string>
     <string name="no_favorite_games">No favorite games</string>
     <string name="no_item_description">not favorites yet</string>
     <string name="no_records_found_msg">Nothing found</string>
     <string name="no_results">No rsults found</string>
+    <string name="not_connection">Not connection!!</string>
     <string name="played">Played Games</string>
     <string name="playedIc">Played</string>
     <string name="privacy_policy">privacy_policy</string>
@@ -54,6 +58,9 @@
     <string name="sharedIC">Shared</string>
     <string name="statistics">Statistics</string>
     <string name="subject">"Play this game is incredible"</string>
+    <string name="them_brand_my_brand">My Brand</string>
+    <string name="theme">Theme</string>
+    <string name="theme_brand_default">Default</string>
     <style name="Theme.Games" parent="android:Theme.Material.Light.NoActionBar"/>
     <style name="Theme_Games_Splash" parent="Theme.Games">Splash
         <item name="android:windowBackground">@drawable/splash_initial</item>

@@ -24,12 +24,17 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.SharedPreferencesMigration
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import com.example.games.MainActivityUiState.*
+import com.example.games.model.DarkThemeConfig
 import com.example.games.model.ThemeBrand
+import com.example.games.model.UserPreferences
+import com.example.games.model.UserPreferencesRepository
 import com.example.games.ui.GamesApp
+import com.example.games.ui.SettingsViewModel
+import com.example.games.ui.SettingsViewModelFactory
 import com.example.games.ui.theme.GamesTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import kotlinx.coroutines.InternalCoroutinesApi
 
 
 //dev1
@@ -60,10 +65,13 @@ class MainActivity : ComponentActivity() {
      *   original :
      */
 
- //   private lateinit var viewModel: SettingsViewModel
+    private lateinit var viewModel: SettingsViewModel
+ /**  this will be solve with hilt:
+  *  private lateinit var networkMonitor: NetworkMonitor=
+        ConnectivityManagerNetworkMonitor(context = ),*/
 
-
-    @OptIn(InternalCoroutinesApi::class, ExperimentalLayoutApi::class,
+    @OptIn(
+        ExperimentalLayoutApi::class,
         ExperimentalMaterial3WindowSizeClassApi::class
     )
     @RequiresApi(Build.VERSION_CODES.R)
@@ -74,6 +82,25 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         var uiState: MainActivityUiState by mutableStateOf(Loading)
+
+        viewModel = ViewModelProvider(
+            this,
+            SettingsViewModelFactory(
+                UserPreferencesRepository(dataStore)
+            )
+        ).get(SettingsViewModel::class.java)
+
+        viewModel.initialSetupEvent.observe(this){ initialSetupEvent ->
+               UserPreferences(
+                   darkThemeConfig = DarkThemeConfig.DARK,
+                   gradientColors = false,
+                   themeBrand = ThemeBrand.MY_BRAND,
+                   isNightMode = true
+               )
+           // updateTaskFilters(initialSetupEvent.sortOrder, initialSetupEvent.showCompleted)
+            //setupOnCheckedChangeListeners()
+           // observePreferenceChanges()
+        }
 
         // Turn off the decor fitting system windows, which allows us to handle insets,
         // including IME animations
@@ -101,11 +128,12 @@ class MainActivity : ComponentActivity() {
                     myTheme  = shouldUseNotGradientTheme(uiState),
                     disableDynamicTheming = shouldDisableDynamicTheming(uiState),
                 ) {
-                    //val windowSize = calculateWindowSizeClass(this)
+
 
                     GamesApp(
 
                         windowSizeClass = calculateWindowSizeClass(this),
+                       // networkMonitor = networkMonitor implement hilt
                         //windowSize = windowSize.widthSizeClass,
                         )
                 }
@@ -122,7 +150,11 @@ private fun shouldUseDarkTheme(
     //viewModel: ThemeViewModel
     ): Boolean = when (uiState) {   //change this is different by dataStore != Nia
     Loading -> isSystemInDarkTheme()
-    is Success -> true
+    is Success -> /**true*/when(uiState.userData.darkThemeConfig){
+        DarkThemeConfig.FOLLOW_SYSTEM -> isSystemInDarkTheme()
+        DarkThemeConfig.LIGHT -> false
+        DarkThemeConfig.DARK -> true
+    }
     }
 
 
@@ -144,6 +176,7 @@ private fun shouldUseNotGradientTheme(
     Loading -> false
     is Success -> when (uiState.userData.themeBrand) {
         ThemeBrand.DEFAULT -> false
-        ThemeBrand.MYBRAND -> true
+        ThemeBrand.MY_BRAND -> true
     }
 }
+

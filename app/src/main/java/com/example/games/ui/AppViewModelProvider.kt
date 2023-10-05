@@ -2,7 +2,9 @@ package com.example.games.ui
 
 
 import android.app.Application
+import androidx.datastore.core.DataStore
 import androidx.datastore.dataStore
+import androidx.datastore.preferences.core.Preferences
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
@@ -11,9 +13,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.games.DetailsViewModel
 import com.example.games.GameApplication
 import com.example.games.StatsViewModel
-import com.example.games.data.OffLineUserDataRepository
-import com.example.games.model.UIModePreference
-import com.example.games.model.UserPreferences
+import com.example.games.model.UserPreferencesRepository
 import com.example.games.search.SearchViewModel
 import com.example.games.ui.badges.FavoritesBadgeViewModel
 import com.example.games.ui.badges.NotPlayedBadgeViewModel
@@ -137,10 +137,9 @@ object AppViewModelProvider {
 
 
         //INITIALIZER SETTING VIEWMODEL:
-   /**     initializer {
+    /**    initializer {
             SettingsViewModel(
-                userDataRepository =
-                //UIModePreference(preferencesDataStore())
+                inventoryApplication().container.
             )
         }*/
 

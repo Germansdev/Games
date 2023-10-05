@@ -2,7 +2,9 @@ package com.example.games.ui.screens
 
 
 import android.util.Log
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,24 +17,30 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -43,18 +51,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.example.games.GamesNavigationDefaults
 import com.example.games.R
 import com.example.games.model.Game
 import com.example.games.ui.AppViewModelProvider
-import com.example.games.ui.GameListCategoryUiState
 import com.example.games.ui.GameViewModel
-import com.example.games.ui.ListedCategoryPlayedViewModel
-import com.example.games.ui.ListedCategoryViewModel
 import com.example.games.ui.PlayedViewModel
-
 import com.gowtham.ratingbar.RatingBar
 import com.gowtham.ratingbar.RatingBarConfig
 import kotlinx.coroutines.launch
@@ -63,19 +69,14 @@ private const val TAG: String = "Played"
 @Composable
 fun Played(
     playedViewModel: PlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
-   // gameGenre: String,
     onGenreClick: (String) -> Unit,
 ) {
-
-  //  val viewModel: ListedCategoryPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory)
-  //  val gameListCategoryUiStatePlayed = viewModel.gamesListCategoryUiStatePlayed.collectAsState()
 
     val playedUiState = playedViewModel.playedUiState.collectAsState()
 
     PlayedScreenContent(
         playedL = playedUiState.value.playedL as List<Game>,
         modifier = Modifier,
-       // gameListCategoryUiState = gameListCategoryUiState.value,
         onGenreClick = onGenreClick,
     )
 }
@@ -83,61 +84,24 @@ fun Played(
 fun PlayedScreenContent(
     playedL: List<Game>,
     modifier: Modifier = Modifier,
-   // gameListCategoryUiState: GameListCategoryUiState,
     onGenreClick: (String) -> Unit,
 ) {
-//modifier.background(if (isSystemInDarkTheme()) Color.Blue else Color.White/** DarkColors.scrim else LightColors.scrim */)
-   // val gamesCat = gameListCategoryUiState.gamesCat
-  //  val gamesCatNotPlayed = gamesCat.filter { gamesCat.contains(it.copy(isPlayed = true)) }
 
     Column(
         modifier = modifier
-       /**     .background(
-                brush = Brush.verticalGradient(
-                    if (isSystemInDarkTheme()) {
-                        listOf(
-                            DarkColors.scrim,
-                            DarkColors.surfaceVariant
-                            // Color.Black,
-                            //Color.Blue
-                        )
-                    } else {
-                        listOf(
-                            LightColors.scrim,
-                            LightColors.scrim
-                            //Color.White,
-                            //Color.White
-                        )
-                    }
-                )
-            )*/
-             //   if (isSystemInDarkTheme()) DarkColors.surfaceVariant else Color.White/** DarkColors.scrim else LightColors.scrim */)
             .fillMaxSize(),
-         //   .padding(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        MyLazyRowPlayed(
-            onGenreClick = onGenreClick,
 
-            )
+Row( modifier = modifier
 
-        Row(
-            modifier = Modifier
-                .background(color = androidx.compose.material3.MaterialTheme.colorScheme.background)
-                .align(Alignment.CenterHorizontally)
-        ) {
-         /**   Text(
-                text = "YOU PLAYED THESE GAMES:",
-                color = if (isSystemInDarkTheme()) Color.White else Color.Black,
-                style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
-                fontWeight = FontWeight.Bold,
-                overflow = TextOverflow.Ellipsis,
-                textAlign = TextAlign.Left,
-                modifier = Modifier
-                    .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
-            )*/
-        }
+) {
 
+    MyCardStaticRowPlayed()
+
+    MyLazyRowPlayed( onGenreClick = onGenreClick)
+
+}
 
         if (playedL.isEmpty()) {
             androidx.compose.material.Text(
@@ -177,12 +141,7 @@ fun MyLazyRowPlayed(
     val listed = playedUiState.value.playedL
 
     val eachSizeGenre = listed.groupingBy { it!!.genre }.eachCount()
-    for (i in eachSizeGenre) {
-        println(
-            /**"${eachsizeGenre.keys} =>"*/
-            "${eachSizeGenre.values}"
-        )
-    }
+
     val listEachSizeGenre = eachSizeGenre.toList()
 
     Row(
@@ -190,12 +149,7 @@ fun MyLazyRowPlayed(
             .height(60.dp)
 
     ) {
-        /**     if (itemList.isEmpty()) {
-        androidx.compose.material.Text(
-        text = stringResource(R.string.no_item_description),
-        style = MaterialTheme.typography.subtitle2
-        )
-        } else {*/
+
         LazyRow(
             modifier = Modifier,
             horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -205,11 +159,77 @@ fun MyLazyRowPlayed(
                 items = listEachSizeGenre
             ) { pair ->
 
-                MyCard(
+                MyCardRowNotPlayed(
                     onGenreClick = onGenreClick,
                     pair = pair,
                 )
             }
+        }
+    }
+}
+
+@Composable
+fun MyCardStaticRowPlayed(
+
+) {
+    val playedViewModel: PlayedViewModel = viewModel(factory = AppViewModelProvider.Factory)
+    val playedUiState = playedViewModel.playedUiState.collectAsState()
+    val playedL= playedUiState.value.playedL
+
+    OutlinedCard(
+        border= BorderStroke(1.dp, color= GamesNavigationDefaults.navigationSelectedItemColor()),
+        shape = RoundedCornerShape(25.dp),
+        colors= CardDefaults.cardColors(
+            containerColor = if (isSystemInDarkTheme()) Color.Transparent else GamesNavigationDefaults.navigationIndicatorColor(),
+            contentColor = GamesNavigationDefaults.navigationSelectedItemColor()
+
+        ),
+        modifier = Modifier
+            .height(60.dp)
+            .width(80.dp)
+            .clickable {
+                /**whith this solve the problem
+                and now could navigate to the other screen
+                and changing IntType to StringType Args*/
+            }
+    ){
+        Row(
+            Modifier
+                .padding(top = 4.dp, bottom = 2.dp, start = 4.dp, end = 4.dp)
+                .align(Alignment.CenterHorizontally)
+        ) {
+
+            Text(
+                modifier = Modifier
+                    .padding(start = 8.dp, end = 8.dp)
+                    .align(Alignment.CenterVertically),
+                text = "All",
+                color = GamesNavigationDefaults.navigationSelectedItemColor(),
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center
+            )
+        }
+
+        Row(
+            modifier = Modifier
+                .padding(top = 2.dp, bottom = 4.dp)
+                .align(Alignment.CenterHorizontally)
+                .wrapContentHeight()
+        ) {
+
+            Text(
+                modifier = Modifier
+                    .clip(CircleShape)
+                    .width(30.dp)
+                    .background(GamesNavigationDefaults.navigationSelectedItemColor())
+                    .align(Alignment.CenterVertically),
+                text = playedL.size.toString(),
+                color =
+                if (isSystemInDarkTheme()) {Color.Black} else { Color.White },
+                fontWeight = FontWeight.Bold,
+                fontSize = 12.sp,
+                textAlign = TextAlign.Center,
+            )
         }
     }
 }
@@ -220,7 +240,8 @@ fun GameCardPlayed(
     modifier: Modifier,
     gameViewModel: GameViewModel = viewModel(factory=AppViewModelProvider.Factory),
 ) {
-    //var play by remember { mutableStateOf(false) }
+
+    var play by remember { mutableStateOf(false) }
     val coroutineScope = rememberCoroutineScope()
 
     ElevatedCard(
@@ -228,7 +249,6 @@ fun GameCardPlayed(
             .padding(8.dp)
             .fillMaxSize()
             .height(350.dp),
-        //.aspectRatio(1f),
         elevation = CardDefaults.cardElevation(5.dp),
         shape = RoundedCornerShape(8.dp),
 
@@ -267,7 +287,7 @@ fun GameCardPlayed(
                             modifier = Modifier.padding(top = 8.dp)
                         )
                     }
-                   // Spacer(modifier = Modifier.size(12.dp))
+
                     Row(
                        modifier = Modifier
                                 .fillMaxWidth(),
@@ -303,12 +323,12 @@ fun GameCardPlayed(
                         )
                         val context = LocalContext.current
                         PlayButton(
-                            //play = play,
+                            play = play,
 
-                            play = when (game.isPlayed) {
+                        /**    play = when (game.isPlayed) {
                                 true -> true
                                 false -> false
-                            },
+                            },*/
                             onPlayClick = {
                                 gameViewModel.selectPlayed(gameId = game.id)
 
@@ -385,35 +405,19 @@ fun GameCardPlayed(
                             onValueChange = { selectedRating.value = it},
                             onRatingChanged = {
 
-                                // selectedRating.value = (i + 1).toFloat()
                                 gameViewModel.selectRate(gameId = game.id)
 
                                 gameViewModel.isRate(gameId = game.id)
-                                //  selectedRating.value = (i + 1).toFloat()
-                                //  game.rating = selectedRating.value
+
                                 //to update db:
                                 coroutineScope.launch {
                                     gameViewModel.updateRating(game.copy(rating = selectedRating.value))
 
-                                    /**    if (selectedRating.value/**rating*/ >=0){
-                                    (gameViewModel.isRating(game.copy(rating = selectedRating.value)))
-                                    }else{
-                                    gameViewModel.isRating(game.copy(rating = 0f))
-                                    }*/
-
-                                    /**    if (selectedRating.value/**rating*/ >=0){
-                                    (gameViewModel.isRating(game.copy(rating = selectedRating.value)))
-                                    }else{
-                                    gameViewModel.isRating(game.copy(rating = 0f))
-                                    }*/
                                 }
                             }
-
                         )
-
                     }
                 }
             }
         }
-
     }

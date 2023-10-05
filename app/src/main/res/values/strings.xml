@@ -5,7 +5,7 @@
     <string name="retry">Retry</string>
     <string name="game_title">Game Title</string>
     <string name="no_favorite_games">No favorite games</string>
-    <string name="menu">Menu</string>
+    <string name="theme">Theme</string>
     <string name="favorites">Favorites Games</string>
     <string name="rated">Rated Games</string>
     <string name="played">Played Games</string>
@@ -47,5 +47,11 @@
     <string name="favorite">Favorites</string>
     <string name="playedIc">Played</string>
     <string name="sharedIC">Shared</string>
-
+    <string name="theme_brand_default">Default</string>
+    <string name="them_brand_my_brand">My Brand</string>
+    <string name="dynamic_color_prefs">Use dynamic colors</string>
+    <string name="dynamic_color_yes">Yes</string>
+    <string name="dynamic_color_no">No</string>
+    <string name="is_night_mode">Is Night Mode ?</string>
+    <string name="not_connection">Not connection!!</string>
 </resources>
