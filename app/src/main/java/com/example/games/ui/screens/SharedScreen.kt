@@ -9,9 +9,13 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -51,45 +55,12 @@ fun SharedScreenContent(
 
     Column(
         modifier = modifier
-        /**    .background(
-                brush = Brush.verticalGradient(
-                    if (isSystemInDarkTheme()) {
-                        listOf(
-                            DarkColors.scrim,
-                            DarkColors.surfaceVariant
-                            // Color.Black,
-                            //Color.Blue
-                        )
-                    } else {
-                        listOf(
-                            LightColors.scrim,
-                            LightColors.scrim
-                        )
-                    }
-                )
-            )*/
             .fillMaxSize()
-            .padding(8.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+           // .padding(8.dp),
+       // verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-    /**    Row(modifier = Modifier
-            .padding(8.dp)
-            .background(
-                color = androidx.compose.material3.MaterialTheme.colorScheme.background
-            ),
-        ) {
-            androidx.compose.material3.Text(
-                text = "SHARED GAMES:",
-                color = if (isSystemInDarkTheme()) Color.White else Color.Black,
-                style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
-                fontWeight = FontWeight.Bold,
-                overflow = TextOverflow.Ellipsis,
-                textAlign = TextAlign.Left,
-                modifier = Modifier
-                    .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
-            )
-        }*/
-        Spacer(modifier = Modifier.size(16.dp))
+
+        Spacer(modifier = Modifier.size(8.dp))
 
         if (sharedL.isEmpty()) {
             Text(
@@ -97,12 +68,15 @@ fun SharedScreenContent(
                 style = MaterialTheme.typography.subtitle2
             )
         } else {
-            LazyColumn(
-                modifier = modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.spacedBy(8.dp),
-                contentPadding = PaddingValues(8.dp)
 
-            ) {
+            LazyVerticalGrid(
+                columns = GridCells.Adaptive(360.dp),
+                modifier = modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                contentPadding = PaddingValues(8.dp),
+            )
+
+            {
                 items(
                     items = sharedL,
                     key = { game -> game.id }
@@ -126,7 +100,9 @@ fun GameCardShared(
     GameCardComonContent( game)
 }
 
-
+/**
+ * To apply a brush with custom function (NOT USED: all Gradient is in theme):
+ */
 @Composable
 fun BrushRes(): Brush {
   if(  isSystemInDarkTheme()) {

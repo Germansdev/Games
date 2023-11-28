@@ -78,47 +78,15 @@ fun FavoritesScreenContent(
     modifier: Modifier = Modifier,
 ) {
     Column( modifier = modifier
-
-    /**    .background(
-            brush = Brush.verticalGradient(
-                if (isSystemInDarkTheme()) {
-                    listOf(
-                        DarkColors.scrim,
-                        DarkColors.surfaceVariant
-                        // Color.Black,
-                        //Color.Blue
-                    )
-                } else {
-                    listOf(
-                        LightColors.scrim,
-                        LightColors.scrim
-                    )
-                }
-            )
-        )*/
-
-        .fillMaxSize()){
+        .fillMaxSize()
+        .padding(bottom = 100.dp)
+    ){
 
         Row(
             modifier = Modifier
                 .background(color = androidx.compose.material3.MaterialTheme.colorScheme.background)
                 .align(Alignment.CenterHorizontally)
-        ) {
-
-            //) {
-
-          /**      Text(
-                    text = "YOUR FAVORITES GAMES:",
-                    color = if (isSystemInDarkTheme()) Color.White else Color.Black,
-                    style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Bold,
-                    overflow = TextOverflow.Ellipsis,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier
-                      //  .padding(top = 8.dp)
-                        .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
-                )*/
-            }
+        ) {            }
             /**     Log(TAG, favoritesL.size.toString())*/
 
 
@@ -129,7 +97,7 @@ fun FavoritesScreenContent(
                 )
             } else {
                 LazyVerticalGrid(
-                    columns = GridCells.Adaptive(180.dp),
+                    columns = GridCells.Adaptive(170.dp),//FixedSize(170.dp),//
                     modifier = modifier.fillMaxWidth(),
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                     contentPadding = PaddingValues(8.dp),
@@ -164,16 +132,16 @@ fun GameCardFavorites(
     val coroutineScope = rememberCoroutineScope()
     //val favorite by remember { mutableStateOf(false) }
 
-
-
-
     val offsetX = remember { mutableStateOf(0f) }
     val offsetY = remember { mutableStateOf(0f) }
+
+
     ElevatedCard(
         modifier = modifier
-            .padding(8.dp)
+            .padding(top = 0.dp, start = 8.dp, end = 8.dp, bottom = 4.dp)
             .fillMaxSize()
             .height(350.dp),
+
         //.aspectRatio(1f),
         elevation = CardDefaults.cardElevation(5.dp),
         shape = RoundedCornerShape(8.dp),
@@ -324,6 +292,8 @@ fun GameCardFavorites(
                                 value = selectedRating.value,//rating,
                                 config = RatingBarConfig(
                                 )
+                                    .padding(2.dp)
+                                    .size(22.dp)
                                     .activeColor(colorResource(id = R.color.orange_star))
                                     .inactiveColor(Color.LightGray),
 
@@ -359,8 +329,6 @@ fun GameCardFavorites(
                             )
 
                         }
-
-
                     }
                 }
             }

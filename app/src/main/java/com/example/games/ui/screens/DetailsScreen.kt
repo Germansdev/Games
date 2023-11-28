@@ -5,18 +5,30 @@ import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.ScrollScope
+import androidx.compose.foundation.gestures.ScrollableDefaults
+import androidx.compose.foundation.gestures.ScrollableState
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeContentPadding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.sizeIn
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Divider
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -44,6 +56,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -78,25 +91,9 @@ fun DetailsScreen(
     modifier: Modifier = Modifier,
     viewModel: DetailsViewModel = viewModel(factory = AppViewModelProvider.Factory),
     shouldShowGradientBackground: Boolean,
-    scaffoldState: ScaffoldState = rememberScaffoldState()
+    //scaffoldState: ScaffoldState = rememberScaffoldState()
 
     ) {
-    /**
-    Scaffold(
-    modifier = Modifier.fillMaxWidth(),
-    ) {
-    CustomTopBar(
-    titleRes = R.string.details,
-    navigationIcon = Icons.Default.ArrowBack,
-    navigationIconContentDescription = null,
-    actionIcon = Icons.Default.Home,
-    actionIconContentDescription = null,
-    onActionClick = {},
-    onNavigationClick = {}
-    )
-    }*/
-    /**VERY IMPORTANT:
-     * Always recover the uiState as Cold Flow of each State of everything*/
 
     val uiState = viewModel.uiState.collectAsState()
 
@@ -114,116 +111,59 @@ fun DetailsScreen(
         ) {
 
 
-            Scaffold(
-                modifier = Modifier.fillMaxSize(),
-                        containerColor= Transparent,/**backgroundColor*/ //Color.Yellow,//
-                contentColor = MaterialTheme.colorScheme.onBackground,//Color.Blue,//
+        /**    Scaffold(
+                modifier = Modifier
+                    //.fillMaxSize()
+                    .padding(bottom = 16.dp)
+                    .scrollable(
+                        ScrollableState { 1F },
+                        //ScrollableDefaults,
+                        //  overscrollEffect = Orientation.Horizontal,
+                        orientation = Orientation.Horizontal,
+                        // overscrollEffect = null,
+                        //enabled = true,
+                    )
+                ,
+                containerColor= Transparent,
+                contentColor = MaterialTheme.colorScheme.onBackground,
 
-                /**
-                 * original, with bounce:
-                 */
+            ) {*/
+                Column(modifier = Modifier
+                    .padding(8.dp)
+                    //.heightIn(min=650.dp, max= 750.dp)
+                    //.fillMaxHeight()
+                    .scrollable(
+                        ScrollableState { 1F },
 
-                /**    topBar = {
-
-
-                CustomTopBar(
-                titleRes = R.string.details,
-                actionIcon = Icons.Default.ArrowBack,
-                actionIconContentDescription = null,
-                onActionClick = onClick,
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                containerColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
-                //colorScheme.surface
-                ),
-                )*/
+                        //ScrollableDefaults,
+                      //  overscrollEffect = Orientation.Horizontal,
+                        orientation = Orientation.Horizontal,
+                       // overscrollEffect = null,
+                        //enabled = true,
+                    )
+                ) {
 
 
-            ) { innerPadding ->
-
-                CustomTopBar(
-                    titleRes = R.string.details,
-                    actionIcon = Icons.Default.ArrowBack,
-                    actionIconContentDescription = null,
-                    onActionClick = onClick,
-                    colors = TopAppBarDefaults.centerAlignedTopAppBarColors(//containerColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
-                     Color.Transparent //  colorScheme.surface
-                    ),
-                )
                 ItemDetailsBody(
                     gameDetailsUiState = uiState.value,
                     onBack = onClick,
                     modifier = modifier
-                        .fillMaxSize()
-                    //.padding(innerPadding)
-                    /**    .background(
-                    brush = Brush.verticalGradient(
-                    if (isSystemInDarkTheme()) {
-                    listOf(
-                    DarkColors.scrim,
-                    DarkColors.surfaceVariant
-                    // Color.Black,
-                    //Color.Blue
-                    )
-                    } else {
-                    listOf(
-                    LightColors.scrim,
-                    LightColors.scrim
-                    //Color.White,
-                    //Color.White
-                    )
-                    }
-                    )
-
-                    )*/
-
+                        .fillMaxHeight()
+                        //.fillMaxSize()
+                        .scrollable(
+                            ScrollableState { 1F },
+                            //ScrollableDefaults,
+                            //  overscrollEffect = Orientation.Horizontal,
+                            orientation = Orientation.Horizontal,
+                            // overscrollEffect = null,
+                            enabled = true,
+                        )
+                   // .safeContentPadding()
                 )
+                //Spacer(modifier = Modifier.fillMaxWidth().height(8.dp))
                 Log.d(TAG, gameDetails.title)
             }
-
-            /**    CustomTopBar(
-            titleRes = R.string.details,
-            actionIcon = Icons.Default.ArrowBack,
-            actionIconContentDescription = null,
-            onActionClick = onClick,
-            colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-            containerColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
-            //colorScheme.surface
-            ),
-            )*/
-            /**    ItemDetailsBody(
-            gameDetailsUiState = uiState.value,
-            onBack = onClick,
-            modifier = modifier//.padding(innerPadding)
-            .background(
-            brush = Brush.verticalGradient(
-            if (isSystemInDarkTheme()) {
-            listOf(
-            DarkColors.scrim,
-            DarkColors.surfaceVariant
-            // Color.Black,
-            //Color.Blue
-            )
-            } else {
-            listOf(
-            LightColors.scrim,
-            LightColors.scrim
-            //Color.White,
-            //Color.White
-            )
-            }
-            )
-
-            )
-
-            )*/
-// without call Scaffold and use the bar called in GameApp()
-            /**  ItemDetailsBody(
-            gameDetailsUiState = uiState.value,
-            onBack = onClick,
-            //  modifier = modifier.padding(innerPadding)
-
-            )*/
-
+      //  }
         }
     }
 }
@@ -243,16 +183,17 @@ fun ItemDetailsBody(
     val gameDetails = gameDetailsUiState.gameDetails
 
 
-    Row(modifier = Modifier.fillMaxWidth()) {
-      //  Text(text = "this NotPlayedCard")
-    }
+    Row(modifier = Modifier
+        .fillMaxWidth()
+        .fillMaxHeight()
+    ) {
     Column(
 
         modifier = Modifier
 
             .fillMaxHeight()
-            //.padding(8.dp)
-        // .height(500.dp)
+           // .padding(bottom = 8.dp)
+            .fillMaxHeight()
     ) {
         Column {
 
@@ -260,8 +201,11 @@ fun ItemDetailsBody(
 
                 modifier = modifier//modifier
                     //     .clickable { onBack() }
+                    .padding(bottom = 100.dp)
                     .fillMaxWidth()
-                    .fillMaxHeight()
+                    //.wrapContentSize()
+                   // .fillMaxHeight()
+                    .heightIn(500.dp, 600.dp)
                     .padding(top = 35.dp, bottom = 10.dp, start = 10.dp, end = 10.dp),
                 elevation = CardDefaults.cardElevation(5.dp),
                 shape = RoundedCornerShape(8.dp),
@@ -295,85 +239,94 @@ fun ItemDetailsBody(
                                 textAlign = TextAlign.Left,
                                 modifier = Modifier.padding(top = 8.dp)
                             )
-
+                            Divider(
+                                thickness = 2.dp,
+                                modifier = Modifier.padding(top = 8.dp),
+                                color = if (isSystemInDarkTheme()) Color.DarkGray else Color.LightGray
+                            )
                             Text(
                                 color = MaterialTheme.colorScheme.inverseSurface,
                                 text = gameDetails.short_description,
-                                style = MaterialTheme.typography.bodyLarge,
+                                style = MaterialTheme.typography.bodySmall,
+                                //fontSize = 12.sp,
                                 // maxLines = 2,
                                 overflow = TextOverflow.Ellipsis,
                                 textAlign = TextAlign.Left,
-                                modifier = Modifier.padding(end = 4.dp, top = 2.dp, bottom = 4.dp)
+                                modifier = Modifier.padding(end = 4.dp, top = 2.dp)
                             )
-
+                            Divider(
+                                thickness = 2.dp,
+                                modifier = Modifier.padding(top = 8.dp),
+                                color = if (isSystemInDarkTheme()) Color.DarkGray else Color.LightGray
+                            )
                             Text(
                                 color = MaterialTheme.colorScheme.inverseSurface,
                                 text = gameDetails.developer,
-                                style = MaterialTheme.typography.bodyLarge,
-                                fontWeight = FontWeight.Bold,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.Normal,
                                 overflow = TextOverflow.Ellipsis,
                                 textAlign = TextAlign.Left,
-                                modifier = Modifier.padding(top = 8.dp)
+                                modifier = Modifier.padding(top = 4.dp)
                             )
 
                             Text(
                                 color = MaterialTheme.colorScheme.inverseSurface,
                                 text = gameDetails.game_url,
-                                style = MaterialTheme.typography.bodyLarge,
-                                fontWeight = FontWeight.Bold,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.Normal,
                                 overflow = TextOverflow.Ellipsis,
                                 textAlign = TextAlign.Left,
-                                modifier = Modifier.padding(top = 8.dp)
+                                modifier = Modifier.padding(top = 4.dp)
                             )
 
                             Text(
                                 color = MaterialTheme.colorScheme.inverseSurface,
                                 text = gameDetails.freetogame_profile_url,
-                                style = MaterialTheme.typography.bodyLarge,
-                                fontWeight = FontWeight.Bold,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.Normal,
                                 overflow = TextOverflow.Ellipsis,
                                 textAlign = TextAlign.Left,
-                                modifier = Modifier.padding(top = 8.dp)
+                                modifier = Modifier.padding(top = 4.dp)
                             )
 
                             Text(
                                 color = MaterialTheme.colorScheme.inverseSurface,
                                 text = gameDetails.genre,
-                                style = MaterialTheme.typography.bodyLarge,
-                                fontWeight = FontWeight.Bold,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.Normal,
                                 overflow = TextOverflow.Ellipsis,
                                 textAlign = TextAlign.Left,
-                                modifier = Modifier.padding(top = 8.dp)
+                                modifier = Modifier.padding(top = 4.dp)
                             )
 
                             Text(
                                 color = MaterialTheme.colorScheme.inverseSurface,
                                 text = gameDetails.platform,
-                                style = MaterialTheme.typography.bodyLarge,
-                                fontWeight = FontWeight.Bold,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.Normal,
                                 overflow = TextOverflow.Ellipsis,
                                 textAlign = TextAlign.Left,
-                                modifier = Modifier.padding(top = 8.dp)
+                                modifier = Modifier.padding(top = 4.dp)
                             )
 
                             Text(
                                 color = MaterialTheme.colorScheme.inverseSurface,
                                 text = gameDetails.publisher,
-                                style = MaterialTheme.typography.bodyLarge,
-                                fontWeight = FontWeight.Bold,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.Normal,
                                 overflow = TextOverflow.Ellipsis,
                                 textAlign = TextAlign.Left,
-                                modifier = Modifier.padding(top = 8.dp)
+                                modifier = Modifier.padding(top = 4.dp)
                             )
 
                             Text(
                                 color = MaterialTheme.colorScheme.inverseSurface,
                                 text = gameDetails.release_date,
-                                style = MaterialTheme.typography.bodyLarge,
-                                fontWeight = FontWeight.Bold,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.Normal,
                                 overflow = TextOverflow.Ellipsis,
                                 textAlign = TextAlign.Left,
-                                modifier = Modifier.padding(top = 8.dp)
+                                modifier = Modifier.padding(top = 4.dp)
                             )
                             Row(modifier = Modifier
                                 .padding(end = 16.dp)
@@ -393,6 +346,7 @@ fun ItemDetailsBody(
                 }
             }
         }
+    }
     }
 }
 @Composable

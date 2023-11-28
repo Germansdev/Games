@@ -7,12 +7,14 @@ package com.example.games.ui
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
-import android.content.Context
 import android.os.Build
 import android.util.Log.e
 import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
+import androidx.compose.foundation.checkScrollableContainerConstraints
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -27,7 +29,9 @@ import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
@@ -38,17 +42,17 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.colorScheme
-import androidx.compose.material3.SnackbarDuration
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TopAppBarDefaults.enterAlwaysScrollBehavior
+import androidx.compose.material3.TopAppBarDefaults.exitUntilCollapsedScrollBehavior
+import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass.Companion.Compact
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass.Companion.Expanded
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass.Companion.Medium
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -70,7 +74,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
@@ -86,12 +89,10 @@ import com.example.games.GamesNavigationDefaults
 import com.example.games.GamesNavigationDefaults.navigationContentColor
 import com.example.games.GamesNavigationRail
 import com.example.games.GamesNavigationRailItem
-import com.example.games.R
 import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.*
 import com.example.games.appDestinations.GamesContentType
 import com.example.games.appDestinations.GamesNavigationType
-import com.example.games.data.util.NetworkMonitor
 import com.example.games.search.navigateToSearch
 import com.example.games.ui.badges.FavoritesBadgeViewModel
 import com.example.games.ui.badges.NotPlayedBadgeViewModel
@@ -105,9 +106,6 @@ import com.example.games.ui.theme.Icon
 import com.example.games.ui.theme.Icon.*
 import com.example.games.ui.theme.LocalGradientColors
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.stateIn
 
 
 @ExperimentalLayoutApi
@@ -127,7 +125,7 @@ fun GamesApp(
     //    networkMonitor = networkMonitor,implement hilt
     //windowWidthSizeClass =  windowSize,// codelab
     ),
-    scaffoldState: ScaffoldState = rememberScaffoldState(),
+   // scaffoldState: ScaffoldState = rememberScaffoldState(), for snackbar and drawer
 
     ) {
     val shouldShowGradientBackground =
@@ -137,7 +135,7 @@ fun GamesApp(
     val contentType: GamesContentType
 
    // val sizing =
-    when (/**windowSize*/windowSizeClass.widthSizeClass) {
+    when (windowSizeClass.widthSizeClass) {
             Compact -> {
                 navigationType = GamesNavigationType.BOTTOM_NAVIGATION
                 contentType = GamesContentType.LIST_ONLY
@@ -159,19 +157,9 @@ fun GamesApp(
             }
         }
 
-
-
-    //val navController = rememberNavController()
-//26 09:    val themeViewModel: ThemeViewModel =
-//26 09:        viewModel(factory = AppViewModelProvider.Factory) //20 09 theme viewmodel
-
-   // val application: GameApplication = remember { GameApplication() }
-
     var showSettingsDialog by rememberSaveable {
         mutableStateOf(false)
     }
-
-
 
 //26 09:
     GamesBackground {
@@ -189,8 +177,6 @@ fun GamesApp(
             if (showSettingsDialog) {
                 SettingsDialog(
                     onDismiss = { showSettingsDialog = false },
-                    // onToggleTheme = application::toggleLightTheme
-                    // viewModel = viewModel(factory = AppViewModelProvider.Factory)
                 )
             }
 
@@ -209,26 +195,25 @@ fun GamesApp(
                     )
                 }
             }*/
-
+     //  val scrollBehavior =
+         //  TopAppBarDefaults.exitUntilCollapsedScrollBehavior(rememberTopAppBarState())
             androidx.compose.material3.Scaffold(
-                modifier = Modifier.semantics {
+                modifier = Modifier
+                    .semantics {
                     testTagsAsResourceId = true
-                },
+                }
+                 //   .nestedScroll(scrollBehavior.nestedScrollConnection)
+                ,
                 //scaffoldState = scaffoldState,
                 contentWindowInsets = WindowInsets(0, 0, 0, 0),
                 containerColor = Transparent,
                 contentColor = colorScheme.onBackground,
-            //    snackbarHost = { androidx.compose.material3.SnackbarHost(snackbarHostState) },
+            //hilt:  snackbarHost = { androidx.compose.material3.SnackbarHost(snackbarHostState) },
+
                 bottomBar = {
 
                     if (appState.shouldShowBottomBar) {
-                        //   val navigationType: GamesNavigationType
-                        //   val contentType: GamesContentType
-                        /**    AnimatedVisibility(visible = navigationType == GamesNavigationType.BOTTOM_NAVIGATION
-                        ) {*/
                         BottomBar(
-                            //navigationType = navigationType,
-                            //contentType = contentType,
                             destinations = appState.bottomBarScreens,
                             onNavigateToDestination = appState::navigateToBottomBarScreen,
                             currentDestination = appState.currentDestination,
@@ -244,16 +229,9 @@ fun GamesApp(
 
                 ) { padding ->
 
-                /**    Surface(
-                modifier = Modifier
-                .fillMaxSize(),
-                color = colorScheme.scrim//if (isSystemInDarkTheme()) DarkColors.scrim else LightColors.scrim,//if (isSystemInDarkTheme()) Color.Black else Color.White,
-
-                ) {*/
                 Row(
                     Modifier
                         .fillMaxSize()
-                        .padding(padding)
                         .consumeWindowInsets(padding)
                         .windowInsetsPadding(
                             WindowInsets.safeDrawing.only(
@@ -264,11 +242,7 @@ fun GamesApp(
                     ) {
 
                     if (appState.shouldShowNavRail) {
-                        /**      AnimatedVisibility(visible = navigationType == GamesNavigationType.NAVIGATION_RAIL
-                        ) {*/
                         GameNavRail(
-                            navigationType = navigationType,
-                            contentType = contentType,
                             destinations = appState.bottomBarScreens,
                             onNavigateToDestination = appState::navigateToBottomBarScreen,
                             currentDestination = appState.currentDestination,
@@ -287,7 +261,7 @@ fun GamesApp(
                         val destination = appState.currentTopLevelDestination
                         if (destination != null) {
                             CustomTopBar(
-                                titleRes = destination.titleTextId,//titleTextId,//R.string.app_name,//destination.title.toInt(),//R.string.app_name, }
+                                titleRes = destination.titleTextId,
                                 navigationIcon = GamesIcons.Search,
                                 navigationIconContentDescription = null,
                                 actionIcon = GamesIcons.Settings,
@@ -295,8 +269,7 @@ fun GamesApp(
                                 colors = TopAppBarDefaults
                                     .centerAlignedTopAppBarColors(
                                         titleContentColor = GamesNavigationDefaults.navigationSelectedItemColor(),
-                                        containerColor = Transparent,//if (isSystemInDarkTheme()) DarkColors.scrim else LightColors.scrim,//if (isSystemInDarkTheme()) Color.Black else Color.White,
-
+                                        containerColor = Transparent,
                                     ),
                                 onActionClick = { showSettingsDialog = true },
                                 onNavigationClick = { appState.navController.navigateToSearch() },
@@ -307,7 +280,6 @@ fun GamesApp(
                             appState,
                             modifier = Modifier,
                             startDestination = Pantalla1.route,
-                            //      navigationType = navigationType
                         )
                     }
                 }
@@ -334,17 +306,20 @@ fun GamesApp(
         onActionClick: () -> Unit = {},
     ) {
         //With CenterAlignedTopAppBar:
+
         CenterAlignedTopAppBar(
             title = {
                 androidx.compose.material3.
-                Text(text = stringResource(id = titleRes))
+                Text(
+                    text = stringResource(id = titleRes),
+                    fontSize = 16.sp,
+                )
                 if (genre != null) {
                     if (genre.isNotEmpty()) {
                         Text(
                             text = "Genre:/bar1 $genre",
                             style = MaterialTheme.typography.titleLarge,
-                            color = //colorScheme.onSurface,
-                            if (isSystemInDarkTheme()) Color.White else Color.Black,
+                            color = if (isSystemInDarkTheme()) Color.White else Color.Black,
                         )
                     }
                 }
@@ -391,6 +366,7 @@ fun GamesApp(
         colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(),
         onActionClick: () -> Unit = {},
     ) {
+
         CenterAlignedTopAppBar(
             title = {
                 androidx.compose.material3.Text(text = stringResource(id = titleRes))
@@ -399,7 +375,6 @@ fun GamesApp(
                         text = "Genre: $genre",
                         style = MaterialTheme.typography.titleLarge,
                         color = GamesNavigationDefaults.navigationSelectedItemColor(),
-                        //if (isSystemInDarkTheme()) Color.White else Color.Black,
                     )
                 }
             },
@@ -413,22 +388,9 @@ fun GamesApp(
                     )
                 }
             },
-
             colors = colors
-            //TopAppBarDefaults.centerAlignedTopAppBarColors(containerColor = colorScheme.scrim,)
         )
     }
-
-//END WITH SPECIAL TOP BAR
-
-//BOTTOM NAVIGATION:
-    /**
-    @Composable
-    fun currentRoute(navController: NavHostController): String? {
-    val entry by navController.currentBackStackEntryAsState()
-    return entry?.destination?.route
-    }*/
-
     @Composable
     fun Badge(
         badgeCount: Int,
@@ -447,15 +409,16 @@ fun GamesApp(
                         text = badgeCount.toString(),
                         color = Color.White,
                         fontWeight = FontWeight.Bold,
-                        fontSize = 10.sp,
+                        fontSize = 8.sp,
                         textAlign = TextAlign.Center,
                         softWrap = true,
                         modifier = Modifier
+                           // .sizeIn(10.dp, 15.dp)
                             .wrapContentWidth()
                             .wrapContentHeight()
                             .wrapContentSize()
                             .padding(12.dp)
-                            .width(17.dp)
+                            .widthIn(17.dp, 20.dp)
                             .height(16.dp)
                             .clip(CircleShape)
                             .background(if (badgeCount != 0) Color.Red else Color.Transparent)
@@ -470,9 +433,6 @@ fun GamesApp(
     //adapt the Bottom bar to include the functionality of badges:
     @Composable
     fun BottomBar(
-        // navigationType: GamesNavigationType,
-        // contentType: GamesContentType,
-        //   navController: NavHostController,
         destinations: List<BottomBarScreen>,
         onNavigateToDestination: (BottomBarScreen) -> Unit,
         currentDestination: NavDestination?,
@@ -496,12 +456,6 @@ fun GamesApp(
         val badgeCountStats = statsB.value
         val badgeCountShared = sharedB.value
 
-
-    /**    Divider(
-            modifier = Modifier.fillMaxWidth(),
-            color = colorScheme.inverseSurface,//if (isSystemInDarkTheme()) colorScheme.inverseSurface else colorScheme.inverseSurface,
-            startIndent = 4.dp
-        )*/
         GamesNavigationBar(modifier = modifier,) {
 
             destinations.forEach { screen ->
@@ -532,7 +486,6 @@ fun GamesApp(
                 }
 
                 GamesNavigationBarItem(
-                    //26 09  Nia bar
                     selected = currentDestination.isTopLevelDestinationInHierarchy(screen),
                     onClick = { onNavigateToDestination(screen) },
                     icon = {
@@ -560,6 +513,8 @@ fun GamesApp(
                     label =  {
                         Text(
                             text= stringResource(id = screen.iconTextId),
+                            fontSize = 12.sp,
+                            softWrap = false,
                             color = if (currentDestination.isTopLevelDestinationInHierarchy(screen)
                                 ){
                                 GamesNavigationDefaults.navigationSelectedItemColor()
@@ -568,10 +523,7 @@ fun GamesApp(
                                 }
                             )
                             },
-                    modifier = Modifier,
-
-
-
+                    modifier = Modifier.sizeIn(8.dp, 10.dp),
                 )
                 e(TAG, notPlayedB.toString())
             }
@@ -586,10 +538,6 @@ fun GamesApp(
 
     @Composable
     fun GameNavRail(
-        // header: @Composable (ColumnScope.() -> Unit)? = null,
-        //content: @Composable ColumnScope.() -> Unit,
-        navigationType: GamesNavigationType,
-        contentType: GamesContentType,
         destinations: List<BottomBarScreen>,
         onNavigateToDestination: (BottomBarScreen) -> Unit,
         currentDestination: NavDestination?,

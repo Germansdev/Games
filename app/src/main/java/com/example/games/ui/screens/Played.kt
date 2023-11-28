@@ -89,6 +89,7 @@ fun PlayedScreenContent(
 
     Column(
         modifier = modifier
+            .padding(bottom = 100.dp)
             .fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
@@ -110,7 +111,7 @@ Row( modifier = modifier
             )
         } else {
             LazyVerticalGrid(
-                columns = GridCells.Adaptive(180.dp),
+                columns = GridCells.Adaptive(170.dp),
                 modifier = modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 contentPadding = PaddingValues(8.dp),
@@ -185,6 +186,7 @@ fun MyCardStaticRowPlayed(
 
         ),
         modifier = Modifier
+            .padding(end = 8.dp)
             .height(60.dp)
             .width(80.dp)
             .clickable {
@@ -246,7 +248,7 @@ fun GameCardPlayed(
 
     ElevatedCard(
         modifier = modifier
-            .padding(8.dp)
+            .padding(top=0.dp, start = 8.dp, end = 8.dp, bottom = 4.dp)
             .fillMaxSize()
             .height(350.dp),
         elevation = CardDefaults.cardElevation(5.dp),
@@ -399,6 +401,8 @@ fun GameCardPlayed(
                             value = selectedRating.value,//rating,
                             config = RatingBarConfig(
                             )
+                                .padding(2.dp)
+                                .size(22.dp)
                                 .activeColor(colorResource(id = R.color.orange_star))
                                 .inactiveColor(Color.LightGray),
 

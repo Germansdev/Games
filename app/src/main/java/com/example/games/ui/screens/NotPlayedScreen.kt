@@ -13,6 +13,9 @@ package com.example.games.ui.screens
  import androidx.compose.foundation.layout.*
  import androidx.compose.foundation.lazy.LazyColumn
  import androidx.compose.foundation.lazy.LazyRow
+ import androidx.compose.foundation.lazy.grid.GridCells
+ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+ import androidx.compose.foundation.lazy.grid.items
  import androidx.compose.foundation.lazy.items
  import androidx.compose.foundation.shape.CircleShape
  import androidx.compose.foundation.shape.RoundedCornerShape
@@ -29,7 +32,6 @@ package com.example.games.ui.screens
  import androidx.compose.material3.ElevatedCard
  import androidx.compose.material3.Icon
  import androidx.compose.material3.IconButton
- import androidx.compose.material3.MaterialTheme.colorScheme
  import androidx.compose.material3.OutlinedCard
  import androidx.compose.material3.Text
  import androidx.compose.runtime.Composable
@@ -45,7 +47,6 @@ package com.example.games.ui.screens
  import androidx.compose.ui.Alignment.Companion.CenterVertically
  import androidx.compose.ui.Modifier
  import androidx.compose.ui.draw.clip
- import androidx.compose.ui.geometry.CornerRadius
  import androidx.compose.ui.graphics.Color
  import androidx.compose.ui.layout.ContentScale
  import androidx.compose.ui.platform.LocalContext
@@ -66,7 +67,6 @@ package com.example.games.ui.screens
  import com.example.games.model.Game
  import com.example.games.ui.AppViewModelProvider
  import com.example.games.ui.GameViewModel
- import com.example.games.ui.HomeUiState
  import com.example.games.ui.NotPlayedUiState
  import com.example.games.ui.NotPlayedViewModel
  import com.gowtham.ratingbar.RatingBar
@@ -110,32 +110,16 @@ fun NotPlayedScreenContent(
 
     ) {
 
-    Row() {
+    Row(modifier = modifier) {
 
-    MyCardStaticRowNotPlayed()
+        MyCardStaticRowNotPlayed()
 
-    MyLazyRowNotPlayed( onGenreClick = onGenreClick)
+        MyLazyRowNotPlayed( onGenreClick = onGenreClick)
 
 }
 
         d(TAG, notPlayedL.size.toString())
 
-        Row(
-            modifier = Modifier
-                .padding(top = 8.dp)
-                .align(CenterHorizontally)
-
-        ) {
-
-            Text(
-                text = "NOT PLAYED GAMES:",
-                color = colorScheme.scrim,//if (isSystemInDarkTheme()) LightColors.scrim else DarkColors.scrim,//if (isSystemInDarkTheme()) LightColors.scrim else DarkColors.scrim,
-                style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
-                fontWeight = FontWeight.Bold,
-                overflow = TextOverflow.Ellipsis,
-                textAlign = TextAlign.Left,
-            )
-        }
         Spacer(modifier = Modifier.size(8.dp))
 
         if (notPlayedL.isEmpty()) {
@@ -143,23 +127,16 @@ fun NotPlayedScreenContent(
                 text = stringResource(R.string.no_item_description),
                 style = MaterialTheme.typography.subtitle2
             )
-        } else
+        } else {
 
-        {
-
-            LazyColumn(
-                modifier = modifier
-                    .fillMaxSize(),
+            LazyVerticalGrid(
+                columns = GridCells.Adaptive(360.dp/**180.dp*/),
+                modifier = modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 contentPadding = PaddingValues(8.dp)
-
             ) {
                 items(
-                    items =
-
-                    /**gameListCategoryUiState.gamesCat,*/
-                    notPlayedL,
-                  //  gamesCatNotPlayed,
+                    items = notPlayedL,
                     key = { game -> game.id }
                 ) { game ->
                     GameCardColumnNotPlayed(
@@ -176,6 +153,7 @@ fun NotPlayedScreenContent(
 @Composable
     fun MyLazyRowNotPlayed(
     onGenreClick: (String) -> Unit,
+    modifier: Modifier = Modifier
     ) {
 
         val notPlayedViewModel: NotPlayedViewModel =
@@ -197,6 +175,7 @@ fun NotPlayedScreenContent(
         Row(
             modifier = Modifier
                 .height(60.dp)
+               // .padding(bottom = 0.dp, top = 0.dp)
         ) {
 
             LazyRow(
@@ -262,7 +241,8 @@ fun MyCardStaticRowNotPlayed(
                 text = "All",
                 color = GamesNavigationDefaults.navigationSelectedItemColor(),
                 fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                fontSize = 10.sp
             )
         }
         Row(
@@ -343,7 +323,8 @@ fun MyCardRowNotPlayed(
                         .align(CenterVertically),
                     text = pair.first,
                     fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
+                    fontSize = 10.sp
                 )
             }
             Row(
@@ -516,7 +497,13 @@ fun GameCardColumnNotPlayed(
                     GameOutlinedButton(
                         onClick = { onClick(game) },
                         enabled = true,
-                        text = { Text(text = "Details") },
+                        text = {
+                            Text( modifier = Modifier,
+                            softWrap = false,
+                            fontSize = 12.sp,
+                            text = "Details",
+                            //fontSize = 16.dp,
+                        ) },
                         leadingIcon = {
                             Icon(imageVector = Icons.Default.Add, contentDescription = null)
                         }

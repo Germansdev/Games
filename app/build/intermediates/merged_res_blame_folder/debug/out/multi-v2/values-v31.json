@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.games.app-mergeDebugResources-2:/values-v31/values-v31.xml",
+            "outputFile": "com.example.games.app-mergeDebugResources-72:/values-v31/values-v31.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Willkommen\\AndroidStudioProjects\\jdk-11.0.17\\caches\\transforms-3\\f77cb43cacb39445d87a952e6a375dc3\\transformed\\core-splashscreen-1.0.1\\res\\values-v31\\values-v31.xml",
+                    "source": "C:\\Users\\Willkommen\\.gradle\\caches\\transforms-3\\8ab37927962baecf388b20ed6b8dd610\\transformed\\core-splashscreen-1.0.1\\res\\values-v31\\values-v31.xml",
                     "from": {
                         "startLines": "2,9",
                         "startColumns": "4,4",
