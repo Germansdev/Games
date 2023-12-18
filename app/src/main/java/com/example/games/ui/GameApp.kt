@@ -11,10 +11,7 @@ import android.os.Build
 import android.util.Log.e
 import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
-import androidx.compose.animation.animateContentSize
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
-import androidx.compose.foundation.checkScrollableContainerConstraints
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -30,7 +27,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.sizeIn
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -44,9 +40,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.TopAppBarDefaults.enterAlwaysScrollBehavior
-import androidx.compose.material3.TopAppBarDefaults.exitUntilCollapsedScrollBehavior
-import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass.Companion.Compact
@@ -93,6 +86,7 @@ import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.*
 import com.example.games.appDestinations.GamesContentType
 import com.example.games.appDestinations.GamesNavigationType
+import com.example.games.data.util.ConnectivityObserver
 import com.example.games.search.navigateToSearch
 import com.example.games.ui.badges.FavoritesBadgeViewModel
 import com.example.games.ui.badges.NotPlayedBadgeViewModel
@@ -118,16 +112,18 @@ import kotlinx.coroutines.CoroutineScope
 @Composable
 fun GamesApp(
     windowSizeClass: WindowSizeClass,
-   // networkMonitor: NetworkMonitor, implement hilt
-    //windowSize: WindowWidthSizeClass, // codelab
+   // networkStatus: NetworkStatus, //implement hilt
     appState: GamesState = rememberGamesAppState(
         windowSizeClass = windowSizeClass,
-    //    networkMonitor = networkMonitor,implement hilt
-    //windowWidthSizeClass =  windowSize,// codelab
+       //networkStatus = networkStatus,//implement hilt
     ),
-   // scaffoldState: ScaffoldState = rememberScaffoldState(), for snackbar and drawer
+
+   // scaffoldState: ScaffoldState = rememberScaffoldState(),// for snackbar and drawer
 
     ) {
+
+
+
     val shouldShowGradientBackground =
         appState.currentTopLevelDestination == Pantalla1
 
@@ -180,21 +176,6 @@ fun GamesApp(
                 )
             }
 
-       /**implement hilt:
-            val snackbarHostState = remember { SnackbarHostState() }
-
-            val isOffline by appState.isOffline.collectAsStateWithLifecycle()
-
-            // If user is not connected to the internet show a snack bar to inform them.
-            val notConnectedMessage = stringResource(id = R.string.not_connection)
-            LaunchedEffect(isOffline) {
-                if (isOffline) {
-                    snackbarHostState.showSnackbar(
-                        message = notConnectedMessage,
-                        duration = SnackbarDuration.Indefinite,
-                    )
-                }
-            }*/
      //  val scrollBehavior =
          //  TopAppBarDefaults.exitUntilCollapsedScrollBehavior(rememberTopAppBarState())
             androidx.compose.material3.Scaffold(
@@ -413,7 +394,7 @@ fun GamesApp(
                         textAlign = TextAlign.Center,
                         softWrap = true,
                         modifier = Modifier
-                           // .sizeIn(10.dp, 15.dp)
+                            // .sizeIn(10.dp, 15.dp)
                             .wrapContentWidth()
                             .wrapContentHeight()
                             .wrapContentSize()
@@ -636,7 +617,8 @@ fun GamesApp(
     @Composable
     fun rememberGamesAppState(
         windowSizeClass: WindowSizeClass, //nia App
-       // networkMonitor: NetworkMonitor, implement hilt
+        //networkStatus: NetworkStatus, //implement hilt
+
         coroutineScope: CoroutineScope = rememberCoroutineScope(),
         navController: NavHostController = rememberNavController(),
 
@@ -645,16 +627,19 @@ fun GamesApp(
         return remember(
             navController,
             coroutineScope,
-            windowSizeClass, //nia App
-         //   networkMonitor, implement hilt
+            windowSizeClass,
+            //networkStatus, //implement hilt
+
 
         ) {
+
             GamesState(
                 navController,
                 coroutineScope,
-                windowSizeClass,//nia App
-             //   networkMonitor, implement hilt
-                //     windowWidthSizeClass
+                windowSizeClass,
+                //networkStatus, //implement hilt
+
+
             )
         }
     }
@@ -663,8 +648,12 @@ fun GamesApp(
         val navController: NavHostController,
         val coroutineScope: CoroutineScope,
         val windowSizeClass: WindowSizeClass,
-      //  networkMonitor: NetworkMonitor,implement hilt
+        //networkStatus: NetworkStatus,//implement hilt
+
     ) {
+        val  connectivityObserver: ConnectivityObserver.Status
+            @Composable get() = connectivityObserver
+
         val currentDestination: NavDestination?
             @Composable get() = navController
                 .currentBackStackEntryAsState().value?.destination
@@ -682,15 +671,16 @@ fun GamesApp(
         val shouldShowNavRail: Boolean
             get() = !shouldShowBottomBar//windowSizeClass.widthSizeClass == WindowWidthSizeClass.Medium
 
+
     /**implement hilt:
-     *  val isOffline = networkMonitor.isOnline
+       val isOffline = networkStatus.isOnline
             .map(Boolean::not)
             .stateIn(
                 scope = coroutineScope,
                 started = SharingStarted.WhileSubscribed(5_000),
                 initialValue = false,
-            )*/
-
+            )
+     **/
 
 /**
         val navigationType: GamesNavigationType

@@ -12,6 +12,7 @@ buildscript {
         dataStoreVersion = '1.0.0'
         protobufVersion = '3.19.4'
         material3_version = '1.0.1'
+
     }
     repositories {
         maven { url 'https://jitpack.io' }

@@ -19,39 +19,11 @@ interface GameApiService {
      * HTTP method
      */
     @GET("games")
-//only fetch:
-//suspend fun getGames (): List<Game>
-
-//change to ArrayList to database:
-    //ORIGINAL :
     suspend fun getGames(): ArrayList<Game>
     {        return getGames()    }
-
-    //with externalModel:
-  //  suspend fun getGames(ids:List<String>?): ArrayList<NetworkGame>
-
-
-    /**   @GET("games?category=shooter")
-    suspend fun getCategories(): List<Game>
-    */
-/**
-    @GET("games?category=shooter")
-    suspend fun getShooterGames(): GamesResponse
-*/
 }
 
-data class GamesResponse(val games: List<Game>)
-
-//Yo added these 2 fun: Plants example:
 
 
 
 
-
-
-
-/**
-//to get details of one Book:
-@GET ("games/{id}")
-suspend fun getGame(@Path("id")id:Int): Game?
-*/

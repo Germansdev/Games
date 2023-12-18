@@ -34,7 +34,6 @@ object AppViewModelProvider {
             GameViewModel(
                 inventoryApplication().container.itemsRepository,
                 inventoryApplication().container.gameRepository,
-
                 )
         }
 
@@ -71,6 +70,7 @@ object AppViewModelProvider {
                 this.createSavedStateHandle(),
             )
         }
+
         initializer {
 
             SearchViewModel(
@@ -99,9 +99,7 @@ object AppViewModelProvider {
             )
         }
 
-
         /**INITIALIZER BADGES:*/
-
         initializer {
             NotPlayedBadgeViewModel(
                 inventoryApplication().container.itemsRepository
@@ -119,6 +117,7 @@ object AppViewModelProvider {
                 inventoryApplication().container.itemsRepository
             )
         }
+
         initializer {
             StatsBadgeViewModel(
                 inventoryApplication().container.itemsRepository
@@ -134,15 +133,12 @@ object AppViewModelProvider {
             ThemeViewModel()
         }*/
 
-
-
         //INITIALIZER SETTING VIEWMODEL:
     /**    initializer {
             SettingsViewModel(
                 inventoryApplication().container.
             )
         }*/
-
     }
 }
 

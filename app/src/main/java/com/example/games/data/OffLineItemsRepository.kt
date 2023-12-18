@@ -2,7 +2,7 @@ package com.example.games.data
 
 import com.example.games.model.Game
 import com.example.games.model.GameEntity
-import com.example.games.model.Genre
+//import com.example.games.model.Genre
 import com.example.games.model.asExternalModel
 
 import com.example.games.network.GameApiService
@@ -32,6 +32,7 @@ class OfflineItemsRepository(
     override fun getAllItemsStream(): Flow<List<Game>> = itemDao. getAllItems()
         .map {it.map(GameEntity::asExternalModel) }
 
+    /** 06/12:
     override fun getCategories(): Flow<List<Genre>> = itemDao.getCategories()
 
   //  override fun getCategories(): Flow<List<Genre>> = itemDao.getCategories()
@@ -44,6 +45,7 @@ class OfflineItemsRepository(
             cate.apply { itemDao.insertGenre(listOf()) }
         }
     }
+    */
 
     override fun getGamesByCategoryStream(gameGenre: String): Flow<List<Game>> =
         itemDao.getGamesByCategory(gameGenre)

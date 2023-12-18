@@ -40,9 +40,11 @@
     <string name="loadingd">Loading</string>
     <string name="navigation_drawer">navigation_drawer</string>
     <string name="no_favorite_games">No favorite games</string>
+    <string name="no_games_played"> No games played</string>
     <string name="no_item_description">not favorites yet</string>
     <string name="no_records_found_msg">Nothing found</string>
-    <string name="no_results">No rsults found</string>
+    <string name="no_results">No results found</string>
+    <string name="not_connected"> ⚠️ You aren’t connected to the internet</string>
     <string name="not_connection">Not connection!!</string>
     <string name="played">Played Games</string>
     <string name="playedIc">Played</string>

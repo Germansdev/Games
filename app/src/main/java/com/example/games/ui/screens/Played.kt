@@ -106,7 +106,7 @@ Row( modifier = modifier
 
         if (playedL.isEmpty()) {
             androidx.compose.material.Text(
-                text = stringResource(R.string.no_item_description),
+                text = stringResource(R.string.no_games_played),
                 style = MaterialTheme.typography.subtitle2
             )
         } else {
@@ -145,14 +145,9 @@ fun MyLazyRowPlayed(
 
     val listEachSizeGenre = eachSizeGenre.toList()
 
-    Row(
-        modifier = Modifier
-            .height(60.dp)
-
-    ) {
-
         LazyRow(
-            modifier = Modifier,
+            modifier = Modifier
+                .padding(end = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
 
             ) {
@@ -166,7 +161,6 @@ fun MyLazyRowPlayed(
                 )
             }
         }
-    }
 }
 
 @Composable
@@ -186,7 +180,7 @@ fun MyCardStaticRowPlayed(
 
         ),
         modifier = Modifier
-            .padding(end = 8.dp)
+            .padding(start = 16.dp,end = 8.dp)
             .height(60.dp)
             .width(80.dp)
             .clickable {

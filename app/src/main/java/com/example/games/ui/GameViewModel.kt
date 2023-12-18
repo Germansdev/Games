@@ -14,7 +14,7 @@ import com.example.games.GameApplication
 import com.example.games.data.GameRepository
 import com.example.games.data.ItemsRepository
 import com.example.games.model.Game
-import com.example.games.model.Genre
+//import com.example.games.model.Genre
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
@@ -28,7 +28,7 @@ import java.io.IOException
 sealed interface GameUiState {
     data class Success(
         val games: List<Game> = listOf()) : GameUiState
-    object Error : GameUiState
+    object Error: GameUiState
     object Loading : GameUiState
 }
 
@@ -63,8 +63,8 @@ class GameViewModel(
 
     //init block:
     init {
-        getGames()
-        getItems()
+        getGames()  //only Api Service
+        getItems()  //games from db fetched
 
       //  getShooterGames()
     //generateCategory()
@@ -78,11 +78,19 @@ class GameViewModel(
             gameUiState = GameUiState.Loading
             gameUiState = try {
                 GameUiState.Success(gameRepository.getGames())
-            } catch (e: IOException) {
-                GameUiState.Error
-            } catch (e: HttpException) {
+            }catch (e: IOException) {
                 GameUiState.Error
             }
+            /**01/12*/
+            //try { } finally {}
+            ; try { itemsRepository.getAllItemsStream()} catch (e:IOException ) {
+                GameUiState.Error
+            }//finally {}
+        /**01/12 */
+            catch (e: HttpException) {
+                GameUiState.Error
+            }
+
         }
     }
 
@@ -90,7 +98,8 @@ class GameViewModel(
      * Holds home ui state. The list of items are retrieved from [ItemsRepository] and mapped to
      * [HomeUiState]
      */
-
+/**
+// 01/12 :
     val homeUiState: StateFlow<HomeUiState> =
         itemsRepository.getAllItemsStream()
             .map { HomeUiState() }
@@ -99,7 +108,7 @@ class GameViewModel(
                 started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
                 initialValue = HomeUiState()
             )
-
+*/
     //to insert all items fetched from api to db:
     private fun getItems() {
         viewModelScope.launch {
@@ -109,7 +118,8 @@ class GameViewModel(
     }
 
 
-    //logic favorite, play, share, rate:
+    /** xxxx logic favorite, play, share, rate:xxxxxxxxxxxxxx */
+
     suspend fun isFavoriteGame(game: Game) {
 
         if (isFavorite(gameId = game.id)

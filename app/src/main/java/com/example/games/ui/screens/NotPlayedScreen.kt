@@ -11,7 +11,6 @@ package com.example.games.ui.screens
  import androidx.compose.foundation.clickable
  import androidx.compose.foundation.isSystemInDarkTheme
  import androidx.compose.foundation.layout.*
- import androidx.compose.foundation.lazy.LazyColumn
  import androidx.compose.foundation.lazy.LazyRow
  import androidx.compose.foundation.lazy.grid.GridCells
  import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -19,7 +18,6 @@ package com.example.games.ui.screens
  import androidx.compose.foundation.lazy.items
  import androidx.compose.foundation.shape.CircleShape
  import androidx.compose.foundation.shape.RoundedCornerShape
- import androidx.compose.material.MaterialTheme
  import androidx.compose.material.icons.Icons
  import androidx.compose.material.icons.filled.Add
  import androidx.compose.material.icons.filled.Favorite
@@ -52,7 +50,6 @@ package com.example.games.ui.screens
  import androidx.compose.ui.platform.LocalContext
  import androidx.compose.ui.res.colorResource
  import androidx.compose.ui.res.painterResource
- import androidx.compose.ui.res.stringResource
  import androidx.compose.ui.text.font.FontWeight
  import androidx.compose.ui.text.style.TextAlign
  import androidx.compose.ui.text.style.TextOverflow
@@ -83,6 +80,7 @@ fun NotPlayedScreen(
     viewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
     onClick: (Int) -> Unit,
     onGenreClick: (String) -> Unit,
+
 ) {
 
     val notPlayedUiState = viewModel.notPlayedUiState.collectAsStateWithLifecycle()
@@ -122,13 +120,7 @@ fun NotPlayedScreenContent(
 
         Spacer(modifier = Modifier.size(8.dp))
 
-        if (notPlayedL.isEmpty()) {
-            androidx.compose.material.Text(
-                text = stringResource(R.string.no_item_description),
-                style = MaterialTheme.typography.subtitle2
-            )
-        } else {
-
+        if (notPlayedL.isNotEmpty()) {
             LazyVerticalGrid(
                 columns = GridCells.Adaptive(360.dp/**180.dp*/),
                 modifier = modifier.fillMaxWidth(),
@@ -145,7 +137,14 @@ fun NotPlayedScreenContent(
                     )
                 }
             }
+        } else {
+
+        /**    androidx.compose.material.Text(
+                text = stringResource(R.string.not_connected),
+                style = MaterialTheme.typography.subtitle2
+            )*/
         }
+
     }
 }
 
@@ -172,14 +171,10 @@ fun NotPlayedScreenContent(
 
         listEachSizeGenre.sortByDescending { eachSizeGenre.size.dec() }//does not make any difference
 
-        Row(
-            modifier = Modifier
-                .height(60.dp)
-               // .padding(bottom = 0.dp, top = 0.dp)
-        ) {
-
             LazyRow(
-                modifier = Modifier,
+                modifier = Modifier
+                    .height(60.dp)
+                    .padding(end = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
 
                 ) {
@@ -193,7 +188,6 @@ fun NotPlayedScreenContent(
                     )
                 }
             }
-        }
     }
 
 @Composable
@@ -216,7 +210,7 @@ fun MyCardStaticRowNotPlayed(
 
         ),
         modifier = Modifier
-            .padding(end = 8.dp)
+            .padding(start = 16.dp,end = 8.dp)
             .height(60.dp)
             .width(80.dp)
             .clickable {
@@ -292,6 +286,7 @@ fun MyCardRowNotPlayed(
         modifier = Modifier
             .clip(RoundedCornerShape(25.dp))
             .height(60.dp)
+            .widthIn(80.dp, 100.dp) 
             .clickable {
                 onGenreClick(pair.first)
                 selected = !selected

@@ -7,10 +7,11 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.RewriteQueriesToDropUnusedColumns
 import androidx.room.Update
+import androidx.room.Upsert
 import com.example.games.model.Game
 import com.example.games.model.GameEntity
 
-import com.example.games.model.Genre
+// 06/12: import com.example.games.model.Genre
 
 
 import kotlinx.coroutines.flow.Flow
@@ -40,7 +41,7 @@ interface GameDao {
     @Query("SELECT * from items WHERE id = :id")
     //original codelab with Flow:
     fun getItem(id: Int): Flow<Game>
-
+/** 06/12:
     /**
      * Generate list of [genre] to show in lazzy row:
      */
@@ -49,7 +50,7 @@ interface GameDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertGenre(genre: List<Genre>)
-
+*/
     @Query("select * from items where genre = :gameGenre")
     fun getGamesByCategory (gameGenre: String): Flow<List<Game>>
 
@@ -75,7 +76,10 @@ interface GameDao {
     suspend fun insert( item: Game)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertAll(items: ArrayList<Game>)
+    // 12/12: suspend fun insertAll(items: ArrayList<Game>)
+    suspend fun insertAll(items: ArrayList<Game>)//: List<Long>
+    @Upsert
+    suspend fun upsertAll(items: ArrayList<Game>)
 
     @Update
     suspend fun update(item: Game)

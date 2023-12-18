@@ -20,14 +20,17 @@ import com.example.games.search.SearchScreen
 import com.example.games.search.SearchScreenDestination
 import com.example.games.search.navigateToSearch
 import com.example.games.ui.CustomTopBar
+import com.example.games.ui.GameUiState
 import com.example.games.ui.GameViewModel
 import com.example.games.ui.GamesState
+import com.example.games.ui.NotPlayedViewModel
 import com.example.games.ui.screens.DetailsScreen
 import com.example.games.ui.screens.FavoritesScreen
 import com.example.games.ui.screens.GameListCategoryScreenDestination
 import com.example.games.ui.screens.GameListCategoryScreenDestinationPlayed
 import com.example.games.ui.screens.GamesListCategoryScreen
 import com.example.games.ui.screens.GamesListCategoryScreenPlayed
+import com.example.games.ui.screens.HomeScreen
 import com.example.games.ui.screens.ItemDetailsDestination
 import com.example.games.ui.screens.NotPlayedScreen
 import com.example.games.ui.screens.Played

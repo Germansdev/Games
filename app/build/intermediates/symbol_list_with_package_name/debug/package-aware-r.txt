@@ -1524,9 +1524,11 @@ string loadingd
 string navigation_drawer
 string navigation_menu
 string no_favorite_games
+string no_games_played
 string no_item_description
 string no_records_found_msg
 string no_results
+string not_connected
 string not_connection
 string not_selected
 string off

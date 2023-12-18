@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.games.data.ItemsRepository
 import com.example.games.model.Game
-import com.example.games.model.Genre
+//import com.example.games.model.Genre
 import com.example.games.ui.screens.GameListCategoryScreenDestination
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -17,7 +17,7 @@ class NotPlayedViewModel(
     itemsRepository: ItemsRepository,
    // savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
-
+// 01 /12 eliminado:
     val notPlayedUiState: StateFlow<NotPlayedUiState> =
         itemsRepository.getAllNotPlayedStream(isPlayed = false)
             .filterNotNull()
@@ -32,12 +32,16 @@ class NotPlayedViewModel(
                 //initialValue = NotPlayedUiState(),
                 initialValue = NotPlayedUiState()
             )
+
+
+
+
     /**
      *  PENDING: CREATE A genre viewModel to keep it separately from this each viewModel
      *  with its concern
      */
-
-
+/**
+//01 /12:
         val genreUiState: StateFlow<GenreUiState> =
             itemsRepository.getCategories()
                 .filterNotNull()
@@ -51,7 +55,7 @@ class NotPlayedViewModel(
                     GenreUiState()
                 )
 
-
+*/
 
 /**
    //add savedStatHandle, and this:
@@ -78,19 +82,4 @@ class NotPlayedViewModel(
     }
 
 
-    data class NotPlayedUiState(
-        val notPlayedL: List<Game?> = listOf()
-      //  val notPlayedL: MutableList<Pair<String, Int>> = mutableListOf( Pair(String(),0) )
-    )
-
-data class GenreUiState( val genreList: List<Genre> = listOf())
-
-/**
-data class GameListCategoryUiState (
-    val gamesCat: List<Game> = listOf(Game()),
-)*/
-
- /**   fun upDateBadge(notPlayedL: List<Game?>): Int {
-        // BottomBarScreen.Pantalla1.badgeCount = notPlayedL.size
-        return notPlayedL.size
-    }*/
+    data class NotPlayedUiState( val notPlayedL: List<Game?> = listOf())
