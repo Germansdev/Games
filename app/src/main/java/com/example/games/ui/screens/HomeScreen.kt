@@ -1,13 +1,14 @@
 package com.example.games.ui.screens
 
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.games.appDestinations.GamesNavigationType
 import com.example.games.ui.GameUiState
 
 //01/12
 /**
  **/
+@RequiresApi(34)
 @Composable
 fun HomeScreen(
     gameUiState: GameUiState,

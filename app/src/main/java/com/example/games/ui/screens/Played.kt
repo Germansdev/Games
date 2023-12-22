@@ -2,6 +2,7 @@ package com.example.games.ui.screens
 
 
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -66,6 +67,7 @@ import com.gowtham.ratingbar.RatingBarConfig
 import kotlinx.coroutines.launch
 
 private const val TAG: String = "Played"
+@RequiresApi(34)
 @Composable
 fun Played(
     playedViewModel: PlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
@@ -80,6 +82,7 @@ fun Played(
         onGenreClick = onGenreClick,
     )
 }
+@RequiresApi(34)
 @Composable
 fun PlayedScreenContent(
     playedL: List<Game>,
@@ -230,6 +233,7 @@ fun MyCardStaticRowPlayed(
     }
 }
 
+@RequiresApi(34)
 @Composable
 fun GameCardPlayed(
     game: Game,

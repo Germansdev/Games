@@ -2,9 +2,7 @@ package com.example.games.ui
 
 
 import android.app.Application
-import androidx.datastore.core.DataStore
-import androidx.datastore.dataStore
-import androidx.datastore.preferences.core.Preferences
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
@@ -13,7 +11,6 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.games.DetailsViewModel
 import com.example.games.GameApplication
 import com.example.games.StatsViewModel
-import com.example.games.model.UserPreferencesRepository
 import com.example.games.search.SearchViewModel
 import com.example.games.ui.badges.FavoritesBadgeViewModel
 import com.example.games.ui.badges.NotPlayedBadgeViewModel
@@ -27,13 +24,15 @@ import com.example.games.ui.badges.StatsBadgeViewModel
  * Provides Factory to create instance of ViewModel for the entire Inventory app
  */
 object AppViewModelProvider {
+    @RequiresApi(34)
     val Factory = viewModelFactory {
 
         // Initializer for HomeViewModel
         initializer {
             GameViewModel(
                 inventoryApplication().container.itemsRepository,
-                inventoryApplication().container.gameRepository,
+                inventoryApplication().container.gameNetworkDataSource,
+                inventoryApplication().container.status
                 )
         }
 
@@ -41,12 +40,14 @@ object AppViewModelProvider {
         initializer {
             FavoritesViewModel(
                 inventoryApplication().container.itemsRepository,
+
             )
         }
 
         initializer {
             PlayedViewModel(
                 inventoryApplication().container.itemsRepository,
+
               //  savedStateHandle = this.createSavedStateHandle()
             )
         }
@@ -60,6 +61,7 @@ object AppViewModelProvider {
         initializer {
             NotPlayedViewModel(
                 inventoryApplication().container.itemsRepository,
+
              //   savedStateHandle = this.createSavedStateHandle()
             )
         }

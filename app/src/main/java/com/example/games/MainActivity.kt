@@ -15,17 +15,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardColors
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CardDefaults.cardColors
-import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
@@ -62,7 +57,6 @@ import com.example.games.ui.theme.GamesTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 
-//dev1
 
 private const val USER_PREFERENCES_NAME = "user_preferences"
 
@@ -77,28 +71,11 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(
 
 class MainActivity : ComponentActivity() {
 
- /**   val viewModel: MainActivityViewModel by viewModels {
-        viewModelFactory { MainActivityUiState.Loading } }*/
-//
-
-
  private lateinit var connectivityObserver: ConnectivityObserver
 
     private val mainViewModel: MainActivityViewModel by viewModels()
 
-    /**
-     *   original :
-     */
-
     private lateinit var viewModel: SettingsViewModel
- /**  this will be solve with hilt:*/
-
- //  private lateinit var networkStatus: NetworkStatus =,
-        //ConnectivityManagerNetworkMonitor( ),
-
-
-
-
 
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     @OptIn(
@@ -130,9 +107,7 @@ class MainActivity : ComponentActivity() {
                    themeBrand = ThemeBrand.MY_BRAND,
                    isNightMode = true
                )
-           // updateTaskFilters(initialSetupEvent.sortOrder, initialSetupEvent.showCompleted)
-            //setupOnCheckedChangeListeners()
-           // observePreferenceChanges()
+
         }
 
         // Turn off the decor fitting system windows, which allows us to handle insets,
@@ -140,17 +115,9 @@ class MainActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
-            //with androidApp:
 
             val systemUiController = rememberSystemUiController()
             val  darkTheme = shouldUseDarkTheme(uiState /**, viewModel()*/)
-
-            //com.example.games.setUIMode(uiState,true)//,shouldUseDarkTheme(uiState)//com.example.games.setUIMode(isChecked = false,uiState = uiState)
- //26 09:           val themeViewModel: ThemeViewModel = viewModel(factory = AppViewModelProvider.Factory)
-            //val customTheme =
- //26 09:             themeViewModel.theme.observeAsState(initial = true)
-            // Update the dark content of the system bars to match the theme
- /**26 09 */
 
             DisposableEffect(systemUiController, /**themeViewModel.theme*/darkTheme) {
                 systemUiController.systemBarsDarkContentEnabled = /**themeViewModel.theme.isInitialized.not() */!darkTheme
@@ -190,12 +157,15 @@ class MainActivity : ComponentActivity() {
                     ) {
                         val notConnectedMessage = stringResource(id = R.string.not_connected)
                         if (status!=ConnectivityObserver.Status.Lost)
-                        { Text(modifier = Modifier
+                        {
+                            /**
+                            Text(modifier = Modifier
                             .padding(12.dp)
                             .align(Alignment.CenterHorizontally),
                             color = Color.White,
                             textAlign = TextAlign.Center,
                             text = "Network status: $status")
+                            */
                         }else{
                             Text(
                                 modifier = Modifier

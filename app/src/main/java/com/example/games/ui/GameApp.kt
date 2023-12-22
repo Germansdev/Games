@@ -489,6 +489,8 @@ fun GamesApp(
                                 painter = painterResource(id = icon.id),
                                 contentDescription = null,
                             )
+
+                            else -> {}
                         }
                     },
                     label =  {
@@ -590,6 +592,8 @@ fun GamesApp(
                                 painter = painterResource(id = icon.id),
                                 contentDescription = null,
                             )
+
+                            else -> {}
                         }
                     },
 
@@ -737,6 +741,7 @@ fun GamesApp(
                 Pantalla3 -> navController.navigate(bottomBarScreen.route)
                 Pantalla4 -> navController.navigate(bottomBarScreen.route)
                 Pantalla5 -> navController.navigate(bottomBarScreen.route)
+                else -> {}
             }
         }
     }

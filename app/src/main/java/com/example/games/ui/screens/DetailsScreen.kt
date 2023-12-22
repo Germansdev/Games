@@ -65,6 +65,7 @@ import com.example.games.GameDetailsUiState
 import com.example.games.R
 import com.example.games.appDestinations.NavigationDestination
 import com.example.games.model.Game
+import com.example.games.model.GameEntity
 import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.CustomTopBar
 import com.example.games.ui.theme.GamesBackground
@@ -86,7 +87,8 @@ object ItemDetailsDestination : NavigationDestination {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailsScreen(
-    gameDetails: Game,
+    // 19/12: gameDetails: Game,
+    gameDetails: GameEntity,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: DetailsViewModel = viewModel(factory = AppViewModelProvider.Factory),

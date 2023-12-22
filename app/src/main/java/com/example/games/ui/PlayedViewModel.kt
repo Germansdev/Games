@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.games.data.ItemsRepository
+import com.example.games.data.util.ConnectivityObserver
 import com.example.games.model.Game
 import com.example.games.ui.screens.GameListCategoryScreenDestination
 import kotlinx.coroutines.flow.SharingStarted
@@ -14,8 +15,8 @@ import kotlinx.coroutines.flow.stateIn
 
 class PlayedViewModel(
     itemsRepository: ItemsRepository,
- //   savedStateHandle: SavedStateHandle,
 
+ //   savedStateHandle: SavedStateHandle,
 )
     : ViewModel() {
     val playedUiState: StateFlow<PlayedUiState> =

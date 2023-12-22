@@ -3,6 +3,7 @@ package com.example.games.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.games.data.ItemsRepository
+import com.example.games.data.util.ConnectivityObserver
 import com.example.games.model.Game
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -11,9 +12,9 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 
 class FavoritesViewModel(
-    itemsRepository: ItemsRepository
-):ViewModel() {
+    itemsRepository: ItemsRepository,
 
+):ViewModel() {
 
     val favoritesUiState: StateFlow<FavoritesUiState> =
         itemsRepository.getAllFavoritesStream(isFavorite = true)
@@ -29,8 +30,6 @@ class FavoritesViewModel(
     }
 }
 
-data class FavoritesUiState (
-    val favoritesL: List<Game?> = listOf()
-)
+data class FavoritesUiState ( val favoritesL: List<Game?> = listOf())
 
 

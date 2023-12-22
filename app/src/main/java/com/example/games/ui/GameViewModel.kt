@@ -1,5 +1,7 @@
 package com.example.games.ui
 
+
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -11,31 +13,26 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.games.GameApplication
-import com.example.games.data.GameRepository
+import com.example.games.data.GameNetworkDataSource
 import com.example.games.data.ItemsRepository
+import com.example.games.data.util.ConnectivityObserver
 import com.example.games.model.Game
-//import com.example.games.model.Genre
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.filterNotNull
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
 import java.io.IOException
 
 
 sealed interface GameUiState {
-    data class Success(
-        val games: List<Game> = listOf()) : GameUiState
+    data class Success( val games: List<Game>) : GameUiState
     object Error: GameUiState
     object Loading : GameUiState
 }
 
+@RequiresApi(34)
 class GameViewModel(
 
     private val itemsRepository: ItemsRepository,
-    private val gameRepository: GameRepository,
+    private val gameNetworkDataSource: GameNetworkDataSource,
+    var status: ConnectivityObserver.Status,
 
     ) : ViewModel() {
 
@@ -63,57 +60,50 @@ class GameViewModel(
 
     //init block:
     init {
-        getGames()  //only Api Service
-        getItems()  //games from db fetched
 
-      //  getShooterGames()
-    //generateCategory()
+       if (status== ConnectivityObserver.Status.Available)
+        {
+           getGames()
+            getItems()
 
-
-    }
-
-    //Try to fetch games from api:
-  private fun getGames() {
-        viewModelScope.launch {
-            gameUiState = GameUiState.Loading
-            gameUiState = try {
-                GameUiState.Success(gameRepository.getGames())
-            }catch (e: IOException) {
-                GameUiState.Error
-            }
-            /**01/12*/
-            //try { } finally {}
-            ; try { itemsRepository.getAllItemsStream()} catch (e:IOException ) {
-                GameUiState.Error
-            }//finally {}
-        /**01/12 */
-            catch (e: HttpException) {
-                GameUiState.Error
-            }
-
+             } else{
+                getItems()
         }
     }
 
-    /**
-     * Holds home ui state. The list of items are retrieved from [ItemsRepository] and mapped to
-     * [HomeUiState]
-     */
-/**
-// 01/12 :
-    val homeUiState: StateFlow<HomeUiState> =
-        itemsRepository.getAllItemsStream()
-            .map { HomeUiState() }
-            .stateIn(
-                scope = viewModelScope,
-                started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
-                initialValue = HomeUiState()
-            )
-*/
-    //to insert all items fetched from api to db:
+    @RequiresApi(34)
+
+    private fun getGames() {
+        viewModelScope.launch {
+            gameUiState = GameUiState.Loading
+            if (status==ConnectivityObserver.Status.Available){
+                gameUiState = try {
+                    GameUiState.Success(gameNetworkDataSource.getGames())
+
+                }catch (e: IOException) {
+                    GameUiState.Error
+                }
+            }else{
+                GameUiState.Error
+            }
+        }
+    }
+
     private fun getItems() {
         viewModelScope.launch {
-            gameRepository.getGames()
-            itemsRepository.insertAll(gameRepository.getGames())
+            if (games.value.isEmpty()){
+                    if (status==ConnectivityObserver.Status.Available){
+
+                        try {
+                            //gameNetworkDataSource.getGames()
+                            itemsRepository.insertAll(gameNetworkDataSource.getGames())
+                            }catch (e: IOException) {
+                                GameUiState.Error }
+                        }else{
+                            itemsRepository.getAllItemsStream() }
+                }else{
+                    itemsRepository.getAllItemsStream()
+            }
         }
     }
 
@@ -230,30 +220,6 @@ class GameViewModel(
         return _rate.value.contains(gameId)
     }
 
-/**    val genreUiState: StateFlow<GenreUiState> =
-        itemsRepository.getCategories()
-            .filterNotNull()
-            .map {
-                GenreUiState(it)
-            }
-            .stateIn(
-                scope = viewModelScope,
-                started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
-                initialValue = GenreUiState()
-
-            )*/
-
- /**   val listUiState: StateFlow<ListUiState> =
-        itemsRepository.getAllItemsStream()
-            .map {
-                ListUiState()
-            }
-            .stateIn(
-                scope = viewModelScope,
-                started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
-                initialValue = ListUiState()
-            )
-*/
 
 
     companion object {
@@ -261,11 +227,12 @@ class GameViewModel(
             initializer {
                 val application = (this[APPLICATION_KEY] as GameApplication)
                 val itemsRepository = application.container.itemsRepository
-                val gameRepository = application.container.gameRepository
+                val gameRepository = application.container.gameNetworkDataSource
 
                 GameViewModel(
                     itemsRepository = itemsRepository,
-                    gameRepository = gameRepository,
+                    gameNetworkDataSource = gameRepository,
+                    status = ConnectivityObserver.Status.Available
                 )
             }
         }
@@ -281,8 +248,3 @@ class GameViewModel(
 data class HomeUiState(
     val itemList: List<Game> = listOf()
 )
-//data class GenreUiState( val genreList: List<Genre> = listOf())
-
-/**
-data class ListUiState( val itemList: List<Game> = listOf())
-        */

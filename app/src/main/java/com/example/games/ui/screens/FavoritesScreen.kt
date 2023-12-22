@@ -2,8 +2,8 @@ package com.example.games.ui.screens
 
 import android.annotation.SuppressLint
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -33,7 +33,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -52,7 +51,6 @@ import com.example.games.model.Game
 import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.FavoritesViewModel
 import com.example.games.ui.GameViewModel
-
 import com.gowtham.ratingbar.RatingBar
 import com.gowtham.ratingbar.RatingBarConfig
 import kotlinx.coroutines.launch
@@ -60,6 +58,7 @@ import kotlinx.coroutines.launch
 private const val TAG: String = "favorites"
 private const val Rate: String = " rate"
 
+@RequiresApi(34)
 @Composable
 fun FavoritesScreen(
     viewModel: FavoritesViewModel = viewModel(factory = AppViewModelProvider.Factory),
@@ -72,6 +71,7 @@ fun FavoritesScreen(
     )
 }
 
+@RequiresApi(34)
 @Composable
 fun FavoritesScreenContent(
     favoritesL: List<Game>,
@@ -87,7 +87,7 @@ fun FavoritesScreenContent(
                 .background(color = androidx.compose.material3.MaterialTheme.colorScheme.background)
                 .align(Alignment.CenterHorizontally)
         ) {            }
-            /**     Log(TAG, favoritesL.size.toString())*/
+                 Log.e(TAG,favoritesL.size.toString())
 
 
             if (favoritesL.isEmpty()) {
@@ -121,6 +121,7 @@ fun FavoritesScreenContent(
 
 //}
 
+@RequiresApi(34)
 @SuppressLint("AutoboxingStateValueProperty")
 @Composable
 fun GameCardFavorites(

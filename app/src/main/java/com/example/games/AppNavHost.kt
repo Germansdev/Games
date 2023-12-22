@@ -16,6 +16,7 @@ import androidx.navigation.navArgument
 import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.Pantalla1
 import com.example.games.model.Game
+import com.example.games.model.GameEntity
 import com.example.games.search.SearchScreen
 import com.example.games.search.SearchScreenDestination
 import com.example.games.search.navigateToSearch
@@ -84,7 +85,8 @@ fun GameNavHost(
         ) {
 
             DetailsScreen(
-                gameDetails = Game(),
+             //gameDetails = Game(),
+                gameDetails = GameEntity(),
                 onClick = { navController.popBackStack() },
                 modifier,
                 shouldShowGradientBackground = true,

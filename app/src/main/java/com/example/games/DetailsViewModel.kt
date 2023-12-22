@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.games.data.ItemsRepository
 import com.example.games.model.Game
+import com.example.games.model.GameEntity
+import com.example.games.model.asExternalModel
 import com.example.games.ui.screens.ItemDetailsDestination
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -43,4 +45,5 @@ class DetailsViewModel(
  */
 data class GameDetailsUiState (
     val  gameDetails: Game = Game()
+   // val  gameDetails: GameEntity = GameEntity()
 )

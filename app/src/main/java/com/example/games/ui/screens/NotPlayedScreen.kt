@@ -6,6 +6,7 @@ package com.example.games.ui.screens
  import android.content.Intent
  import android.net.Uri
  import android.util.Log.*
+ import androidx.annotation.RequiresApi
  import androidx.compose.foundation.BorderStroke
  import androidx.compose.foundation.background
  import androidx.compose.foundation.clickable
@@ -71,10 +72,11 @@ package com.example.games.ui.screens
  import kotlinx.coroutines.launch
 
 
-private const val TAG: String = "Not Played"
+private const val TAG: String = "Not Played l122"
 
 
 
+@RequiresApi(34)
 @Composable
 fun NotPlayedScreen(
     viewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
@@ -93,6 +95,7 @@ fun NotPlayedScreen(
     )
 }
 
+@RequiresApi(34)
 @Composable
 fun NotPlayedScreenContent(
     notPlayedL: List<Game>,
@@ -349,6 +352,7 @@ fun MyCardRowNotPlayed(
     }
 }
 
+@RequiresApi(34)
 @SuppressLint("AutoboxingStateValueProperty")
 @Composable
 fun GameCardColumnNotPlayed(

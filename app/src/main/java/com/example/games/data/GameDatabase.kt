@@ -5,16 +5,19 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.games.model.Game
+import com.example.games.model.GameEntity
+
 //import com.example.games.model.Genre
 
 
 @Database(
     entities = [
         Game::class,
+        //GameEntity::class
      //   Genre::class,
                ],
 
-    version = 16  , exportSchema = false)
+    version = 18  , exportSchema = false)
 
 abstract class GameDatabase : RoomDatabase() {
 
