@@ -107,7 +107,6 @@ class GameViewModel(
         }
     }
 
-
     /** xxxx logic favorite, play, share, rate:xxxxxxxxxxxxxx */
 
     suspend fun isFavoriteGame(game: Game) {
@@ -236,10 +235,8 @@ class GameViewModel(
                 )
             }
         }
-        private const val TIMEOUT_MILLIS = 5_000L
+   //     private const val TIMEOUT_MILLIS = 5_000L
     }
-
-
 }
 
 /**

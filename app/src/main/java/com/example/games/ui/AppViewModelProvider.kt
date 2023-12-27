@@ -36,19 +36,15 @@ object AppViewModelProvider {
                 )
         }
 
-        //initializer for FavoritesViewModel
         initializer {
             FavoritesViewModel(
                 inventoryApplication().container.itemsRepository,
-
             )
         }
 
         initializer {
             PlayedViewModel(
                 inventoryApplication().container.itemsRepository,
-
-              //  savedStateHandle = this.createSavedStateHandle()
             )
         }
 
@@ -61,8 +57,6 @@ object AppViewModelProvider {
         initializer {
             NotPlayedViewModel(
                 inventoryApplication().container.itemsRepository,
-
-             //   savedStateHandle = this.createSavedStateHandle()
             )
         }
 
@@ -131,16 +125,6 @@ object AppViewModelProvider {
                 inventoryApplication().container.itemsRepository
             )
         }
- /**       initializer {
-            ThemeViewModel()
-        }*/
-
-        //INITIALIZER SETTING VIEWMODEL:
-    /**    initializer {
-            SettingsViewModel(
-                inventoryApplication().container.
-            )
-        }*/
     }
 }
 
