@@ -8,16 +8,24 @@
     <color name="orange_star">#FFC107</color>
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFFFF</color>
-    <string name="app_name">" Games"</string>
+    <string name="app_name">Games</string>
     <string name="app_nameDraft">app_namedraft</string>
     <string name="auto">Auto</string>
-    <string name="back_button">back_button</string>
-    <string name="btn_try_again">try again</string>
     <string name="dark_mode_config_dark">Dark</string>
     <string name="dark_mode_config_light">Light</string>
     <string name="dark_mode_config_system_default">default</string>
     <string name="dark_mode_preference">Dark mode preference</string>
     <string name="details">Details</string>
+    <string name="detailsShared">
+       \n  Share in this link:
+         \n Details shared:
+         \n Link: "%1$s"
+         \n Tittle: "%2$s"
+         \n Genre: "%3$s"
+         \n Short Description: "%4$s"
+          \n Developer: "%5$s"
+         \n Count played: "%6$s"
+       \n game_url: "%7$s" </string>
     <string name="dismissButtonText">Ok</string>
     <string name="dynamic_color_no">No</string>
     <string name="dynamic_color_prefs">Use dynamic colors</string>
@@ -32,14 +40,19 @@
     <string name="is_night_mode">Is Night Mode ?</string>
     <string name="licenses">licenses</string>
     <string name="link">
-
-       \n  Share in this link:
-       \n "%3$s"  </string>
-    <string name="loading">Loading</string>
-    <string name="loading_fail">Fail to load</string>
+      \n Share in this link:
+         \n Details shared:
+         \n Link: "%1$s"
+         \n Tittle: "%2$s"
+         \n Genre: "%3$s"
+         \n Short Description: "%4$s"
+          \n Developer: "%5$s"
+         \n Count played: "%6$s"
+       \n game_url: "%7$s"
+            \n "%3$s" </string>
     <string name="loadingd">Loading</string>
     <string name="navigation_drawer">navigation_drawer</string>
-    <string name="no_favorite_games">No favorite games</string>
+    <string name="newlink">ShareGame</string>
     <string name="no_games_played"> No games played</string>
     <string name="no_item_description">not favorites yet</string>
     <string name="no_records_found_msg">Nothing found</string>
@@ -49,8 +62,6 @@
     <string name="played">Played Games</string>
     <string name="playedIc">Played</string>
     <string name="privacy_policy">privacy_policy</string>
-    <string name="rated">Rated Games</string>
-    <string name="retry">Retry</string>
     <string name="review_code">Review Code</string>
     <string name="search">search</string>
     <string name="search_not_ready">search not ready</string>
@@ -59,9 +70,8 @@
     <string name="shared">Shared Games</string>
     <string name="sharedIC">Shared</string>
     <string name="statistics">Statistics</string>
-    <string name="subject">"Play this game is incredible"</string>
+    <string name="subject">xxx</string>
     <string name="them_brand_my_brand">My Brand</string>
-    <string name="theme">Theme</string>
     <string name="theme_brand_default">Default</string>
     <style name="Theme.Games" parent="android:Theme.Material.Light.NoActionBar"/>
     <style name="Theme_Games_Splash" parent="Theme.Games">Splash

@@ -1,13 +1,10 @@
 package com.example.games.ui.screens
 
-import androidx.annotation.RequiresApi
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import com.example.games.ui.GameUiState
-
 //01/12
 /**
  **/
+
+/**
 @RequiresApi(34)
 @Composable
 fun HomeScreen(
@@ -16,16 +13,16 @@ fun HomeScreen(
     modifier: Modifier = Modifier,
 
 
-) {
+    ) {
 
     when (gameUiState) {
 
         is GameUiState.Loading -> LoadingScreen(modifier)
 
-        is GameUiState.Success -> NotPlayedScreen(onClick = {  }, onGenreClick ={} )// GameListScreen(games = gameUiState.games)
+        is GameUiState.Success -> NotPlayedScreen(onClick = {  }, onGenreClick = {}) //{}// GameListScreen(games = gameUiState.games)
 
         else -> ErrorScreen(retryAction, modifier)
     }
-}
+}*/
 
 

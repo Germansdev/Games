@@ -70,7 +70,6 @@ object AppViewModelProvider {
         initializer {
 
             SearchViewModel(
-                this.createSavedStateHandle(),
                 inventoryApplication().container.itemsRepository,
             )
         }

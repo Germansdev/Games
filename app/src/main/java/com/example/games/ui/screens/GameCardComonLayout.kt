@@ -15,7 +15,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -30,38 +29,32 @@ import coil.request.ImageRequest
 import com.example.games.R
 import com.example.games.model.Game
 
-
-//this is reusableCode:
 @Composable
 fun GameCardComonContent(
     game: Game,
 ) {
-    val coroutineScope = rememberCoroutineScope()
+    // val coroutineScope = rememberCoroutineScope()
 
     ElevatedCard(
-        modifier = Modifier//modifier
+        modifier = Modifier
             .padding(8.dp)
-            //.fillMaxSize()
             .height(100.dp),
-        //.aspectRatio(1f),
         elevation = CardDefaults.cardElevation(5.dp),
         shape = RoundedCornerShape(8.dp),
 
-    ) {
+        ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
 
             verticalAlignment = Alignment.CenterVertically
 
-            ) {
+        ) {
             AsyncImage(
 
                 modifier = Modifier
                     .heightIn()
-                    .padding(8.dp)
-                // .aspectRatio(.8f)
-                ,
+                    .padding(8.dp),
                 model = ImageRequest.Builder(context = LocalContext.current)
                     .data(game.thumbnail)
                     .crossfade(true)

@@ -17,7 +17,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.games.R
 import com.example.games.ui.theme.GamesTheme
 
-
 @Composable
 fun NothingFoundScreen(
     modifier: Modifier = Modifier
@@ -43,8 +42,7 @@ fun NothingFoundScreen(
 @Preview(showSystemUi = true)
 @Composable
 fun NothingFoundScreenPreview() {
-   // CustomTheme{
-    GamesTheme (){
+    GamesTheme {
 
         NothingFoundScreen()
 

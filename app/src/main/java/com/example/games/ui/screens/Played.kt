@@ -1,6 +1,7 @@
 package com.example.games.ui.screens
 
 
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.BorderStroke
@@ -38,7 +39,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -67,6 +67,7 @@ import com.gowtham.ratingbar.RatingBarConfig
 import kotlinx.coroutines.launch
 
 private const val TAG: String = "Played"
+
 @RequiresApi(34)
 @Composable
 fun Played(
@@ -82,6 +83,7 @@ fun Played(
         onGenreClick = onGenreClick,
     )
 }
+
 @RequiresApi(34)
 @Composable
 fun PlayedScreenContent(
@@ -97,15 +99,16 @@ fun PlayedScreenContent(
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
 
-Row( modifier = modifier
+        Row(
+            modifier = modifier
 
-) {
+        ) {
 
-    MyCardStaticRowPlayed()
+            MyCardStaticRowPlayed()
 
-    MyLazyRowPlayed( onGenreClick = onGenreClick)
+            MyLazyRowPlayed(onGenreClick = onGenreClick)
 
-}
+        }
 
         if (playedL.isEmpty()) {
             androidx.compose.material.Text(
@@ -118,7 +121,7 @@ Row( modifier = modifier
                 modifier = modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 contentPadding = PaddingValues(8.dp),
-            ){
+            ) {
                 items(
                     items = playedL,
                     key = { game -> game.id }
@@ -131,9 +134,10 @@ Row( modifier = modifier
             }
         }
     }
-    Log.d(TAG, playedL.size.toString() )
+    Log.d(TAG, playedL.size.toString())
 }
 
+@SuppressLint("NewApi")
 @Composable
 fun MyLazyRowPlayed(
     onGenreClick: (String) -> Unit
@@ -148,42 +152,43 @@ fun MyLazyRowPlayed(
 
     val listEachSizeGenre = eachSizeGenre.toList()
 
-        LazyRow(
-            modifier = Modifier
-                .padding(end = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
+    LazyRow(
+        modifier = Modifier
+            .padding(end = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
 
-            ) {
-            items(
-                items = listEachSizeGenre
-            ) { pair ->
+        ) {
+        items(
+            items = listEachSizeGenre
+        ) { pair ->
 
-                MyCardRowNotPlayed(
-                    onGenreClick = onGenreClick,
-                    pair = pair,
-                )
-            }
+            MyCardRowNotPlayed(
+                onGenreClick = onGenreClick,
+                pair = pair,
+            )
         }
+    }
 }
 
+@SuppressLint("NewApi")
 @Composable
 fun MyCardStaticRowPlayed(
 
 ) {
     val playedViewModel: PlayedViewModel = viewModel(factory = AppViewModelProvider.Factory)
     val playedUiState = playedViewModel.playedUiState.collectAsState()
-    val playedL= playedUiState.value.playedL
+    val playedL = playedUiState.value.playedL
 
     OutlinedCard(
-        border= BorderStroke(1.dp, color= GamesNavigationDefaults.navigationSelectedItemColor()),
+        border = BorderStroke(1.dp, color = GamesNavigationDefaults.navigationSelectedItemColor()),
         shape = RoundedCornerShape(25.dp),
-        colors= CardDefaults.cardColors(
+        colors = CardDefaults.cardColors(
             containerColor = if (isSystemInDarkTheme()) Color.Transparent else GamesNavigationDefaults.navigationIndicatorColor(),
             contentColor = GamesNavigationDefaults.navigationSelectedItemColor()
 
         ),
         modifier = Modifier
-            .padding(start = 16.dp,end = 8.dp)
+            .padding(start = 16.dp, end = 8.dp)
             .height(60.dp)
             .width(80.dp)
             .clickable {
@@ -191,7 +196,7 @@ fun MyCardStaticRowPlayed(
                 and now could navigate to the other screen
                 and changing IntType to StringType Args*/
             }
-    ){
+    ) {
         Row(
             Modifier
                 .padding(top = 4.dp, bottom = 2.dp, start = 4.dp, end = 4.dp)
@@ -224,7 +229,11 @@ fun MyCardStaticRowPlayed(
                     .align(Alignment.CenterVertically),
                 text = playedL.size.toString(),
                 color =
-                if (isSystemInDarkTheme()) {Color.Black} else { Color.White },
+                if (isSystemInDarkTheme()) {
+                    Color.Black
+                } else {
+                    Color.White
+                },
                 fontWeight = FontWeight.Bold,
                 fontSize = 12.sp,
                 textAlign = TextAlign.Center,
@@ -233,26 +242,27 @@ fun MyCardStaticRowPlayed(
     }
 }
 
+@SuppressLint("AutoboxingStateValueProperty")
 @RequiresApi(34)
 @Composable
 fun GameCardPlayed(
     game: Game,
     modifier: Modifier,
-    gameViewModel: GameViewModel = viewModel(factory=AppViewModelProvider.Factory),
+    gameViewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory),
 ) {
 
-    var play by remember { mutableStateOf(false) }
+    val play by remember { mutableStateOf(false) }
     val coroutineScope = rememberCoroutineScope()
 
     ElevatedCard(
         modifier = modifier
-            .padding(top=0.dp, start = 8.dp, end = 8.dp, bottom = 4.dp)
+            .padding(top = 0.dp, start = 8.dp, end = 8.dp, bottom = 4.dp)
             .fillMaxSize()
             .height(350.dp),
         elevation = CardDefaults.cardElevation(5.dp),
         shape = RoundedCornerShape(8.dp),
 
-    ) {
+        ) {
 
         Column(
             modifier = Modifier
@@ -275,151 +285,135 @@ fun GameCardPlayed(
                 placeholder = painterResource(id = R.drawable.loading_img)
             )
 
-                Column {
-                    Row(modifier = Modifier.align(Alignment.CenterHorizontally)
-                    ) {
-                        Text(
-                            text = game.title,
-                            style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
-                            fontWeight = FontWeight.Bold,
-                            overflow = TextOverflow.Ellipsis,
-                            textAlign = TextAlign.Left,
-                            modifier = Modifier.padding(top = 8.dp)
-                        )
-                    }
+            Column {
+                Row(
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                ) {
+                    Text(
+                        text = game.title,
+                        style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
+                        fontWeight = FontWeight.Bold,
+                        overflow = TextOverflow.Ellipsis,
+                        textAlign = TextAlign.Left,
+                        modifier = Modifier.padding(top = 8.dp)
+                    )
+                }
 
-                    Row(
-                       modifier = Modifier
-                                .fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
 
-                    ) {
+                ) {
 
-                        FavoriteButton(
+                    FavoriteButton(
 
-                            favorite =
-                            when(game.isFavorite){
-                                true -> true
-                                false -> false
-                            },
-                            onFavoriteClick = {
+                        favorite =
+                        when (game.isFavorite) {
+                            true -> true
+                            false -> false
+                        },
+                        onFavoriteClick = {
 
-                                gameViewModel.selectFavorite(gameId = game.id)
+                            gameViewModel.selectFavorite(gameId = game.id)
 
-                                gameViewModel.isFavorite(gameId = game.id)
+                            gameViewModel.isFavorite(gameId = game.id)
 
-                                coroutineScope.launch {
-                                    if(game.isFavorite)
-                                        (
-                                                gameViewModel.isFavoriteGame(game.copy(isFavorite = false))
+                            coroutineScope.launch {
+                                if (game.isFavorite)
+                                    (
+                                            gameViewModel.isFavoriteGame(game.copy(isFavorite = false))
 
-                                                ) else (
-                                            gameViewModel.isFavoriteGame(game.copy(isFavorite = true)                                         )
+                                            ) else (
+                                        gameViewModel.isFavoriteGame(game.copy(isFavorite = true))
                                         )
-
-                                }
-                            },
-
-                        )
-                        val context = LocalContext.current
-                        PlayButton(
-                            play = play,
-
-                        /**    play = when (game.isPlayed) {
-                                true -> true
-                                false -> false
-                            },*/
-                            onPlayClick = {
-                                gameViewModel.selectPlayed(gameId = game.id)
-
-                                gameViewModel.isPlay(gameId = game.id)
-
-                                coroutineScope.launch {
-
-                                    (gameViewModel.isPlayedGame(game.copy(isPlayed = true)))
-
-                                    playGame(context, game = game)
-                                }
-                            },
-                        )
-
-                        ShareButton(
-
-                            share = when (game.isShared) {
-                                true -> true
-                                false -> false
-                            },
-                            onShareClick = {
-                                gameViewModel.selectShared(gameId = game.id)
-
-                                gameViewModel.isShare(gameId = game.id)
-
-                                coroutineScope.launch {
-
-                                    (gameViewModel.isSharedGame(game.copy(isShared = true)))
-                                }
-                                val subject =""
-                                val summary =""
-                                val link = ""
-
-                                shareGame(
-                                    context,
-                                    subject = subject,
-                                    summary,
-                                    link
-                                )
                             }
+                        },
+
                         )
-                    }
-                    Spacer(modifier = Modifier.size(8.dp))
-                    Row(
-                        modifier = Modifier
-                            .align(Alignment.CenterHorizontally)
+                    val context = LocalContext.current
+                    PlayButton(
+                        play = play,
 
-                            //.padding(bottom = 1.dp)
-                            .fillMaxWidth(),
+                        onPlayClick = {
+                            gameViewModel.selectPlayed(gameId = game.id)
 
-                        horizontalArrangement = Arrangement.spacedBy(1.dp)
+                            gameViewModel.isPlay(gameId = game.id)
 
+                            coroutineScope.launch {
 
-                        //.align(Alignment.Start)
+                                (gameViewModel.isPlayedGame(game.copy(isPlayed = true)))
 
-                    ) {
+                                playGame(context, game = game)
+                            }
+                        },
+                    )
 
-                        val selectedRating = remember { mutableStateOf(game.rating) }
+                    ShareButton(
 
-                        // var rating: Float by rememberSaveable { mutableStateOf(0f) }
-                        RatingBar(
-                            modifier = Modifier
-                                .padding(8.dp)
-                                .align(Alignment.CenterVertically)
-                            //  .clickable { game.id }
-                            ,
-
-                            value = selectedRating.value,//rating,
-                            config = RatingBarConfig(
+                        share = when (game.isShared) {
+                            true -> true
+                            false -> false
+                        },
+                        onShareClick = {
+                            val link = game.freetogame_profile_url
+                            shareGame(
+                                context,
+                                link= link,
                             )
-                                .padding(2.dp)
-                                .size(22.dp)
-                                .activeColor(colorResource(id = R.color.orange_star))
-                                .inactiveColor(Color.LightGray),
 
-                            onValueChange = { selectedRating.value = it},
-                            onRatingChanged = {
+                            gameViewModel.selectShared(gameId = game.id)
 
-                                gameViewModel.selectRate(gameId = game.id)
+                            gameViewModel.isShare(gameId = game.id)
 
-                                gameViewModel.isRate(gameId = game.id)
-
-                                //to update db:
-                                coroutineScope.launch {
-                                    gameViewModel.updateRating(game.copy(rating = selectedRating.value))
-
-                                }
+                            coroutineScope.launch {
+                                (gameViewModel.isSharedGame(game.copy(isShared = true)))
                             }
+                        }
+                    )
+                }
+
+                Spacer(modifier = Modifier.size(8.dp))
+
+                Row(
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(1.dp)
+
+                ) {
+
+                    val selectedRating = remember { mutableStateOf(game.rating) }
+
+                    RatingBar(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .align(Alignment.CenterVertically),
+
+                        value = selectedRating.value,
+                        config = RatingBarConfig(
                         )
-                    }
+                            .padding(2.dp)
+                            .size(22.dp)
+                            .activeColor(colorResource(id = R.color.orange_star))
+                            .inactiveColor(Color.LightGray),
+
+                        onValueChange = { selectedRating.value = it },
+                        onRatingChanged = {
+
+                            gameViewModel.selectRate(gameId = game.id)
+
+                            gameViewModel.isRate(gameId = game.id)
+
+                            //to update db:
+                            coroutineScope.launch {
+                                gameViewModel.updateRating(game.copy(rating = selectedRating.value))
+
+                            }
+                        }
+                    )
                 }
             }
         }
     }
+}

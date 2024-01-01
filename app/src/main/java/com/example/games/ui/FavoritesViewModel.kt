@@ -3,7 +3,6 @@ package com.example.games.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.games.data.ItemsRepository
-import com.example.games.data.util.ConnectivityObserver
 import com.example.games.model.Game
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow

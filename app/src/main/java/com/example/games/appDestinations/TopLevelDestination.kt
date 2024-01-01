@@ -21,35 +21,22 @@ enum class GamesContentType {
     LIST_ONLY, LIST_AND_DETAIL
 }
 
-
-
-// NAVIGATION BAR (BOTTOM NAVIGATION)
-/**
-data class BottomNavigationItem(
-
-    val tittle: String,
-    val selectedIcon: ImageVector,
-    val unselectedIcon: ImageVector,
-    val hasNews: Boolean,
-    val badgeCount: Int? = null,
-)*/
-
 sealed class BottomBarScreen(
     val titleTextId: Int,
     val route: String,
-    var iconTextId: Int,// String,
-    val unselectedIcon: Icon,// 29 09: ImageVector,// Icon //
-    val selectedIcon: Icon,// 29 09: ImageVector,
+    var iconTextId: Int,
+    val unselectedIcon: Icon,
+    val selectedIcon: Icon,
     var hasNews: Boolean,
     var badgeCount: Int? = null,
 
     ) {
     object Pantalla1 : BottomBarScreen(
         titleTextId = R.string.app_name,
-        route = "HOME-SCREEN",//
-        iconTextId = R.string.homescreen,//"Home",//
-        unselectedIcon = ImageVectorIcon(GamesIcons.HomeBorder),//Icons.Outlined.Home,
-        selectedIcon = ImageVectorIcon(GamesIcons.Home),//Icons.Filled.Home,
+        route = "HOME-SCREEN",
+        iconTextId = R.string.homescreen,
+        unselectedIcon = ImageVectorIcon(GamesIcons.HomeBorder),
+        selectedIcon = ImageVectorIcon(GamesIcons.Home),
         hasNews = false,
         badgeCount = 0
     )
@@ -58,8 +45,8 @@ sealed class BottomBarScreen(
         titleTextId = R.string.favorites,
         route = "FAVORITES",
         iconTextId = R.string.favorite,
-        unselectedIcon = ImageVectorIcon(GamesIcons.FavoritesBorder),//Icons.Outlined.FavoriteBorder ,
-        selectedIcon = ImageVectorIcon(GamesIcons.Favorites),//Icons.Filled.Favorite,
+        unselectedIcon = ImageVectorIcon(GamesIcons.FavoritesBorder),
+        selectedIcon = ImageVectorIcon(GamesIcons.Favorites),
         hasNews = false,
         badgeCount = 0
     )
@@ -68,8 +55,8 @@ sealed class BottomBarScreen(
         titleTextId = R.string.played,
         route = "PLAYED",
         iconTextId =R.string.playedIc,
-        unselectedIcon = ImageVectorIcon(GamesIcons.PlayBorder),//Icons.Outlined.Games,
-        selectedIcon = ImageVectorIcon(GamesIcons.Play),//Icons.Filled.Games,
+        unselectedIcon = ImageVectorIcon(GamesIcons.PlayBorder),
+        selectedIcon = ImageVectorIcon(GamesIcons.Play),
         hasNews = false,
         badgeCount = 0
     )
@@ -77,9 +64,9 @@ sealed class BottomBarScreen(
     object Pantalla4 : BottomBarScreen(
         titleTextId = R.string.statistics,
         route = "STATISTICS",
-        iconTextId = R.string.statistics,//"Statistics",
-        unselectedIcon = ImageVectorIcon(GamesIcons.BarChartBorder),//Icons.Outlined.BarChart,
-        selectedIcon = ImageVectorIcon(GamesIcons.BarChart),//Icons.Filled.BarChart,
+        iconTextId = R.string.statistics,
+        unselectedIcon = ImageVectorIcon(GamesIcons.BarChartBorder),
+        selectedIcon = ImageVectorIcon(GamesIcons.BarChart),
         hasNews = false,
         badgeCount = 0,
     )
@@ -88,20 +75,20 @@ sealed class BottomBarScreen(
         titleTextId = R.string.shared,
         route = "ShareScreen",
         iconTextId = R.string.sharedIC,
-        unselectedIcon = ImageVectorIcon(GamesIcons.ShareBorder),//Icons.Outlined.Share,
-        selectedIcon = ImageVectorIcon(GamesIcons.Share),//Icons.Filled.Share,//Icons.Filled.Share,
+        unselectedIcon = ImageVectorIcon(GamesIcons.ShareBorder),
+        selectedIcon = ImageVectorIcon(GamesIcons.Share),
         hasNews = false ,
         badgeCount = 0
     )
 }
-
+/**
 object Graph : NavigationDestination {
     const val BOTTOM = "bottomBar_graph"
     override val route: String
         get() = TODO("Not yet implemented")
     override val titleRes: Int
         get() = TODO("Not yet implemented")
-}
+}*/
 /**
 enum class DetailsDestination(val route: String) {
     DetailsScreen(route = "Details")

@@ -15,8 +15,7 @@ import com.example.games.di.DefaultAppContainer
     override fun onCreate() {
         super.onCreate()
         container = DefaultAppContainer(this,
-            status= ConnectivityObserver.Status.Unavailable//Available
-
+            status= ConnectivityObserver.Status.Unavailable
         )
     }
 }

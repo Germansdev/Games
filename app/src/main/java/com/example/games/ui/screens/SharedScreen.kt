@@ -1,7 +1,7 @@
 package com.example.games.ui.screens
 
 import android.util.Log
-import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -17,8 +17,6 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -28,6 +26,8 @@ import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.SharedViewModel
 
 private const val TAG: String = "Shared"
+
+@RequiresApi(34)
 @Composable
 fun SharedScreen(
     viewModels: SharedViewModel = viewModel(factory = AppViewModelProvider.Factory),
@@ -39,6 +39,7 @@ fun SharedScreen(
         modifier = Modifier,
     )
 }
+
 @Composable
 fun SharedScreenContent(
     sharedL: List<Game>,
@@ -48,8 +49,6 @@ fun SharedScreenContent(
     Column(
         modifier = modifier
             .fillMaxSize()
-           // .padding(8.dp),
-       // verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
 
         Spacer(modifier = Modifier.size(8.dp))
@@ -80,7 +79,7 @@ fun SharedScreenContent(
             }
         }
     }
-    Log.d(TAG, sharedL.size.toString() )
+    Log.d(TAG, sharedL.size.toString())
 }
 
 
@@ -88,25 +87,7 @@ fun SharedScreenContent(
 fun GameCardShared(
     game: Game,
 ) {
-    //comon content all options bottom bar:
-    GameCardComonContent( game)
+    //common content all options bottom bar:
+    GameCardComonContent(game)
 }
 
-/**
- * To apply a brush with custom function (NOT USED: all Gradient is in theme):
- */
-@Composable
-fun BrushRes(): Brush {
-  if(  isSystemInDarkTheme()) {
-      listOf(
-          Color.Black,
-          Color.Blue
-      )
-  }else{
-      listOf(
-          Color.Yellow,
-            Color.White
-      )
-  }
-    return BrushRes()
-}

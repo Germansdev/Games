@@ -1,27 +1,42 @@
 <resources>
 
-    <string name="loading">Loading</string>
-    <string name="loading_fail">Fail to load</string>
-    <string name="retry">Retry</string>
     <string name="game_title">Game Title</string>
-    <string name="no_favorite_games">No favorite games</string>
-    <string name="theme">Theme</string>
     <string name="favorites">Favorites Games</string>
-    <string name="rated">Rated Games</string>
     <string name="played">Played Games</string>
-    <string name="btn_try_again">try again</string>
     <string name="shared">Shared Games</string>
     <string name="statistics">Statistics</string>
     <string name="no_records_found_msg">Nothing found</string>
-    <string name="back_button">back_button</string>
+
     <string name="homescreen">Home</string>
-    <string name="app_name">" Games"</string>
-    <string name="subject">"Play this game is incredible"</string>
+    <string name="app_name">Games</string>
 
+    <string name="subject">xxx</string>
     <string name="link">
-
+      \n Share in this link:
+         \n Details shared:
+         \n Link: "%1$s"
+         \n Tittle: "%2$s"
+         \n Genre: "%3$s"
+         \n Short Description: "%4$s"
+          \n Developer: "%5$s"
+         \n Count played: "%6$s"
+       \n game_url: "%7$s"
+            \n "%3$s" </string>
+    <string name="detailsShared">
        \n  Share in this link:
-       \n "%3$s"  </string>
+         \n Details shared:
+         \n Link: "%1$s"
+         \n Tittle: "%2$s"
+         \n Genre: "%3$s"
+         \n Short Description: "%4$s"
+          \n Developer: "%5$s"
+         \n Count played: "%6$s"
+       \n game_url: "%7$s" </string>
+
+
+
+<string name="newlink">ShareGame</string>
+
     <string name="games">Games</string>
     <string name="search">search</string>
     <string name="no_item_description">not favorites yet</string>

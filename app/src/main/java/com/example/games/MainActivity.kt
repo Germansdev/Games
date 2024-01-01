@@ -37,7 +37,7 @@ import com.example.games.ui.theme.GamesTheme
 
 class MainActivity : ComponentActivity() {
 
- private lateinit var connectivityObserver: ConnectivityObserver
+    private lateinit var connectivityObserver: ConnectivityObserver
 
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     @OptIn(
@@ -58,20 +58,15 @@ class MainActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
-
-         //   val systemUiController = rememberSystemUiController()
-       //26/12     val  darkTheme = shouldUseDarkTheme(uiState /**, viewModel()*/)
-
             CompositionLocalProvider() {
-                GamesTheme(
-
-                ) {
+                GamesTheme {
                     GamesApp(
                         windowSizeClass = calculateWindowSizeClass(this),
-                        )
+                    )
 
                     val status by connectivityObserver.observe().collectAsState(
-                        initial = ConnectivityObserver.Status.Unavailable )
+                        initial = ConnectivityObserver.Status.Unavailable
+                    )
 
                     Card(
                         border = BorderStroke(1.dp, Color.White),
@@ -85,30 +80,30 @@ class MainActivity : ComponentActivity() {
                             .fillMaxWidth()
                             .clip(RoundedCornerShape(25.dp))
                             .background(Color.Black)
-                            .border(1.dp, color= Color.White),
+                            .border(1.dp, color = Color.White),
 
-                    ) {
-                        val notConnectedMessage = stringResource(id = R.string.not_connected)
-                        if (status!=ConnectivityObserver.Status.Lost)
-                        {
-
-                            Text(modifier = Modifier
-                            .padding(12.dp)
-                            .align(Alignment.CenterHorizontally),
-                            color = Color.White,
-                            textAlign = TextAlign.Center,
-                            text = "Network status: $status")
-
-                        }else{
+                        ) {
+                        //  val notConnectedMessage = stringResource(id = R.string.not_connected)
+                        if (status == ConnectivityObserver.Status.Unavailable) {
                             Text(
                                 modifier = Modifier
                                     .padding(12.dp)
                                     .align(Alignment.CenterHorizontally),
                                 color = Color.White,
                                 textAlign = TextAlign.Center,
-                                text = stringResource(id = R.string.not_connected))
-                             }
-                       }
+                                text = stringResource(id = R.string.not_connected)//notConnectedMessage
+                            )
+                        } else if (status == ConnectivityObserver.Status.Lost) {
+                            Text(
+                                modifier = Modifier
+                                    .padding(12.dp)
+                                    .align(Alignment.CenterHorizontally),
+                                color = Color.White,
+                                textAlign = TextAlign.Center,
+                                text = stringResource(id = R.string.not_connected)//notConnectedMessage
+                            )
+                        }
+                    }
                 }
             }
         }

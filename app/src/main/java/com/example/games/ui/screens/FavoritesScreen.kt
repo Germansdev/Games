@@ -62,7 +62,7 @@ private const val Rate: String = " rate"
 @Composable
 fun FavoritesScreen(
     viewModel: FavoritesViewModel = viewModel(factory = AppViewModelProvider.Factory),
-    ) {
+) {
     val favoritesUiState = viewModel.favoritesUiState.collectAsState()
 
     FavoritesScreenContent(
@@ -77,49 +77,52 @@ fun FavoritesScreenContent(
     favoritesL: List<Game>,
     modifier: Modifier = Modifier,
 ) {
-    Column( modifier = modifier
-        .fillMaxSize()
-        .padding(bottom = 100.dp)
-    ){
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(bottom = 100.dp)
+    ) {
 
         Row(
             modifier = Modifier
                 .background(color = androidx.compose.material3.MaterialTheme.colorScheme.background)
                 .align(Alignment.CenterHorizontally)
-        ) {            }
-                 Log.e(TAG,favoritesL.size.toString())
+        ) { }
+        Log.e(TAG, favoritesL.size.toString())
 
 
-            if (favoritesL.isEmpty()) {
-                androidx.compose.material.Text(
-                    text = stringResource(R.string.no_item_description),
-                    style = MaterialTheme.typography.subtitle2
-                )
-            } else {
-                LazyVerticalGrid(
-                    columns = GridCells.Adaptive(170.dp),//FixedSize(170.dp),//
-                    modifier = modifier.fillMaxWidth(),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                    contentPadding = PaddingValues(8.dp),
-                ) {
-                    items(
-                        items = favoritesL,
-                        key = { game -> game.id }
-                    ) { game ->
+        if (favoritesL.isEmpty()) {
+            androidx.compose.material.Text(
+                text = stringResource(R.string.no_item_description),
+                style = MaterialTheme.typography.subtitle2
+            )
+        } else {
+            LazyVerticalGrid(
+                columns = GridCells.Adaptive(170.dp),
+                modifier = modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                contentPadding = PaddingValues(8.dp),
+            ) {
+                items(
+                    items = favoritesL,
+                    key = { game -> game.id }
+                ) { game ->
 
-                        GameCardFavorites(
-                            game = game.copy(favorited = 1/**isFavorite = true*/),
-                            modifier
-                        )
-                    }
+                    GameCardFavorites(
+                        game = game.copy(
+                            favorited = 1
+                            /**isFavorite = true*/
+                        ),
+                        modifier
+                    )
                 }
             }
         }
     }
+}
 
 //Log.d(TAG, favoritesL.size.toString()
 
-//}
 
 @RequiresApi(34)
 @SuppressLint("AutoboxingStateValueProperty")
@@ -127,11 +130,10 @@ fun FavoritesScreenContent(
 fun GameCardFavorites(
     game: Game,
     modifier: Modifier = Modifier,
-    gameViewModel: GameViewModel = viewModel(factory=AppViewModelProvider.Factory),
+    gameViewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory),
 ) {
     var play by remember { mutableStateOf(false) }
     val coroutineScope = rememberCoroutineScope()
-    //val favorite by remember { mutableStateOf(false) }
 
     val offsetX = remember { mutableStateOf(0f) }
     val offsetY = remember { mutableStateOf(0f) }
@@ -142,13 +144,10 @@ fun GameCardFavorites(
             .padding(top = 0.dp, start = 8.dp, end = 8.dp, bottom = 4.dp)
             .fillMaxSize()
             .height(350.dp),
-
-        //.aspectRatio(1f),
         elevation = CardDefaults.cardElevation(5.dp),
         shape = RoundedCornerShape(8.dp),
 
-    ) {
-        //GameCardComonContent(game)
+        ) {
         Column(
             modifier = Modifier
                 .padding(8.dp)
@@ -170,176 +169,131 @@ fun GameCardFavorites(
                 placeholder = painterResource(id = R.drawable.loading_img)
             )
 
-                Column() {
-                    Row(modifier = Modifier.align(Alignment.CenterHorizontally)
-                    ) {
-                        Text(
-                            text = game.title,
-                            style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
-                            fontWeight = FontWeight.Bold,
-                            overflow = TextOverflow.Ellipsis,
-                            textAlign = TextAlign.Left,
-                            modifier = Modifier.padding(top = 8.dp)
-                        )
-                    }
+            Column() {
+                Row(
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                ) {
+                    Text(
+                        text = game.title,
+                        style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
+                        fontWeight = FontWeight.Bold,
+                        overflow = TextOverflow.Ellipsis,
+                        textAlign = TextAlign.Left,
+                        modifier = Modifier.padding(top = 8.dp)
+                    )
+                }
 
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth(),
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
 
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        FavoriteButton(
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    FavoriteButton(
 
-                            favorite =
-                            when (game.isFavorite) {
-                                true -> true
-                                else -> false
-                            },
-                            onFavoriteClick = {
-                                gameViewModel.selectFavorite(gameId = game.id)
+                        favorite =
+                        when (game.isFavorite) {
+                            true -> true
+                            else -> false
+                        },
+                        onFavoriteClick = {
+                            gameViewModel.selectFavorite(gameId = game.id)
 
-                                gameViewModel.isFavorite(gameId = game.id)
+                            gameViewModel.isFavorite(gameId = game.id)
 
-                                coroutineScope.launch {
-                                    if (game.isFavorite)
-                                        (
-                                                gameViewModel.isFavoriteGame(game.copy(isFavorite = false))
-                                                ) else (
-                                            gameViewModel.isFavoriteGame(game.copy(isFavorite = true))
-                                            )
-                                }
+                            coroutineScope.launch {
+                                if (game.isFavorite)
+                                    (
+                                            gameViewModel.isFavoriteGame(game.copy(isFavorite = false))
+                                            ) else (
+                                        gameViewModel.isFavoriteGame(game.copy(isFavorite = true))
+                                        )
+                            }
 
-                            },
-                        )
+                        },
+                    )
 
-                        val context = LocalContext.current
-                        PlayButton(
-                            //
-                            play = play,
-                            /**play = when (game.isPlayed) {
+                    val context = LocalContext.current
+                    PlayButton(
+                        //
+                        play = play,
+                        onPlayClick = {
+                            gameViewModel.selectPlayed(gameId = game.id)
+
+                            gameViewModel.isPlay(gameId = game.id)
+
+                            coroutineScope.launch {
+
+                                (gameViewModel.isPlayedGame(game.copy(isPlayed = true)))
+
+                                playGame(context, game = game)
+                            }
+                            play = !play
+                        },
+                    )
+
+
+                    ShareButton(
+
+                        share = when (game.isShared) {
                             true -> true
                             false -> false
-                            },*/
-                            onPlayClick = {
-                                gameViewModel.selectPlayed(gameId = game.id)
-
-                                gameViewModel.isPlay(gameId = game.id)
-
-                                coroutineScope.launch {
-
-                                    (gameViewModel.isPlayedGame(game.copy(isPlayed = true)))
-
-                                    playGame(context, game = game)
-                                }
-                                play = !play
-                            },
-                        )
-
-                        ShareButton(
-
-                            share = when (game.isShared) {
-                                true -> true
-                                false -> false
-                            },
-                            onShareClick = {
-                                gameViewModel.selectShared(gameId = game.id)
-
-                                gameViewModel.isShare(gameId = game.id)
-
-                                coroutineScope.launch {
-
-                                    (gameViewModel.isSharedGame(game.copy(isShared = true)))
-                                }
-                                val subject = ""
-                                val summary = ""
-                                val link = ""
-
-                                shareGame(
-                                    context,
-                                    subject = subject,
-                                    summary,
-                                    link
-                                )
-
-                            }
-                        )
-                    }
-                    Spacer(modifier = Modifier.size(8.dp))
-                        Row(
-                            modifier = Modifier
-                                .align(Alignment.CenterHorizontally)
-
-                                //.padding(bottom = 1.dp)
-                                .fillMaxWidth(),
-
-                            horizontalArrangement = Arrangement.spacedBy(1.dp)
-
-
-                                //.align(Alignment.Start)
-
-                        ) {
-
-                            val selectedRating = remember { mutableStateOf(game.rating) }
-                            Log.e(Rate, game.rating.toString())
-                            // var rating: Float by rememberSaveable { mutableStateOf(0f) }
-                            RatingBar(
-                                modifier = Modifier
-                                    .padding(8.dp)
-                                    .align(CenterVertically)
-                                  //  .clickable { game.id }
-                                ,
-
-                                value = selectedRating.value,//rating,
-                                config = RatingBarConfig(
-                                )
-                                    .padding(2.dp)
-                                    .size(22.dp)
-                                    .activeColor(colorResource(id = R.color.orange_star))
-                                    .inactiveColor(Color.LightGray),
-
-
-                                onValueChange = { selectedRating.value/**rating */= it},
-                                onRatingChanged = {
-
-
-                                    // selectedRating.value = (i + 1).toFloat()
-                                    gameViewModel.selectRate(gameId = game.id)
-
-                                    gameViewModel.isRate(gameId = game.id)
-
-
-
-
-                                    //  selectedRating.value = (i + 1).toFloat()
-                                    //  game.rating = selectedRating.value
-                                    //to update db:
-                                    coroutineScope.launch {
-                                        gameViewModel.updateRating(game.copy(rating = selectedRating.value))
-
-                                    /**    if (selectedRating.value/**rating*/ >=0){
-                                            (gameViewModel.isRating(game.copy(rating = selectedRating.value)))
-                                        }else{
-                                            gameViewModel.isRating(game.copy(rating = 0f))
-                                        }*/
-
-
-                                    }
-                                }
-
+                        },
+                        onShareClick = {
+                            val link = game.freetogame_profile_url
+                            shareGame(
+                                context,
+                                link = link,
                             )
 
+                            gameViewModel.selectShared(gameId = game.id)
+
+                            gameViewModel.isShare(gameId = game.id)
+
+                            coroutineScope.launch {
+
+                                (gameViewModel.isSharedGame(game.copy(isShared = true)))
+                            }
+
+
+
                         }
-                    }
+                    )
+                }
+                Spacer(modifier = Modifier.size(8.dp))
+                Row(
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(1.dp)
+                ) {
+
+                    val selectedRating = remember { mutableStateOf(game.rating) }
+                    Log.e(Rate, game.rating.toString())
+                    RatingBar(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .align(CenterVertically),
+                        value = selectedRating.value,//rating,
+                        config = RatingBarConfig()
+                            .padding(2.dp)
+                            .size(22.dp)
+                            .activeColor(colorResource(id = R.color.orange_star))
+                            .inactiveColor(Color.LightGray),
+                        onValueChange = { selectedRating.value = it },
+                        onRatingChanged = {
+
+                            gameViewModel.selectRate(gameId = game.id)
+
+                            gameViewModel.isRate(gameId = game.id)
+
+                            coroutineScope.launch {
+                                gameViewModel.updateRating(game.copy(rating = selectedRating.value))
+                            }
+                        }
+                    )
                 }
             }
         }
-
-
-
-
-
-
-
-
-
+    }
+}

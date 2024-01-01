@@ -78,7 +78,7 @@ class GameViewModel(
             gameUiState = GameUiState.Loading
             if (status==ConnectivityObserver.Status.Available){
                 gameUiState = try {
-                    GameUiState.Success(gameNetworkDataSource.getGames())
+                    GameUiState.Success(games= gameNetworkDataSource.getGames())
 
                 }catch (e: IOException) {
                     GameUiState.Error
@@ -180,15 +180,6 @@ class GameViewModel(
         _share.value = updatedShare
     }
 
-    suspend fun isRating(game: Game) {
-
-        if (isRate(gameId = game.id/**.toString()*/)
-        ) {
-            itemsRepository.updateItem(game.copy(rating = game.rating))
-        } /*else {
-          //  itemsRepository.updateItem(game.copy(rating = 0f))
-        }*/
-    }
    suspend fun updateRating(game: Game){
         itemsRepository.updateItem(game.copy(rating = game.rating))
     }
@@ -235,13 +226,13 @@ class GameViewModel(
                 )
             }
         }
-   //     private const val TIMEOUT_MILLIS = 5_000L
     }
 }
 
 /**
  * Ui State for HomeScreen
  */
+/**
 data class HomeUiState(
     val itemList: List<Game> = listOf()
-)
+)*/

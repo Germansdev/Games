@@ -1,80 +1,81 @@
 package com.example.games.ui.screens
 
 
- import android.annotation.SuppressLint
- import android.content.Context
- import android.content.Intent
- import android.net.Uri
- import android.util.Log.*
- import androidx.annotation.RequiresApi
- import androidx.compose.foundation.BorderStroke
- import androidx.compose.foundation.background
- import androidx.compose.foundation.clickable
- import androidx.compose.foundation.isSystemInDarkTheme
- import androidx.compose.foundation.layout.*
- import androidx.compose.foundation.lazy.LazyRow
- import androidx.compose.foundation.lazy.grid.GridCells
- import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
- import androidx.compose.foundation.lazy.grid.items
- import androidx.compose.foundation.lazy.items
- import androidx.compose.foundation.shape.CircleShape
- import androidx.compose.foundation.shape.RoundedCornerShape
- import androidx.compose.material.icons.Icons
- import androidx.compose.material.icons.filled.Add
- import androidx.compose.material.icons.filled.Favorite
- import androidx.compose.material.icons.filled.Share
- import androidx.compose.material.icons.outlined.FavoriteBorder
- import androidx.compose.material.icons.outlined.Games
- import androidx.compose.material.icons.outlined.Share
- import androidx.compose.material.icons.rounded.Games
- import androidx.compose.material3.CardDefaults
- import androidx.compose.material3.ElevatedCard
- import androidx.compose.material3.Icon
- import androidx.compose.material3.IconButton
- import androidx.compose.material3.OutlinedCard
- import androidx.compose.material3.Text
- import androidx.compose.runtime.Composable
- import androidx.compose.runtime.State
- import androidx.compose.runtime.getValue
- import androidx.compose.runtime.mutableStateOf
- import androidx.compose.runtime.remember
- import androidx.compose.runtime.rememberCoroutineScope
- import androidx.compose.runtime.saveable.rememberSaveable
- import androidx.compose.runtime.setValue
- import androidx.compose.ui.Alignment
- import androidx.compose.ui.Alignment.Companion.CenterHorizontally
- import androidx.compose.ui.Alignment.Companion.CenterVertically
- import androidx.compose.ui.Modifier
- import androidx.compose.ui.draw.clip
- import androidx.compose.ui.graphics.Color
- import androidx.compose.ui.layout.ContentScale
- import androidx.compose.ui.platform.LocalContext
- import androidx.compose.ui.res.colorResource
- import androidx.compose.ui.res.painterResource
- import androidx.compose.ui.text.font.FontWeight
- import androidx.compose.ui.text.style.TextAlign
- import androidx.compose.ui.text.style.TextOverflow
- import androidx.compose.ui.unit.dp
- import androidx.compose.ui.unit.sp
- import androidx.lifecycle.compose.collectAsStateWithLifecycle
- import androidx.lifecycle.viewmodel.compose.viewModel
- import coil.compose.AsyncImage
- import coil.request.ImageRequest
- import com.example.games.GamesNavigationDefaults
- import com.example.games.R
- import com.example.games.model.Game
- import com.example.games.ui.AppViewModelProvider
- import com.example.games.ui.GameViewModel
- import com.example.games.ui.NotPlayedUiState
- import com.example.games.ui.NotPlayedViewModel
- import com.gowtham.ratingbar.RatingBar
- import com.gowtham.ratingbar.RatingBarConfig
- import kotlinx.coroutines.launch
-
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.util.Log.*
+import androidx.annotation.RequiresApi
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Share
+import androidx.compose.material.icons.outlined.FavoriteBorder
+import androidx.compose.material.icons.outlined.Games
+import androidx.compose.material.icons.outlined.Share
+import androidx.compose.material.icons.rounded.Games
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedCard
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
+import androidx.compose.ui.Alignment.Companion.CenterVertically
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
+import com.example.games.GamesNavigationDefaults
+import com.example.games.R
+import com.example.games.model.Game
+import com.example.games.ui.AppViewModelProvider
+import com.example.games.ui.GameViewModel
+import com.example.games.ui.NotPlayedUiState
+import com.example.games.ui.NotPlayedViewModel
+import com.gowtham.ratingbar.RatingBar
+import com.gowtham.ratingbar.RatingBarConfig
+import kotlinx.coroutines.launch
 
 private const val TAG: String = "Not Played l122"
-
-
 
 @RequiresApi(34)
 @Composable
@@ -82,7 +83,6 @@ fun NotPlayedScreen(
     viewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
     onClick: (Int) -> Unit,
     onGenreClick: (String) -> Unit,
-
 ) {
 
     val notPlayedUiState = viewModel.notPlayedUiState.collectAsStateWithLifecycle()
@@ -102,7 +102,7 @@ fun NotPlayedScreenContent(
     modifier: Modifier = Modifier,
     onClick: (Game) -> Unit,
     onGenreClick: (String) -> Unit,
-    ) {
+) {
 
     Column(
 
@@ -111,21 +111,46 @@ fun NotPlayedScreenContent(
 
     ) {
 
-    Row(modifier = modifier) {
+        Row(modifier = modifier) {
 
-        MyCardStaticRowNotPlayed()
+            MyCardStaticRowNotPlayed()
 
-        MyLazyRowNotPlayed( onGenreClick = onGenreClick)
+            MyLazyRowNotPlayed(onGenreClick = onGenreClick)
 
-}
+        }
 
         d(TAG, notPlayedL.size.toString())
 
         Spacer(modifier = Modifier.size(8.dp))
 
-        if (notPlayedL.isNotEmpty()) {
+
+        if (notPlayedL.size in 0..300) {
+            androidx.compose.animation.AnimatedVisibility(
+                visible = notPlayedL.size in 0..300,
+                enter = slideInVertically(
+                    initialOffsetY = { fullHeight -> -fullHeight },
+                ) + fadeIn(),
+                exit = slideOutVertically(
+                    targetOffsetY = { fullHeight -> -fullHeight },
+                ) + fadeOut(),
+
+                ) {
+                val loadingContentDescription = "Not Played Screen"
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 8.dp),
+                ) {
+                    NiaOverlayLoadingWheel(
+                        modifier = Modifier
+                            .align(Alignment.Center),
+                        contentDesc = loadingContentDescription,
+                    )
+                }
+            }
+        } else {
             LazyVerticalGrid(
-                columns = GridCells.Adaptive(360.dp/**180.dp*/),
+                columns = GridCells.Adaptive(360.dp),
                 modifier = modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 contentPadding = PaddingValues(8.dp)
@@ -139,60 +164,55 @@ fun NotPlayedScreenContent(
                         onClick = onClick,
                     )
                 }
+
             }
-        } else {
-
-        /**    androidx.compose.material.Text(
-                text = stringResource(R.string.not_connected),
-                style = MaterialTheme.typography.subtitle2
-            )*/
         }
-
     }
 }
 
 
+@RequiresApi(34)
 @Composable
-    fun MyLazyRowNotPlayed(
+fun MyLazyRowNotPlayed(
     onGenreClick: (String) -> Unit,
-    modifier: Modifier = Modifier
-    ) {
+) {
 
-        val notPlayedViewModel: NotPlayedViewModel =
-            viewModel(factory = AppViewModelProvider.Factory)
+    val notPlayedViewModel: NotPlayedViewModel =
+        viewModel(factory = AppViewModelProvider.Factory)
 
-        val notPlayedUiState: State<NotPlayedUiState> =
-            notPlayedViewModel.notPlayedUiState.collectAsStateWithLifecycle()
+    val notPlayedUiState: State<NotPlayedUiState> =
+        notPlayedViewModel.notPlayedUiState.collectAsStateWithLifecycle()
 
-        val listed = notPlayedUiState.value.notPlayedL
+    val listed = notPlayedUiState.value.notPlayedL
 
-        val eachSizeGenre = listed.groupingBy { it!!.genre }.eachCount()
+    val eachSizeGenre = listed.groupingBy { it!!.genre }.eachCount()
 
-        //to generate list of pair:
-        val listEachSizeGenre = eachSizeGenre.toList()
-            .toMutableList()
+    //to generate list of pair:
+    val listEachSizeGenre = eachSizeGenre.toList()
+        .toMutableList()
 
-        listEachSizeGenre.sortByDescending { eachSizeGenre.size.dec() }//does not make any difference
+    listEachSizeGenre.sortByDescending { eachSizeGenre.size.dec() }//does not make any difference
 
-            LazyRow(
-                modifier = Modifier
-                    .height(60.dp)
-                    .padding(end = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
+    LazyRow(
+        modifier = Modifier
+            .height(60.dp)
+            .padding(end = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
 
-                ) {
-                items(
-                    items = listEachSizeGenre,
-                ) { pair ->
+        ) {
+        items(
+            items = listEachSizeGenre,
+        ) { pair ->
 
-                    MyCardRowNotPlayed(
-                        onGenreClick = onGenreClick,
-                        pair = pair,
-                    )
-                }
-            }
+            MyCardRowNotPlayed(
+                onGenreClick = onGenreClick,
+                pair = pair,
+            )
+        }
     }
+}
 
+@RequiresApi(34)
 @Composable
 fun MyCardStaticRowNotPlayed(
 ) {
@@ -202,18 +222,18 @@ fun MyCardStaticRowNotPlayed(
     val notPlayedUiState: State<NotPlayedUiState> =
         notPlayedViewModel.notPlayedUiState.collectAsStateWithLifecycle()
 
-    val notPlayedL= notPlayedUiState.value.notPlayedL
+    val notPlayedL = notPlayedUiState.value.notPlayedL
 
     OutlinedCard(
-        border= BorderStroke(1.dp, color= GamesNavigationDefaults.navigationSelectedItemColor()),
+        border = BorderStroke(1.dp, color = GamesNavigationDefaults.navigationSelectedItemColor()),
         shape = RoundedCornerShape(25.dp),
-        colors= CardDefaults.cardColors(
+        colors = CardDefaults.cardColors(
             containerColor = if (isSystemInDarkTheme()) Color.Transparent else GamesNavigationDefaults.navigationIndicatorColor(),
             contentColor = GamesNavigationDefaults.navigationSelectedItemColor()
 
         ),
         modifier = Modifier
-            .padding(start = 16.dp,end = 8.dp)
+            .padding(start = 16.dp, end = 8.dp)
             .height(60.dp)
             .width(80.dp)
             .clickable {
@@ -223,9 +243,8 @@ fun MyCardStaticRowNotPlayed(
                 /**whith this solve the problem
                 and now could navigate to the other screen
                 and changing IntType to StringType Args*/
-
             }
-    ){
+    ) {
         Row(
             Modifier
                 .padding(top = 4.dp, bottom = 2.dp, start = 4.dp, end = 4.dp)
@@ -257,7 +276,11 @@ fun MyCardStaticRowNotPlayed(
                     )
                     .align(CenterVertically),
                 text = notPlayedL.size.toString(),
-                color =if (isSystemInDarkTheme()) {Color.Black} else { Color.White },
+                color = if (isSystemInDarkTheme()) {
+                    Color.Black
+                } else {
+                    Color.White
+                },
                 fontWeight = FontWeight.Bold,
                 fontSize = 12.sp,
                 textAlign = TextAlign.Center,
@@ -270,26 +293,26 @@ fun MyCardStaticRowNotPlayed(
 fun MyCardRowNotPlayed(
     onGenreClick: (String) -> Unit,
     pair: Pair<String, Int>,
-    modifier: Modifier = Modifier,
 ) {
 
     Modifier.clip(RoundedCornerShape(25.dp))
 
     var selected by rememberSaveable {
-    mutableStateOf(false)}
-        selected = selected
+        mutableStateOf(false)
+    }
+   // selected = selected
 
     OutlinedCard(
-        border= if (selected ) {
-            BorderStroke(1.dp, color= GamesNavigationDefaults.navigationSelectedItemColor())
+        border = if (selected) {
+            BorderStroke(1.dp, color = GamesNavigationDefaults.navigationSelectedItemColor())
         } else {
-            BorderStroke(1.dp, color= if (isSystemInDarkTheme()) Color.White else Color.Black)
+            BorderStroke(1.dp, color = if (isSystemInDarkTheme()) Color.White else Color.Black)
         },
         shape = RoundedCornerShape(25.dp),
         modifier = Modifier
             .clip(RoundedCornerShape(25.dp))
             .height(60.dp)
-            .widthIn(80.dp, 100.dp) 
+            .widthIn(80.dp, 100.dp)
             .clickable {
                 onGenreClick(pair.first)
                 selected = !selected
@@ -419,7 +442,7 @@ fun GameCardColumnNotPlayed(
                             false -> false
                         },
                         onFavoriteClick = {
-                         //   e(Tag, game.title)
+
                             gameViewModel.selectFavorite(gameId = game.id)
 
                             gameViewModel.isFavorite(gameId = game.id)
@@ -441,7 +464,7 @@ fun GameCardColumnNotPlayed(
                     Box {
                         val context = LocalContext.current
                         PlayButton(
-                            //play = play,
+
                             play = when (game.isPlayed) {
                                 true -> true
                                 false -> false
@@ -465,30 +488,28 @@ fun GameCardColumnNotPlayed(
 
                     Box {
                         val context = LocalContext.current
-                        val subject = R.string.subject
-                        val summary = "Play this game, is incredible"
-                        val link: String = game.game_url
+                        val link: String = game.freetogame_profile_url
+
                         ShareButton(
-                            // share = share,
                             share = when (game.isShared) {
                                 true -> true
                                 false -> false
                             },
                             onShareClick = {
+                                shareGame(
+                                    context,
+                                    link= link,
+                                )
+
                                 gameViewModel.selectShared(gameId = game.id)
 
                                 gameViewModel.isShare(gameId = game.id)
 
                                 coroutineScope.launch {
-
                                     (gameViewModel.isSharedGame(game.copy(isShared = true)))
                                 }
-                                shareGame(
-                                    context,
-                                    subject = subject.toString(),
-                                    summary,
-                                    link
-                                )
+
+
                             }
                         )
                     }
@@ -497,12 +518,13 @@ fun GameCardColumnNotPlayed(
                         onClick = { onClick(game) },
                         enabled = true,
                         text = {
-                            Text( modifier = Modifier,
-                            softWrap = false,
-                            fontSize = 12.sp,
-                            text = "Details",
-                            //fontSize = 16.dp,
-                        ) },
+                            Text(
+                                modifier = Modifier,
+                                softWrap = false,
+                                fontSize = 12.sp,
+                                text = "Details",
+                            )
+                        },
                         leadingIcon = {
                             Icon(imageVector = Icons.Default.Add, contentDescription = null)
                         }
@@ -520,7 +542,7 @@ fun GameCardColumnNotPlayed(
 
                     RatingBar(
                         modifier = Modifier,
-                        value = selectedRating.value,//rating,
+                        value = selectedRating.value,
                         config = RatingBarConfig(
                         )
                             .activeColor(colorResource(id = R.color.orange_star))
@@ -567,21 +589,18 @@ fun playGame(context: Context, game: Game) {
 
 //INTERNAL FUN TO CREATE INTENT TO SHARE:
 fun shareGame(
-    context: Context, subject: String, summary: String, link: String,
+    context: Context,
+    link: String,
 ) {
 
     val intent = Intent(Intent.ACTION_SEND).apply {
-        type = "text/plain"
-        putExtra(Intent.EXTRA_TEXT, subject)
-        putExtra(Intent.EXTRA_TEXT, summary)
+        type = "*/*"
         putExtra(Intent.EXTRA_TEXT, link)
     }
     context.startActivity(
         Intent.createChooser(
             intent,
-            context.getString(
-                (R.string.link)
-            )
+            context.getString(R.string.newlink )
         )
     )
 }
@@ -590,16 +609,34 @@ fun shareGame(
 
 @Composable
 fun ShareButton(
+   // game: Game,
     share: Boolean,
-    onShareClick: () -> Unit
+    onShareClick: (/**String, String,String*/) -> Unit
 ) {
+    val resources = LocalContext.current.resources
+    /**
+     * Subject & Summary :
+     */
+   // val newShare: String = stringResource(id = R.string.link)
+
+  /**  val newShareSummary: String= stringResource(
+        id = R.string.detailsShared,
+        (game.thumbnail),//1
+        (game.title),//2
+        (game.genre),//3
+        (game.short_description),//4
+        (game.developer),//5
+        (game.countPlayed),//6
+        (game.game_url)//7
+    )*/
+   // val newLink: String = game.thumbnail//game.game_url
+
     IconButton(
-        onClick = onShareClick
+        onClick = onShareClick//{onShareClick(/** newShare,newShareSummary,newLink */) }
     ) {
         Icon(
             imageVector = if (share) Icons.Filled.Share else Icons.Outlined.Share,
             contentDescription = null,
-            //tint = if (share) Color.Red else Color.LightGray,
             tint = if (isSystemInDarkTheme()) Color.LightGray else Color.LightGray
         )
     }
@@ -617,7 +654,6 @@ fun PlayButton(
     ) {
         Icon(
             imageVector = if (play) Icons.Rounded.Games else Icons.Outlined.Games,
-            //tint = if (play) Color.Red else Color.LightGray,
             contentDescription = null,
             tint = if (isSystemInDarkTheme()) Color.LightGray else Color.LightGray
         )
@@ -640,3 +676,5 @@ fun FavoriteButton(
         )
     }
 }
+
+

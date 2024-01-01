@@ -5,8 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.games.data.ItemsRepository
 import com.example.games.model.Game
-import com.example.games.model.GameEntity
-import com.example.games.model.asExternalModel
 import com.example.games.ui.screens.ItemDetailsDestination
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -21,7 +19,7 @@ class DetailsViewModel(
 
     ) : ViewModel() {
 
-    private val itemId : Int = checkNotNull(savedStateHandle[ItemDetailsDestination.itemIdArg])
+    private val itemId: Int = checkNotNull(savedStateHandle[ItemDetailsDestination.itemIdArg])
 
 
     val uiState: StateFlow<GameDetailsUiState> =
@@ -29,12 +27,14 @@ class DetailsViewModel(
             .filterNotNull()
 
             .map {
-                GameDetailsUiState(it)}
+                GameDetailsUiState(it)
+            }
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
                 initialValue = GameDetailsUiState()
             )
+
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L
     }
@@ -43,7 +43,6 @@ class DetailsViewModel(
 /**
  * UI state for GameDetailsScreen
  */
-data class GameDetailsUiState (
-    val  gameDetails: Game = Game()
-   // val  gameDetails: GameEntity = GameEntity()
+data class GameDetailsUiState(
+    val gameDetails: Game = Game()
 )

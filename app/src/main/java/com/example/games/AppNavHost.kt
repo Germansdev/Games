@@ -2,9 +2,9 @@ package com.example.games
 
 //import com.example.games.appDestinations.Graph
 
+import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -16,22 +16,18 @@ import androidx.navigation.navArgument
 import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.Pantalla1
 import com.example.games.model.Game
-import com.example.games.model.GameEntity
 import com.example.games.search.SearchScreen
 import com.example.games.search.SearchScreenDestination
 import com.example.games.search.navigateToSearch
 import com.example.games.ui.CustomTopBar
-import com.example.games.ui.GameUiState
 import com.example.games.ui.GameViewModel
 import com.example.games.ui.GamesState
-import com.example.games.ui.NotPlayedViewModel
 import com.example.games.ui.screens.DetailsScreen
 import com.example.games.ui.screens.FavoritesScreen
 import com.example.games.ui.screens.GameListCategoryScreenDestination
 import com.example.games.ui.screens.GameListCategoryScreenDestinationPlayed
 import com.example.games.ui.screens.GamesListCategoryScreen
 import com.example.games.ui.screens.GamesListCategoryScreenPlayed
-import com.example.games.ui.screens.HomeScreen
 import com.example.games.ui.screens.ItemDetailsDestination
 import com.example.games.ui.screens.NotPlayedScreen
 import com.example.games.ui.screens.Played
@@ -40,6 +36,7 @@ import com.example.games.ui.screens.Statistics
 import com.example.games.ui.theme.GamesIcons
 
 
+@SuppressLint("NewApi")
 @OptIn(ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.R)
 @Composable
@@ -47,17 +44,12 @@ fun GameNavHost(
     appState: GamesState,
     modifier: Modifier = Modifier,
     startDestination: String = Pantalla1.route,
-
-    viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory), // check after migrate db and see if charge games!!
-
+    viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory),
 ) {
     val navController = appState.navController
-    val viewModel: GameViewModel =
-        viewModel(factory = GameViewModel.Factory)  // check after migrate db and see if charge games!!
 
     NavHost(
         navController = navController,
-        //  route = Graph.BOTTOM,
         startDestination = startDestination,
         modifier = modifier,
     ) {
@@ -67,14 +59,14 @@ fun GameNavHost(
         ) {
 
             NotPlayedScreen(
-                //with Graph.DETAILS without Args:
+
                 onClick = {
                     navController.navigate("${ItemDetailsDestination.route}/${it}")
                 },
-                onGenreClick = { genre ->
-                    navController.navigate("${GameListCategoryScreenDestination.route}/${genre}")
-                },
-            )
+            ) { genre ->
+                navController.navigate("${GameListCategoryScreenDestination.route}/${genre}")
+            }
+
         }
 
         composable(
@@ -85,8 +77,7 @@ fun GameNavHost(
         ) {
 
             DetailsScreen(
-             //gameDetails = Game(),
-                gameDetails = GameEntity(),
+                gameDetails = Game(),//GameEntity(),
                 onClick = { navController.popBackStack() },
                 modifier,
                 shouldShowGradientBackground = true,
@@ -137,9 +128,7 @@ fun GameNavHost(
             route = GameListCategoryScreenDestinationPlayed.routeWithArgs,
             arguments = listOf(navArgument(GameListCategoryScreenDestinationPlayed.itemIdArg)
             { type = NavType.StringType })
-        ) {
-
-                backStackEntry ->
+        ) { backStackEntry ->
             val gameGenre =
                 backStackEntry.arguments?.getString(GameListCategoryScreenDestinationPlayed.itemIdArg)
             GamesListCategoryScreenPlayed(
@@ -149,7 +138,6 @@ fun GameNavHost(
                     navController.navigate("${ItemDetailsDestination.route}/${it}")
                 },
                 onBack = {
-                    navController.popBackStack()
                     navController.navigate(BottomBarScreen.Pantalla3.route) {
                         launchSingleTop = false
                     }
@@ -159,7 +147,7 @@ fun GameNavHost(
                 },
             )
         }
-
+        //NOT PLAYED:
         composable(
             route = GameListCategoryScreenDestination.routeWithArgs,
             arguments = listOf(navArgument(GameListCategoryScreenDestination.itemIdArg)
@@ -169,20 +157,13 @@ fun GameNavHost(
                 backStackEntry ->
             val gameGenre =
                 backStackEntry.arguments?.getString(GameListCategoryScreenDestination.itemIdArg)
-            val state = remember {
-                MutableTransitionState(false).apply {
-                    // Start the animation immediately.
-                    targetState = true
-                }
-            }
 
             GamesListCategoryScreen(
                 gameGenre = gameGenre ?: "",
                 modifier = Modifier,
                 onClick = { navController.navigate("${ItemDetailsDestination.route}/${it}") },
                 onBack = {
-                    navController.popBackStack()
-                    navController.navigate(BottomBarScreen.Pantalla1.route) {
+                    navController.navigate(Pantalla1.route) {
                         launchSingleTop = false
                     }
                 },

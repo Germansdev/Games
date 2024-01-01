@@ -9,7 +9,6 @@ import com.example.games.data.GameNetworkDataSource
 import com.example.games.data.ItemsRepository
 import com.example.games.data.OfflineItemsRepository
 import com.example.games.data.util.ConnectivityObserver
-import com.example.games.model.NetworkGame
 import com.example.games.network.GameApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

@@ -1,7 +1,6 @@
 package com.example.games.network
 
 import com.example.games.model.Game
-import com.example.games.model.NetworkGame
 
 import retrofit2.http.GET
 import retrofit2.http.Query
