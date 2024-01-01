@@ -609,30 +609,12 @@ fun shareGame(
 
 @Composable
 fun ShareButton(
-   // game: Game,
     share: Boolean,
-    onShareClick: (/**String, String,String*/) -> Unit
+    onShareClick: () -> Unit
 ) {
-    val resources = LocalContext.current.resources
-    /**
-     * Subject & Summary :
-     */
-   // val newShare: String = stringResource(id = R.string.link)
-
-  /**  val newShareSummary: String= stringResource(
-        id = R.string.detailsShared,
-        (game.thumbnail),//1
-        (game.title),//2
-        (game.genre),//3
-        (game.short_description),//4
-        (game.developer),//5
-        (game.countPlayed),//6
-        (game.game_url)//7
-    )*/
-   // val newLink: String = game.thumbnail//game.game_url
 
     IconButton(
-        onClick = onShareClick//{onShareClick(/** newShare,newShareSummary,newLink */) }
+        onClick = onShareClick
     ) {
         Icon(
             imageVector = if (share) Icons.Filled.Share else Icons.Outlined.Share,
