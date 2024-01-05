@@ -1,5 +1,6 @@
 package com.example.games.ui.screens
 
+import android.content.res.Configuration
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.BorderStroke
@@ -13,11 +14,14 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.sizeIn
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -34,6 +38,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -53,7 +58,6 @@ import com.example.games.ui.theme.GamesBackground
 import com.example.games.ui.theme.GamesGradientBackground
 import com.example.games.ui.theme.LocalGradientColors
 
-
 private const val TAG: String = "DetailScreen"
 
 object ItemDetailsDestination : NavigationDestination {
@@ -62,6 +66,7 @@ object ItemDetailsDestination : NavigationDestination {
     const val itemIdArg = "itemId"
     val routeWithArgs = "$route/{$itemIdArg}"
 }
+
 @RequiresApi(34)
 @Composable
 fun DetailsScreen(
@@ -78,23 +83,25 @@ fun DetailsScreen(
     GamesBackground {
         GamesGradientBackground(
 
-                gradientColors = if (shouldShowGradientBackground) {
-            LocalGradientColors.current
+            gradientColors = if (shouldShowGradientBackground) {
+                LocalGradientColors.current
 
-            // GradientColors()
+                // GradientColors()
             } else {
-            LocalGradientColors.current
-            //GradientColors()
+                LocalGradientColors.current
+                //GradientColors()
             },
         ) {
 
-                Column(modifier = Modifier
+            Column(
+                modifier = Modifier
                     .padding(8.dp)
                     .scrollable(
                         ScrollableState { 1F },
-                        orientation = Orientation.Horizontal,
+                        orientation = Orientation.Vertical,
                     )
-                ) {
+
+            ) {
 
                 ItemDetailsBody(
                     gameDetailsUiState = uiState.value,
@@ -127,46 +134,56 @@ fun ItemDetailsBody(
      * but not show the composition (broken image)*/
     val gameDetails = gameDetailsUiState.gameDetails
 
-    Row(modifier = Modifier
-        .fillMaxWidth()
-        .fillMaxHeight()
-    ) {
-    Column(
-
+    Row(
         modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
 
-            .fillMaxHeight()
-            .fillMaxHeight()
     ) {
-        Column {
 
-            ElevatedCard(
+        Column(
 
-                modifier = modifier
-                    .padding(bottom = 100.dp)
-                    .fillMaxWidth()
-                    .heightIn(500.dp, 600.dp)
-                    .padding(top = 35.dp, bottom = 10.dp, start = 10.dp, end = 10.dp),
-                elevation = CardDefaults.cardElevation(5.dp),
-                shape = RoundedCornerShape(8.dp),
+            modifier = Modifier
+                .fillMaxHeight()
+               //¿ .fillMaxHeight()
+
+        ) {
+
+            Column(
+                modifier = Modifier
 
             ) {
-                AsyncImage(
-                    modifier = Modifier.fillMaxWidth(),
-                    model = ImageRequest.Builder(context = LocalContext.current)
-                        .data(gameDetails.thumbnail)
-                        .crossfade(true)
-                        .build(),
-                    contentDescription = null,
-                    contentScale = ContentScale.FillWidth,
-                    error = painterResource(id = R.drawable.ic_broken_image),
-                    placeholder = painterResource(id = R.drawable.loading_img)
-                )
+                val configuration = LocalConfiguration.current
+                val stateVertical = rememberScrollState(0)
 
-                Column(
-                ) {
+                if (configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
 
-                    Column {
+                    ElevatedCard(
+
+                        modifier = modifier
+
+                            .verticalScroll(state = stateVertical)
+
+                            .padding(bottom = 100.dp)
+                            //.fillMaxWidth()
+                            //.fillMaxSize()
+                            .heightIn(500.dp, 600.dp)
+                            .padding(top = 35.dp, bottom = 10.dp, start = 10.dp, end = 10.dp),
+                        elevation = CardDefaults.cardElevation(5.dp),
+                        shape = RoundedCornerShape(8.dp),
+
+                        ) {
+                        AsyncImage(
+                            modifier = Modifier.fillMaxWidth(),
+                            model = ImageRequest.Builder(context = LocalContext.current)
+                                .data(gameDetails.thumbnail)
+                                .crossfade(true)
+                                .build(),
+                            contentDescription = null,
+                            contentScale = ContentScale.FillWidth,
+                            error = painterResource(id = R.drawable.ic_broken_image),
+                            placeholder = painterResource(id = R.drawable.loading_img)
+                        )
 
                         Column(modifier = Modifier.padding(8.dp)) {
 
@@ -266,27 +283,193 @@ fun ItemDetailsBody(
                                 textAlign = TextAlign.Left,
                                 modifier = Modifier.padding(top = 4.dp)
                             )
-                            Row(modifier = Modifier
-                                .padding(end = 16.dp)
-                                .align(Alignment.End)
+                            Row(
+                                modifier = Modifier
+                                    .padding(end = 16.dp)
+                                    .align(Alignment.End)
                             ) {
                                 GameOutlinedButton(
-                                    onClick = {onBack()},
+                                    onClick = { onBack() },
                                     enabled = true,
-                                    text = { Text(text = "Back")},
+                                    text = { Text(text = "Back") },
                                     leadingIcon = {
-                                        Icon(imageVector = Icons.Default.ArrowBack, contentDescription = null)
+                                        Icon(
+                                            imageVector = Icons.Default.ArrowBack,
+                                            contentDescription = null
+                                        )
                                     }
                                 )
                             }
                         }
                     }
                 }
+
+                else{
+
+                    ElevatedCard(
+
+                        modifier = modifier
+
+                            .verticalScroll(state = stateVertical)
+                            .padding(bottom = 100.dp)
+                            .fillMaxWidth()
+                            .heightIn(500.dp, 600.dp)
+                            .padding(top = 35.dp, bottom = 10.dp, start = 10.dp, end = 10.dp),
+                        elevation = CardDefaults.cardElevation(5.dp),
+                        shape = RoundedCornerShape(8.dp),
+
+                        ) {
+
+                        Row {
+                            Column(modifier = Modifier
+                                .fillMaxSize()
+                                .weight(.5f)
+                                .padding(top = 16.dp, start = 8.dp)
+                            ) {
+                                AsyncImage(
+                                    modifier = Modifier
+                                        .fillMaxWidth(),
+                                    model = ImageRequest.Builder(context = LocalContext.current)
+                                        .data(gameDetails.thumbnail)
+                                        .crossfade(true)
+                                        .build(),
+                                    contentDescription = null,
+                                    contentScale = ContentScale.Fit,
+                                    error = painterResource(id = R.drawable.ic_broken_image),
+                                    placeholder = painterResource(id = R.drawable.loading_img)
+                                )
+                            }
+
+
+
+                        Column(modifier = Modifier
+                            .padding(8.dp)
+                            .fillMaxSize()
+                            .weight(.5f)
+                        ) {
+
+                            Text(
+                                color = MaterialTheme.colorScheme.inverseSurface,
+                                text = gameDetails.title,
+                                style = MaterialTheme.typography.bodyLarge,
+                                fontWeight = FontWeight.Bold,
+                                overflow = TextOverflow.Ellipsis,
+                                textAlign = TextAlign.Left,
+                                modifier = Modifier.padding(top = 8.dp)
+                            )
+                            Divider(
+                                thickness = 2.dp,
+                                modifier = Modifier.padding(top = 8.dp),
+                                color = if (isSystemInDarkTheme()) Color.DarkGray else Color.LightGray
+                            )
+                            Text(
+                                color = MaterialTheme.colorScheme.inverseSurface,
+                                text = gameDetails.short_description,
+                                style = MaterialTheme.typography.bodySmall,
+                                overflow = TextOverflow.Ellipsis,
+                                textAlign = TextAlign.Left,
+                                modifier = Modifier.padding(end = 4.dp, top = 2.dp)
+                            )
+                            Divider(
+                                thickness = 2.dp,
+                                modifier = Modifier.padding(top = 8.dp),
+                                color = if (isSystemInDarkTheme()) Color.DarkGray else Color.LightGray
+                            )
+                            Text(
+                                color = MaterialTheme.colorScheme.inverseSurface,
+                                text = gameDetails.developer,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.Normal,
+                                overflow = TextOverflow.Ellipsis,
+                                textAlign = TextAlign.Left,
+                                modifier = Modifier.padding(top = 4.dp)
+                            )
+
+                            Text(
+                                color = MaterialTheme.colorScheme.inverseSurface,
+                                text = gameDetails.game_url,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.Normal,
+                                overflow = TextOverflow.Ellipsis,
+                                textAlign = TextAlign.Left,
+                                modifier = Modifier.padding(top = 4.dp)
+                            )
+
+                            Text(
+                                color = MaterialTheme.colorScheme.inverseSurface,
+                                text = gameDetails.freetogame_profile_url,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.Normal,
+                                overflow = TextOverflow.Ellipsis,
+                                textAlign = TextAlign.Left,
+                                modifier = Modifier.padding(top = 4.dp)
+                            )
+
+                            Text(
+                                color = MaterialTheme.colorScheme.inverseSurface,
+                                text = gameDetails.genre,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.Normal,
+                                overflow = TextOverflow.Ellipsis,
+                                textAlign = TextAlign.Left,
+                                modifier = Modifier.padding(top = 4.dp)
+                            )
+
+                            Text(
+                                color = MaterialTheme.colorScheme.inverseSurface,
+                                text = gameDetails.platform,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.Normal,
+                                overflow = TextOverflow.Ellipsis,
+                                textAlign = TextAlign.Left,
+                                modifier = Modifier.padding(top = 4.dp)
+                            )
+
+                            Text(
+                                color = MaterialTheme.colorScheme.inverseSurface,
+                                text = gameDetails.publisher,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.Normal,
+                                overflow = TextOverflow.Ellipsis,
+                                textAlign = TextAlign.Left,
+                                modifier = Modifier.padding(top = 4.dp)
+                            )
+
+                            Text(
+                                color = MaterialTheme.colorScheme.inverseSurface,
+                                text = gameDetails.release_date,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.Normal,
+                                overflow = TextOverflow.Ellipsis,
+                                textAlign = TextAlign.Left,
+                                modifier = Modifier.padding(top = 4.dp)
+                            )
+                            Row(
+                                modifier = Modifier
+                                    .padding(end = 16.dp)
+                                    .align(Alignment.End)
+                            ) {
+                                GameOutlinedButton(
+                                    onClick = { onBack() },
+                                    enabled = true,
+                                    text = { Text(text = "Back") },
+                                    leadingIcon = {
+                                        Icon(
+                                            imageVector = Icons.Default.ArrowBack,
+                                            contentDescription = null
+                                        )
+                                    }
+                                )
+                            }
+                        }
+                    }
+                    }
+                }
             }
         }
     }
-    }
 }
+
 @Composable
 fun GameOutlinedButton(
     onClick: () -> Unit,
@@ -300,7 +483,7 @@ fun GameOutlinedButton(
         modifier = modifier,
         enabled = enabled,
         colors = ButtonDefaults.outlinedButtonColors(
-        contentColor = MaterialTheme.colorScheme.onBackground,
+            contentColor = MaterialTheme.colorScheme.onBackground,
         ),
         border = BorderStroke(
             width = GameButtonDefaults.OutlinedButtonBorderWidth,

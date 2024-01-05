@@ -122,7 +122,6 @@ class GameViewModel(
     }
 
 
-
     fun selectFavorite(gameId: Int) {
         val updatedFavorites = _favorites.value.toMutableSet()
         if (updatedFavorites.contains(gameId)) {
@@ -138,11 +137,11 @@ class GameViewModel(
         if (isPlay(gameId = game.id)
         ) {
             itemsRepository.updateItem(game.copy(isPlayed = true))
-            itemsRepository.updateItem(game.copy(played = 1))
+       //     itemsRepository.updateItem(game.copy(played = 1))
             itemsRepository.updateItem(game.copy(countPlayed = game.countPlayed+1))
         } else {
             itemsRepository.updateItem(game.copy(isPlayed = false))
-            itemsRepository.updateItem(game.copy(played = 0))
+       //     itemsRepository.updateItem(game.copy(played = 0))
         }
     }
 
@@ -162,11 +161,11 @@ class GameViewModel(
         if (isShare(gameId = game.id)
         ) {
             itemsRepository.updateItem(game.copy(isShared = true))
-            itemsRepository.updateItem(game.copy(shared = 1))
+    //        itemsRepository.updateItem(game.copy(shared = 1))
 
         } else {
             itemsRepository.updateItem(game.copy(isShared = false))
-            itemsRepository.updateItem(game.copy(shared = 0))
+     //       itemsRepository.updateItem(game.copy(shared = 0))
         }
     }
 

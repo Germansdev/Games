@@ -2,6 +2,7 @@ package com.example.games.ui.screens
 
 
 import android.annotation.SuppressLint
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -108,6 +109,7 @@ fun NotPlayedScreenContent(
 
         modifier = modifier
             .fillMaxSize()
+            .padding(end = 8.dp)
 
     ) {
 
@@ -122,7 +124,6 @@ fun NotPlayedScreenContent(
         d(TAG, notPlayedL.size.toString())
 
         Spacer(modifier = Modifier.size(8.dp))
-
 
         if (notPlayedL.size in 0..300) {
             androidx.compose.animation.AnimatedVisibility(
@@ -141,7 +142,7 @@ fun NotPlayedScreenContent(
                         .fillMaxWidth()
                         .padding(top = 8.dp),
                 ) {
-                    NiaOverlayLoadingWheel(
+                    OverlayLoadingWheel(
                         modifier = Modifier
                             .align(Alignment.Center),
                         contentDesc = loadingContentDescription,
@@ -153,7 +154,7 @@ fun NotPlayedScreenContent(
                 columns = GridCells.Adaptive(360.dp),
                 modifier = modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
-                contentPadding = PaddingValues(8.dp)
+                contentPadding = PaddingValues(8.dp, bottom = 116.dp)
             ) {
                 items(
                     items = notPlayedL,
@@ -164,7 +165,6 @@ fun NotPlayedScreenContent(
                         onClick = onClick,
                     )
                 }
-
             }
         }
     }
@@ -196,7 +196,7 @@ fun MyLazyRowNotPlayed(
     LazyRow(
         modifier = Modifier
             .height(60.dp)
-            .padding(end = 16.dp),
+            .padding(end = 12.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
 
         ) {
@@ -300,7 +300,6 @@ fun MyCardRowNotPlayed(
     var selected by rememberSaveable {
         mutableStateOf(false)
     }
-   // selected = selected
 
     OutlinedCard(
         border = if (selected) {
@@ -423,7 +422,7 @@ fun GameCardColumnNotPlayed(
                 Text(
                     text = game.short_description,
                     style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
-                    maxLines = 2,
+                    maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                     textAlign = TextAlign.Left,
                     modifier = Modifier.padding(end = 4.dp, top = 2.dp, bottom = 4.dp)
@@ -453,7 +452,8 @@ fun GameCardColumnNotPlayed(
                                             gameViewModel.isFavoriteGame(game.copy(isFavorite = false))
 
                                             ) else (
-                                        gameViewModel.isFavoriteGame(game.copy(isFavorite = true))
+
+                                            gameViewModel.isFavoriteGame(game.copy(isFavorite = true))
                                         )
                             }
                         },
@@ -463,8 +463,8 @@ fun GameCardColumnNotPlayed(
 
                     Box {
                         val context = LocalContext.current
-                        PlayButton(
 
+                        PlayButton(
                             play = when (game.isPlayed) {
                                 true -> true
                                 false -> false
@@ -476,9 +476,9 @@ fun GameCardColumnNotPlayed(
 
                                 coroutineScope.launch {
 
-                                    (gameViewModel.isPlayedGame(game.copy(isPlayed = true)))
+                                        (gameViewModel.isPlayedGame(game.copy(isPlayed = true)))
 
-                                    playGame(context, game = game)
+                                        playGame(context, game = game)
                                 }
                             }
                         )
@@ -510,7 +510,7 @@ fun GameCardColumnNotPlayed(
                                 }
 
 
-                            }
+                            },
                         )
                     }
                     Spacer(modifier = Modifier.size(16.dp))
@@ -575,16 +575,21 @@ fun GameCardColumnNotPlayed(
 
 
 fun playGame(context: Context, game: Game) {
-    val myIntent = Intent(
-        Intent.ACTION_VIEW,
-        Uri.parse(game.game_url)
-    )
-    context.startActivity(
-        Intent.createChooser(
-            myIntent,
-            context.getString(R.string.game_title)
-        ),
-    )
+    try {
+        val myIntent = Intent(
+            Intent.ACTION_VIEW,
+            Uri.parse(game.game_url)
+        )
+        context.startActivity(
+            Intent.createChooser(
+                myIntent,
+                context.getString(R.string.game_title)
+            ),
+        )
+    } catch (e: ActivityNotFoundException) {
+        println("Restart app")
+    }
+
 }
 
 //INTERNAL FUN TO CREATE INTENT TO SHARE:
@@ -610,12 +615,11 @@ fun shareGame(
 @Composable
 fun ShareButton(
     share: Boolean,
-    onShareClick: () -> Unit
+    onShareClick: () -> Unit,
+
 ) {
 
-    IconButton(
-        onClick = onShareClick
-    ) {
+    IconButton( onClick = onShareClick) {
         Icon(
             imageVector = if (share) Icons.Filled.Share else Icons.Outlined.Share,
             contentDescription = null,
@@ -628,6 +632,7 @@ fun ShareButton(
 fun PlayButton(
     play: Boolean,
     onPlayClick: () -> Unit,
+
 ) {
 
     IconButton(
