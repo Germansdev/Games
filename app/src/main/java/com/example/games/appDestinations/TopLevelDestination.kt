@@ -6,14 +6,6 @@ import com.example.games.ui.theme.GamesIcons
 import com.example.games.ui.theme.Icon
 import com.example.games.ui.theme.Icon.ImageVectorIcon
 
-
-/**
- * Different type of navigation supported by app depending on size and state.
- */
-enum class GamesNavigationType {
-    BOTTOM_NAVIGATION, NAVIGATION_RAIL, PERMANENT_NAVIGATION_DRAWER
-}
-
 /**
  * Content shown depending on size and state of device.
  */
@@ -95,7 +87,10 @@ enum class DetailsDestination(val route: String) {
 }*/
 
 /**
- * Interface to describe the navigation destinations for the app
+ * Interface to describe the navigation destinations for the app when
+ * details screen,
+ * search screen,
+ * genre selected not played & played screen
  */
 interface NavigationDestination {
     /** Unique name to define the path for a composable*/

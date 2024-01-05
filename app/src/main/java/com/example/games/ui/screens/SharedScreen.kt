@@ -64,7 +64,7 @@ fun SharedScreenContent(
                 columns = GridCells.Adaptive(360.dp),
                 modifier = modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
-                contentPadding = PaddingValues(8.dp),
+                contentPadding = PaddingValues(start = 8.dp,top= 8.dp,end=8.dp, bottom = 116.dp),
             )
 
             {

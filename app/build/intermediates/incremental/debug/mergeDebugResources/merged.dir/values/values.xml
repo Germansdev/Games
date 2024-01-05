@@ -751,8 +751,6 @@
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="androidx_startup" translatable="false">androidx.startup</string>
     <string name="app_name">Games</string>
-    <string name="app_nameDraft">app_namedraft</string>
-    <string name="auto">Auto</string>
     <string name="bottom_sheet_collapse_description">Collapse bottom sheet</string>
     <string name="bottom_sheet_dismiss_description">Dismiss bottom sheet</string>
     <string name="bottom_sheet_drag_handle_description">Drag handle</string>
@@ -767,10 +765,6 @@
     <string name="close_drawer">"Close navigation menu"</string>
     <string name="close_sheet">"Close sheet"</string>
     <string name="collapsed">Collapsed</string>
-    <string name="dark_mode_config_dark">Dark</string>
-    <string name="dark_mode_config_light">Light</string>
-    <string name="dark_mode_config_system_default">default</string>
-    <string name="dark_mode_preference">Dark mode preference</string>
     <string name="date_input_headline">Entered date</string>
     <string name="date_input_headline_description">Entered date: %1$s</string>
     <string name="date_input_invalid_for_pattern">Date does not match expected pattern: %1$s</string>
@@ -809,83 +803,47 @@
     <string name="default_error_message">"Invalid input"</string>
     <string name="default_popup_window_title" ns2:ignore="ExtraTranslation">"Pop-Up Window"</string>
     <string name="details">Details</string>
-    <string name="detailsShared">
-       \n  Share in this link:
-         \n Details shared:
-         \n Link: "%1$s"
-         \n Tittle: "%2$s"
-         \n Genre: "%3$s"
-         \n Short Description: "%4$s"
-          \n Developer: "%5$s"
-         \n Count played: "%6$s"
-       \n game_url: "%7$s" </string>
     <string name="dialog">"Dialog"</string>
     <string name="dismissButtonText">Ok</string>
     <string name="dropdown_menu">"Dropdown menu"</string>
-    <string name="dynamic_color_no">No</string>
-    <string name="dynamic_color_prefs">Use dynamic colors</string>
-    <string name="dynamic_color_yes">Yes</string>
     <string name="expanded">Expanded</string>
     <string name="favorite">Favorites</string>
     <string name="favorites">Favorites Games</string>
     <string name="feedback">Feedback</string>
     <string name="game_title">Game Title</string>
-    <string name="games">Games</string>
     <string name="games_list"> </string>
     <string name="homescreen">Home</string>
     <string name="in_progress">In progress</string>
     <string name="indeterminate">Partially checked</string>
-    <string name="is_night_mode">Is Night Mode ?</string>
-    <string name="licenses">licenses</string>
-    <string name="link">
-      \n Share in this link:
-         \n Details shared:
-         \n Link: "%1$s"
-         \n Tittle: "%2$s"
-         \n Genre: "%3$s"
-         \n Short Description: "%4$s"
-          \n Developer: "%5$s"
-         \n Count played: "%6$s"
-       \n game_url: "%7$s"
-            \n "%3$s" </string>
-    <string name="loadingd">Loading</string>
-    <string name="navigation_drawer">navigation_drawer</string>
     <string name="navigation_menu">"Navigation menu"</string>
     <string name="newlink">ShareGame</string>
-    <string name="no_games_played"> No games played</string>
+    <string name="no_games_played"> No game played</string>
     <string name="no_item_description">not favorites yet</string>
     <string name="no_records_found_msg">Nothing found</string>
-    <string name="no_results">No results found</string>
     <string name="not_connected"> ⚠️ You aren’t connected to the internet</string>
-    <string name="not_connection">Not connection!!</string>
     <string name="not_selected">Not selected</string>
+    <string name="nothing_to_show">Nothing to show here</string>
     <string name="off">Off</string>
     <string name="on">On</string>
     <string name="played">Played Games</string>
     <string name="playedIc">Played</string>
-    <string name="privacy_policy">privacy_policy</string>
     <string name="range_end">"Range end"</string>
     <string name="range_start">"Range start"</string>
     <string name="review_code">Review Code</string>
     <string name="search">search</string>
     <string name="search_bar_search">Search</string>
     <string name="search_menu_title">Search</string>
-    <string name="search_not_ready">search not ready</string>
     <string name="selected">Selected</string>
     <string name="send_mail">Send an eMail</string>
-    <string name="settings">Settings</string>
     <string name="shared">Shared Games</string>
     <string name="sharedIC">Shared</string>
     <string name="snackbar_dismiss">Dismiss</string>
     <string name="statistics">Statistics</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="subject">xxx</string>
     <string name="suggestions_available">Suggestions below</string>
     <string name="switch_role">Switch</string>
     <string name="tab">Tab</string>
     <string name="template_percent"><ns1:g id="percentage">%1$d</ns1:g> percent.</string>
-    <string name="them_brand_my_brand">My Brand</string>
-    <string name="theme_brand_default">Default</string>
     <string name="time_picker_am">AM</string>
     <string name="time_picker_hour">Hour</string>
     <string name="time_picker_hour_24h_suffix">%1$d hours</string>

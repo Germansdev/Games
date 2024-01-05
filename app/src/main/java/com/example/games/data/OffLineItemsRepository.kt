@@ -33,8 +33,7 @@ class OfflineItemsRepository(
 
     override fun getItemStream(id: Int): Flow<Game?> = itemDao.getItem(id)
 
-    override fun getAllFavoritesStream(isFavorite: Boolean): Flow<List<Game?>> =
-        itemDao.getAllFavorites()
+    override fun getAllFavoritesStream(isFavorite: Boolean): Flow<List<Game?>> = itemDao.getAllFavorites()
 
     override fun getAllPlayedStream(isPlayed: Boolean): Flow<List<Game?>> = itemDao.getAllPlayed()
 

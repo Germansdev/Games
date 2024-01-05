@@ -29,7 +29,7 @@
 18-->[androidx.core:core:1.11.0-alpha04] C:\Users\Willkommen\.gradle\caches\transforms-3\9a6194e8a7a56dd75ca502db02873844\transformed\core-1.11.0-alpha04\AndroidManifest.xml:26:22-94
 19
 20    <application
-20-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:8:5-30:19
+20-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:8:5-32:19
 21        android:name="com.example.games.GameApplication"
 21-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:9:9-40
 22        android:allowBackup="true"
@@ -54,7 +54,7 @@
 33        android:theme="@style/Theme.Games" >
 33-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:17:9-43
 34        <activity
-34-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:19:9-29:20
+34-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:19:9-31:20
 35            android:name="com.example.games.MainActivity"
 35-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:20:13-41
 36            android:exported="true"
@@ -62,7 +62,7 @@
 37            android:theme="@style/Theme_Games_Splash" >
 37-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:22:13-54
 38            <intent-filter>
-38-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:23:13-27:29
+38-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:23:13-29:29
 39                <action android:name="android.intent.action.MAIN" />
 39-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:24:17-69
 39-->C:\Users\Willkommen\AndroidStudioProjects\Games-master\app\src\main\AndroidManifest.xml:24:25-66

@@ -10,13 +10,9 @@ import com.example.games.model.Game
 
 
 @Database(
-    entities = [
-        Game::class,
-        //GameEntity::class
-     //   Genre::class,
-               ],
+    entities = [Game::class,],
 
-    version = 21  , exportSchema = false)
+    version = 22  , exportSchema = false)
 
 abstract class GameDatabase : RoomDatabase() {
 

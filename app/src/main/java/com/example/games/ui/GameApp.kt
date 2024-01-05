@@ -26,21 +26,19 @@ import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass.Companion.Compact
-import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass.Companion.Expanded
-import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass.Companion.Medium
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -79,8 +77,6 @@ import com.example.games.GamesNavigationRail
 import com.example.games.GamesNavigationRailItem
 import com.example.games.appDestinations.BottomBarScreen
 import com.example.games.appDestinations.BottomBarScreen.*
-import com.example.games.appDestinations.GamesContentType
-import com.example.games.appDestinations.GamesNavigationType
 import com.example.games.search.navigateToSearch
 import com.example.games.ui.badges.FavoritesBadgeViewModel
 import com.example.games.ui.badges.NotPlayedBadgeViewModel
@@ -114,31 +110,6 @@ fun GamesApp(
     val shouldShowGradientBackground =
         appState.currentTopLevelDestination == Pantalla1
 
-    val navigationType: GamesNavigationType
-    val contentType: GamesContentType
-
-    when (windowSizeClass.widthSizeClass) {
-        Compact -> {
-            navigationType = GamesNavigationType.BOTTOM_NAVIGATION
-            contentType = GamesContentType.LIST_ONLY
-        }
-
-        Medium -> {
-            navigationType = GamesNavigationType.NAVIGATION_RAIL
-            contentType = GamesContentType.LIST_ONLY
-        }
-
-        Expanded -> {
-            navigationType = GamesNavigationType.PERMANENT_NAVIGATION_DRAWER
-            contentType = GamesContentType.LIST_AND_DETAIL
-        }
-
-        else -> {
-            navigationType = GamesNavigationType.BOTTOM_NAVIGATION
-            contentType = GamesContentType.LIST_ONLY
-        }
-    }
-
     var showSettingsDialog by rememberSaveable {
         mutableStateOf(false)
     }
@@ -154,14 +125,13 @@ fun GamesApp(
             },
         ) {
 
-
             if (showSettingsDialog) {
                 SettingsDialog(
                     onDismiss = { showSettingsDialog = false },
                 )
             }
 
-            androidx.compose.material3.Scaffold(
+            Scaffold(
                 modifier = Modifier
                     .semantics {
                         testTagsAsResourceId = true
@@ -269,7 +239,7 @@ fun CustomTopBar(
     //With CenterAlignedTopAppBar:
     CenterAlignedTopAppBar(
         title = {
-            androidx.compose.material3.Text(
+            Text(
                 text = stringResource(id = titleRes),
                 fontSize = 16.sp,
             )
@@ -328,7 +298,7 @@ fun CustomTopBar(
 
     CenterAlignedTopAppBar(
         title = {
-            androidx.compose.material3.Text(text = stringResource(id = titleRes))
+            Text(text = stringResource(id = titleRes))
             if (genre.isNotEmpty()) {
                 Text(
                     text = "Genre: $genre",
@@ -371,8 +341,6 @@ fun Badge(
                     textAlign = TextAlign.Center,
                     softWrap = true,
                     modifier = Modifier
-                        .wrapContentWidth()
-                        .wrapContentHeight()
                         .wrapContentSize()
                         .padding(12.dp)
                         .widthIn(17.dp, 20.dp)

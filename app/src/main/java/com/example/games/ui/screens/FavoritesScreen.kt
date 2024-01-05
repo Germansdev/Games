@@ -110,8 +110,8 @@ fun FavoritesScreenContent(
 
                     GameCardFavorites(
                         game = game.copy(
-                            favorited = 1
-                            /**isFavorite = true*/
+                            favorited = 1,
+                            //isFavorite = true
                         ),
                         modifier
                     )

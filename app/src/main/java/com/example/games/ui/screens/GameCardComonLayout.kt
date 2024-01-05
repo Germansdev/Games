@@ -45,6 +45,7 @@ fun GameCardComonContent(
         ) {
         Row(
             modifier = Modifier
+                .height(150.dp)
                 .fillMaxWidth(),
 
             verticalAlignment = Alignment.CenterVertically
