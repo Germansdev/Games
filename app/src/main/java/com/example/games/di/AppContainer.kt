@@ -3,14 +3,14 @@ package com.example.games.di
 
 import com.example.games.data.GameNetworkDataSource
 import com.example.games.data.ItemsRepository
-import com.example.games.data.util.ConnectivityObserver
+import com.example.games.util.ConnectivityObserver
 import com.example.games.network.GameApiService
 
 
 interface AppContainer {
-    val gameApiService: GameApiService
-    val gameNetworkDataSource: GameNetworkDataSource
-    val itemsRepository: ItemsRepository
-    var status: ConnectivityObserver.Status
+    val gameApiService: GameApiService  // Interface describes HTTP Rest with Retrofit
+    val gameNetworkDataSource: GameNetworkDataSource //Interface describes DataSource from Network
+    val itemsRepository: ItemsRepository    //Interface describes DataSource from Local Source Room
+    var status: ConnectivityObserver.Status // Interface describes connection state
 }
 

@@ -30,10 +30,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
-import com.example.games.data.util.ConnectivityObserver
-import com.example.games.data.util.NetworkConnectivityObserver
 import com.example.games.ui.GamesApp
 import com.example.games.ui.theme.GamesTheme
+import com.example.games.util.ConnectivityObserver
+import com.example.games.util.NetworkConnectivityObserver
 
 class MainActivity : ComponentActivity() {
 
@@ -63,10 +63,9 @@ class MainActivity : ComponentActivity() {
                     GamesApp(
                         windowSizeClass = calculateWindowSizeClass(this),
                     )
-
-                    val status by connectivityObserver.observe().collectAsState(
-                        initial = ConnectivityObserver.Status.Unavailable
-                    )
+                        val status by connectivityObserver.observe().collectAsState(
+                            initial = ConnectivityObserver.Status.Unavailable
+                        )
 
                     Card(
                         border = BorderStroke(1.dp, Color.White),
@@ -83,7 +82,7 @@ class MainActivity : ComponentActivity() {
                             .border(1.dp, color = Color.White),
 
                         ) {
-                        //  val notConnectedMessage = stringResource(id = R.string.not_connected)
+
                         if (status == ConnectivityObserver.Status.Unavailable) {
                             Text(
                                 modifier = Modifier

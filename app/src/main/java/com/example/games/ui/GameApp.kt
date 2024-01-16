@@ -346,7 +346,7 @@ fun Badge(
                         .widthIn(17.dp, 20.dp)
                         .height(16.dp)
                         .clip(CircleShape)
-                        .background(if (badgeCount != 0) Color.Red else Transparent)
+                        .background(Color.Red/**if (badgeCount != 0)  else Transparent*/)
                 )
             }
         },

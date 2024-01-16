@@ -27,115 +27,84 @@ object AppViewModelProvider {
     @RequiresApi(34)
     val Factory = viewModelFactory {
 
-        // Initializer for HomeViewModel
         initializer {
             GameViewModel(
-                inventoryApplication().container.itemsRepository,
-                inventoryApplication().container.gameNetworkDataSource,
-                inventoryApplication().container.status
+                gameApplication().container.itemsRepository,
+                gameApplication().container.gameNetworkDataSource,
+                gameApplication().container.status
                 )
         }
 
         initializer {
-            FavoritesViewModel(
-                inventoryApplication().container.itemsRepository,
-            )
+            FavoritesViewModel( gameApplication().container.itemsRepository)
         }
 
         initializer {
-            PlayedViewModel(
-                inventoryApplication().container.itemsRepository,
-            )
+            PlayedViewModel( gameApplication().container.itemsRepository)
         }
 
         initializer {
-            SharedViewModel(
-                inventoryApplication().container.itemsRepository
-            )
+            SharedViewModel( gameApplication().container.itemsRepository)
         }
 
         initializer {
-            NotPlayedViewModel(
-                inventoryApplication().container.itemsRepository,
-            )
+            NotPlayedViewModel( gameApplication().container.itemsRepository)
         }
 
         initializer {
             DetailsViewModel(
-                inventoryApplication().container.itemsRepository,
+                gameApplication().container.itemsRepository,
                 this.createSavedStateHandle(),
             )
         }
 
         initializer {
-
-            SearchViewModel(
-                inventoryApplication().container.itemsRepository,
-            )
+            SearchViewModel(gameApplication().container.itemsRepository)
         }
 
         initializer {
-            StatsViewModel(
-                inventoryApplication().container.itemsRepository,
-            )
+            StatsViewModel( gameApplication().container.itemsRepository)
         }
 
         initializer {
             ListedCategoryViewModel(
-                inventoryApplication().container.itemsRepository,
+                gameApplication().container.itemsRepository,
                 this.createSavedStateHandle()
             )
         }
 
         initializer {
             ListedCategoryPlayedViewModel(
-                inventoryApplication().container.itemsRepository,
+                gameApplication().container.itemsRepository,
                 this.createSavedStateHandle()
             )
         }
 
         /**INITIALIZER BADGES:*/
         initializer {
-            NotPlayedBadgeViewModel(
-                inventoryApplication().container.itemsRepository
-            )
+            NotPlayedBadgeViewModel(gameApplication().container.itemsRepository)
         }
 
         initializer {
-            PlayedBadgeViewModel(
-                inventoryApplication().container.itemsRepository
-            )
+            PlayedBadgeViewModel(gameApplication().container.itemsRepository)
         }
 
         initializer {
-           FavoritesBadgeViewModel(
-                inventoryApplication().container.itemsRepository
-            )
+           FavoritesBadgeViewModel(gameApplication().container.itemsRepository)
         }
 
         initializer {
-            StatsBadgeViewModel(
-                inventoryApplication().container.itemsRepository
-            )
+            StatsBadgeViewModel(gameApplication().container.itemsRepository)
         }
 
         initializer {
-            SharedBadgeViewModel(
-                inventoryApplication().container.itemsRepository
-            )
+            SharedBadgeViewModel(gameApplication().container.itemsRepository)
         }
     }
 }
 
-
 /**Extension function to queries for [Application] object and returns an instance of
- * [InventoryApplication].
+ * [GameApplication].
  */
-
-fun CreationExtras.inventoryApplication(): GameApplication =
+fun CreationExtras.gameApplication(): GameApplication =
     (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as GameApplication)
-
-/**
-fun CreationExtras.inventoryApplication(): InventoryApplication =
-(this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as InventoryApplication)
- */

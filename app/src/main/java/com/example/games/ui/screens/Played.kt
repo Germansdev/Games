@@ -39,6 +39,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -62,8 +63,6 @@ import com.example.games.model.Game
 import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.GameViewModel
 import com.example.games.ui.PlayedViewModel
-import com.gowtham.ratingbar.RatingBar
-import com.gowtham.ratingbar.RatingBarConfig
 import kotlinx.coroutines.launch
 
 private const val TAG: String = "Played"
@@ -72,6 +71,7 @@ private const val TAG: String = "Played"
 @Composable
 fun Played(
     playedViewModel: PlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
+    onClick: (Int) -> Unit,
     onGenreClick: (String) -> Unit,
 ) {
 
@@ -80,6 +80,7 @@ fun Played(
     PlayedScreenContent(
         playedL = playedUiState.value.playedL as List<Game>,
         modifier = Modifier,
+        onClick = {onClick(it.id) },
         onGenreClick = onGenreClick,
     )
 }
@@ -89,6 +90,7 @@ fun Played(
 fun PlayedScreenContent(
     playedL: List<Game>,
     modifier: Modifier = Modifier,
+    onClick: (Game) -> Unit,
     onGenreClick: (String) -> Unit,
 ) {
 
@@ -117,18 +119,27 @@ fun PlayedScreenContent(
             )
         } else {
             LazyVerticalGrid(
-                columns = GridCells.Adaptive(170.dp),
+                columns = GridCells.Adaptive(360.dp),
                 modifier = modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
-                contentPadding = PaddingValues(8.dp),
+                contentPadding = PaddingValues(8.dp, bottom = 116.dp)
+
+           /**     columns = GridCells.Adaptive(170.dp),
+                modifier = modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                contentPadding = PaddingValues(8.dp),*/
+
+
             ) {
                 items(
                     items = playedL,
                     key = { game -> game.id }
                 ) { game ->
-                    GameCardPlayed(
+                   // GameCardPlayed(
+                    GameCardColumnNotPlayed(
                         game = game.copy(isPlayed = true),
-                        modifier,
+                        onClick = onClick,
+                       // modifier,
                     )
                 }
             }
@@ -256,7 +267,8 @@ fun GameCardPlayed(
 
     ElevatedCard(
         modifier = modifier
-            .padding(top = 0.dp, start = 8.dp, end = 8.dp, bottom = 4.dp)
+            .padding(top = 5.dp, bottom = 5.dp, start = 10.dp, end = 10.dp)
+            //.padding(top = 0.dp, start = 8.dp, end = 8.dp, bottom = 4.dp)
             .fillMaxSize()
             .height(350.dp),
         elevation = CardDefaults.cardElevation(5.dp),
@@ -315,17 +327,14 @@ fun GameCardPlayed(
                         },
                         onFavoriteClick = {
 
-                            gameViewModel.selectFavorite(gameId = game.id)
-
                             gameViewModel.isFavorite(gameId = game.id)
 
                             coroutineScope.launch {
                                 if (game.isFavorite)
                                     (
-                                            gameViewModel.isFavoriteGame(game.copy(isFavorite = false))
-
+                                            gameViewModel.isFavoriteGame(game.copy(isFavorite = false, favorited = 0))
                                             ) else (
-                                        gameViewModel.isFavoriteGame(game.copy(isFavorite = true))
+                                        gameViewModel.isFavoriteGame(game.copy(isFavorite = true, favorited = 1))
                                         )
                             }
                         },
@@ -336,7 +345,6 @@ fun GameCardPlayed(
                         play = play,
 
                         onPlayClick = {
-                            gameViewModel.selectPlayed(gameId = game.id)
 
                             gameViewModel.isPlay(gameId = game.id)
 
@@ -362,8 +370,6 @@ fun GameCardPlayed(
                                 link= link,
                             )
 
-                            gameViewModel.selectShared(gameId = game.id)
-
                             gameViewModel.isShare(gameId = game.id)
 
                             coroutineScope.launch {
@@ -382,35 +388,23 @@ fun GameCardPlayed(
                     horizontalArrangement = Arrangement.spacedBy(1.dp)
 
                 ) {
-
-                    val selectedRating = remember { mutableStateOf(game.rating) }
-
+                    var selectedRating by remember { mutableStateOf(game.rating)}
+                    var active by remember { mutableStateOf(false) }
+                   // val selectedRating = remember { mutableStateOf(game.rating) }
+                   // MyButton(false, /**onActiveClick = {}*/)
                     RatingBar(
                         modifier = Modifier
-                            .padding(8.dp)
-                            .align(Alignment.CenterVertically),
+                            .size(40.dp),
+                        rating = selectedRating,
+                        starColor = colorResource(id = R.color.orange_star),
+                        onRatingChange = {
 
-                        value = selectedRating.value,
-                        config = RatingBarConfig(
-                        )
-                            .padding(2.dp)
-                            .size(22.dp)
-                            .activeColor(colorResource(id = R.color.orange_star))
-                            .inactiveColor(Color.LightGray),
-
-                        onValueChange = { selectedRating.value = it },
-                        onRatingChanged = {
-
-                            gameViewModel.selectRate(gameId = game.id)
-
-                            gameViewModel.isRate(gameId = game.id)
-
-                            //to update db:
+                            selectedRating = it
                             coroutineScope.launch {
-                                gameViewModel.updateRating(game.copy(rating = selectedRating.value))
-
+                                gameViewModel.updateRating(game.copy(rating = selectedRating))
                             }
-                        }
+                        },
+                        onDismissRequest = {active = false}
                     )
                 }
             }

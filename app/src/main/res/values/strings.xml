@@ -23,4 +23,12 @@
     <string name="playedIc">Played</string>
     <string name="sharedIC">Shared</string>
     <string name="not_connected"> ⚠️ You aren’t connected to the internet</string>
+    <string name="uff">Uff!!</string>
+    <string name="bad">Bad</string>
+    <string name="not_than_bad">Not bad!</string>
+    <string name="cool">Cool!</string>
+    <string name="Great">Great!</string>
+    <string name="no"> </string>
+    <string name="rate_it">Rate it</string>
+    <string name="to_unrate">to unrate</string>
 </resources>

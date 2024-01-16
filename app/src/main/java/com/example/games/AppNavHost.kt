@@ -46,8 +46,10 @@ fun GameNavHost(
     startDestination: String = Pantalla1.route,
     viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory),
 ) {
+    3
     val navController = appState.navController
-
+    val viewModel: GameViewModel =
+        viewModel(factory = GameViewModel.Factory)
     NavHost(
         navController = navController,
         startDestination = startDestination,
@@ -90,6 +92,9 @@ fun GameNavHost(
 
         composable(BottomBarScreen.Pantalla3.route) {
             Played(
+                onClick = {
+                    navController.navigate("${ItemDetailsDestination.route}/${it}")
+                },
                 onGenreClick = { genre ->
                     navController.navigate("${GameListCategoryScreenDestinationPlayed.route}/${genre}")
                 },
@@ -138,6 +143,7 @@ fun GameNavHost(
                     navController.navigate("${ItemDetailsDestination.route}/${it}")
                 },
                 onBack = {
+                    navController.popBackStack()
                     navController.navigate(BottomBarScreen.Pantalla3.route) {
                         launchSingleTop = false
                     }

@@ -8,11 +8,21 @@ import android.content.Intent
 import android.net.Uri
 import android.util.Log.*
 import androidx.annotation.RequiresApi
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandHorizontally
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkHorizontally
+import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -24,6 +34,7 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.TextButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Favorite
@@ -32,10 +43,12 @@ import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Games
 import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material.icons.rounded.Games
+import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.ListItemDefaults.contentColor
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -49,13 +62,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.CenterVertically
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -72,11 +89,17 @@ import com.example.games.ui.AppViewModelProvider
 import com.example.games.ui.GameViewModel
 import com.example.games.ui.NotPlayedUiState
 import com.example.games.ui.NotPlayedViewModel
-import com.gowtham.ratingbar.RatingBar
-import com.gowtham.ratingbar.RatingBarConfig
 import kotlinx.coroutines.launch
 
 private const val TAG: String = "Not Played l122"
+
+/***
+ * this clas to change color when change rating //Pending: change color through the transition rotation
+ */
+enum class CardState {
+    Start,
+    End,
+}
 
 @RequiresApi(34)
 @Composable
@@ -150,6 +173,7 @@ fun NotPlayedScreenContent(
                 }
             }
         } else {
+
             LazyVerticalGrid(
                 columns = GridCells.Adaptive(360.dp),
                 modifier = modifier.fillMaxWidth(),
@@ -169,7 +193,6 @@ fun NotPlayedScreenContent(
         }
     }
 }
-
 
 @RequiresApi(34)
 @Composable
@@ -313,6 +336,8 @@ fun MyCardRowNotPlayed(
             .height(60.dp)
             .widthIn(80.dp, 100.dp)
             .clickable {
+
+
                 onGenreClick(pair.first)
                 selected = !selected
 
@@ -374,8 +399,12 @@ fun MyCardRowNotPlayed(
     }
 }
 
+@OptIn(
+    ExperimentalFoundationApi::class, ExperimentalComposeUiApi::class,
+    ExperimentalAnimationApi::class, ExperimentalAnimationApi::class
+)
 @RequiresApi(34)
-@SuppressLint("AutoboxingStateValueProperty")
+@SuppressLint("AutoboxingStateValueProperty", "RememberReturnType")
 @Composable
 fun GameCardColumnNotPlayed(
     game: Game,
@@ -442,20 +471,29 @@ fun GameCardColumnNotPlayed(
                         },
                         onFavoriteClick = {
 
-                            gameViewModel.selectFavorite(gameId = game.id)
-
                             gameViewModel.isFavorite(gameId = game.id)
 
                             coroutineScope.launch {
                                 if (game.isFavorite)
                                     (
-                                            gameViewModel.isFavoriteGame(game.copy(isFavorite = false))
+                                            gameViewModel.isFavoriteGame(
+                                                game.copy(
+                                                    isFavorite = false,
+                                                    favorited = 0
+                                                )
+                                            )
 
                                             ) else (
 
-                                            gameViewModel.isFavoriteGame(game.copy(isFavorite = true))
+                                        gameViewModel.isFavoriteGame(
+                                            game.copy(
+                                                isFavorite = true,
+                                                favorited = 1
+                                            )
+                                        )
                                         )
                             }
+
                         },
                     )
 
@@ -465,20 +503,20 @@ fun GameCardColumnNotPlayed(
                         val context = LocalContext.current
 
                         PlayButton(
+
                             play = when (game.isPlayed) {
                                 true -> true
                                 false -> false
                             },
                             onPlayClick = {
-                                gameViewModel.selectPlayed(gameId = game.id)
 
                                 gameViewModel.isPlay(gameId = game.id)
 
                                 coroutineScope.launch {
 
-                                        (gameViewModel.isPlayedGame(game.copy(isPlayed = true)))
+                                    (gameViewModel.isPlayedGame(game.copy(isPlayed = true)))
 
-                                        playGame(context, game = game)
+                                    playGame(context, game = game)
                                 }
                             }
                         )
@@ -498,22 +536,20 @@ fun GameCardColumnNotPlayed(
                             onShareClick = {
                                 shareGame(
                                     context,
-                                    link= link,
+                                    link = link,
                                 )
-
-                                gameViewModel.selectShared(gameId = game.id)
 
                                 gameViewModel.isShare(gameId = game.id)
 
                                 coroutineScope.launch {
                                     (gameViewModel.isSharedGame(game.copy(isShared = true)))
                                 }
-
-
                             },
                         )
                     }
+
                     Spacer(modifier = Modifier.size(16.dp))
+
                     GameOutlinedButton(
                         onClick = { onClick(game) },
                         enabled = true,
@@ -522,7 +558,7 @@ fun GameCardColumnNotPlayed(
                                 modifier = Modifier,
                                 softWrap = false,
                                 fontSize = 12.sp,
-                                text = "Details",
+                                text = stringResource(R.string.details),
                             )
                         },
                         leadingIcon = {
@@ -531,38 +567,206 @@ fun GameCardColumnNotPlayed(
                     )
                 }
                 Spacer(modifier = Modifier.size(16.dp))
+
                 Row(
+                    verticalAlignment = CenterVertically,
+                    horizontalArrangement = Arrangement.Start,
                     modifier = Modifier
-                        .align(alignment = Alignment.Start)
-                        .padding(bottom = 8.dp)
                         .fillMaxSize()
 
                 ) {
-                    val selectedRating = remember { mutableStateOf(game.rating) }
 
-                    RatingBar(
-                        modifier = Modifier,
-                        value = selectedRating.value,
-                        config = RatingBarConfig(
-                        )
-                            .activeColor(colorResource(id = R.color.orange_star))
-                            .inactiveColor(Color.LightGray),
+                    var active by remember { mutableStateOf(false) }
+                    var selectedRating by remember { mutableStateOf(game.rating) }
 
-                        onValueChange = { selectedRating.value = it },
+                    TextButton(
+                        modifier = Modifier.width(85.dp),
 
-                        onRatingChanged = {
+                        content = {
+                            Text(
+                                text = if (selectedRating == 0.0f) stringResource(R.string.rate_it) else stringResource(
+                                    R.string.to_unrate
+                                ),
 
-                            gameViewModel.selectRate(gameId = game.id)
+                                color = if (selectedRating == 0.0f) Color.Green else if (!active && selectedRating > 0.0f) Color.Yellow else Red
+                            ).toString()
+                        },
 
-                            gameViewModel.isRate(gameId = game.id)
+                        onClick = {
 
-                            //to update db:
-                            coroutineScope.launch {
-                                gameViewModel.updateRating(game.copy(rating = selectedRating.value))
+                            if (!active) coroutineScope.launch {
 
+                                selectedRating = 0.0f
+
+                                gameViewModel.updateRating(game.copy(rating = 0.0f))
                             }
                         }
                     )
+
+                    Spacer(modifier = Modifier.size(10.dp))
+
+                    val state = remember {
+                        MutableTransitionState(false).apply {
+                            // Start the animation immediately.
+                            targetState = true
+                        }
+                    }
+
+                    //  var flag by remember { mutableStateOf(true) }
+                    //    var myColor =  remember(flag) { if (flag) R.color.orange_star else R.color.orange_star }
+
+                    val resourceId =
+                        when (selectedRating) {
+                            1.0f -> R.string.uff
+                            2.0f -> R.string.bad
+                            3.0f -> R.string.not_than_bad
+                            4.0f -> R.string.cool
+                            5.0f -> R.string.Great
+                            else -> R.string.no
+                        }
+
+                    var cardState by remember { mutableStateOf(CardState.Start) }
+                    val colorin: Color by animateColorAsState(
+                        targetValue =
+                        if (cardState == CardState.Start) {
+                            Color.White
+                        } else {
+                            when (selectedRating) {
+                                0.0f -> Color.Transparent
+                                1.0f -> Color.Red
+                                2.0f -> Color.Yellow
+                                3.0f -> Color.Cyan
+                                4.0f -> Color.Magenta
+                                5.0f -> Color.Green
+                                else -> Color.Transparent
+                            }
+                        },
+                        label = "colorin"
+                    )
+
+
+                    val rotation = remember { androidx.compose.animation.core.Animatable(0f) }
+                    val scope = rememberCoroutineScope()
+
+                    AnimatedVisibility(
+                        visibleState = state,
+                        enter = fadeIn(animationSpec = tween(3000, 0))
+                                //      + expandHorizontally( animationSpec = tween(1000, 0) )
+                                + (slideInHorizontally(animationSpec = tween(1000, 0))),
+                        exit = fadeOut(animationSpec = tween(3000, 0))
+                                + shrinkHorizontally(animationSpec = tween(1000, 0)),
+                        label = "slideHorizontally"
+
+                    ) {
+
+
+                        RatingBar(
+                            modifier = Modifier
+                                .size(30.dp),
+                            rating = selectedRating,
+                            starColor = colorResource(id = R.color.orange_star),
+                            onRatingChange = {
+
+                                selectedRating = it
+                                coroutineScope.launch {
+
+                                    gameViewModel.updateRating(game.copy(rating = selectedRating))
+
+                                }
+                                scope.launch {
+
+                                    rotation.animateTo(
+                                        targetValue = 180f,//180f,//360f,//180f,
+                                        animationSpec = tween(200, easing = LinearEasing),
+                                        // initialVelocity = 100.0F
+                                    )
+
+                                    // flag= !flag
+
+                                    rotation.animateTo(
+                                        targetValue = 1080f,//720f,//360f,
+                                        animationSpec = tween(200, easing = LinearEasing),
+                                        //initialVelocity = 100.0F
+                                    )
+
+                                    rotation.snapTo(-45f)
+                                }
+
+                                cardState = when (cardState) {
+                                    CardState.Start -> CardState.End
+                                    CardState.End -> CardState.End
+                                }
+                            },
+
+                            onDismissRequest = {
+
+                                selectedRating = 0.0f
+
+                                coroutineScope.launch {
+
+                                    gameViewModel.updateRating(game.copy(rating = 0.0f))
+
+                                }
+                            },
+                        )
+                    }
+                    Spacer(modifier = Modifier.size(10.dp))
+
+
+                    Row(
+                        modifier = Modifier
+                            .wrapContentSize()
+                            .padding(bottom = 10.dp, top = 10.dp)
+                            .rotate(rotation.value),
+                        verticalAlignment = CenterVertically,
+                        horizontalArrangement = Arrangement.Start,
+
+                        ) {
+
+                        AnimatedVisibility(
+
+                            visibleState = state,
+
+                            enter = fadeIn(animationSpec = tween(4000, 0))
+                                    + expandHorizontally(animationSpec = tween(1500, 100)),
+
+                            exit = fadeOut(animationSpec = tween(4000, 100))
+                                    + shrinkHorizontally(animationSpec = tween(1500, 100)),
+                            label = "expand_rotate"
+
+                        ) {
+
+                            Card(
+                                colors = CardDefaults.cardColors(
+                                    containerColor = if (selectedRating == 0.0f) {
+                                        Color.Transparent
+                                    } else {
+                                        Color.Black
+                                    },
+                                    contentColor = contentColor,
+                                ),
+                                modifier = Modifier
+                                    .wrapContentSize()
+                                    .clip(CircleShape)
+                                    .padding(
+                                        bottom = 15.dp,
+                                        top = 15.dp,
+                                        start = 15.dp,
+                                        end = 5.dp
+                                    )
+
+                            ) {
+
+                                Spacer(modifier = Modifier.size(1.dp))
+
+                                Text(
+                                    modifier = Modifier.padding(5.dp),
+                                    text = stringResource(id = resourceId),
+                                    color = colorin,
+                                )
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -605,7 +809,7 @@ fun shareGame(
     context.startActivity(
         Intent.createChooser(
             intent,
-            context.getString(R.string.newlink )
+            context.getString(R.string.newlink)
         )
     )
 }
@@ -617,9 +821,9 @@ fun ShareButton(
     share: Boolean,
     onShareClick: () -> Unit,
 
-) {
+    ) {
 
-    IconButton( onClick = onShareClick) {
+    IconButton(onClick = onShareClick) {
         Icon(
             imageVector = if (share) Icons.Filled.Share else Icons.Outlined.Share,
             contentDescription = null,
@@ -633,7 +837,7 @@ fun PlayButton(
     play: Boolean,
     onPlayClick: () -> Unit,
 
-) {
+    ) {
 
     IconButton(
         onClick = onPlayClick
@@ -658,7 +862,7 @@ fun FavoriteButton(
     ) {
         Icon(
             imageVector = if (favorite) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
-            tint = if (favorite) Color.Red else Color.LightGray,
+            tint = if (favorite) Red else Color.LightGray,
             contentDescription = null
         )
     }

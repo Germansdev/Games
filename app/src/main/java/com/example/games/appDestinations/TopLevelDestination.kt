@@ -6,20 +6,13 @@ import com.example.games.ui.theme.GamesIcons
 import com.example.games.ui.theme.Icon
 import com.example.games.ui.theme.Icon.ImageVectorIcon
 
-/**
- * Content shown depending on size and state of device.
- */
-enum class GamesContentType {
-    LIST_ONLY, LIST_AND_DETAIL
-}
-
 sealed class BottomBarScreen(
     val titleTextId: Int,
     val route: String,
     var iconTextId: Int,
     val unselectedIcon: Icon,
     val selectedIcon: Icon,
-    var hasNews: Boolean,
+    //var hasNews: Boolean,
     var badgeCount: Int? = null,
 
     ) {
@@ -29,7 +22,7 @@ sealed class BottomBarScreen(
         iconTextId = R.string.homescreen,
         unselectedIcon = ImageVectorIcon(GamesIcons.HomeBorder),
         selectedIcon = ImageVectorIcon(GamesIcons.Home),
-        hasNews = false,
+        //hasNews = false,
         badgeCount = 0
     )
 
@@ -39,7 +32,7 @@ sealed class BottomBarScreen(
         iconTextId = R.string.favorite,
         unselectedIcon = ImageVectorIcon(GamesIcons.FavoritesBorder),
         selectedIcon = ImageVectorIcon(GamesIcons.Favorites),
-        hasNews = false,
+        //hasNews = false,
         badgeCount = 0
     )
 
@@ -49,7 +42,7 @@ sealed class BottomBarScreen(
         iconTextId =R.string.playedIc,
         unselectedIcon = ImageVectorIcon(GamesIcons.PlayBorder),
         selectedIcon = ImageVectorIcon(GamesIcons.Play),
-        hasNews = false,
+        //hasNews = false,
         badgeCount = 0
     )
 
@@ -59,7 +52,7 @@ sealed class BottomBarScreen(
         iconTextId = R.string.statistics,
         unselectedIcon = ImageVectorIcon(GamesIcons.BarChartBorder),
         selectedIcon = ImageVectorIcon(GamesIcons.BarChart),
-        hasNews = false,
+        //hasNews = false,
         badgeCount = 0,
     )
 
@@ -69,28 +62,14 @@ sealed class BottomBarScreen(
         iconTextId = R.string.sharedIC,
         unselectedIcon = ImageVectorIcon(GamesIcons.ShareBorder),
         selectedIcon = ImageVectorIcon(GamesIcons.Share),
-        hasNews = false ,
+        //hasNews = false ,
         badgeCount = 0
     )
 }
-/**
-object Graph : NavigationDestination {
-    const val BOTTOM = "bottomBar_graph"
-    override val route: String
-        get() = TODO("Not yet implemented")
-    override val titleRes: Int
-        get() = TODO("Not yet implemented")
-}*/
-/**
-enum class DetailsDestination(val route: String) {
-    DetailsScreen(route = "Details")
-}*/
 
 /**
  * Interface to describe the navigation destinations for the app when
- * details screen,
- * search screen,
- * genre selected not played & played screen
+ * details screen, search screen, genre selected not played & played screen
  */
 interface NavigationDestination {
     /** Unique name to define the path for a composable*/

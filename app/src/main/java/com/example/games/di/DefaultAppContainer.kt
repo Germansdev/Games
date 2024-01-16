@@ -8,8 +8,8 @@ import com.example.games.data.GameDatabase
 import com.example.games.data.GameNetworkDataSource
 import com.example.games.data.ItemsRepository
 import com.example.games.data.OfflineItemsRepository
-import com.example.games.data.util.ConnectivityObserver
 import com.example.games.network.GameApiService
+import com.example.games.util.ConnectivityObserver
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
@@ -21,7 +21,7 @@ class DefaultAppContainer(
 
     ) : AppContainer {
 
-    //fetch data from API REST:
+    /**fetch data from API REST:*/
     override val gameApiService: GameApiService by lazy {
 
         Retrofit.Builder()
@@ -31,7 +31,7 @@ class DefaultAppContainer(
             .create()
     }
 
-    //this with ItemRepository database:
+    /**this with ItemRepository database:*/
     override val itemsRepository: ItemsRepository by lazy {
 
         OfflineItemsRepository(
@@ -40,7 +40,7 @@ class DefaultAppContainer(
         )
     }
 
-    //this only fetch:
+    /**this only fetch:*/
     override val gameNetworkDataSource: GameNetworkDataSource by lazy {
         DefaultGameNetworkDataSource(gameApiService)
     }

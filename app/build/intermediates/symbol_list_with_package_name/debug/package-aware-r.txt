@@ -1414,6 +1414,7 @@ layout splash_screen_view
 layout support_simple_spinner_dropdown_item
 mipmap ic_launcher
 mipmap ic_launcher_round
+string Great
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -1443,6 +1444,7 @@ string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string androidx_startup
 string app_name
+string bad
 string bottom_sheet_collapse_description
 string bottom_sheet_dismiss_description
 string bottom_sheet_drag_handle_description
@@ -1457,6 +1459,7 @@ string call_notification_screening_text
 string close_drawer
 string close_sheet
 string collapsed
+string cool
 string date_input_headline
 string date_input_headline_description
 string date_input_invalid_for_pattern
@@ -1505,11 +1508,13 @@ string in_progress
 string indeterminate
 string navigation_menu
 string newlink
+string no
 string no_games_played
 string no_item_description
 string no_records_found_msg
 string not_connected
 string not_selected
+string not_than_bad
 string nothing_to_show
 string off
 string on
@@ -1517,6 +1522,7 @@ string played
 string playedIc
 string range_end
 string range_start
+string rate_it
 string review_code
 string search
 string search_bar_search
@@ -1544,8 +1550,10 @@ string time_picker_minute_suffix
 string time_picker_minute_text_field
 string time_picker_period_toggle_description
 string time_picker_pm
+string to_unrate
 string tooltip_long_press_label
 string tooltip_pane_description
+string uff
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

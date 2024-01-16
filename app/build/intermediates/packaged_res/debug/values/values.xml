@@ -8,7 +8,10 @@
     <color name="orange_star">#FFC107</color>
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFFFF</color>
+    <string name="Great">Great!</string>
     <string name="app_name">Games</string>
+    <string name="bad">Bad</string>
+    <string name="cool">Cool!</string>
     <string name="details">Details</string>
     <string name="dismissButtonText">Ok</string>
     <string name="favorite">Favorites</string>
@@ -18,19 +21,24 @@
     <string name="games_list"> </string>
     <string name="homescreen">Home</string>
     <string name="newlink">ShareGame</string>
+    <string name="no"> </string>
     <string name="no_games_played"> No game played</string>
     <string name="no_item_description">not favorites yet</string>
     <string name="no_records_found_msg">Nothing found</string>
     <string name="not_connected"> ⚠️ You aren’t connected to the internet</string>
+    <string name="not_than_bad">Not bad!</string>
     <string name="nothing_to_show">Nothing to show here</string>
     <string name="played">Played Games</string>
     <string name="playedIc">Played</string>
+    <string name="rate_it">Rate it</string>
     <string name="review_code">Review Code</string>
     <string name="search">search</string>
     <string name="send_mail">Send an eMail</string>
     <string name="shared">Shared Games</string>
     <string name="sharedIC">Shared</string>
     <string name="statistics">Statistics</string>
+    <string name="to_unrate">to unrate</string>
+    <string name="uff">Uff!!</string>
     <style name="Theme.Games" parent="android:Theme.Material.Light.NoActionBar"/>
     <style name="Theme_Games_Splash" parent="Theme.Games">Splash
         <item name="android:windowBackground">@drawable/splash_initial</item>

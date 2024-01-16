@@ -37,8 +37,8 @@ data class Game(
 
 //nullable properties:
 
-   // var played: Int = 0,
+    var played: Int = 0,
     var favorited: Int = 0,
-   // var shared: Int = 0,
+    var shared: Int = 0,
 
     )
