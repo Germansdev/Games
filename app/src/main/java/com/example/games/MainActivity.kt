@@ -62,6 +62,7 @@ class MainActivity : ComponentActivity() {
                 GamesTheme {
                     GamesApp(
                         windowSizeClass = calculateWindowSizeClass(this),
+
                     )
                         val status by connectivityObserver.observe().collectAsState(
                             initial = ConnectivityObserver.Status.Unavailable
@@ -92,6 +93,7 @@ class MainActivity : ComponentActivity() {
                                 textAlign = TextAlign.Center,
                                 text = stringResource(id = R.string.not_connected)//notConnectedMessage
                             )
+
                         } else if (status == ConnectivityObserver.Status.Lost) {
                             Text(
                                 modifier = Modifier

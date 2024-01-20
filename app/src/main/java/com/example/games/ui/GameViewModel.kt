@@ -65,8 +65,13 @@ class GameViewModel(
         if (status == ConnectivityObserver.Status.Available) {
             getGames()
             getItems()
+        }
+        else if(status == ConnectivityObserver.Status.Lost){
+            getGames()
+            getItems()
+        }
 
-        } else {
+        else {
             getItems()
         }
     }
@@ -76,14 +81,23 @@ class GameViewModel(
     private fun getGames() {
         viewModelScope.launch {
             gameUiState = GameUiState.Loading
-            if (status == ConnectivityObserver.Status.Available) {
+            if (status == ConnectivityObserver.Status.Available ) {
                 gameUiState = try {
                     GameUiState.Success(games = gameNetworkDataSource.getGames())
 
                 } catch (e: IOException) {
                     GameUiState.Error
                 }
-            } else {
+            }
+            if(status == ConnectivityObserver.Status.Lost){
+                gameUiState = try {
+                    GameUiState.Success(games = gameNetworkDataSource.getGames())
+
+                } catch (e: IOException) {
+                    GameUiState.Error
+                }
+            }
+            else {
                 GameUiState.Error
             }
         }
@@ -101,9 +115,11 @@ class GameViewModel(
                         GameUiState.Error
                     }
                 } else {
+
                     itemsRepository.getAllItemsStream()
                 }
             } else {
+
                 itemsRepository.getAllItemsStream()
             }
         }

@@ -9,7 +9,6 @@ import android.net.Uri
 import android.util.Log.*
 import androidx.annotation.RequiresApi
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.MutableTransitionState
@@ -22,7 +21,6 @@ import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -62,7 +60,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.CenterVertically
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
@@ -107,7 +104,8 @@ fun NotPlayedScreen(
     viewModel: NotPlayedViewModel = viewModel(factory = AppViewModelProvider.Factory),
     onClick: (Int) -> Unit,
     onGenreClick: (String) -> Unit,
-) {
+
+    ) {
 
     val notPlayedUiState = viewModel.notPlayedUiState.collectAsStateWithLifecycle()
 
@@ -118,6 +116,7 @@ fun NotPlayedScreen(
         onGenreClick = onGenreClick,
     )
 }
+
 
 @RequiresApi(34)
 @Composable
@@ -169,6 +168,40 @@ fun NotPlayedScreenContent(
                         modifier = Modifier
                             .align(Alignment.Center),
                         contentDesc = loadingContentDescription,
+                    )
+                }
+            }
+        }
+
+        val state = remember {
+            MutableTransitionState(false).apply {
+                // Start the animation immediately.
+                targetState = true
+            }
+        }
+
+        if ((notPlayedL.isEmpty())) {
+
+            AnimatedVisibility(
+                visibleState = state,
+                modifier.align(CenterHorizontally),
+                enter = fadeIn(animationSpec = tween(3000, 1500))
+                        //      + expandHorizontally( animationSpec = tween(1000, 0) )
+                        + (slideInHorizontally(animationSpec = tween(1000, 0))),
+                exit = fadeOut(animationSpec = tween(3000, 1500))
+                        + shrinkHorizontally(animationSpec = tween(1000, 0)),
+                label = "slideHorizontally connection message"
+
+            ) {
+
+                Column() {
+                    Spacer(modifier = Modifier.size(200.dp))
+                    Text(
+                        modifier = Modifier,
+                        fontSize = 26.sp,
+                        textAlign = TextAlign.Center,
+                        text = "Please: connect to internet,\n" +
+                                "close and restart App"
                     )
                 }
             }
@@ -399,10 +432,6 @@ fun MyCardRowNotPlayed(
     }
 }
 
-@OptIn(
-    ExperimentalFoundationApi::class, ExperimentalComposeUiApi::class,
-    ExperimentalAnimationApi::class, ExperimentalAnimationApi::class
-)
 @RequiresApi(34)
 @SuppressLint("AutoboxingStateValueProperty", "RememberReturnType")
 @Composable
@@ -659,7 +688,6 @@ fun GameCardColumnNotPlayed(
 
                     ) {
 
-
                         RatingBar(
                             modifier = Modifier
                                 .size(30.dp),
@@ -676,17 +704,13 @@ fun GameCardColumnNotPlayed(
                                 scope.launch {
 
                                     rotation.animateTo(
-                                        targetValue = 180f,//180f,//360f,//180f,
+                                        targetValue = 180f,
                                         animationSpec = tween(200, easing = LinearEasing),
-                                        // initialVelocity = 100.0F
                                     )
 
-                                    // flag= !flag
-
                                     rotation.animateTo(
-                                        targetValue = 1080f,//720f,//360f,
+                                        targetValue = 1080f,
                                         animationSpec = tween(200, easing = LinearEasing),
-                                        //initialVelocity = 100.0F
                                     )
 
                                     rotation.snapTo(-45f)
