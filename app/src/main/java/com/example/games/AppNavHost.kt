@@ -46,7 +46,7 @@ fun GameNavHost(
     startDestination: String = Pantalla1.route,
     viewModel: GameViewModel = viewModel(factory = GameViewModel.Factory),
 ) {
-    3
+
     val navController = appState.navController
     val viewModel: GameViewModel =
         viewModel(factory = GameViewModel.Factory)

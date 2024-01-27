@@ -5,10 +5,8 @@ import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -51,7 +49,7 @@ fun SharedScreenContent(
             .fillMaxSize()
     ) {
 
-        Spacer(modifier = Modifier.size(8.dp))
+       // Spacer(modifier = Modifier.size(8.dp))
 
         if (sharedL.isEmpty()) {
             Text(
@@ -61,10 +59,10 @@ fun SharedScreenContent(
         } else {
 
             LazyVerticalGrid(
-                columns = GridCells.Adaptive(360.dp),
+                columns = GridCells.Adaptive(300.dp),
                 modifier = modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
-                contentPadding = PaddingValues(start = 8.dp,top= 8.dp,end=8.dp, bottom = 116.dp),
+                contentPadding = PaddingValues( bottom = 108.dp),
             )
 
             {

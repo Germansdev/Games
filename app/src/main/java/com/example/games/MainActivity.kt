@@ -7,6 +7,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.RequiresApi
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkHorizontally
+import androidx.compose.animation.slideInHorizontally
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -22,6 +29,7 @@ import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -68,6 +76,23 @@ class MainActivity : ComponentActivity() {
                             initial = ConnectivityObserver.Status.Unavailable
                         )
 
+                    val state = remember {
+                        MutableTransitionState(false).apply {
+                            // Start the animation immediately.
+                            targetState = true
+                        }
+                    }
+
+                    AnimatedVisibility(
+                        visibleState = state,
+                        enter = fadeIn(animationSpec = tween(1000, 1000))
+                                //      + expandHorizontally( animationSpec = tween(1000, 0) )
+                                + (slideInHorizontally(animationSpec = tween(1000, 0))),
+                        exit = fadeOut(animationSpec = tween(3000, 1500))
+                                + shrinkHorizontally(animationSpec = tween(1000, 0)),
+                        label = "slideHorizontally connection message"
+
+                    ){
                     Card(
                         border = BorderStroke(1.dp, Color.White),
                         shape = RoundedCornerShape(25.dp),
@@ -76,7 +101,7 @@ class MainActivity : ComponentActivity() {
                             contentColor = Color.White
                         ),
                         modifier = Modifier
-                            .padding(top = 650.dp, start = 70.dp, end = 70.dp, bottom = 10.dp)
+                            .padding(top = 600.dp, start = 25.dp, end = 25.dp, bottom = 100.dp)
                             .fillMaxWidth()
                             .clip(RoundedCornerShape(25.dp))
                             .background(Color.Black)
@@ -85,10 +110,12 @@ class MainActivity : ComponentActivity() {
                         ) {
 
                         if (status == ConnectivityObserver.Status.Unavailable) {
+
                             Text(
                                 modifier = Modifier
-                                    .padding(12.dp)
-                                    .align(Alignment.CenterHorizontally),
+                                    .padding(top = 10.dp, bottom = 10.dp, start = 4.dp, end = 4.dp)
+                                    .align(Alignment.CenterHorizontally)
+                                        ,
                                 color = Color.White,
                                 textAlign = TextAlign.Center,
                                 text = stringResource(id = R.string.not_connected)//notConnectedMessage
@@ -97,8 +124,9 @@ class MainActivity : ComponentActivity() {
                         } else if (status == ConnectivityObserver.Status.Lost) {
                             Text(
                                 modifier = Modifier
-                                    .padding(12.dp)
-                                    .align(Alignment.CenterHorizontally),
+                                    .padding(top = 10.dp, bottom = 10.dp, start = 4.dp, end = 4.dp)
+                                    .align(Alignment.CenterHorizontally)
+                                        ,
                                 color = Color.White,
                                 textAlign = TextAlign.Center,
                                 text = stringResource(id = R.string.not_connected)//notConnectedMessage
@@ -109,4 +137,5 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+}
 }

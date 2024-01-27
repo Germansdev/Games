@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -29,6 +30,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.OutlinedCard
@@ -96,7 +98,8 @@ fun PlayedScreenContent(
 
     Column(
         modifier = modifier
-            .padding(bottom = 100.dp)
+        //    .padding(bottom = 108.dp)
+           // .padding(8.dp)
             .fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
@@ -111,18 +114,26 @@ fun PlayedScreenContent(
             MyLazyRowPlayed(onGenreClick = onGenreClick)
 
         }
+        rememberScaffoldState()
 
         if (playedL.isEmpty()) {
             androidx.compose.material.Text(
                 text = stringResource(R.string.no_games_played),
+                color =   if (isSystemInDarkTheme()) {
+                    Color.White
+                } else {
+                    Color.Black
+                },
                 style = MaterialTheme.typography.subtitle2
             )
         } else {
             LazyVerticalGrid(
-                columns = GridCells.Adaptive(360.dp),
-                modifier = modifier.fillMaxWidth(),
+                columns = GridCells.Adaptive(300.dp),
+                modifier = modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight(),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
-                contentPadding = PaddingValues(8.dp, bottom = 116.dp)
+                contentPadding = PaddingValues(start=8.dp, end=8.dp, bottom = 116.dp)
 
            /**     columns = GridCells.Adaptive(170.dp),
                 modifier = modifier.fillMaxWidth(),
@@ -137,6 +148,7 @@ fun PlayedScreenContent(
                 ) { game ->
                    // GameCardPlayed(
                     GameCardColumnNotPlayed(
+                   // GameCardPlayed(
                         game = game.copy(isPlayed = true),
                         onClick = onClick,
                        // modifier,
@@ -221,7 +233,8 @@ fun MyCardStaticRowPlayed(
                 text = "All",
                 color = GamesNavigationDefaults.navigationSelectedItemColor(),
                 fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                fontSize = 10.sp
             )
         }
 
@@ -260,6 +273,7 @@ fun GameCardPlayed(
     game: Game,
     modifier: Modifier,
     gameViewModel: GameViewModel = viewModel(factory = AppViewModelProvider.Factory),
+    onClick: (Game) -> Unit,
 ) {
 
     val play by remember { mutableStateOf(false) }

@@ -24,7 +24,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.sizeIn
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -59,6 +60,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -94,7 +96,7 @@ fun FavoritesScreenContent(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .padding(bottom = 100.dp)
+            .padding(bottom = 8.dp)
     ) {
 
         Row(
@@ -115,7 +117,7 @@ fun FavoritesScreenContent(
                 columns = GridCells.Adaptive(170.dp),
                 modifier = modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
-                contentPadding = PaddingValues(8.dp),
+                contentPadding = PaddingValues(start=8.dp, end=8.dp, bottom = 108.dp),
             ) {
                 items(
                     items = favoritesL,
@@ -165,8 +167,6 @@ fun GameCardFavorites(
         ) {
             AsyncImage(
                 modifier = Modifier
-                    // .height(120.dp)
-                    //.aspectRatio(.8f)
                     .fillMaxWidth(),
                 model = ImageRequest.Builder(context = LocalContext.current)
                     .data(game.thumbnail)
@@ -260,7 +260,7 @@ fun GameCardFavorites(
                     modifier = Modifier
                         .fillMaxWidth(),
                     horizontalAlignment = Alignment.Start,
-                    verticalArrangement = Arrangement.spacedBy(10.dp)
+                    verticalArrangement = Arrangement.SpaceBetween//spacedBy(10.dp)
 
                 ) {
                     var active by remember { mutableStateOf(false) }
@@ -316,11 +316,17 @@ fun GameCardFavorites(
 
                     ) {
                        // Spacer(modifier = Modifier.size(28.dp))
-                        Row {
+                        Row (
+                            horizontalArrangement = Arrangement.SpaceAround,
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier
+                               // .padding(start = 8.dp)
+                                .fillMaxWidth()
+                        ){
 
                             RatingBar(
                                 modifier = Modifier
-                                    .size(30.dp),
+                                   .sizeIn(25.dp , 25.dp, 40.dp, 40.dp),
                                 rating = selectedRating,
                                 starColor = colorResource(id = R.color.orange_star),
                                 onRatingChange = {
@@ -366,14 +372,14 @@ fun GameCardFavorites(
                                 }
                             )
                         }
-                        Spacer(modifier = Modifier.size(28.dp))
-
+                        Spacer(modifier = Modifier.size(48.dp))
 
                     }
                     Row {
                         TextButton(
                             modifier = Modifier
-                                .width(85.dp)
+                                .padding(6.dp)
+                                .widthIn(75.dp, 85.dp)
                                 .align(Alignment.CenterVertically),
 
 
@@ -382,7 +388,7 @@ fun GameCardFavorites(
                                     text = if (selectedRating == 0.0f) stringResource(R.string.rate_it) else stringResource(
                                         R.string.to_unrate
                                     ),
-
+                                    fontSize = 14.sp,
                                     color = if (selectedRating == 0.0f) Color.Green else if (!active && selectedRating > 0.0f) Color.Yellow else Color.Red
                                 ).toString()
                             },
@@ -405,7 +411,7 @@ fun GameCardFavorites(
                                 .padding(bottom = 10.dp, top = 10.dp)
                                 .rotate(rotation.value),
                             verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.Start,
+                            horizontalArrangement = Arrangement.Center//Start,
 
                             ) {
 
@@ -435,10 +441,8 @@ fun GameCardFavorites(
                                         .wrapContentSize()
                                         .clip(CircleShape)
                                         .padding(
-                                            bottom = 15.dp,
-                                            top = 15.dp,
-                                            start = 15.dp,
-                                            end = 5.dp
+                                            bottom = 10.dp,
+                                            top = 10.dp,
                                         )
 
                                 ) {
@@ -448,6 +452,7 @@ fun GameCardFavorites(
                                             .padding(5.dp)
                                             .wrapContentSize(unbounded = true),
                                         text = stringResource(id = resourceId),
+                                        fontSize = 12.sp,
                                         color = colorin,
                                     )
                                 }

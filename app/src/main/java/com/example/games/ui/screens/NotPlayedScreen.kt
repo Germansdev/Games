@@ -131,7 +131,7 @@ fun NotPlayedScreenContent(
 
         modifier = modifier
             .fillMaxSize()
-            .padding(end = 8.dp)
+           // .padding(end = 8.dp)
 
     ) {
 
@@ -208,10 +208,10 @@ fun NotPlayedScreenContent(
         } else {
 
             LazyVerticalGrid(
-                columns = GridCells.Adaptive(360.dp),
+                columns = GridCells.Adaptive(300.dp),
                 modifier = modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
-                contentPadding = PaddingValues(8.dp, bottom = 116.dp)
+                contentPadding = PaddingValues(start=8.dp, end=8.dp, bottom = 116.dp)
             ) {
                 items(
                     items = notPlayedL,
@@ -268,7 +268,7 @@ fun MyLazyRowNotPlayed(
     }
 }
 
-@RequiresApi(34)
+ @RequiresApi(34)
 @Composable
 fun MyCardStaticRowNotPlayed(
 ) {
@@ -446,7 +446,9 @@ fun GameCardColumnNotPlayed(
     ElevatedCard(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 5.dp, bottom = 5.dp, start = 10.dp, end = 10.dp),
+            .fillMaxHeight()
+            .padding(top = 4.dp, bottom = 0.dp, start =4.dp, end = 4.dp)
+                ,
         elevation = CardDefaults.cardElevation(5.dp),
         shape = RoundedCornerShape(8.dp),
 
@@ -613,9 +615,9 @@ fun GameCardColumnNotPlayed(
 
                         content = {
                             Text(
-                                text = if (selectedRating == 0.0f) stringResource(R.string.rate_it) else stringResource(
-                                    R.string.to_unrate
-                                ),
+                                text = if (selectedRating == 0.0f) stringResource(R.string.rate_it)
+                                            else stringResource( R.string.to_unrate ),
+                                fontSize = 14.sp,
 
                                 color = if (selectedRating == 0.0f) Color.Green else if (!active && selectedRating > 0.0f) Color.Yellow else Red
                             ).toString()
@@ -690,7 +692,7 @@ fun GameCardColumnNotPlayed(
 
                         RatingBar(
                             modifier = Modifier
-                                .size(30.dp),
+                                .size(25.dp),
                             rating = selectedRating,
                             starColor = colorResource(id = R.color.orange_star),
                             onRatingChange = {
@@ -775,7 +777,7 @@ fun GameCardColumnNotPlayed(
                                     .padding(
                                         bottom = 15.dp,
                                         top = 15.dp,
-                                        start = 15.dp,
+                                       // start = 15.dp,
                                         end = 5.dp
                                     )
 
@@ -787,6 +789,7 @@ fun GameCardColumnNotPlayed(
                                     modifier = Modifier.padding(5.dp),
                                     text = stringResource(id = resourceId),
                                     color = colorin,
+                                    fontSize = 14.sp,
                                 )
                             }
                         }

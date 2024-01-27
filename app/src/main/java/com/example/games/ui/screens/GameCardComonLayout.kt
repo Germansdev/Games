@@ -37,7 +37,7 @@ fun GameCardComonContent(
 
     ElevatedCard(
         modifier = Modifier
-            .padding(8.dp)
+            .padding(start = 8.dp, end=8.dp, top = 2.dp, bottom = 2.dp)
             .height(100.dp),
         elevation = CardDefaults.cardElevation(5.dp),
         shape = RoundedCornerShape(8.dp),
